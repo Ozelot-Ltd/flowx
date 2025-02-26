@@ -59,10 +59,11 @@ body {
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 840px) {
 
     body {
         max-width: 100svw;
-        overflow-x: hidden
+        overflow-x: hidden;
+        max-height: 100svh;
     }
 }
