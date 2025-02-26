@@ -23,6 +23,10 @@
     --middlegreen: #7cb48f;
     --darkergreen: #5aa071;
     --darkgreen: #4a7856;
+
+    --distance-x: 65px;
+    --distance-y: 65px;
+    --height: 8rem;
 }
 
 * {
