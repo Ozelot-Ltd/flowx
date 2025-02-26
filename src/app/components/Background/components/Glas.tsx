@@ -45,17 +45,11 @@ export default function Glas() {
 
     if (tl.current && ref.current && glassRef.current) {
       ref.current.rotation.set(0, 0, 0);
-      tl.current
-        .to(glassRef.current.rotation, {
-          duration: 4,
-          y: 0,
-          ease: 'sine',
-        })
-        .to(glassRef.current.rotation, {
-          duration: 4,
-          y: Math.PI,
-          ease: 'sine',
-        });
+      tl.current.to(glassRef.current.rotation, {
+        duration: 4,
+        y: Math.PI + 0.2,
+        ease: 'sine',
+      });
       tl.current.to(glassRef.current.position, {
         x: -1.5,
         duration: 4,
