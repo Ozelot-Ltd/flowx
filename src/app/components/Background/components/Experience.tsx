@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { OrbitControls, ScrollControls } from '@react-three/drei';
+import { ScrollControls } from '@react-three/drei';
 import Glas from './Glas';
 
 export default function Experience() {
