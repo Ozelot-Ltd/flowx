@@ -1,0 +1,222 @@
+:root {
+    --distance-x: 65px;
+    --distance-y: 65px;
+    --height: 8rem;
+}
+
+.container {
+    display: flex;
+    min-height: 100svh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8rem;
+}
+
+.drops {
+    height: var(--height);
+    width: var(--height);
+    position: relative;
+    filter: url("#goo")
+}
+
+.logo .drop {
+    height: 2rem;
+    width: 2rem;
+
+}
+
+@keyframes drop-left-top-anim {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    10% {
+        transform: translate(0, 0);
+    }
+
+    33% {
+        transform: translate(calc(-1 * var(--distance-x)), 0);
+    }
+
+    40% {
+        transform: translate(calc(-1 * var(--distance-x)), 0);
+    }
+
+    62% {
+        transform: translate(calc(-1 * var(--distance-x)), calc(-1 * var(--distance-y)));
+    }
+
+    80% {
+        transform: translate(calc(-1 * var(--distance-x)), calc(-1 * var(--distance-y)));
+    }
+
+
+    94% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes drop-right-top-anim {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    10% {
+        transform: translate(0, 0);
+    }
+
+    33% {
+        transform: translate(var(--distance-x), 0);
+    }
+
+    40% {
+        transform: translate(var(--distance-x), 0);
+    }
+
+    64% {
+        transform: translate(var(--distance-x), calc(-1 * var(--distance-y)));
+    }
+
+
+    80% {
+        transform: translate(var(--distance-x), calc(-1 * var(--distance-y)));
+    }
+
+    96% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes drop-left-bottom-anim {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    10% {
+        transform: translate(0, 0);
+    }
+
+    33% {
+        transform: translate(calc(-1 * var(--distance-x)), 0);
+    }
+
+    40% {
+        transform: translate(calc(-1 * var(--distance-x)), 0);
+    }
+
+    66% {
+        transform: translate(calc(-1 * var(--distance-x)), var(--distance-y));
+    }
+
+    75% {
+        transform: translate(calc(-1 * var(--distance-x)), var(--distance-y));
+    }
+
+    98% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes drop-right-bottom-anim {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    10% {
+        transform: translate(0, 0);
+    }
+
+    33% {
+        transform: translate(var(--distance-x), 0);
+    }
+
+    40% {
+        transform: translate(var(--distance-x), 0);
+    }
+
+    68% {
+        transform: translate(var(--distance-x), var(--distance-y));
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.drop {
+    position: absolute;
+    background-color: var(--green);
+    left: 50%;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 40px;
+    border-radius: 100%;
+    margin-top: -50px;
+    margin-left: -50px;
+    animation: drop-left-top-anim ease-in-out 12s infinite;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 20px 20px 54px #e3e3e3,
+        -20px -20px 54px #ffffff;
+
+}
+
+.drop:nth-child(2),
+.drop:nth-child(3),
+.drop:nth-child(4) {
+    background: var(--lightgrey);
+    box-shadow: 20px 20px 54px #e3e3e3,
+        -20px -20px 54px #ffffff;
+}
+
+.drop:nth-child(2) {
+    animation-name: drop-right-top-anim;
+    z-index: 1;
+}
+
+.drop:nth-child(3) {
+    animation-name: drop-left-bottom-anim;
+    z-index: 1;
+}
+
+.drop:nth-child(4) {
+    animation-name: drop-right-bottom-anim;
+    z-index: 1;
+}
+
+.drop svg {
+    height: 1.8rem;
+    width: 1.8rem;
+}
+
+.logocontainer h1 {
+    color: transparent;
+    text-transform: uppercase;
+    font-size: 4rem;
+    background-color: var(--black);
+    text-shadow: 1px 1px 2px #e3e3e3,
+        -1px -1px 2px #ffffff;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+    .logocontainer h1 {
+        color: transparent;
+        text-transform: uppercase;
+        font-size: 2rem;
+        background-color: var(--black);
+        text-shadow: 1px 1px 2px #e3e3e3,
+            -1px -1px 2px #ffffff;
+        -webkit-background-clip: text;
+        background-clip: text;
+        font-weight: bold;
+    }
+}

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
 :root {
 
     /* general settings */
@@ -8,16 +10,34 @@
 
     /* font variables */
     --title-size: 1.5rem;
+    --title-font: "Quicksand", sans-serif;
 
+    /* colors */
+    --black: #0c160b;
+    --green: #ace0af;
+    --darkgrey: #343933;
+    --lightgrey: #f1f1f1;
+    --white: #fff;
+
+    --lightgreen: #bfd8bd;
+    --middlegreen: #7cb48f;
+    --darkergreen: #5aa071;
+    --darkgreen: #4a7856;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: var(--black);
+}
+
+h1 {
+    font-family: var(--title-font);
 }
 
 body {
     height: fit-content;
     max-width: 2000px;
+    background-color: var(--lightgrey);
 }

@@ -1,24 +1,25 @@
 import { Metadata } from 'next';
 import { isFilled, asImageSrc } from '@prismicio/client';
-import { SliceZone } from '@prismicio/react';
+// import { SliceZone } from '@prismicio/react';
 
 import { createClient } from '@/prismicio';
-import { components } from '@/slices';
+// import { components } from '@/slices';
 
 import Splashscreen from './components/Splashscreen';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 export default async function Page() {
-  const client = createClient();
-  const page = await client.getSingle('home');
+  // const client = createClient();
+  // const page = await client.getSingle('home');
 
   console.log(isDevelopment);
 
   return (
     <>
       {isDevelopment ? (
-        <SliceZone slices={page.data.slices} components={components} />
+        // <SliceZone slices={page.data.slices} components={components} />
+        <Splashscreen />
       ) : (
         <Splashscreen />
       )}
