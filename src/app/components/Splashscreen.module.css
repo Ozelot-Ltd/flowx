@@ -201,7 +201,7 @@
     transition: 0.2s color ease-in-out
 }
 
-h1:hover {
+.logocontainer h1:hover {
     color: var(--green);
 }
 
