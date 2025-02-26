@@ -208,8 +208,8 @@
 
     .container {
         display: flex;
-        min-height: 100svh;
-        width: 100%;
+        height: 100svh;
+        width: 100svw;
         align-items: center;
         justify-content: center;
         flex-direction: column;
