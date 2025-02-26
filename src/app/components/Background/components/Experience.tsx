@@ -1,15 +1,18 @@
+'use client';
+
 import React from 'react';
 
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, ScrollControls } from '@react-three/drei';
+import Glas from './Glas';
 
 export default function Experience() {
   return (
     <>
-      <OrbitControls />
-      <mesh>
-        <boxGeometry args={[2, 2, 2]} />
-        <meshStandardMaterial />
-      </mesh>
+      <OrbitControls enableZoom={false} />
+      <ambientLight intensity={0.5} />
+      <ScrollControls pages={3} damping={0.25}>
+        <Glas />
+      </ScrollControls>
     </>
   );
 }
