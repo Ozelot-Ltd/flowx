@@ -35,8 +35,8 @@ export default function Glas() {
     const time = clock.getElapsedTime() / 4;
 
     if (ref.current) {
-      ref.current.rotation.y = Math.cos(time * Math.sin(1.5)) / 15;
-      ref.current.rotation.z = Math.cos(time * Math.sin(1)) / 5;
+      ref.current.rotation.y = Math.cos(time * Math.sin(1.5)) / 45;
+      ref.current.rotation.z = Math.cos(time * Math.sin(1)) / 50;
     }
   });
 
@@ -53,11 +53,11 @@ export default function Glas() {
         })
         .to(glassRef.current.rotation, {
           duration: 4,
-          y: Math.PI / 1.5,
+          y: Math.PI,
           ease: 'sine',
         });
-      tl.current.to(ref.current.position, {
-        x: -5,
+      tl.current.to(glassRef.current.position, {
+        x: -1.5,
         duration: 4,
         ease: 'sine',
       });
@@ -66,7 +66,7 @@ export default function Glas() {
 
   return (
     <group ref={ref}>
-      <mesh ref={glassRef} position={[2, 0, -1.7]}>
+      <mesh ref={glassRef} position={[1.5, 0, -1.5]} scale={[0.5, 0.5, 0.5]}>
         <boxGeometry args={[1.5, 3, 0.05]} />
         <MeshTransmissionMaterial {...materialProps} />
       </mesh>
