@@ -1,10 +1,19 @@
 {
   "format": "custom",
   "id": "settings",
-  "json": {
-    "Main": {}
-  },
   "label": "Settings",
   "repeatable": false,
-  "status": true
+  "status": true,
+  "json": {
+    "Main": {
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
 }

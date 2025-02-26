@@ -1,0 +1,6 @@
+.container {
+    min-height: 100svh;
+    width: 100svw;
+    overflow-x: hidden;
+    position: relative;
+}
