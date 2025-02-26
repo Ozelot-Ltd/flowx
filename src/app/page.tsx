@@ -4,25 +4,24 @@ import { isFilled, asImageSrc } from '@prismicio/client';
 import { createClient } from '@/prismicio';
 
 import Splashscreen from './components/Splashscreen';
-// import Background from './components/Background/Background';
-// import { components } from '@/slices';
-// import styles from './page.module.css';
-// import { SliceZone } from '@prismicio/react';
+import Background from './components/Background/Background';
+import { components } from '@/slices';
+import styles from './page.module.css';
+import { SliceZone } from '@prismicio/react';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 export default async function Page() {
-  // const client = createClient();
-  // const page = await client.getSingle('home');
+  const client = createClient();
+  const page = await client.getSingle('home');
 
   return (
     <>
       {isDevelopment ? (
-        // <section className={styles.container}>
-        //   <Background />
-        //   <SliceZone slices={page.data.slices} components={components} />
-        // </section>
-        <Splashscreen />
+        <section className={styles.container}>
+          <Background />
+          <SliceZone slices={page.data.slices} components={components} />
+        </section>
       ) : (
         <Splashscreen />
       )}
