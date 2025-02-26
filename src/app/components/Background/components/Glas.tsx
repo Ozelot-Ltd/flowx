@@ -37,7 +37,7 @@ export default function Glas() {
     }
 
     // Subtle ambient movement for the container only
-    const time = clock.getElapsedTime() / 4;
+    const time = clock.getElapsedTime() / 2;
     if (containerRef.current) {
       containerRef.current.rotation.y = Math.cos(time * Math.sin(1.5)) / 45;
       containerRef.current.rotation.z = Math.cos(time * Math.sin(1)) / 50;

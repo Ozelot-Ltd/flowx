@@ -1,7 +1,27 @@
 .header {
-    background-color: red;
     position: fixed;
     top: 0;
     left: 0;
     width: 100svw;
+    padding: 1rem;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 10rem;
+}
+
+.logoContainer a {
+    cursor: pointer;
+}
+
+.logoContainer img {
+    height: 2rem;
+    width: auto;
+}
+
+.test {
+    border-radius: 20px;
+    background: var(--lightgrey);
+    padding: 0.5rem;
+    box-shadow: var(--boxshadow-positive_large), var(--boxshadow-negative_large);
 }
