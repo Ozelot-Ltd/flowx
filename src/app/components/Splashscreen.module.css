@@ -210,6 +210,8 @@
         display: flex;
         height: 100svh;
         width: 100svw;
+        max-height: 100svh;
+        max-width: 100svw;
         align-items: center;
         justify-content: center;
         flex-direction: column;
@@ -219,7 +221,6 @@
     .logo .drop {
         height: 1.5rem;
         width: 1.5rem;
-
     }
 
 
