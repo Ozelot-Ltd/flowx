@@ -56,3 +56,13 @@ body {
     max-width: 2000px;
     background-color: var(--lightgrey);
 }
+
+
+
+@media (max-width: 768px) {
+
+    body {
+        max-width: 100svw;
+        overflow-x: hidden
+    }
+}

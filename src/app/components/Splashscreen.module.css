@@ -205,6 +205,24 @@
 
 
 @media (max-width: 768px) {
+
+    .container {
+        display: flex;
+        min-height: 100svh;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 6rem;
+    }
+
+    .logo .drop {
+        height: 1.5rem;
+        width: 1.5rem;
+
+    }
+
+
     .logocontainer h1 {
         color: transparent;
         text-transform: uppercase;
