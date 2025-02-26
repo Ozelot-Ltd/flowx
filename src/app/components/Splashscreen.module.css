@@ -156,7 +156,7 @@
     border-radius: 50%;
     background: transparent;
     box-shadow: var(--boxshadow-positive_large), var(--boxshadow-negative_large);
-
+    transition: box-shadow 0.2s ease-in-out;
 }
 
 .drop:nth-child(2),

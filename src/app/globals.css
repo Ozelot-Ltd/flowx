@@ -29,6 +29,10 @@
 
     --boxshadow-positive_large: 20px 20px 54px #e3e3e3;
     --boxshadow-negative_large: -20px -20px 54px #ffffff;
+    --boxshadow-positive_large-hover: inset 10px 10px 54px #e3e3e3, ;
+    --boxshadow-negative_large-hover: inset -10px -10px 54px #ffffff;
+
+
 
     /* splashscreen only */
     --distance-x: 65px;
