@@ -5,11 +5,25 @@ import { SliceZone } from '@prismicio/react';
 import { createClient } from '@/prismicio';
 import { components } from '@/slices';
 
+import Splashscreen from './components/Splashscreen';
+
+const isDevelopment = process.env.NODE_ENV === 'development';
+
 export default async function Page() {
   const client = createClient();
   const page = await client.getSingle('home');
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  console.log(isDevelopment);
+
+  return (
+    <>
+      {isDevelopment ? (
+        <SliceZone slices={page.data.slices} components={components} />
+      ) : (
+        <Splashscreen />
+      )}
+    </>
+  );
 }
 
 export async function generateMetadata(): Promise<Metadata> {
