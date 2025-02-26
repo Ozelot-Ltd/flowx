@@ -155,8 +155,7 @@
     animation: drop-left-top-anim ease-in-out 12s infinite;
     border-radius: 50%;
     background: transparent;
-    box-shadow: 20px 20px 54px #e3e3e3,
-        -20px -20px 54px #ffffff;
+    box-shadow: var(--boxshadow-positive_large), var(--boxshadow-negative_large);
 
 }
 
@@ -164,8 +163,7 @@
 .drop:nth-child(3),
 .drop:nth-child(4) {
     background: var(--lightgrey);
-    box-shadow: 20px 20px 54px #e3e3e3,
-        -20px -20px 54px #ffffff;
+    box-shadow: var(--boxshadow-positive_large), var(--boxshadow-negative_large);
 }
 
 .drop:nth-child(2) {
