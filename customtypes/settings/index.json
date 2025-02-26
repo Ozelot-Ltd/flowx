@@ -13,6 +13,14 @@
           "constraint": {},
           "thumbnails": []
         }
+      },
+      "navbar": {
+        "type": "Group",
+        "config": {
+          "label": "navbar",
+          "repeat": true,
+          "fields": {}
+        }
       }
     }
   }

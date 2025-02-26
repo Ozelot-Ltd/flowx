@@ -8,17 +8,20 @@ import Background from './components/Background/Background';
 import { components } from '@/slices';
 import styles from './page.module.css';
 import { SliceZone } from '@prismicio/react';
+import Header from './components/Header/Header';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 export default async function Page() {
   const client = createClient();
   const page = await client.getSingle('home');
+  const settings = await client.getSingle('settings');
 
   return (
     <>
       {isDevelopment ? (
         <section className={styles.container}>
+          <Header settings={settings} />
           <Background />
           <SliceZone slices={page.data.slices} components={components} />
         </section>

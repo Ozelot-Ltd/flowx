@@ -66,6 +66,11 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 /**
+ * Item in *Settings → navbar*
+ */
+export interface SettingsDocumentDataNavbarItem {}
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -79,6 +84,17 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   logo: prismic.ImageField<never>;
+
+  /**
+   * navbar field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.navbar[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  navbar: prismic.GroupField<Simplify<SettingsDocumentDataNavbarItem>>;
 }
 
 /**
@@ -170,6 +186,7 @@ declare module "@prismicio/client" {
       HomeDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
+      SettingsDocumentDataNavbarItem,
       AllDocumentTypes,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
