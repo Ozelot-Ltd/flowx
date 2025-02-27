@@ -22,21 +22,17 @@ export const GLASS_HEIGHT = 1;
 export const NB_SECTIONS = 3;
 
 export default function Glas() {
-  // Container group for background subtle movement
   const containerRef = useRef<Object3D>(null);
-  // Glass object that will be animated with GSAP
   const glassRef = useRef<Object3D>(null);
   const tl = useRef<gsap.core.Timeline>(null);
   const scroll = useScroll();
   const { viewport } = useThree();
 
   useFrame(({ clock }) => {
-    // Apply scroll-based timeline progress
     if (tl.current) {
       tl.current.seek(scroll.offset * tl.current.duration());
     }
 
-    // Subtle ambient movement for the container only
     const time = clock.getElapsedTime() / 2;
     if (containerRef.current) {
       containerRef.current.rotation.y = Math.cos(time * Math.sin(1.5)) / 45;

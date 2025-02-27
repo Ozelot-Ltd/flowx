@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: 100svw;
-    padding: 1rem;
+    padding: 2rem;
     z-index: 100;
     display: flex;
     align-items: center;
@@ -15,13 +15,6 @@
 }
 
 .logoContainer img {
-    height: 2rem;
+    height: 1.5rem;
     width: auto;
-}
-
-.test {
-    border-radius: 20px;
-    background: var(--lightgrey);
-    padding: 0.5rem;
-    box-shadow: var(--boxshadow-positive_large), var(--boxshadow-negative_large);
 }

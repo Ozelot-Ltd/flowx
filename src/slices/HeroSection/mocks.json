@@ -1,0 +1,89 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"hero_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Hearing"
+						}
+					}
+				]
+			},
+			"hero_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Et sint sit irure incididunt consectetur pariatur eiusmod eiusmod. Mollit duis non id ut. Voluptate enim elit voluptate nisi occaecat nostrud minim laboris quis proident ex tempor."
+						}
+					}
+				]
+			},
+			"hero_buttons": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"button_text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Lorem qui ullamco deserunt velit velit irure occaecat voluptate cillum non aute cillum. Eiusmod sint aliqua non do pariatur mollit sint ad."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "heroSectionWithoutButtons",
+		"primary": {
+			"hero_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Airplane"
+						}
+					}
+				]
+			},
+			"hero_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sunt mollit cillum commodo consequat cillum eu sint. Ex aute reprehenderit sint officia aute laboris est do anim sunt sint magna."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

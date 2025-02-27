@@ -19,7 +19,19 @@
         "config": {
           "label": "navbar",
           "repeat": true,
-          "fields": {}
+          "fields": {
+            "navbar_link": {
+              "type": "Link",
+              "config": {
+                "label": "Navbar Link",
+                "placeholder": "Section Name",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
         }
       }
     }
