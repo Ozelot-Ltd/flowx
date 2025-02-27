@@ -44,27 +44,28 @@ export default function Glas() {
     tl.current = gsap.timeline();
 
     if (tl.current && glassRef.current) {
-      glassRef.current.position.set(1.5, 0, -1.5);
+      glassRef.current.position.set(1.2, 0, -1.5);
       glassRef.current.rotation.set(0, 0, 0);
 
       tl.current
         .to(glassRef.current.rotation, {
           duration: 4,
           y: Math.PI + 0.2,
-          ease: 'sine',
+          ease: 'power.inOut',
         })
 
         .to(glassRef.current.position, {
-          x: -1.5,
+          x: -1.2,
           duration: 4,
-          ease: 'sine',
+          ease: 'power.inOut',
         })
         .to(
           glassRef.current.rotation,
           {
             y: Math.PI * 2,
+            x: Math.PI,
             duration: 4,
-            ease: 'sine',
+            ease: 'power.inOut',
           },
           '<'
         );

@@ -10,12 +10,19 @@ import Navbar from './components/Navbar';
 export default function Header({ settings }: { settings: SettingsDocument }) {
   return (
     <header className={styles.header}>
-      <div className={styles.logoContainer}>
-        <Link href="/">
-          <PrismicNextImage field={settings.data.logo} />
-        </Link>
+      <div className={styles.rightContainer}>
+        <div className={styles.logoContainer}>
+          <Link href="/">
+            <PrismicNextImage field={settings.data.logo} />
+          </Link>
+        </div>
+        <div className={styles.navbarContainer}>
+          <Navbar settings={settings} />
+        </div>
       </div>
-      <Navbar settings={settings} />
+      <div className={styles.contactContainer}>
+        <Link href={'mailto:carlo_ettisberger@hotmail.com'}>CONTACT</Link>
+      </div>
     </header>
   );
 }

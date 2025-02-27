@@ -69,6 +69,10 @@ li {
     list-style-type: none;
 }
 
+a {
+    text-decoration: none;
+}
+
 
 
 @media (max-width: 840px) {

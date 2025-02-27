@@ -7,6 +7,12 @@
     z-index: 100;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
+}
+
+.rightContainer {
+    display: flex;
     gap: 10rem;
 }
 
@@ -17,4 +23,25 @@
 .logoContainer img {
     height: 1.5rem;
     width: auto;
+}
+
+.contactContainer {
+    justify-self: flex-end;
+}
+
+.contactContainer a {
+    color: var(--black);
+    padding: 0.8em 1.8em;
+    border-radius: 0.5em;
+    background: var(--lightgrey);
+    cursor: pointer;
+    font-family: var(--title-font);
+    text-transform: uppercase;
+    transition: all 0.3s;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    font-size: 0.7rem;
+    border-radius: 20px;
+
 }
