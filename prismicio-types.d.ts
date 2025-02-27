@@ -84,6 +84,16 @@ export interface SettingsDocumentDataNavbarItem {
     prismic.FieldState,
     never
   >;
+
+  /**
+   * Link ID field in *Settings → navbar*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: vision, mission, product, next
+   * - **API ID Path**: settings.navbar[].link_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_id: prismic.KeyTextField;
 }
 
 /**

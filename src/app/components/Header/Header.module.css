@@ -45,3 +45,13 @@
     border-radius: 20px;
 
 }
+
+.contactContainer a:hover {
+    filter: brightness(1.05);
+}
+
+.contactContainer a:active {
+    box-shadow:
+        0 0 0 rgba(197, 197, 197, 0), 0 0 0 rgba(255, 255, 255, 0),
+        inset 3px 3px 5px #c5c5c5, inset -3px -3px 5px #ffffff;
+}

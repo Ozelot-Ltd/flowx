@@ -30,6 +30,13 @@
                 "allowText": true,
                 "repeat": false
               }
+            },
+            "link_id": {
+              "type": "Text",
+              "config": {
+                "label": "Link ID",
+                "placeholder": "vision, mission, product, next"
+              }
             }
           }
         }
