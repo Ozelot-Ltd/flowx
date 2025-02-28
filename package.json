@@ -22,6 +22,7 @@
     "@react-three/fiber": "^9.0.4",
     "dotenv": "^16.4.7",
     "gsap": "npm:@gsap/shockingly@^3.12.7",
+    "lenis": "^1.1.21",
     "next": "^15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

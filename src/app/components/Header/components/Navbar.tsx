@@ -11,8 +11,6 @@ import useNavigation from '../../../../../stores/useNavigation';
 export default function Navbar({ settings }: { settings: SettingsDocument }) {
   const { activeSection, setActiveSection } = useNavigation();
 
-  console.log(settings.data.navbar);
-
   return (
     <nav className={styles.navbar}>
       {settings.data.navbar.map((item) => (

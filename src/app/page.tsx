@@ -3,7 +3,6 @@ import { isFilled, asImageSrc } from '@prismicio/client';
 
 import { createClient } from '@/prismicio';
 
-// import Splashscreen from './components/Splashscreen';
 import Background from './components/Background/Background';
 import { components } from '@/slices';
 import styles from './page.module.css';
