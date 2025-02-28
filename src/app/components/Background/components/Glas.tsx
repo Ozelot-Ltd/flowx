@@ -10,10 +10,10 @@ import { useFrame, useThree } from '@react-three/fiber';
 gsap.registerPlugin(useGSAP);
 
 const materialProps = {
-  thickness: 0.1,
-  roughness: 0.11,
+  thickness: 0.05,
+  roughness: 0.1,
   transmission: 0.8,
-  ior: 1.5,
+  ior: 1.0,
   chromaticAberration: 0.1,
   backside: true,
 };
@@ -33,7 +33,7 @@ export default function Glas() {
       tl.current.seek(scroll.offset * tl.current.duration());
     }
 
-    const time = clock.getElapsedTime() / 2;
+    const time = clock.getElapsedTime() / 2.5;
     if (containerRef.current) {
       containerRef.current.rotation.y = Math.cos(time * Math.sin(1.5)) / 45;
       containerRef.current.rotation.z = Math.cos(time * Math.sin(1)) / 50;

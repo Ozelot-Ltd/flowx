@@ -6,6 +6,24 @@
   "status": true,
   "json": {
     "Main": {
+      "landing_buttons": {
+        "type": "Group",
+        "config": {
+          "label": "Landing Buttons",
+          "repeat": true,
+          "fields": {
+            "button_text": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Button Text",
+                "placeholder": "Frontside",
+                "allowTargetBlank": true,
+                "multi": "paragraph"
+              }
+            }
+          }
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

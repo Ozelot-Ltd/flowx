@@ -4,12 +4,40 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Item in *home → Landing Buttons*
+ */
+export interface HomeDocumentDataLandingButtonsItem {
+  /**
+   * Button Text field in *home → Landing Buttons*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Frontside
+   * - **API ID Path**: home.landing_buttons[].button_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  button_text: prismic.RichTextField;
+}
+
 type HomeDocumentDataSlicesSlice = HeroSectionSlice;
 
 /**
  * Content for home documents
  */
 interface HomeDocumentData {
+  /**
+   * Landing Buttons field in *home*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.landing_buttons[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  landing_buttons: prismic.GroupField<
+    Simplify<HomeDocumentDataLandingButtonsItem>
+  >;
+
   /**
    * Slice Zone field in *home*
    *
@@ -332,6 +360,7 @@ declare module "@prismicio/client" {
     export type {
       HomeDocument,
       HomeDocumentData,
+      HomeDocumentDataLandingButtonsItem,
       HomeDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
