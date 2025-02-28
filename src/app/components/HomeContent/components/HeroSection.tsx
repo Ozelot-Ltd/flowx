@@ -24,6 +24,8 @@ export default function HeroSection({
   const { setIsScroll, isScroll } = useScrollStore();
 
   const onSeeMoreClick = () => {
+    setWindowState('front');
+
     setIsScroll(false);
   };
 
@@ -65,6 +67,7 @@ export default function HeroSection({
               className={`${styles.arrowContainer} ${!isScroll ? styles.show : ''}`}
               onClick={() => {
                 setIsScroll(true);
+                setWindowState('front');
               }}
             >
               <Arrow height={18} fill={'var(--darkgreen)'} />

@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Object3D } from 'three';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { useScroll, MeshTransmissionMaterial } from '@react-three/drei';
+import { MeshTransmissionMaterial } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
 import {
   useScrollStore,
@@ -30,11 +30,7 @@ export default function Glass() {
   const glassRef = useRef<Object3D>(null);
   const scrollTimelineRef = useRef<gsap.core.Timeline | null>(null);
   const interactiveTimelineRef = useRef<gsap.core.Timeline | null>(null);
-  const scroll = useScroll();
   const { viewport } = useThree();
-  const [animationMode, setAnimationMode] = useState<
-    'interactive' | 'scroll' | null
-  >(null);
 
   const { isScroll } = useScrollStore();
   const { windowState } = useWindowStore();
@@ -47,13 +43,7 @@ export default function Glass() {
     }
   });
 
-  useFrame(() => {
-    if (animationMode === 'scroll' && scrollTimelineRef.current) {
-      scrollTimelineRef.current.seek(
-        scroll.offset * scrollTimelineRef.current.duration()
-      );
-    }
-  });
+  useFrame(() => {});
 
   // Decide which animation mode to use based on states
   useEffect(() => {
@@ -67,70 +57,42 @@ export default function Glass() {
       scrollTimelineRef.current.kill();
       scrollTimelineRef.current = null;
     }
-
-    // Determine which mode we should be in
-    if (isScroll) {
-      setAnimationMode('scroll');
-    } else {
-      setAnimationMode('interactive');
-    }
   }, [isScroll]);
 
   // Set up and manage interactive animations
   useGSAP(() => {
-    if (animationMode !== 'interactive' || !glassRef.current) return;
+    if (!glassRef.current) return;
 
-    // Kill any existing animations on this object
-    gsap.killTweensOf(glassRef.current.rotation);
+    glassRef.current.position.set(1.2, -0.1, -1.4);
+    glassRef.current.rotation.set(0, 0, 0);
 
-    // Simply use direct gsap.to calls based on state
-    if (windowState === '') {
+    if (windowState === 'front') {
       gsap.to(glassRef.current.rotation, {
         y: Math.PI * 2,
         z: 0,
+        x: 0,
         duration: 1.5,
         ease: 'back.out(1.7)',
       });
     } else if (windowState === 'back') {
       gsap.to(glassRef.current.rotation, {
         y: Math.PI,
-        z: Math.PI / 4,
+        z: 0,
+        x: 0,
+        duration: 1.5,
+        ease: 'back.out(1.7)',
+      });
+    } else if (windowState === 'between') {
+      gsap.to(glassRef.current.rotation, {
+        y: Math.PI,
+        x: Math.PI / 2,
+        z: 0,
         duration: 1.5,
         ease: 'back.out(1.7)',
       });
     }
-  }, [windowState, animationMode]);
-
-  useGSAP(() => {
-    if (animationMode !== 'scroll' || !glassRef.current) return;
-
-    scrollTimelineRef.current = gsap.timeline();
-
-    glassRef.current.position.set(1.2, -0.1, -1.4);
-    glassRef.current.rotation.set(0, 0, 0);
-
-    scrollTimelineRef.current
-      .to(glassRef.current.rotation, {
-        duration: 4,
-        y: Math.PI + 0.2,
-        ease: 'power.inOut',
-      })
-      .to(glassRef.current.position, {
-        x: -1.2,
-        duration: 6,
-        ease: 'power.inOut',
-      })
-      .to(
-        glassRef.current.rotation,
-        {
-          y: Math.PI * 2,
-          z: Math.PI,
-          duration: 8,
-          ease: 'power.inOut',
-        },
-        '<'
-      );
-  }, [animationMode]);
+    console.log('windowState', windowState);
+  }, [windowState]);
 
   return (
     <group ref={containerRef}>
