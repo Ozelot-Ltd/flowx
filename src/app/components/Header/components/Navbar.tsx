@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import styles from './Navbar.module.css';
 import { SettingsDocument } from '../../../../../prismicio-types';
@@ -10,6 +10,10 @@ import useNavigation from '../../../../../stores/useNavigation';
 
 export default function Navbar({ settings }: { settings: SettingsDocument }) {
   const { activeSection, setActiveSection } = useNavigation();
+
+  useEffect(() => {
+    console.log(activeSection);
+  }, [activeSection]);
 
   return (
     <nav className={styles.navbar}>

@@ -9,11 +9,17 @@ import { PrismicNextImage } from '@prismicio/next';
 import Link from 'next/link';
 import Navbar from './components/Navbar';
 
+import useNavigation from '../../../../stores/useNavigation';
+
 export default function Header({ settings }: { settings: SettingsDocument }) {
+  const { setActiveSection } = useNavigation();
   return (
     <header className={styles.header}>
       <div className={styles.rightContainer}>
-        <div className={styles.logoContainer}>
+        <div
+          className={styles.logoContainer}
+          onClick={() => setActiveSection('')}
+        >
           <Link href="/">
             <PrismicNextImage field={settings.data.logo} />
           </Link>
