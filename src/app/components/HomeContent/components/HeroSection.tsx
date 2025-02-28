@@ -59,7 +59,7 @@ export default function HeroSection({
                     onSeeMoreClick();
                   }}
                 >
-                  SEE MORE
+                  GET INTERACTIVE
                 </div>
               )}
             </div>

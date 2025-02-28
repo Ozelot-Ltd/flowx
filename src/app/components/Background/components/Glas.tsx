@@ -43,6 +43,12 @@ export default function Glass() {
     }
   });
 
+  useEffect(() => {
+    if (!glassRef.current) return;
+    glassRef.current.position.set(1, -0.1, -1.4);
+    glassRef.current.rotation.set(0, 0, 0);
+  }, []);
+
   useFrame(() => {});
 
   // Decide which animation mode to use based on states
@@ -63,8 +69,13 @@ export default function Glass() {
   useGSAP(() => {
     if (!glassRef.current) return;
 
-    glassRef.current.position.set(1.2, -0.1, -1.4);
-    glassRef.current.rotation.set(0, 0, 0);
+    // Kill any existing animations first
+    gsap.killTweensOf(glassRef.current.rotation);
+
+    // Don't reset position/rotation here
+    // Only set initial state on the first render
+
+    console.log('windowState changed to:', windowState);
 
     if (windowState === 'front') {
       gsap.to(glassRef.current.rotation, {
@@ -86,12 +97,11 @@ export default function Glass() {
       gsap.to(glassRef.current.rotation, {
         y: Math.PI,
         x: Math.PI / 2,
-        z: 0,
+        z: -1.2,
         duration: 1.5,
         ease: 'back.out(1.7)',
       });
     }
-    console.log('windowState', windowState);
   }, [windowState]);
 
   return (
