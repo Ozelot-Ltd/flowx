@@ -11,6 +11,7 @@ import {
 
 import Arrow from '../../Icons/Arrow';
 import { asText } from '@prismicio/client';
+import SectionContainer from './SectionContainer';
 
 export default function HeroSection({
   page,
@@ -19,7 +20,7 @@ export default function HeroSection({
   page: HomeDocument;
   id: string;
 }) {
-  const { setWindowState, windowState } = useWindowStore();
+  const { setWindowState } = useWindowStore();
   const { setIsScroll, isScroll } = useScrollStore();
 
   const onSeeMoreClick = () => {
@@ -27,7 +28,7 @@ export default function HeroSection({
   };
 
   return (
-    <section className={styles.container} id={id}>
+    <SectionContainer id={id}>
       <div className={styles.content}>
         <div className={styles.left}>
           <div className={styles.contentContainer}>
@@ -44,7 +45,6 @@ export default function HeroSection({
                     className={styles.button}
                     onClick={() => {
                       setWindowState(asText(item.button_text).toLowerCase());
-                      console.log(windowState);
                     }}
                   >
                     <PrismicRichText field={item.button_text} />
@@ -67,11 +67,11 @@ export default function HeroSection({
                 setIsScroll(true);
               }}
             >
-              <Arrow />
+              <Arrow height={18} fill={'var(--darkgreen)'} />
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </SectionContainer>
   );
 }
