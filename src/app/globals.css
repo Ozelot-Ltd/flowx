@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
+@font-face {
+    font-family: "Gilroy Bold";
+    src: url("/fonts/Gilroy-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Gilroy Light";
+    src: url("/public/fonts/Gilroy-Light.ttf");
+}
+
+@font-face {
+    font-family: "Gilroy Regular";
+    src: url("/fonts/Gilroy-Regular.ttf");
+}
+
 :root {
 
     /* general settings */
@@ -11,6 +26,7 @@
     /* font variables */
     --title-size: 1.5rem;
     --title-font: "Quicksand", sans-serif;
+    --text-font: "Gilroy Regular";
 
     /* colors */
     --black: #0c160b;
@@ -33,6 +49,10 @@
     --boxshadow-negative_large-hover: inset -10px -10px 54px #ffffff;
 
 
+    /* filters */
+
+    --brightness: brightness(1.03);
+
 
     /* splashscreen only */
     --distance-x: 65px;
@@ -44,7 +64,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: var(--black);
+
 }
 
 h1,
@@ -54,6 +74,7 @@ h4,
 h5,
 h6 {
     font-family: var(--title-font);
+    color: var(--darkgrey)
 }
 
 body {
@@ -69,8 +90,19 @@ li {
     list-style-type: none;
 }
 
+a,
+p {
+    color: var(--black);
+}
+
 a {
     text-decoration: none;
+}
+
+p {
+    font-family: var(--text-font);
+    line-height: 1.4;
+    color: var(--black);
 }
 
 

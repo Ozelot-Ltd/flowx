@@ -26,6 +26,17 @@ type HomeDocumentDataSlicesSlice = HeroSectionSlice;
  */
 interface HomeDocumentData {
   /**
+   * Hero Title field in *home*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.hero_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  hero_title: prismic.RichTextField;
+
+  /**
    * Landing Buttons field in *home*
    *
    * - **Field Type**: Group
@@ -37,6 +48,17 @@ interface HomeDocumentData {
   landing_buttons: prismic.GroupField<
     Simplify<HomeDocumentDataLandingButtonsItem>
   >;
+
+  /**
+   * Hero Description field in *home*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.hero_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  hero_description: prismic.RichTextField;
 
   /**
    * Slice Zone field in *home*

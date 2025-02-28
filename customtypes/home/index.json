@@ -6,6 +6,15 @@
   "status": true,
   "json": {
     "Main": {
+      "hero_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Hero Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading2"
+        }
+      },
       "landing_buttons": {
         "type": "Group",
         "config": {
@@ -22,6 +31,15 @@
               }
             }
           }
+        }
+      },
+      "hero_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Hero Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph"
         }
       },
       "slices": {

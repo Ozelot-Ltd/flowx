@@ -9,12 +9,9 @@
     gap: 2rem;
 }
 
-.navbarItem:hover {
-    filter: brightness(1.05);
-}
+
 
 .navbarItem a {
-    color: var(--black);
     background: var(--lightgrey);
     cursor: pointer;
     font-family: var(--title-font);
@@ -26,6 +23,10 @@
     transition: all 0.5s ease;
     padding: 0.8em 1.8em;
     border-radius: 20px;
+}
+
+.navbarItem a:hover {
+    filter: var(--brightness);
 }
 
 .active a {

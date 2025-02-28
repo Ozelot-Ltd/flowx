@@ -4,12 +4,11 @@ import { isFilled, asImageSrc } from '@prismicio/client';
 import { createClient } from '@/prismicio';
 
 import Background from './components/Background/Background';
-import { components } from '@/slices';
 import styles from './page.module.css';
-import { SliceZone } from '@prismicio/react';
 import Header from './components/Header/Header';
+import HomeContent from './components/HomeContent/HomeContent';
 
-const isDevelopment = process.env.NODE_ENV === 'development';
+// const isDevelopment = process.env.NODE_ENV === 'development';
 
 export default async function Page() {
   const client = createClient();
@@ -18,19 +17,11 @@ export default async function Page() {
 
   return (
     <>
-      {isDevelopment ? (
-        <section className={styles.container}>
-          <Header settings={settings} />
-          <Background />
-          <SliceZone slices={page.data.slices} components={components} />
-        </section>
-      ) : (
-        <section className={styles.container}>
-          <Header settings={settings} />
-          <Background />
-          <SliceZone slices={page.data.slices} components={components} />
-        </section>
-      )}
+      <Background />
+      <section className={styles.container}>
+        <Header settings={settings} />
+        <HomeContent page={page} />
+      </section>
     </>
   );
 }
