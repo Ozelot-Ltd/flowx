@@ -54,6 +54,11 @@
     --brightness: brightness(1.03);
 
 
+    /* time stuff */
+
+    --time-short: 0.3s;
+    --time-long: 0.5s;
+
     /* splashscreen only */
     --distance-x: 65px;
     --distance-y: 65px;
@@ -86,8 +91,6 @@ body {
     width: 100vw;
     max-width: 2000px;
     background-color: var(--lightgrey);
-    /* background: rgb(240, 240, 240);
-    background: radial-gradient(circle, rgb(225, 225, 225) 0%, rgba(255, 255, 255, 1) 70%); */
 }
 
 li {
@@ -106,7 +109,6 @@ a {
 p {
     font-family: var(--text-font);
     line-height: 1.4;
-    color: var(--black);
 }
 
 

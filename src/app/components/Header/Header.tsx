@@ -18,7 +18,7 @@ export default function Header({ settings }: { settings: SettingsDocument }) {
       <div className={styles.rightContainer}>
         <div
           className={styles.logoContainer}
-          onClick={() => setActiveSection('')}
+          onClick={() => setActiveSection('hero')}
         >
           <Link href="/">
             <PrismicNextImage field={settings.data.logo} />

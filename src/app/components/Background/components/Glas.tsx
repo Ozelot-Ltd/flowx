@@ -27,6 +27,9 @@ const materialProps = {
 export const GLASS_HEIGHT = 1;
 export const NB_SECTIONS = 3;
 
+const shortTransition = 1.2;
+const longTransition = 1.5;
+
 export default function Glass() {
   const containerRef = useRef<Object3D>(null);
   const glassRef = useRef<Object3D>(null);
@@ -53,11 +56,11 @@ export default function Glass() {
     }
 
     console.log(activeSection);
-  }, [activeSection]);
+  }, [activeSection, setWindowState]);
 
   useEffect(() => {
     if (!glassRef.current) return;
-    glassRef.current.position.set(1.1, -0.1, -1.4);
+    glassRef.current.position.set(1, -0.1, -1.4);
     glassRef.current.rotation.set(0, 0, 0);
   }, []);
 
@@ -85,7 +88,7 @@ export default function Glass() {
         y: Math.PI * 2,
         z: 0,
         x: 0,
-        duration: 1.5,
+        duration: shortTransition,
         ease: 'back.out(1.7)',
       });
     } else if (windowState === 'back') {
@@ -93,7 +96,7 @@ export default function Glass() {
         y: Math.PI,
         z: 0,
         x: 0,
-        duration: 1.5,
+        duration: shortTransition,
         ease: 'back.out(1.7)',
       });
     } else if (windowState === 'between') {
@@ -101,22 +104,22 @@ export default function Glass() {
         y: Math.PI,
         x: Math.PI / 2,
         z: -1.2,
-        duration: 1.5,
+        duration: shortTransition,
         ease: 'back.out(1.7)',
       });
     } else if (windowState === 'hero') {
       gsap.to(glassRef.current.rotation, {
-        y: Math.PI,
+        y: Math.PI * 2,
         x: 0,
         z: 0,
-        duration: 2,
+        duration: longTransition,
         ease: 'sine',
       });
       gsap.to(glassRef.current.position, {
         y: 0,
-        x: 1.1,
+        x: 1,
         z: -1.4,
-        duration: 2,
+        duration: longTransition,
         ease: 'sine',
       });
     } else if (windowState === 'vision') {
@@ -124,14 +127,14 @@ export default function Glass() {
         y: Math.PI * 3,
         x: 0,
         z: 0,
-        duration: 2,
+        duration: longTransition,
         ease: 'sine',
       });
       gsap.to(glassRef.current.position, {
         y: 0,
-        x: -1.1,
+        x: -1,
         z: -1.4,
-        duration: 2.5,
+        duration: longTransition,
         ease: 'sine',
       });
     }

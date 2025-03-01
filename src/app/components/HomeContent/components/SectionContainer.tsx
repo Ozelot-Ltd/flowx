@@ -17,7 +17,7 @@ export default function SectionContainer({
   id: string;
 }) {
   const sectionRef = useRef(null);
-  const { setActiveSection } = useNavigation();
+  const { setActiveSection, activeSection } = useNavigation();
 
   useGSAP(() => {
     if (!sectionRef.current) return;
@@ -37,7 +37,11 @@ export default function SectionContainer({
   }, [id, setActiveSection]);
 
   return (
-    <section className={styles.section} id={id} ref={sectionRef}>
+    <section
+      className={`${styles.section} ${activeSection === id ? styles.sectionActive : ''}`}
+      id={id}
+      ref={sectionRef}
+    >
       {children}
     </section>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import styles from './HeroSection.module.css';
 import { HomeDocument } from '../../../../../prismicio-types';
@@ -8,8 +8,6 @@ import {
   useWindowStore,
   useScrollStore,
 } from '../../../../../stores/useWindowStore';
-
-import Arrow from '../../Icons/Arrow';
 import SectionContainer from './SectionContainer';
 import ButtonBar from './ButtonBar';
 
@@ -23,10 +21,38 @@ export default function HeroSection({
   const { setWindowState } = useWindowStore();
   const { setIsScroll, isScroll } = useScrollStore();
 
+  const [isTop, setIsTop] = useState(true);
+  const [activeButton, setActiveButton] = useState('');
+
   const onSeeMoreClick = () => {
-    setWindowState('front');
-    setIsScroll(false);
+    if (window.scrollY > 0) {
+      setIsTop(false);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setIsTop(true);
+    }
+    if (activeButton === '') {
+      setWindowState('front');
+    } else {
+      setWindowState('front');
+    }
+    if (isTop && isScroll) {
+      setIsScroll(!isScroll);
+    } else {
+      setIsScroll(!isScroll);
+    }
   };
+
+  useEffect(() => {
+    if (!isScroll) {
+      document.body.style.overflow = 'hidden';
+    } else if (isScroll) {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto'; // Reset to default
+    };
+  }, [isScroll]);
 
   return (
     <SectionContainer id={id}>
@@ -45,21 +71,12 @@ export default function HeroSection({
                   onSeeMoreClick();
                 }}
               >
-                GET INTERACTIVE
+                <p>{isScroll ? 'GET INTERACTIVE' : 'GO TO SCROLLMODE'}</p>
               </div>
-            </div>
-            <div
-              className={`${styles.arrowContainer} ${!isScroll ? styles.show : ''}`}
-              onClick={() => {
-                setIsScroll(true);
-                setWindowState('hero');
-              }}
-            >
-              <Arrow height={18} fill={'var(--darkgreen)'} />
             </div>
           </div>
         </div>{' '}
-        <ButtonBar page={page} />
+        <ButtonBar page={page} setActiveButton={setActiveButton} />
       </div>
     </SectionContainer>
   );

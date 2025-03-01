@@ -2,6 +2,7 @@
     height: 100%;
     display: flex;
     flex-direction: row;
+    position: relative;
 }
 
 .left {
@@ -13,7 +14,7 @@
 }
 
 .contentContainer {
-    padding-left: 6rem;
+    padding-left: 8rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

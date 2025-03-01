@@ -1,5 +1,5 @@
 .buttonBar {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     height: fit-content;
@@ -11,16 +11,18 @@
     gap: 10rem;
     transform: translateY(100%);
     transition-delay: 0.5s;
+    visibility: hidden;
+    transition: all var(--time-short) ease;
 }
 
 .btnVisible {
     transform: translateY(0%);
     transition-delay: 0s;
+    visibility: visible;
 }
 
 .button {
-    color: var(--black);
-    background: var(--lightgrey);
+    background: transparent;
     cursor: pointer;
     font-family: var(--title-font);
     text-transform: uppercase;
@@ -35,17 +37,18 @@
     z-index: 2;
 }
 
-.button p {
-    color: transparent;
-    transition: color 0.5s ease;
-    line-height: 1;
-}
+
 
 .btnVisible .button {
+    background: var(--lightgrey);
     box-shadow:
         6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff,
         inset 0 0 0 rgba(197, 197, 197, 0), inset 0 0 0 rgba(255, 255, 255, 0);
-    color: var(--black);
+}
+
+.button p {
+    color: transparent;
+    transition: color 0.5s ease;
 }
 
 .buttonBar.btnVisible .button p {
@@ -56,8 +59,16 @@
     filter: var(--brightness)
 }
 
-.active .button {
+.button:active {
     box-shadow:
         0 0 0 rgba(197, 197, 197, 0), 0 0 0 rgba(255, 255, 255, 0),
         inset 3px 3px 5px #c5c5c5, inset -3px -3px 5px #ffffff;
+}
+
+.button.active {
+    box-shadow:
+        0 0 0 rgba(197, 197, 197, 0), 0 0 0 rgba(255, 255, 255, 0),
+        inset 3px 3px 5px #c5c5c5, inset -3px -3px 5px #ffffff;
+    transition: all 0.5s ease;
+
 }

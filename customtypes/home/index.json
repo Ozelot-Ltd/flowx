@@ -22,12 +22,10 @@
           "repeat": true,
           "fields": {
             "button_text": {
-              "type": "StructuredText",
+              "type": "Text",
               "config": {
                 "label": "Button Text",
-                "placeholder": "Frontside",
-                "allowTargetBlank": true,
-                "multi": "paragraph"
+                "placeholder": "Front, Back, Etc etc."
               }
             }
           }

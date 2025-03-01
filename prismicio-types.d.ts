@@ -11,12 +11,12 @@ export interface HomeDocumentDataLandingButtonsItem {
   /**
    * Button Text field in *home → Landing Buttons*
    *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Frontside
+   * - **Field Type**: Text
+   * - **Placeholder**: Front, Back, Etc etc.
    * - **API ID Path**: home.landing_buttons[].button_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  button_text: prismic.RichTextField;
+  button_text: prismic.KeyTextField;
 }
 
 type HomeDocumentDataSlicesSlice = HeroSectionSlice;
