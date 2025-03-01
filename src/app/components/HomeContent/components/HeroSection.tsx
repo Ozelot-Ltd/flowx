@@ -10,8 +10,8 @@ import {
 } from '../../../../../stores/useWindowStore';
 
 import Arrow from '../../Icons/Arrow';
-import { asText } from '@prismicio/client';
 import SectionContainer from './SectionContainer';
+import ButtonBar from './ButtonBar';
 
 export default function HeroSection({
   page,
@@ -25,7 +25,6 @@ export default function HeroSection({
 
   const onSeeMoreClick = () => {
     setWindowState('front');
-
     setIsScroll(false);
   };
 
@@ -40,40 +39,27 @@ export default function HeroSection({
             </div>
 
             <div className={styles.buttonsContainer}>
-              {!isScroll ? (
-                page.data.landing_buttons.map((item, index: number) => (
-                  <div
-                    key={index}
-                    className={styles.button}
-                    onClick={() => {
-                      setWindowState(asText(item.button_text).toLowerCase());
-                    }}
-                  >
-                    <PrismicRichText field={item.button_text} />
-                  </div>
-                ))
-              ) : (
-                <div
-                  className={styles.button}
-                  onClick={() => {
-                    onSeeMoreClick();
-                  }}
-                >
-                  GET INTERACTIVE
-                </div>
-              )}
+              <div
+                className={styles.button}
+                onClick={() => {
+                  onSeeMoreClick();
+                }}
+              >
+                GET INTERACTIVE
+              </div>
             </div>
             <div
               className={`${styles.arrowContainer} ${!isScroll ? styles.show : ''}`}
               onClick={() => {
                 setIsScroll(true);
-                setWindowState('front');
+                setWindowState('hero');
               }}
             >
               <Arrow height={18} fill={'var(--darkgreen)'} />
             </div>
           </div>
-        </div>
+        </div>{' '}
+        <ButtonBar page={page} />
       </div>
     </SectionContainer>
   );

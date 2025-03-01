@@ -11,6 +11,8 @@ import {
   useWindowStore,
 } from '../../../../../stores/useWindowStore';
 
+import useNavigation from '../../../../../stores/useNavigation';
+
 gsap.registerPlugin(useGSAP);
 
 const materialProps = {
@@ -31,9 +33,9 @@ export default function Glass() {
   const scrollTimelineRef = useRef<gsap.core.Timeline | null>(null);
   const interactiveTimelineRef = useRef<gsap.core.Timeline | null>(null);
   const { viewport } = useThree();
-
   const { isScroll } = useScrollStore();
-  const { windowState } = useWindowStore();
+  const { windowState, setWindowState } = useWindowStore();
+  const { activeSection } = useNavigation();
 
   useFrame(({ clock }) => {
     const time = clock.getElapsedTime() / 2.5;
@@ -44,16 +46,24 @@ export default function Glass() {
   });
 
   useEffect(() => {
+    if (activeSection === 'hero') {
+      setWindowState('hero');
+    } else if (activeSection === 'vision') {
+      setWindowState('vision');
+    }
+
+    console.log(activeSection);
+  }, [activeSection]);
+
+  useEffect(() => {
     if (!glassRef.current) return;
-    glassRef.current.position.set(1, -0.1, -1.4);
+    glassRef.current.position.set(1.1, -0.1, -1.4);
     glassRef.current.rotation.set(0, 0, 0);
   }, []);
 
   useFrame(() => {});
 
-  // Decide which animation mode to use based on states
   useEffect(() => {
-    // Clean up any existing animations when state changes
     if (interactiveTimelineRef.current) {
       interactiveTimelineRef.current.kill();
       interactiveTimelineRef.current = null;
@@ -65,17 +75,10 @@ export default function Glass() {
     }
   }, [isScroll]);
 
-  // Set up and manage interactive animations
   useGSAP(() => {
     if (!glassRef.current) return;
 
-    // Kill any existing animations first
     gsap.killTweensOf(glassRef.current.rotation);
-
-    // Don't reset position/rotation here
-    // Only set initial state on the first render
-
-    console.log('windowState changed to:', windowState);
 
     if (windowState === 'front') {
       gsap.to(glassRef.current.rotation, {
@@ -100,6 +103,36 @@ export default function Glass() {
         z: -1.2,
         duration: 1.5,
         ease: 'back.out(1.7)',
+      });
+    } else if (windowState === 'hero') {
+      gsap.to(glassRef.current.rotation, {
+        y: Math.PI,
+        x: 0,
+        z: 0,
+        duration: 2,
+        ease: 'sine',
+      });
+      gsap.to(glassRef.current.position, {
+        y: 0,
+        x: 1.1,
+        z: -1.4,
+        duration: 2,
+        ease: 'sine',
+      });
+    } else if (windowState === 'vision') {
+      gsap.to(glassRef.current.rotation, {
+        y: Math.PI * 3,
+        x: 0,
+        z: 0,
+        duration: 2,
+        ease: 'sine',
+      });
+      gsap.to(glassRef.current.position, {
+        y: 0,
+        x: -1.1,
+        z: -1.4,
+        duration: 2.5,
+        ease: 'sine',
       });
     }
   }, [windowState]);
