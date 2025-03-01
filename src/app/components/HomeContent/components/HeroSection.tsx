@@ -21,21 +21,18 @@ export default function HeroSection({
   const { setWindowState } = useWindowStore();
   const { setIsScroll, isScroll } = useScrollStore();
 
-  const [isTop, setIsTop] = useState(true);
   const [activeButton, setActiveButton] = useState('');
 
   const onSeeMoreClick = () => {
     if (window.scrollY > 0) {
-      setIsTop(false);
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      setIsTop(true);
     }
     if (activeButton === '') {
       setWindowState('front');
     } else {
       setWindowState('front');
     }
-    if (isTop && isScroll) {
+    if (window.scrollY > 0 && isScroll) {
       setIsScroll(!isScroll);
     } else {
       setIsScroll(!isScroll);
