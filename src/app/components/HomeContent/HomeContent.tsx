@@ -10,6 +10,7 @@ import FirstSection from './components/FirstSection';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollSmoother from 'gsap/ScrollSmoother';
+import SecondSection from './components/SecondSection';
 gsap.registerPlugin(ScrollSmoother);
 
 export default function HomeContent({ page }: { page: HomeDocument }) {
@@ -26,6 +27,9 @@ export default function HomeContent({ page }: { page: HomeDocument }) {
       <div id="smooth-content">
         <HeroSection page={page} id={'hero'} />
         <FirstSection page={page} id={'vision'} />
+        <SecondSection page={page} id={'mission'} />
+        <FirstSection page={page} id={'product'} />
+        <FirstSection page={page} id={'next'} />
       </div>
     </div>
   );

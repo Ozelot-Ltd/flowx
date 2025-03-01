@@ -53,6 +53,10 @@ export default function Glass() {
       setWindowState('hero');
     } else if (activeSection === 'vision') {
       setWindowState('vision');
+    } else if (activeSection === 'mission') {
+      setWindowState('mission');
+    } else if (activeSection === 'product') {
+      setWindowState('product');
     }
 
     console.log(activeSection);
@@ -136,6 +140,35 @@ export default function Glass() {
         z: -1.4,
         duration: longTransition,
         ease: 'sine',
+      });
+      gsap.to(glassRef.current.scale, {
+        y: 0.5,
+        x: 0.5,
+        z: 0.5,
+        duration: longTransition,
+        ease: 'sine',
+      });
+    } else if (windowState === 'mission') {
+      gsap.to(glassRef.current.rotation, {
+        y: Math.PI,
+        x: 0,
+        z: 0,
+        duration: longTransition,
+        ease: 'sine',
+      });
+      gsap.to(glassRef.current.position, {
+        y: 0,
+        x: 2,
+        z: -1.4,
+        duration: longTransition,
+        ease: 'sine',
+      });
+      gsap.to(glassRef.current.scale, {
+        y: 1.1,
+        x: 1.1,
+        z: 1.1,
+        duration: longTransition,
+        ease: 'power2.inOut',
       });
     }
   }, [windowState]);
