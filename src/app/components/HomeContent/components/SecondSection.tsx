@@ -13,6 +13,8 @@ export default function SecondSection({
   id: string;
 }) {
   const { activeSection } = useNavigation();
+
+  console.log(activeSection);
   console.log(page);
   return (
     <SectionContainer id={id}>
