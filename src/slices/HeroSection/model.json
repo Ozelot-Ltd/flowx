@@ -12,6 +12,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "uid": {
+          "type": "Text",
+          "config": {
+            "label": "uid",
+            "placeholder": "hero_horizontal"
+          }
+        },
         "hero_title": {
           "type": "StructuredText",
           "config": {
@@ -21,13 +28,22 @@
             "multi": "heading2"
           }
         },
-        "hero_description": {
+        "hero_subtitle_first": {
           "type": "StructuredText",
           "config": {
-            "label": "Hero Description",
-            "placeholder": "",
+            "label": "Hero Subtitle First",
+            "placeholder": "first active thermal glass facade",
             "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "heading3"
+          }
+        },
+        "hero_subtitle_second": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Hero Subtitle Second",
+            "placeholder": "managing energy-flows",
+            "allowTargetBlank": true,
+            "multi": "heading2"
           }
         },
         "hero_buttons": {
@@ -47,18 +63,34 @@
               }
             }
           }
+        },
+        "hero_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Hero Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
         }
       },
       "items": {}
     },
     {
-      "id": "heroSectionWithoutButtons",
-      "name": "Hero Section Without Buttons",
+      "id": "heroSectionVertical",
+      "name": "Hero Section Vertical",
       "docURL": "...",
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "uid": {
+          "type": "Text",
+          "config": {
+            "label": "uid",
+            "placeholder": "hero_vertical"
+          }
+        },
         "hero_title": {
           "type": "StructuredText",
           "config": {
@@ -66,6 +98,42 @@
             "placeholder": "We gain Energy",
             "allowTargetBlank": true,
             "multi": "heading2"
+          }
+        },
+        "hero_subtitle_first": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Hero Subtitle First",
+            "placeholder": "first active thermal glass facade",
+            "allowTargetBlank": true,
+            "multi": "heading3"
+          }
+        },
+        "hero_subtitle_second": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Hero Subtitle Second",
+            "placeholder": "managing energy-flows",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "hero_buttons": {
+          "type": "Group",
+          "config": {
+            "label": "Hero Buttons",
+            "repeat": true,
+            "fields": {
+              "button_text": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Button Text",
+                  "placeholder": "Warmth",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              }
+            }
           }
         },
         "hero_description": {

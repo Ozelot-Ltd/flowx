@@ -9,6 +9,5 @@ export default function FirstSection({
   page: HomeDocument;
   id: string;
 }) {
-  console.log(page);
   return <SectionContainer id={id}>FirstSection</SectionContainer>;
 }

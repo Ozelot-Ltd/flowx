@@ -5,7 +5,7 @@ import styles from './SectionContainer.module.css';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import useNavigation from '../../../../../stores/useNavigation'; // Adjust path as needed
+import useNavigation from '../../../../../stores/useNavigation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,7 +14,7 @@ export default function SectionContainer({
   id,
 }: {
   children: React.ReactNode;
-  id: string;
+  id: string | null | undefined;
 }) {
   const sectionRef = useRef(null);
   const { setActiveSection, activeSection } = useNavigation();
@@ -26,8 +26,8 @@ export default function SectionContainer({
       trigger: sectionRef.current,
       start: 'top 50%',
       end: 'bottom 50%',
-      onEnter: () => setActiveSection(id),
-      onEnterBack: () => setActiveSection(id),
+      onEnter: () => id,
+      onEnterBack: () => id,
       markers: false,
     });
 
@@ -39,7 +39,7 @@ export default function SectionContainer({
   return (
     <section
       className={`${styles.section} ${activeSection === id ? styles.sectionActive : ''}`}
-      id={id}
+      id={id?.toString()}
       ref={sectionRef}
     >
       {children}

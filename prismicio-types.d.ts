@@ -207,9 +207,34 @@ export interface HeroSectionSliceDefaultPrimaryHeroButtonsItem {
 }
 
 /**
+ * Item in *HeroSection → Hero Section Vertical → Primary → Hero Buttons*
+ */
+export interface HeroSectionSliceHeroSectionVerticalPrimaryHeroButtonsItem {
+  /**
+   * Button Text field in *HeroSection → Hero Section Vertical → Primary → Hero Buttons*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Warmth
+   * - **API ID Path**: hero_section.heroSectionVertical.primary.hero_buttons[].button_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  button_text: prismic.RichTextField;
+}
+
+/**
  * Primary content in *HeroSection → Default → Primary*
  */
 export interface HeroSectionSliceDefaultPrimary {
+  /**
+   * uid field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: hero_horizontal
+   * - **API ID Path**: hero_section.default.primary.uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+
   /**
    * Hero Title field in *HeroSection → Default → Primary*
    *
@@ -221,14 +246,24 @@ export interface HeroSectionSliceDefaultPrimary {
   hero_title: prismic.RichTextField;
 
   /**
-   * Hero Description field in *HeroSection → Default → Primary*
+   * Hero Subtitle First field in *HeroSection → Default → Primary*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero_section.default.primary.hero_description
+   * - **Placeholder**: first active thermal glass facade
+   * - **API ID Path**: hero_section.default.primary.hero_subtitle_first
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  hero_description: prismic.RichTextField;
+  hero_subtitle_first: prismic.RichTextField;
+
+  /**
+   * Hero Subtitle Second field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: managing energy-flows
+   * - **API ID Path**: hero_section.default.primary.hero_subtitle_second
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  hero_subtitle_second: prismic.RichTextField;
 
   /**
    * Hero Buttons field in *HeroSection → Default → Primary*
@@ -241,6 +276,16 @@ export interface HeroSectionSliceDefaultPrimary {
   hero_buttons: prismic.GroupField<
     Simplify<HeroSectionSliceDefaultPrimaryHeroButtonsItem>
   >;
+
+  /**
+   * Hero Description field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_section.default.primary.hero_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  hero_description: prismic.RichTextField;
 }
 
 /**
@@ -257,50 +302,91 @@ export type HeroSectionSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *HeroSection → Hero Section Without Buttons → Primary*
+ * Primary content in *HeroSection → Hero Section Vertical → Primary*
  */
-export interface HeroSectionSliceHeroSectionWithoutButtonsPrimary {
+export interface HeroSectionSliceHeroSectionVerticalPrimary {
   /**
-   * Hero Title field in *HeroSection → Hero Section Without Buttons → Primary*
+   * uid field in *HeroSection → Hero Section Vertical → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: hero_vertical
+   * - **API ID Path**: hero_section.heroSectionVertical.primary.uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+
+  /**
+   * Hero Title field in *HeroSection → Hero Section Vertical → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: We gain Energy
-   * - **API ID Path**: hero_section.heroSectionWithoutButtons.primary.hero_title
+   * - **API ID Path**: hero_section.heroSectionVertical.primary.hero_title
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   hero_title: prismic.RichTextField;
 
   /**
-   * Hero Description field in *HeroSection → Hero Section Without Buttons → Primary*
+   * Hero Subtitle First field in *HeroSection → Hero Section Vertical → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: first active thermal glass facade
+   * - **API ID Path**: hero_section.heroSectionVertical.primary.hero_subtitle_first
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  hero_subtitle_first: prismic.RichTextField;
+
+  /**
+   * Hero Subtitle Second field in *HeroSection → Hero Section Vertical → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: managing energy-flows
+   * - **API ID Path**: hero_section.heroSectionVertical.primary.hero_subtitle_second
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  hero_subtitle_second: prismic.RichTextField;
+
+  /**
+   * Hero Buttons field in *HeroSection → Hero Section Vertical → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_section.heroSectionVertical.primary.hero_buttons[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  hero_buttons: prismic.GroupField<
+    Simplify<HeroSectionSliceHeroSectionVerticalPrimaryHeroButtonsItem>
+  >;
+
+  /**
+   * Hero Description field in *HeroSection → Hero Section Vertical → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: hero_section.heroSectionWithoutButtons.primary.hero_description
+   * - **API ID Path**: hero_section.heroSectionVertical.primary.hero_description
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   hero_description: prismic.RichTextField;
 }
 
 /**
- * Hero Section Without Buttons variation for HeroSection Slice
+ * Hero Section Vertical variation for HeroSection Slice
  *
- * - **API ID**: `heroSectionWithoutButtons`
+ * - **API ID**: `heroSectionVertical`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type HeroSectionSliceHeroSectionWithoutButtons =
-  prismic.SharedSliceVariation<
-    "heroSectionWithoutButtons",
-    Simplify<HeroSectionSliceHeroSectionWithoutButtonsPrimary>,
-    never
-  >;
+export type HeroSectionSliceHeroSectionVertical = prismic.SharedSliceVariation<
+  "heroSectionVertical",
+  Simplify<HeroSectionSliceHeroSectionVerticalPrimary>,
+  never
+>;
 
 /**
  * Slice variation for *HeroSection*
  */
 type HeroSectionSliceVariation =
   | HeroSectionSliceDefault
-  | HeroSectionSliceHeroSectionWithoutButtons;
+  | HeroSectionSliceHeroSectionVertical;
 
 /**
  * HeroSection Shared Slice
@@ -391,10 +477,11 @@ declare module "@prismicio/client" {
       HeroSectionSlice,
       HeroSectionSliceDefaultPrimaryHeroButtonsItem,
       HeroSectionSliceDefaultPrimary,
-      HeroSectionSliceHeroSectionWithoutButtonsPrimary,
+      HeroSectionSliceHeroSectionVerticalPrimaryHeroButtonsItem,
+      HeroSectionSliceHeroSectionVerticalPrimary,
       HeroSectionSliceVariation,
       HeroSectionSliceDefault,
-      HeroSectionSliceHeroSectionWithoutButtons,
+      HeroSectionSliceHeroSectionVertical,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,

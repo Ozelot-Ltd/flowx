@@ -14,8 +14,6 @@ import SecondSection from './components/SecondSection';
 gsap.registerPlugin(ScrollSmoother);
 
 export default function HomeContent({ page }: { page: HomeDocument }) {
-  console.log(ScrollSmoother);
-
   useGSAP(() => {
     ScrollSmoother.create({
       smooth: 1,
@@ -28,8 +26,6 @@ export default function HomeContent({ page }: { page: HomeDocument }) {
         <HeroSection page={page} id={'hero'} />
         <FirstSection page={page} id={'vision'} />
         <SecondSection page={page} id={'mission'} />
-        <FirstSection page={page} id={'product'} />
-        <FirstSection page={page} id={'next'} />
       </div>
     </div>
   );

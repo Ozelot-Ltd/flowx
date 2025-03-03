@@ -6,7 +6,9 @@ import { createClient } from '@/prismicio';
 import Background from './components/Background/Background';
 import styles from './page.module.css';
 import Header from './components/Header/Header';
-import HomeContent from './components/HomeContent/HomeContent';
+
+import { SliceZone } from '@prismicio/react';
+import { components } from '@/slices';
 
 // const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -19,8 +21,9 @@ export default async function Page() {
     <>
       <Background />
       <section className={styles.container}>
+        <SliceZone slices={page.data.slices} components={components} />;
         <Header settings={settings} />
-        <HomeContent page={page} />
+        {/* <HomeContent page={page} /> */}
       </section>
     </>
   );

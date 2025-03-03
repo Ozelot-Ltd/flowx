@@ -48,13 +48,40 @@
 						]
 					}
 				]
+			},
+			"hero_subtitle_first": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Strike"
+						}
+					}
+				]
+			},
+			"hero_subtitle_second": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Against"
+						}
+					}
+				]
+			},
+			"uid": {
+				"__TYPE__": "FieldContent",
+				"value": "has",
+				"type": "Text"
 			}
 		},
 		"items": []
 	},
 	{
 		"__TYPE__": "SharedSliceContent",
-		"variation": "heroSectionWithoutButtons",
+		"variation": "heroSectionVertical",
 		"primary": {
 			"hero_title": {
 				"__TYPE__": "StructuredTextContent",
@@ -62,8 +89,54 @@
 					{
 						"type": "heading2",
 						"content": {
-							"text": "Airplane"
+							"text": "Settle"
 						}
+					}
+				]
+			},
+			"hero_subtitle_first": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Agree"
+						}
+					}
+				]
+			},
+			"hero_subtitle_second": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Office"
+						}
+					}
+				]
+			},
+			"hero_buttons": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"button_text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Occaecat culpa laborum dolore pariatur irure. Nisi enim amet ad magna ipsum nisi esse adipisicing nisi eu officia est esse velit officia."
+											}
+										}
+									]
+								}
+							]
+						]
 					}
 				]
 			},
@@ -73,10 +146,15 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Sunt mollit cillum commodo consequat cillum eu sint. Ex aute reprehenderit sint officia aute laboris est do anim sunt sint magna."
+							"text": "Ea amet consectetur sint sunt laborum aute enim nulla."
 						}
 					}
 				]
+			},
+			"uid": {
+				"__TYPE__": "FieldContent",
+				"value": "war",
+				"type": "Text"
 			}
 		},
 		"items": [

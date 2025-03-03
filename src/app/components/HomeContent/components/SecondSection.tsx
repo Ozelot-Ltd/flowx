@@ -14,33 +14,9 @@ export default function SecondSection({
 }) {
   const { activeSection } = useNavigation();
 
-  console.log(activeSection);
-  console.log(page);
   return (
     <SectionContainer id={id}>
-      <div className={styles.container}>
-        <div className={styles.leftContainer}>
-          <div className={styles.cards}>
-            <div className={styles.card}>
-              <div className={styles.bg}></div>
-              <div className={styles.blob}></div>
-            </div>
-            <div className={styles.card}>
-              <div className={styles.bg}></div>
-              <div className={styles.blob}></div>
-            </div>
-            <div className={styles.card}>
-              <div className={styles.bg}></div>
-              <div className={styles.blob}></div>
-            </div>
-            <div className={styles.card}>
-              <div className={styles.bg}></div>
-              <div className={styles.blob}></div>
-            </div>
-          </div>
-        </div>
-        <div className={styles.rightContainer}></div>
-      </div>
+      <div className={styles.container}></div>
     </SectionContainer>
   );
 }

@@ -1,0 +1,87 @@
+.content {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentContainer {
+    padding-left: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20rem;
+    position: relative;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.textContainer h2 {
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+
+
+.textContainer p {
+    font-size: 1.1rem;
+}
+
+.buttonsContainer {
+    display: flex;
+    gap: 2rem
+}
+
+.button {
+    color: var(--black);
+    background: var(--lightgrey);
+    cursor: pointer;
+    font-family: var(--title-font);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    box-shadow:
+        6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff,
+        inset 0 0 0 rgba(197, 197, 197, 0), inset 0 0 0 rgba(255, 255, 255, 0);
+    transition: all 0.5s ease;
+    padding: 0.8em 1.8em;
+    border-radius: 20px;
+    border: none;
+    z-index: 2;
+}
+
+.button:hover {
+    filter: var(--brightness)
+}
+
+.active .button {
+    box-shadow:
+        0 0 0 rgba(197, 197, 197, 0), 0 0 0 rgba(255, 255, 255, 0),
+        inset 3px 3px 5px #c5c5c5, inset -3px -3px 5px #ffffff;
+}
+
+.arrowContainer {
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.arrowContainer svg {
+    transform: rotate(180deg);
+    transition: all 0.2s linear;
+}
+
+.show svg {
+    transform: rotate(180deg) translateX(200%);
+}

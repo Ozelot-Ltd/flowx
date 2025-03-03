@@ -58,8 +58,6 @@ export default function Glass() {
     } else if (activeSection === 'product') {
       setWindowState('product');
     }
-
-    console.log(activeSection);
   }, [activeSection, setWindowState]);
 
   useEffect(() => {
