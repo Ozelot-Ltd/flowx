@@ -1,9 +1,10 @@
 import { FC } from 'react';
 import { Content } from '@prismicio/client';
-import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
+import { SliceComponentProps } from '@prismicio/react';
 
-import SectionContainer from '@/app/components/HomeContent/components/SectionContainer';
 import DefaultSlice from './components/DefaultSlice';
+
+import VerticalSlice from './components/VerticalSlice';
 
 /**
  * Props for `HeroSection`.
@@ -19,18 +20,13 @@ const HeroSection: FC<HeroSectionProps> = ({ slice }) => {
       {slice.variation === 'default' && (
         <DefaultSlice slice={slice} index={0} slices={[]} context={undefined} />
       )}
-      {slice.variation === 'heroSectionVertical' && (
-        <SectionContainer id={slice.id}>
-          <section
-            data-slice-type={slice.slice_type}
-            data-slice-variation={slice.variation}
-            id={slice.id}
-          >
-            <PrismicRichText field={slice.primary.hero_title} />
-            <PrismicRichText field={slice.primary.hero_subtitle_first} />
-            <PrismicRichText field={slice.primary.hero_subtitle_second} />
-          </section>
-        </SectionContainer>
+      {slice.variation === 'heroVertical' && (
+        <VerticalSlice
+          slice={slice}
+          index={0}
+          slices={[]}
+          context={undefined}
+        />
       )}
     </>
   );

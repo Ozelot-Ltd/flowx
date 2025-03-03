@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 
 import { HeroSectionProps } from '..';
 import SectionContainer from '@/app/components/HomeContent/SectionContainer';
-
 import Heading from './components/Heading';
 
 import {
@@ -17,7 +16,7 @@ import { SubHeading } from './components/SubHeading';
 import ButtonBar from '@/slices/HeroSection/components/components/ButtonBar';
 import HeroButton from './components/HeroButton';
 
-export default function DefaultSlice({ slice }: HeroSectionProps) {
+export default function VerticalSlice({ slice }: HeroSectionProps) {
   const [activeButton, setActiveButton] = useState('');
   const { setWindowState } = useWindowStore();
   const { setIsScroll, isScroll } = useScrollStore();

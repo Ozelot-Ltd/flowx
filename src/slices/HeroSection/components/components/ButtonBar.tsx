@@ -1,14 +1,14 @@
 'use client';
 
 import React from 'react';
-import { HeroSectionSlice } from '../../../../prismicio-types';
+import { HeroSectionSlice } from '../../../../../prismicio-types';
 
 import styles from './ButtonBar.module.css';
 
 import {
   useWindowStore,
   useScrollStore,
-} from '../../../../stores/useWindowStore';
+} from '../../../../../stores/useWindowStore';
 import { PrismicRichText } from '@prismicio/react';
 import { asText } from '@prismicio/client';
 

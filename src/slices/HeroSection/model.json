@@ -72,13 +72,27 @@
             "allowTargetBlank": true,
             "multi": "paragraph"
           }
+        },
+        "toggle_button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Toggle Button Text ",
+            "placeholder": "Get Interactive"
+          }
+        },
+        "toggle_button_text_active": {
+          "type": "Text",
+          "config": {
+            "label": "Toggle Button Text active",
+            "placeholder": "Go to Scrollmode"
+          }
         }
       },
       "items": {}
     },
     {
-      "id": "heroSectionVertical",
-      "name": "Hero Section Vertical",
+      "id": "heroVertical",
+      "name": "Hero Vertical",
       "docURL": "...",
       "version": "initial",
       "description": "Default",
@@ -88,7 +102,7 @@
           "type": "Text",
           "config": {
             "label": "uid",
-            "placeholder": "hero_vertical"
+            "placeholder": "hero_horizontal"
           }
         },
         "hero_title": {
@@ -115,7 +129,7 @@
             "label": "Hero Subtitle Second",
             "placeholder": "managing energy-flows",
             "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading3"
           }
         },
         "hero_buttons": {
@@ -143,6 +157,20 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "paragraph"
+          }
+        },
+        "toggle_button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Toggle Button Text ",
+            "placeholder": "Get Interactive"
+          }
+        },
+        "toggle_button_text_active": {
+          "type": "Text",
+          "config": {
+            "label": "Toggle Button Text active",
+            "placeholder": "Go to Scrollmode"
           }
         }
       },

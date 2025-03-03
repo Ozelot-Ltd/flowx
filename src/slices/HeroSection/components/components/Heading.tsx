@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { HeroSectionProps } from '..';
+import { HeroSectionProps } from '../..';
 import styles from './Heading.module.css';
 
 import { asText } from '@prismicio/client';

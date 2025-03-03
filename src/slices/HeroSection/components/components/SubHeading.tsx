@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeroSectionProps } from '..';
+import { HeroSectionProps } from '../..';
 import { PrismicRichText } from '@prismicio/react';
 import styles from './SubHeading.module.css';
 

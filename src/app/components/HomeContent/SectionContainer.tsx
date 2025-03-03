@@ -5,7 +5,7 @@ import styles from './SectionContainer.module.css';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import useNavigation from '../../../../../stores/useNavigation';
+import useNavigation from '../../../../stores/useNavigation';
 
 gsap.registerPlugin(ScrollTrigger);
 

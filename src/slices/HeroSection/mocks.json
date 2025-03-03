@@ -75,21 +75,36 @@
 				"__TYPE__": "FieldContent",
 				"value": "has",
 				"type": "Text"
+			},
+			"toggle_button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "balance",
+				"type": "Text"
+			},
+			"toggle_button_text_active": {
+				"__TYPE__": "FieldContent",
+				"value": "willing",
+				"type": "Text"
 			}
 		},
 		"items": []
 	},
 	{
 		"__TYPE__": "SharedSliceContent",
-		"variation": "heroSectionVertical",
+		"variation": "heroVertical",
 		"primary": {
+			"uid": {
+				"__TYPE__": "FieldContent",
+				"value": "build",
+				"type": "Text"
+			},
 			"hero_title": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
 						"type": "heading2",
 						"content": {
-							"text": "Settle"
+							"text": "Stick"
 						}
 					}
 				]
@@ -100,7 +115,7 @@
 					{
 						"type": "heading3",
 						"content": {
-							"text": "Agree"
+							"text": "Original"
 						}
 					}
 				]
@@ -109,9 +124,9 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "heading2",
+						"type": "heading3",
 						"content": {
-							"text": "Office"
+							"text": "Married"
 						}
 					}
 				]
@@ -130,7 +145,7 @@
 										{
 											"type": "paragraph",
 											"content": {
-												"text": "Occaecat culpa laborum dolore pariatur irure. Nisi enim amet ad magna ipsum nisi esse adipisicing nisi eu officia est esse velit officia."
+												"text": "Consectetur incididunt fugiat duis eu ullamco ad eu ullamco. Fugiat culpa est aute qui qui amet nulla exercitation ex irure amet adipisicing et nostrud."
 											}
 										}
 									]
@@ -146,14 +161,19 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Ea amet consectetur sint sunt laborum aute enim nulla."
+							"text": "Dolore cillum ea aliqua eu excepteur aute esse nostrud nulla aliquip. Lorem laboris pariatur exercitation magna dolore enim elit minim."
 						}
 					}
 				]
 			},
-			"uid": {
+			"toggle_button_text": {
 				"__TYPE__": "FieldContent",
-				"value": "war",
+				"value": "biggest",
+				"type": "Text"
+			},
+			"toggle_button_text_active": {
+				"__TYPE__": "FieldContent",
+				"value": "add",
 				"type": "Text"
 			}
 		},

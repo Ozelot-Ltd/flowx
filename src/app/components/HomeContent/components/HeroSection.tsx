@@ -9,7 +9,7 @@ import {
   useScrollStore,
 } from '../../../../../stores/useWindowStore';
 import SectionContainer from './SectionContainer';
-import ButtonBar from '../../../../slices/HeroSection/components/ButtonBar';
+import ButtonBar from '../../../../slices/HeroSection/components/components/ButtonBar';
 
 export default function HeroSection({
   page,
