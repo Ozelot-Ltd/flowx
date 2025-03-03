@@ -1,7 +1,11 @@
 .heading {
     margin: 2rem 0;
-    width: 100%;
-    font-size: 4rem;
+    width: fit-content !important;
+    font-size: 6rem;
     will-change: font-variation-settings;
     font-variation-settings: 'wght' 300;
+}
+
+.heading h2 {
+    width: fit-content;
 }

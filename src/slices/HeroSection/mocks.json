@@ -20,8 +20,10 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Et sint sit irure incididunt consectetur pariatur eiusmod eiusmod. Mollit duis non id ut. Voluptate enim elit voluptate nisi occaecat nostrud minim laboris quis proident ex tempor."
-						}
+							"text": "test",
+							"spans": []
+						},
+						"direction": "ltr"
 					}
 				]
 			},
@@ -39,8 +41,52 @@
 										{
 											"type": "paragraph",
 											"content": {
-												"text": "Lorem qui ullamco deserunt velit velit irure occaecat voluptate cillum non aute cillum. Eiusmod sint aliqua non do pariatur mollit sint ad."
-											}
+												"text": "test",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"button_text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "test",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"button_text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "test",
+												"spans": []
+											},
+											"direction": "ltr"
 										}
 									]
 								}
@@ -95,7 +141,7 @@
 		"primary": {
 			"uid": {
 				"__TYPE__": "FieldContent",
-				"value": "build",
+				"value": "avoid",
 				"type": "Text"
 			},
 			"hero_title": {

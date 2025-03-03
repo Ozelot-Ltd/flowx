@@ -22,8 +22,8 @@ export default function HeroButton({
       >
         <p>
           {isScroll
-            ? slice.primary.toggle_button_text_active
-            : slice.primary.toggle_button_text}
+            ? slice.primary.toggle_button_text
+            : slice.primary.toggle_button_text_active}
         </p>
       </div>
     </div>

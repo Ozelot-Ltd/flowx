@@ -13,7 +13,7 @@
 
 .rightContainer {
     display: flex;
-    gap: 10rem;
+    gap: var(--hero-padding);
 }
 
 

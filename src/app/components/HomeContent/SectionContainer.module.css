@@ -1,4 +1,9 @@
-.section {
-    height: 100svh;
+.sectionContainer {
+    height: 100vh;
     width: 100%;
+    overflow: hidden;
+}
+
+.sectionActive {
+    background-color: rgba(229, 200, 255, 0)
 }

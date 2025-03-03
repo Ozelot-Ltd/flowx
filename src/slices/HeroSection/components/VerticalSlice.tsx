@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 import { HeroSectionProps } from '..';
 import SectionContainer from '@/app/components/HomeContent/SectionContainer';
+
 import Heading from './components/Heading';
 
 import {
@@ -11,7 +12,7 @@ import {
   useScrollStore,
 } from '../../../../stores/useWindowStore';
 
-import styles from './DefaultSlice.module.css';
+import styles from './VerticalSlice.module.css';
 import { SubHeading } from './components/SubHeading';
 import ButtonBar from '@/slices/HeroSection/components/components/ButtonBar';
 import HeroButton from './components/HeroButton';
@@ -45,7 +46,7 @@ export default function VerticalSlice({ slice }: HeroSectionProps) {
     }
 
     return () => {
-      document.body.style.overflow = 'auto'; // Reset to default
+      document.body.style.overflow = 'auto';
     };
   }, [isScroll]);
 
@@ -55,9 +56,9 @@ export default function VerticalSlice({ slice }: HeroSectionProps) {
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
         id={slice.id}
-        className={styles.content}
+        className={styles.herocontent}
       >
-        <div className={styles.horizontal}>
+        <div className={styles.verticalLayout}>
           <Heading slice={slice} index={0} slices={[]} context={undefined} />
           <SubHeading slice={slice} index={0} slices={[]} context={undefined} />
           <HeroButton slice={slice} onSeeMoreClick={onSeeMoreClick} />

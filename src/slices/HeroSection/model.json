@@ -102,7 +102,7 @@
           "type": "Text",
           "config": {
             "label": "uid",
-            "placeholder": "hero_horizontal"
+            "placeholder": "hero_vertical"
           }
         },
         "hero_title": {

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import styles from './SectionContainer.module.css';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -19,12 +19,6 @@ export default function SectionContainer({
   const sectionRef = useRef(null);
   const { setActiveSection, activeSection } = useNavigation();
 
-  useEffect(() => {
-    if (id) {
-      setActiveSection(id);
-    }
-  }, []);
-
   useGSAP(() => {
     if (!sectionRef.current) return;
 
@@ -32,11 +26,12 @@ export default function SectionContainer({
       trigger: sectionRef.current,
       start: 'top 50%',
       end: 'bottom 50%',
-      onEnter: () => id,
-      onEnterBack: () => id,
-      markers: false,
+      onEnter: () => id && setActiveSection(id),
+      onEnterBack: () => id && setActiveSection(id),
+      markers: true,
     });
 
+    console.log(activeSection);
     return () => {
       trigger.kill();
     };
@@ -44,7 +39,7 @@ export default function SectionContainer({
 
   return (
     <section
-      className={`${styles.section} ${activeSection === id ? styles.sectionActive : ''}`}
+      className={`${styles.sectionContainer} ${activeSection === id?.toString() ? styles.sectionActive : ''}`}
       id={id?.toString()}
       ref={sectionRef}
     >

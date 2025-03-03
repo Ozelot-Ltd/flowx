@@ -329,7 +329,7 @@ export interface HeroSectionSliceHeroVerticalPrimary {
    * uid field in *HeroSection → Hero Vertical → Primary*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: hero_horizontal
+   * - **Placeholder**: hero_vertical
    * - **API ID Path**: hero_section.heroVertical.primary.uid
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */

@@ -29,7 +29,7 @@ export default function DefaultSlice({ slice }: HeroSectionProps) {
     if (activeButton === '') {
       setWindowState('front');
     } else {
-      setWindowState('front');
+      setWindowState('');
     }
     if (window.scrollY > 0 && isScroll) {
       setIsScroll(!isScroll);
@@ -46,7 +46,7 @@ export default function DefaultSlice({ slice }: HeroSectionProps) {
     }
 
     return () => {
-      document.body.style.overflow = 'auto'; // Reset to default
+      document.body.style.overflow = 'auto';
     };
   }, [isScroll]);
 
@@ -56,9 +56,9 @@ export default function DefaultSlice({ slice }: HeroSectionProps) {
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
         id={slice.id}
-        className={styles.content}
+        className={styles.herocontent}
       >
-        <div className={styles.horizontal}>
+        <div className={styles.horizontalLayout}>
           <Heading slice={slice} index={0} slices={[]} context={undefined} />
           <SubHeading slice={slice} index={0} slices={[]} context={undefined} />
           <HeroButton slice={slice} onSeeMoreClick={onSeeMoreClick} />

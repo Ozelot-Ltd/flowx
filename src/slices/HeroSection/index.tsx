@@ -3,7 +3,6 @@ import { Content } from '@prismicio/client';
 import { SliceComponentProps } from '@prismicio/react';
 
 import DefaultSlice from './components/DefaultSlice';
-
 import VerticalSlice from './components/VerticalSlice';
 
 /**
