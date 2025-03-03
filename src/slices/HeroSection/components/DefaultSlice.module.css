@@ -1,0 +1,14 @@
+.content {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.horizontal {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

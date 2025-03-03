@@ -21,8 +21,8 @@ export default async function Page() {
     <>
       <Background />
       <section className={styles.container}>
-        <SliceZone slices={page.data.slices} components={components} />;
         <Header settings={settings} />
+        <SliceZone slices={page.data.slices} components={components} />;
         {/* <HomeContent page={page} /> */}
       </section>
     </>

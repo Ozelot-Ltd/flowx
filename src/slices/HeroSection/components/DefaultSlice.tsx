@@ -4,7 +4,8 @@ import { HeroSectionProps } from '..';
 import SectionContainer from '@/app/components/HomeContent/components/SectionContainer';
 import Heading from './Heading';
 
-import styles from '../index.module.css';
+import styles from './DefaultSlice.module.css';
+import { SubHeading } from './SubHeading';
 
 export default function DefaultSlice({ slice }: HeroSectionProps) {
   console.log(slice.primary.uid?.toString());
@@ -16,10 +17,10 @@ export default function DefaultSlice({ slice }: HeroSectionProps) {
         id={slice.id}
         className={styles.content}
       >
-        <Heading slice={slice} index={0} slices={[]} context={undefined} />
-        <Heading slice={slice} index={0} slices={[]} context={undefined} />
-        <Heading slice={slice} index={0} slices={[]} context={undefined} />
-        <Heading slice={slice} index={0} slices={[]} context={undefined} />
+        <div className={styles.horizontal}>
+          <Heading slice={slice} index={0} slices={[]} context={undefined} />
+          <SubHeading slice={slice} index={0} slices={[]} context={undefined} />
+        </div>
       </section>
     </SectionContainer>
   );

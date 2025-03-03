@@ -27,6 +27,8 @@ const HeroSection: FC<HeroSectionProps> = ({ slice }) => {
             id={slice.id}
           >
             <PrismicRichText field={slice.primary.hero_title} />
+            <PrismicRichText field={slice.primary.hero_subtitle_first} />
+            <PrismicRichText field={slice.primary.hero_subtitle_second} />
           </section>
         </SectionContainer>
       )}

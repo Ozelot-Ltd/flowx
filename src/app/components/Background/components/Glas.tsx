@@ -65,7 +65,7 @@ export default function Glass() {
   useEffect(() => {
     if (!glassRef.current) return;
     if (windowState === 'scroll' && activeSection === 'hero_horizontal') {
-      glassRef.current.position.set(0, -0.1, -1.4);
+      glassRef.current.position.set(1, -0.1, -1.4);
       glassRef.current.rotation.set(0, 0, 0);
     } else if (windowState === 'scroll' && activeSection === 'hero') {
       glassRef.current.position.set(0, -0.1, -1.4);
@@ -143,7 +143,7 @@ export default function Glass() {
       });
       gsap.to(glassRef.current.position, {
         y: 0,
-        x: 0,
+        x: 1,
         z: -1.4,
         duration: longTransition,
         ease: 'sine',
