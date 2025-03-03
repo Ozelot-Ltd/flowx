@@ -6,6 +6,7 @@ import Heading from './Heading';
 
 import styles from './DefaultSlice.module.css';
 import { SubHeading } from './SubHeading';
+import ButtonBar from '@/app/components/HomeContent/components/ButtonBar';
 
 export default function DefaultSlice({ slice }: HeroSectionProps) {
   console.log(slice.primary.uid?.toString());
@@ -21,6 +22,7 @@ export default function DefaultSlice({ slice }: HeroSectionProps) {
           <Heading slice={slice} index={0} slices={[]} context={undefined} />
           <SubHeading slice={slice} index={0} slices={[]} context={undefined} />
         </div>
+        <ButtonBar slice={slice} index={0} slices={[]} context={undefined} />
       </section>
     </SectionContainer>
   );

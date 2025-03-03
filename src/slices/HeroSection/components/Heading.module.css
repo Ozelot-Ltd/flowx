@@ -1,0 +1,7 @@
+.heading {
+    margin: 2rem 0;
+    width: 100%;
+    font-size: 4rem;
+    will-change: font-variation-settings;
+    font-variation-settings: 'wght' 300;
+}
