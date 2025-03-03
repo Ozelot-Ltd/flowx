@@ -9,7 +9,7 @@ import {
   useScrollStore,
 } from '../../../../../stores/useWindowStore';
 import SectionContainer from './SectionContainer';
-import ButtonBar from './ButtonBar';
+import ButtonBar from '../../../../slices/HeroSection/components/ButtonBar';
 
 export default function HeroSection({
   page,
@@ -18,39 +18,6 @@ export default function HeroSection({
   page: HomeDocument;
   id: string;
 }) {
-  const { setWindowState } = useWindowStore();
-  const { setIsScroll, isScroll } = useScrollStore();
-
-  const [activeButton, setActiveButton] = useState('');
-
-  const onSeeMoreClick = () => {
-    if (window.scrollY > 0) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    if (activeButton === '') {
-      setWindowState('front');
-    } else {
-      setWindowState('front');
-    }
-    if (window.scrollY > 0 && isScroll) {
-      setIsScroll(!isScroll);
-    } else {
-      setIsScroll(!isScroll);
-    }
-  };
-
-  useEffect(() => {
-    if (!isScroll) {
-      document.body.style.overflow = 'hidden';
-    } else if (isScroll) {
-      document.body.style.overflow = 'auto';
-    }
-
-    return () => {
-      document.body.style.overflow = 'auto'; // Reset to default
-    };
-  }, [isScroll]);
-
   return (
     <SectionContainer id={id}>
       <div className={styles.content}>
@@ -60,20 +27,8 @@ export default function HeroSection({
               <PrismicRichText field={page.data.hero_title} />
               <PrismicRichText field={page.data.hero_description} />
             </div>
-
-            <div className={styles.buttonsContainer}>
-              <div
-                className={styles.button}
-                onClick={() => {
-                  onSeeMoreClick();
-                }}
-              >
-                <p>{isScroll ? 'GET INTERACTIVE' : 'GO TO SCROLLMODE'}</p>
-              </div>
-            </div>
           </div>
         </div>{' '}
-        <ButtonBar page={page} setActiveButton={setActiveButton} />
       </div>
     </SectionContainer>
   );

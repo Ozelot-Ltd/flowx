@@ -23,7 +23,6 @@ export default async function Page() {
       <section className={styles.container}>
         <Header settings={settings} />
         <SliceZone slices={page.data.slices} components={components} />;
-        {/* <HomeContent page={page} /> */}
       </section>
     </>
   );

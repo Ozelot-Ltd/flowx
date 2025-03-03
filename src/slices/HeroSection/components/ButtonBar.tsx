@@ -1,19 +1,22 @@
+'use client';
+
 import React from 'react';
-import { HomeDocument } from '../../../../../prismicio-types';
+import { HeroSectionSlice } from '../../../../prismicio-types';
 
 import styles from './ButtonBar.module.css';
 
 import {
   useWindowStore,
   useScrollStore,
-} from '../../../../../stores/useWindowStore';
+} from '../../../../stores/useWindowStore';
+import { PrismicRichText } from '@prismicio/react';
+import { asText } from '@prismicio/client';
 
 export default function ButtonBar({
-  page,
-
+  slice,
   setActiveButton,
 }: {
-  page: HomeDocument;
+  slice: HeroSectionSlice;
   setActiveButton: (button: string) => void;
 }) {
   const { setWindowState, windowState } = useWindowStore();
@@ -25,19 +28,20 @@ export default function ButtonBar({
       setWindowState(buttonText.toLowerCase());
     }
   };
+
   return (
     <div
       className={`${styles.buttonBar} ${!isScroll ? styles.btnVisible : ''}`}
     >
-      {page.data.landing_buttons.map((item, index: number) => (
+      {slice.primary.hero_buttons.map((item, index: number) => (
         <div
           key={index}
-          className={`${styles.button} ${windowState === item.button_text?.toLowerCase() ? styles.active : ''}`}
+          className={`${styles.button} ${windowState === asText(item.button_text)?.toLowerCase() ? styles.active : ''}`}
           onClick={() => {
-            if (item.button_text) clickFunction(item.button_text);
+            if (item.button_text) clickFunction(asText(item.button_text));
           }}
         >
-          <p>{item.button_text}</p>
+          <PrismicRichText field={item.button_text} />
         </div>
       ))}
     </div>
