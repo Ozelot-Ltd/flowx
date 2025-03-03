@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './SectionContainer.module.css';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -18,6 +18,12 @@ export default function SectionContainer({
 }) {
   const sectionRef = useRef(null);
   const { setActiveSection, activeSection } = useNavigation();
+
+  useEffect(() => {
+    if (id) {
+      setActiveSection(id);
+    }
+  }, []);
 
   useGSAP(() => {
     if (!sectionRef.current) return;

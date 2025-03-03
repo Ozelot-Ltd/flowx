@@ -51,6 +51,8 @@ export default function Glass() {
   useEffect(() => {
     if (activeSection === 'hero') {
       setWindowState('hero');
+    } else if (activeSection === 'hero_horizontal') {
+      setWindowState('hero_horizontal');
     } else if (activeSection === 'vision') {
       setWindowState('vision');
     } else if (activeSection === 'mission') {
@@ -62,8 +64,15 @@ export default function Glass() {
 
   useEffect(() => {
     if (!glassRef.current) return;
-    glassRef.current.position.set(1, -0.1, -1.4);
-    glassRef.current.rotation.set(0, 0, 0);
+    if (windowState === 'scroll' && activeSection === 'hero_horizontal') {
+      glassRef.current.position.set(0, -0.1, -1.4);
+      glassRef.current.rotation.set(0, 0, 0);
+    } else if (windowState === 'scroll' && activeSection === 'hero') {
+      glassRef.current.position.set(0, -0.1, -1.4);
+      glassRef.current.rotation.set(0, 0, 0);
+    }
+
+    console.log(activeSection, 'jölasdöjkldf', windowState);
   }, []);
 
   useFrame(() => {});
@@ -120,6 +129,21 @@ export default function Glass() {
       gsap.to(glassRef.current.position, {
         y: 0,
         x: 1,
+        z: -1.4,
+        duration: longTransition,
+        ease: 'sine',
+      });
+    } else if (windowState === 'hero_horizontal') {
+      gsap.to(glassRef.current.rotation, {
+        y: Math.PI * 2,
+        x: 0,
+        z: 0,
+        duration: longTransition,
+        ease: 'sine',
+      });
+      gsap.to(glassRef.current.position, {
+        y: 0,
+        x: 0,
         z: -1.4,
         duration: longTransition,
         ease: 'sine',

@@ -7,7 +7,7 @@ interface NavState {
 }
 
 const useNavigation = create<NavState>((set) => ({
-  activeSection: 'home',
+  activeSection: '',
   previousSection: null,
   setActiveSection: (section: string) =>
     set((state) => ({
