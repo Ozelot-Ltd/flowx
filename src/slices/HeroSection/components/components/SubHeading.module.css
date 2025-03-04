@@ -1,6 +1,9 @@
-.subHeading {}
+.subHeading {
+    overflow: hidden;
+}
 
 .subHeading h3 {
     font-size: 2rem;
     font-weight: 100;
+    text-align: center;
 }

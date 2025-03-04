@@ -221,6 +221,72 @@
 				"__TYPE__": "FieldContent",
 				"value": "add",
 				"type": "Text"
+			},
+			"front_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Replace"
+						}
+					}
+				]
+			},
+			"front_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Est magna consectetur voluptate eiusmod et ipsum ex. Laboris dolor in elit incididunt ipsum ipsum dolor. Deserunt deserunt et ea pariatur ad eiusmod quis ad consectetur ullamco incididunt non dolor do."
+						}
+					}
+				]
+			},
+			"back_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Example"
+						}
+					}
+				]
+			},
+			"back_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ad voluptate excepteur aute sint deserunt ipsum. Amet amet qui enim duis ipsum magna amet nostrud velit nisi. Quis nostrud amet cillum commodo."
+						}
+					}
+				]
+			},
+			"between_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Foreign"
+						}
+					}
+				]
+			},
+			"between_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Lorem excepteur do sunt sit quis reprehenderit sit tempor. Et eu ea reprehenderit consectetur reprehenderit culpa quis laboris do nostrud id sint aliqua. Eu ad ea ea ex in minim occaecat Lorem sint occaecat minim do laboris."
+						}
+					}
+				]
 			}
 		},
 		"items": [

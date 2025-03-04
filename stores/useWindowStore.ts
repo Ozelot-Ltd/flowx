@@ -11,7 +11,7 @@ interface ScrollState {
 }
 
 export const useWindowStore = create<WindowState>((set) => ({
-  windowState: 'scroll',
+  windowState: 'hero_vertical',
   setWindowState: (window: string) => set(() => ({ windowState: window })),
 }));
 

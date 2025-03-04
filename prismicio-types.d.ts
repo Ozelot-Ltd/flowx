@@ -406,6 +406,66 @@ export interface HeroSectionSliceHeroVerticalPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   toggle_button_text_active: prismic.KeyTextField;
+
+  /**
+   * Front Title field in *HeroSection → Hero Vertical → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_section.heroVertical.primary.front_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  front_title: prismic.RichTextField;
+
+  /**
+   * Front Text field in *HeroSection → Hero Vertical → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_section.heroVertical.primary.front_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  front_text: prismic.RichTextField;
+
+  /**
+   * Back Title field in *HeroSection → Hero Vertical → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_section.heroVertical.primary.back_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  back_title: prismic.RichTextField;
+
+  /**
+   * Back Text field in *HeroSection → Hero Vertical → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_section.heroVertical.primary.back_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  back_text: prismic.RichTextField;
+
+  /**
+   * Between Title field in *HeroSection → Hero Vertical → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_section.heroVertical.primary.between_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  between_title: prismic.RichTextField;
+
+  /**
+   * Between Text field in *HeroSection → Hero Vertical → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_section.heroVertical.primary.between_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  between_text: prismic.RichTextField;
 }
 
 /**
@@ -438,51 +498,6 @@ type HeroSectionSliceVariation =
 export type HeroSectionSlice = prismic.SharedSlice<
   "hero_section",
   HeroSectionSliceVariation
->;
-
-/**
- * Primary content in *RichText → Default → Primary*
- */
-export interface RichTextSliceDefaultPrimary {
-  /**
-   * Content field in *RichText → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Lorem ipsum...
-   * - **API ID Path**: rich_text.default.primary.content
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  content: prismic.RichTextField;
-}
-
-/**
- * Default variation for RichText Slice
- *
- * - **API ID**: `default`
- * - **Description**: RichText
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type RichTextSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<RichTextSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *RichText*
- */
-type RichTextSliceVariation = RichTextSliceDefault;
-
-/**
- * RichText Shared Slice
- *
- * - **API ID**: `rich_text`
- * - **Description**: RichText
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type RichTextSlice = prismic.SharedSlice<
-  "rich_text",
-  RichTextSliceVariation
 >;
 
 declare module "@prismicio/client" {
@@ -522,10 +537,6 @@ declare module "@prismicio/client" {
       HeroSectionSliceVariation,
       HeroSectionSliceDefault,
       HeroSectionSliceHeroVertical,
-      RichTextSlice,
-      RichTextSliceDefaultPrimary,
-      RichTextSliceVariation,
-      RichTextSliceDefault,
     };
   }
 }

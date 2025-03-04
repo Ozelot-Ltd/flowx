@@ -18,3 +18,9 @@
     justify-content: space-evenly;
 
 }
+
+.overflowContainer {
+    height: fit-content;
+    overflow: hidden;
+    border: 1px solid black;
+}

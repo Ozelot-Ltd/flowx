@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { HeroSectionProps } from '..';
 import SectionContainer from '@/app/components/HomeContent/SectionContainer';
@@ -18,19 +18,35 @@ import ButtonBar from '@/slices/HeroSection/components/components/ButtonBar';
 import HeroButton from './components/HeroButton';
 
 export default function VerticalSlice({ slice }: HeroSectionProps) {
+  const containerRef = useRef(null);
+
+  const buttonRef = useRef(null);
+
   const [activeButton, setActiveButton] = useState('');
-  const { setWindowState } = useWindowStore();
+  const { setWindowState, windowState } = useWindowStore();
   const { setIsScroll, isScroll } = useScrollStore();
 
   const onSeeMoreClick = () => {
     if (window.scrollY > 0) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    if (activeButton === '') {
+
+    if (
+      windowState !== 'front' &&
+      windowState !== 'back' &&
+      windowState !== 'between'
+    ) {
       setWindowState('front');
-    } else {
-      setWindowState('front');
+      setActiveButton('front');
+    } else if (
+      windowState === 'front' ||
+      windowState === 'back' ||
+      windowState === 'between'
+    ) {
+      setActiveButton('');
+      setWindowState('hero_vertical');
     }
+
     if (window.scrollY > 0 && isScroll) {
       setIsScroll(!isScroll);
     } else {
@@ -58,12 +74,18 @@ export default function VerticalSlice({ slice }: HeroSectionProps) {
         id={slice.id}
         className={styles.herocontent}
       >
-        <div className={styles.verticalLayout}>
+        <div className={styles.verticalLayout} ref={containerRef}>
           <Heading slice={slice} index={0} slices={[]} context={undefined} />
+
           <SubHeading slice={slice} index={0} slices={[]} context={undefined} />
-          <HeroButton slice={slice} onSeeMoreClick={onSeeMoreClick} />
+
+          <div className={styles.buttonsContainer}>
+            <div ref={buttonRef}>
+              <HeroButton slice={slice} onSeeMoreClick={onSeeMoreClick} />
+            </div>
+            <ButtonBar slice={slice} setActiveButton={setActiveButton} />
+          </div>
         </div>
-        <ButtonBar slice={slice} setActiveButton={setActiveButton} />
       </section>
     </SectionContainer>
   );

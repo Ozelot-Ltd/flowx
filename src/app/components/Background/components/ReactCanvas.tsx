@@ -10,7 +10,7 @@ export default function ReactCanvas() {
   return (
     <Canvas
       camera={{
-        position: [0, 0, 0.5],
+        position: [0, 0, 0.6],
         fov: 60,
         near: 0.1,
         far: 100,

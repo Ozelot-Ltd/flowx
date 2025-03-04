@@ -31,7 +31,8 @@ export default function SectionContainer({
       markers: true,
     });
 
-    console.log(activeSection);
+    console.log(activeSection, id);
+
     return () => {
       trigger.kill();
     };

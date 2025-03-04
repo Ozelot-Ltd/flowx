@@ -2,7 +2,6 @@
 
 import React from 'react';
 
-import { ScrollControls } from '@react-three/drei';
 import Glas from './Glas';
 
 export default function Experience() {
@@ -38,9 +37,7 @@ export default function Experience() {
         penumbra={1}
         castShadow
       />
-      <ScrollControls pages={3} damping={0.25}>
-        <Glas />
-      </ScrollControls>
+      <Glas />
     </>
   );
 }

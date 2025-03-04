@@ -172,6 +172,60 @@
             "label": "Toggle Button Text active",
             "placeholder": "Go to Scrollmode"
           }
+        },
+        "front_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Front Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading3"
+          }
+        },
+        "front_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Front Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "back_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Back Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading3"
+          }
+        },
+        "back_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Back Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "between_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Between Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading3"
+          }
+        },
+        "between_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Between Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
         }
       },
       "items": {}

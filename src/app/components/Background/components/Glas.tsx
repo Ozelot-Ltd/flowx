@@ -1,23 +1,27 @@
 'use client';
 
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useEffect } from 'react';
 import { Object3D, MeshStandardMaterial } from 'three';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useFrame } from '@react-three/fiber';
-import { useWindowStore } from '../../../../../stores/useWindowStore';
+import {
+  useWindowStore,
+  useScrollStore,
+} from '../../../../../stores/useWindowStore';
 import useNavigation from '../../../../../stores/useNavigation';
 
 gsap.registerPlugin(useGSAP);
 
 const shortTransition = 1.2;
-const longTransition = 1.5;
+const longTransition = 2.5;
 
 export default function Glass() {
   const containerRef = useRef<Object3D>(null);
   const glassRef = useRef<Object3D>(null);
 
-  const { windowState } = useWindowStore();
+  const { windowState, setWindowState } = useWindowStore();
+  const { isScroll } = useScrollStore();
   const { activeSection } = useNavigation();
 
   const material = useMemo(
@@ -32,7 +36,6 @@ export default function Glass() {
     []
   );
 
-  // Optimize animation frame by using less complex calculations
   useFrame(({ clock }) => {
     const time = clock.getElapsedTime() * 0.4; // Slower animation
     if (containerRef.current) {
@@ -41,91 +44,92 @@ export default function Glass() {
     }
   });
 
+  useEffect(() => {
+    if (!glassRef.current) return;
+    glassRef.current.scale.set(0.25, 0.5, 0.005);
+
+    if (isScroll && activeSection === 'hero_vertical') {
+      setWindowState('hero_vertical');
+    }
+    if (activeSection === 'vision') {
+      setWindowState('vision');
+    }
+  }, [isScroll, activeSection, setWindowState]);
+
   useGSAP(() => {
     if (!glassRef.current) return;
 
-    glassRef.current.scale.set(0.25, 0.5, 0.005);
-
-    if (activeSection === 'hero_vertical' && windowState === '') {
-      gsap.to(glassRef.current.position, {
-        x: 0,
-        y: 0,
-        z: 0,
-        duration: shortTransition,
-      });
+    if (windowState === 'front') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
         y: Math.PI * 2,
         z: 0,
         duration: shortTransition,
       });
-    } else if (activeSection === 'hero_vertical' && windowState === 'front') {
       gsap.to(glassRef.current.position, {
         x: 0,
         y: 0,
         z: 0,
         duration: shortTransition,
       });
-      gsap.to(glassRef.current.rotation, {
-        x: 0,
-        y: Math.PI * 2,
-        z: 0,
-        duration: shortTransition,
-      });
-    } else if (activeSection === 'hero_vertical' && windowState === 'back') {
-      gsap.to(glassRef.current.position, {
-        x: 0,
-        y: 0,
-        z: 0,
-        duration: shortTransition,
-      });
+    }
+    if (windowState === 'back') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
         y: Math.PI,
         z: 0,
         duration: shortTransition,
       });
-    } else if (activeSection === 'hero_vertical' && windowState === 'between') {
       gsap.to(glassRef.current.position, {
         x: 0,
         y: 0,
-        z: 0,
-        duration: shortTransition,
-      });
-      gsap.to(glassRef.current.rotation, {
-        x: Math.PI / 2,
-        y: 0,
-        z: Math.PI / 2,
-        duration: shortTransition,
-      });
-    } else if (activeSection === 'vision') {
-      gsap.to(glassRef.current.position, {
-        x: -0.4,
-        y: 0,
-        z: 0,
-        duration: longTransition,
-      });
-      gsap.to(glassRef.current.rotation, {
-        x: 0,
-        y: Math.PI * 4,
-        z: 0,
-        duration: shortTransition,
-      });
-    } else if (windowState === 'front') {
-      gsap.to(glassRef.current.position, {
-        x: 0,
-        y: 0,
-        z: 0,
-        duration: shortTransition,
-      });
-      gsap.to(glassRef.current.rotation, {
-        x: 0,
-        y: Math.PI * 2,
         z: 0,
         duration: shortTransition,
       });
     }
-  }, [activeSection, windowState]);
+    if (windowState === 'between') {
+      gsap.to(glassRef.current.rotation, {
+        x: Math.PI / 1.5,
+        y: 0,
+        z: Math.PI / 2.5,
+        duration: shortTransition,
+      });
+      gsap.to(glassRef.current.position, {
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: shortTransition,
+      });
+    }
+    if (isScroll && windowState === 'hero_vertical') {
+      gsap.to(glassRef.current.rotation, {
+        x: Math.PI / 1.2,
+        y: 0,
+        z: 0,
+        duration: longTransition,
+      });
+      gsap.to(glassRef.current.position, {
+        x: 0,
+        y: 0.05,
+        z: 0,
+        duration: longTransition,
+      });
+    }
+    if (isScroll && windowState === 'vision') {
+      gsap.to(glassRef.current.rotation, {
+        x: 0,
+        y: Math.PI,
+        z: 0,
+        duration: longTransition,
+      });
+      gsap.to(glassRef.current.position, {
+        x: 1,
+        y: 0,
+        z: 0,
+        duration: longTransition,
+      });
+    }
+  }, [isScroll, windowState]);
 
   return (
     <group ref={containerRef}>
