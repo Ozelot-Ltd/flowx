@@ -1,0 +1,45 @@
+{
+  "id": "vision_slice",
+  "type": "SharedSlice",
+  "name": "VisionSlice",
+  "description": "VisionSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "vision_image": {
+          "type": "Image",
+          "config": {
+            "label": "Vision Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "vision_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Vision Title",
+            "placeholder": "our vision",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "vision_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Vision Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

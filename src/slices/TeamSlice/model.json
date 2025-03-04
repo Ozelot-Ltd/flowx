@@ -1,0 +1,74 @@
+{
+  "id": "team_slice",
+  "type": "SharedSlice",
+  "name": "TeamSlice",
+  "description": "TeamSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "team_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Team Title",
+            "placeholder": "Team",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "team_member": {
+          "type": "Group",
+          "config": {
+            "label": "Team Member",
+            "repeat": true,
+            "fields": {
+              "member_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Member Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "member_name": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Member Name",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading4"
+                }
+              },
+              "member_role": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Member Role",
+                  "placeholder": "CEO/CTO etc.",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "member_email": {
+                "type": "Link",
+                "config": {
+                  "label": "member Email",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

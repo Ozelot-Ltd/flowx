@@ -1,0 +1,51 @@
+.container {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.imageContainer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    align-items: left;
+}
+
+.imageContainer img {
+    height: auto;
+    width: 100%;
+    filter: brightness(0.5)
+}
+
+.contentContainer {
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.titleContainer,
+.textContainer {
+    z-index: 2;
+    position: relative;
+}
+
+.titleContainer h2 {
+    color: white;
+    font-size: 6rem;
+}
+
+.textContainer p {
+    color: white;
+    width: 50%;
+    font-size: 1.2rem;
+}

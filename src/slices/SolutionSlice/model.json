@@ -1,0 +1,80 @@
+{
+  "id": "solution_slice",
+  "type": "SharedSlice",
+  "name": "SolutionSlice",
+  "description": "SolutionSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "solution_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Solution Title",
+            "placeholder": "Solution",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "solution_sections": {
+          "type": "Group",
+          "config": {
+            "label": "Solution Sections",
+            "repeat": true,
+            "fields": {
+              "solution_side": {
+                "type": "Text",
+                "config": {
+                  "label": "Solution Side",
+                  "placeholder": "right, left, spaced"
+                }
+              },
+              "solution_subtitle_first": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Solution Subtitle First",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading3"
+                }
+              },
+              "solution_text_first": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Solution Text First",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "solution_subtitle_second": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Solution Subtitle Second",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading3"
+                }
+              },
+              "solution_text_second": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Solution Text Second",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

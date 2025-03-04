@@ -1,0 +1,96 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"team_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Other"
+						}
+					}
+				]
+			},
+			"team_member": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"member_image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51",
+										"width": 2545,
+										"height": 2545
+									},
+									"url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51",
+									"width": 2545,
+									"height": 2545,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"member_name",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "heading4",
+											"content": {
+												"text": "Birthday"
+											}
+										}
+									]
+								}
+							],
+							[
+								"member_role",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Minim elit irure exercitation nulla exercitation minim dolore et elit duis. Minim veniam dolor sint ullamco mollit magna occaecat do qui id pariatur magna. Commodo qui non magna."
+											}
+										}
+									]
+								}
+							],
+							[
+								"member_email",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "7064e0ae-5336-441e-a5b9-6003c55894c3",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io",
+										"text": "supply"
+									}
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

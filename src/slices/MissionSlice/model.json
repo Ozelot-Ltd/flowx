@@ -1,0 +1,55 @@
+{
+  "id": "mission_slice",
+  "type": "SharedSlice",
+  "name": "MissionSlice",
+  "description": "MissionSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "our mission",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "mission_group_fields": {
+          "type": "Group",
+          "config": {
+            "label": "Mission Group Fields",
+            "repeat": true,
+            "fields": {
+              "group_title": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Group Title",
+                  "placeholder": "smart, energy efficient etc. ",
+                  "allowTargetBlank": true,
+                  "multi": "heading3"
+                }
+              },
+              "group_text": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Group Text",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

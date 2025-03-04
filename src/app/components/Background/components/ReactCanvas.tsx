@@ -6,6 +6,7 @@ import Experience from './Experience';
 
 import { Canvas } from '@react-three/fiber';
 import { Environment } from '@react-three/drei';
+
 export default function ReactCanvas() {
   return (
     <Canvas

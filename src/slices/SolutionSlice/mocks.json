@@ -1,0 +1,94 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"solution_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Change"
+						}
+					}
+				]
+			},
+			"solution_sections": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"solution_side",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "area",
+									"type": "Text"
+								}
+							],
+							[
+								"solution_text_first",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Proident laborum occaecat nostrud sint consectetur deserunt incididunt. Velit velit ullamco occaecat ex eu occaecat. Aliqua sint elit quis."
+											}
+										}
+									]
+								}
+							],
+							[
+								"solution_subtitle_first",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "heading3",
+											"content": {
+												"text": "Stood"
+											}
+										}
+									]
+								}
+							],
+							[
+								"solution_subtitle_second",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "heading3",
+											"content": {
+												"text": "Honor"
+											}
+										}
+									]
+								}
+							],
+							[
+								"solution_text_second",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Ad excepteur labore fugiat. Laboris aute consequat nostrud incididunt incididunt aliquip elit exercitation proident cillum fugiat officia culpa ad. Nisi voluptate labore irure nisi quis magna velit voluptate pariatur deserunt minim sunt incididunt Lorem est."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

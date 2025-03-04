@@ -6,45 +6,26 @@
   "status": true,
   "json": {
     "Main": {
-      "hero_title": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Hero Title",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "heading2"
-        }
-      },
-      "landing_buttons": {
-        "type": "Group",
-        "config": {
-          "label": "Landing Buttons",
-          "repeat": true,
-          "fields": {
-            "button_text": {
-              "type": "Text",
-              "config": {
-                "label": "Button Text",
-                "placeholder": "Front, Back, Etc etc."
-              }
-            }
-          }
-        }
-      },
-      "hero_description": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Hero Description",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph"
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "vision_slice": {
+              "type": "SharedSlice"
+            },
+            "whats_next_slice": {
+              "type": "SharedSlice"
+            },
+            "team_slice": {
+              "type": "SharedSlice"
+            },
+            "solution_slice": {
+              "type": "SharedSlice"
+            },
+            "mission_slice": {
+              "type": "SharedSlice"
+            },
             "hero_section": {
               "type": "SharedSlice"
             }

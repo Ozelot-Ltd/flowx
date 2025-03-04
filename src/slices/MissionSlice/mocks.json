@@ -1,0 +1,58 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Queen"
+						}
+					}
+				]
+			},
+			"mission_group_fields": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"group_title",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "heading3",
+											"content": {
+												"text": "Waste"
+											}
+										}
+									]
+								}
+							],
+							[
+								"group_text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Pariatur ullamco sit proident proident culpa ad."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
