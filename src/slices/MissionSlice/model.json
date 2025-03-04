@@ -44,6 +44,14 @@
                   "allowTargetBlank": true,
                   "multi": "paragraph"
                 }
+              },
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "label": "icon",
+                  "constraint": {},
+                  "thumbnails": []
+                }
               }
             }
           }

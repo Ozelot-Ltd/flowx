@@ -479,6 +479,16 @@ export interface MissionSliceSliceDefaultPrimaryMissionGroupFieldsItem {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   group_text: prismic.RichTextField;
+
+  /**
+   * icon field in *MissionSlice → Default → Primary → Mission Group Fields*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_slice.default.primary.mission_group_fields[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
 }
 
 /**
