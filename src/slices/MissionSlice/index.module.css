@@ -20,28 +20,14 @@
 .groupContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .titleContainer h2 {
-    font-size: 6rem;
-    gap: 3rem;
-    display: flex;
-    flex-direction: column;
-    height: fit-content;
-    width: fit-content;
-    gap: 3rem;
-    padding: 1rem 2rem;
-    border-radius: 0.5em;
-    background: var(--lightgrey);
-    cursor: pointer;
-    font-family: var(--title-font);
-    transition: all 0.3s;
-    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-    font-size: 0.7rem;
-    border-radius: 20px;
-    filter: var(--brightness);
+    font-size: 4rem;
 }
+
+
 
 .group {
     max-width: 27rem;
@@ -49,32 +35,17 @@
     display: flex;
     flex-direction: column;
     height: fit-content;
-    width: fit-content;
     gap: 3rem;
-    padding: 2rem 2rem;
-    border-radius: 0.5em;
-    background: var(--lightgrey);
-    cursor: pointer;
-    font-family: var(--title-font);
-    transition: all 0.3s;
-    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-    font-size: 0.7rem;
-    border-radius: 20px;
-    filter: var(--brightness);
-    border: 1px solid var(--lightgrey);
+    padding: 2rem;
 }
 
-.group:hover {
-    border: 1px solid var(--green);
-}
-
-.group h3 {
+.textContainer h3 {
     font-size: 2.5rem
 }
 
-.group p {
-    width: 80%;
-    font-size: 0.8rem;
+.textContainer p {
+    width: 100%;
+    font-size: 1rem;
 }
 
 .textContainer {
