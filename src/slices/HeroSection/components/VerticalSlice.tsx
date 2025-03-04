@@ -26,6 +26,8 @@ export default function VerticalSlice({ slice }: HeroSectionProps) {
   const { setWindowState, windowState } = useWindowStore();
   const { setIsScroll, isScroll } = useScrollStore();
 
+  console.log(activeButton);
+
   const onSeeMoreClick = () => {
     if (window.scrollY > 0) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -76,14 +78,12 @@ export default function VerticalSlice({ slice }: HeroSectionProps) {
       >
         <div className={styles.verticalLayout} ref={containerRef}>
           <Heading slice={slice} index={0} slices={[]} context={undefined} />
-
           <SubHeading slice={slice} index={0} slices={[]} context={undefined} />
-
           <div className={styles.buttonsContainer}>
             <div ref={buttonRef}>
               <HeroButton slice={slice} onSeeMoreClick={onSeeMoreClick} />
+              <ButtonBar slice={slice} setActiveButton={setActiveButton} />
             </div>
-            <ButtonBar slice={slice} setActiveButton={setActiveButton} />
           </div>
         </div>
       </section>
