@@ -1,8 +1,7 @@
 .container {
-    border-radius: 0.5em;
+    border-radius: 20px;
     background: var(--lightgrey);
     box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-    border-radius: 20px;
     filter: var(--brightness);
     border: 1px solid var(--lightgrey);
     transition: box-shadow 0.2s linear
