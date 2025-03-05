@@ -40,7 +40,7 @@ export default function SectionContainer({
 
   return (
     <section
-      className={`${styles.sectionContainer} ${activeSection === id?.toString() ? styles.sectionActive : ''}`}
+      className={styles.sectionContainer}
       id={id?.toString()}
       ref={sectionRef}
     >

@@ -2,8 +2,10 @@
     height: fit-content;
     width: 100%;
     overflow: hidden;
+    position: relative;
 }
 
 .sectionActive {
-    background-color: rgba(229, 200, 255, 0)
+    position: sticky;
+    top: 0;
 }
