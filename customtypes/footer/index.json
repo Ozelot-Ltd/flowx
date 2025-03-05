@@ -1,0 +1,46 @@
+{
+  "format": "custom",
+  "id": "footer",
+  "label": "Footer",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "address_name": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Address Name",
+          "placeholder": "FLOWX",
+          "allowTargetBlank": true,
+          "multi": "heading4"
+        }
+      },
+      "address_street": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Address Street",
+          "placeholder": "Seefeldstrasse 224",
+          "allowTargetBlank": true,
+          "multi": "heading5"
+        }
+      },
+      "address_city": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Address City",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading5"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+.footer {
+    background-color: var(--darkgrey);
+    display: flex;
+    padding: 2rem;
+    background: #7cb48f;
+    box-shadow: inset 33px 33px 56px #69997a,
+        inset -33px -33px 56px #8fcfa4;
+    gap: 4rem;
+}
+
+.footer * {
+    color: var(--white);
+}
+
+.leftContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+
+.logoContainer a {
+    cursor: pointer;
+}
+
+.logoContainer img {
+    height: 1.5rem;
+    width: auto;
+}
+
+.addressContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contactContainer {
+    justify-self: flex-end;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.contactContainer a {
+    color: var(--white);
+    padding: 0.8em 1.8em;
+    border-radius: 0.5em;
+    background: var(--lightgrey);
+    cursor: pointer;
+    font-family: var(--title-font);
+    text-transform: uppercase;
+    transition: all 0.3s;
+    border: 1px solid var(--green);
+    transition: all 0.3s;
+    background: #343933;
+    box-shadow: inset 20px 20px 60px #2c302b,
+        inset -20px -20px 60px #3c423b;
+    font-size: 0.7rem;
+    border-radius: 20px;
+    filter: var(--brightness)
+}
+
+.contactContainer a:hover {
+    filter: brightness(1.05);
+}
+
+.contactContainer a:active {
+    box-shadow:
+        0 0 0 rgba(197, 197, 197, 0), 0 0 0 rgba(255, 255, 255, 0),
+        inset 3px 3px 5px #c5c5c5, inset -3px -3px 5px #ffffff;
+}

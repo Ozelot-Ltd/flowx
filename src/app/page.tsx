@@ -10,10 +10,15 @@ import Header from './components/Header/Header';
 import { SliceZone } from '@prismicio/react';
 import { components } from '@/slices';
 
+import Footer from './components/Footer/Footer';
+
 export default async function Page() {
   const client = createClient();
   const page = await client.getSingle('home');
   const settings = await client.getSingle('settings');
+  const footer = await client.getSingle('footer');
+
+  console.log('fjödföjasjd', footer);
 
   return (
     <>
@@ -22,6 +27,7 @@ export default async function Page() {
       <section className={styles.container}>
         <SliceZone slices={page.data.slices} components={components} />
       </section>{' '}
+      <Footer footer={footer} />
     </>
   );
 }
