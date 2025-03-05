@@ -57,6 +57,11 @@ export default function Glass() {
     if (activeSection === 'solution') {
       setWindowState('solution');
     }
+    if (activeSection === 'team') {
+      setWindowState('team');
+    }
+
+    console.log();
   }, [isScroll, activeSection, setWindowState]);
 
   useGSAP(() => {
@@ -172,6 +177,20 @@ export default function Glass() {
         y: 0,
         z: 0,
         duration: shortTransition,
+      });
+    }
+    if (windowState === 'team') {
+      gsap.to(glassRef.current.rotation, {
+        x: 0,
+        y: Math.PI * 2,
+        z: 0,
+        duration: longTransition,
+      });
+      gsap.to(glassRef.current.position, {
+        x: 1,
+        y: 0,
+        z: 0,
+        duration: longTransition,
       });
     }
   }, [isScroll, windowState]);
