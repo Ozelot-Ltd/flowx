@@ -6,6 +6,7 @@ import MainHeadingContainer from '@/app/components/Containers/MainHeadingContain
 import styles from './index.module.css';
 import ContentLeft from './components/ContentLeft';
 import ContentRight from './components/ContentRight';
+import ContentSpaced from './components/ContentSpaced';
 
 /**
  * Props for `SolutionSlice`.
@@ -34,6 +35,8 @@ const SolutionSlice: FC<SolutionSliceProps> = ({ slice }) => {
                 <ContentLeft item={item} index={index} key={index} />
               ) : item.solution_side === 'right' ? (
                 <ContentRight item={item} index={index} key={index} />
+              ) : item.solution_side === 'spaced' ? (
+                <ContentSpaced item={item} index={index} key={index} />
               ) : null
             )}
           </div>

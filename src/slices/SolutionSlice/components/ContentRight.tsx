@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 
-import styles from './ContentLeft.module.css';
+import styles from './ContentRight.module.css';
 
 import NeumorphContainer from '@/app/components/Containers/NeumorphContainer';
 import { PrismicRichText } from '@prismicio/react';

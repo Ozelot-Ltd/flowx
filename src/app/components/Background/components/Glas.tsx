@@ -42,10 +42,6 @@ export default function Glass() {
       containerRef.current.rotation.y = Math.sin(time) * 0.03;
       containerRef.current.rotation.z = Math.cos(time) * 0.03;
     }
-
-    if (containerRef.current && windowState === 'left') {
-      containerRef.current.rotation.y = time * 2;
-    }
   });
 
   useEffect(() => {
@@ -57,6 +53,9 @@ export default function Glass() {
     }
     if (activeSection === 'vision') {
       setWindowState('vision');
+    }
+    if (activeSection === 'solution') {
+      setWindowState('solution');
     }
   }, [isScroll, activeSection, setWindowState]);
 
@@ -137,6 +136,34 @@ export default function Glass() {
       gsap.to(glassRef.current.rotation, {
         x: 0,
         y: Math.PI * 2,
+        z: 0,
+        duration: shortTransition,
+      });
+      gsap.to(glassRef.current.position, {
+        x: -0.2,
+        y: 0,
+        z: 0,
+        duration: shortTransition,
+      });
+    }
+    if (isScroll && windowState === 'right' && activeSection === 'solution') {
+      gsap.to(glassRef.current.rotation, {
+        x: 0,
+        y: Math.PI,
+        z: 0,
+        duration: shortTransition,
+      });
+      gsap.to(glassRef.current.position, {
+        x: 0.2,
+        y: 0,
+        z: 0,
+        duration: shortTransition,
+      });
+    }
+    if (isScroll && windowState === 'spaced' && activeSection === 'solution') {
+      gsap.to(glassRef.current.rotation, {
+        x: 0,
+        y: Math.PI,
         z: 0,
         duration: shortTransition,
       });
