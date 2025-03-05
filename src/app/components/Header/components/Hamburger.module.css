@@ -1,0 +1,17 @@
+.hamburger {
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger div {
+    height: 4px;
+    width: 2.4rem;
+    border-radius: 41px;
+    border: 1px solid var(--darkgreen);
+    background: #f1f1f1;
+    box-shadow: 33px 33px 56px #cdcdcd,
+        -33px -33px 56px #ffffff;
+}

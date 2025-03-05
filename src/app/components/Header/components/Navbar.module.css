@@ -1,7 +1,11 @@
 .navbar {
     display: flex;
     align-items: center;
-
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    width: fit-content;
+    padding: 2rem;
 }
 
 .navbar {
@@ -9,7 +13,67 @@
     gap: 2rem;
 }
 
+/* Initial state - items are hidden */
+.navbarItem {
+    transform: translateY(-10rem);
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
 
+/* When menu is open - items appear */
+.open .navbarItem {
+    transform: translateY(0rem);
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Stagger IN - first item appears first (shortest delay) */
+.open .navbarItem:nth-of-type(1) {
+    transition-delay: 0.1s;
+}
+
+.open .navbarItem:nth-of-type(2) {
+    transition-delay: 0.2s;
+}
+
+.open .navbarItem:nth-of-type(3) {
+    transition-delay: 0.3s;
+}
+
+.open .navbarItem:nth-of-type(4) {
+    transition-delay: 0.4s;
+}
+
+.open .navbarItem:nth-of-type(5) {
+    transition-delay: 0.5s;
+}
+
+.open .navbarItem:nth-of-type(6) {
+    transition-delay: 0.6s;
+}
+
+/* Stagger OUT - last item disappears first (shortest delay) */
+.navbarItem:nth-of-type(6) {
+    transition-delay: 0.1s;
+}
+
+.navbarItem:nth-of-type(5) {
+    transition-delay: 0.2s;
+}
+
+.navbarItem:nth-of-type(4) {
+    transition-delay: 0.3s;
+}
+
+.navbarItem:nth-of-type(3) {
+    transition-delay: 0.4s;
+}
+
+.navbarItem:nth-of-type(2) {
+    transition-delay: 0.5s;
+}
+
+.navbarItem:nth-of-type(1) {
+    transition-delay: 0.6s;
+}
 
 .navbarItem a {
     background: var(--lightgrey);
