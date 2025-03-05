@@ -601,6 +601,26 @@ export interface SolutionSliceSliceDefaultPrimarySolutionSectionsItem {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   solution_text_second: prismic.RichTextField;
+
+  /**
+   * solution icon field in *SolutionSlice → Default → Primary → Solution Sections*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: solution_slice.default.primary.solution_sections[].solution_icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  solution_icon: prismic.ImageField<never>;
+
+  /**
+   * image solution second field in *SolutionSlice → Default → Primary → Solution Sections*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: solution_slice.default.primary.solution_sections[].image_solution_second
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_solution_second: prismic.ImageField<never>;
 }
 
 /**

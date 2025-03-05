@@ -31,9 +31,9 @@ const TeamSlice: FC<TeamSliceProps> = ({ slice }) => {
           <div className={styles.groupContainer}>
             {slice.primary.team_member.map((item, index) => (
               <div key={index} className={styles.container}>
-                <ImageComponent item={item} />
+                <ImageComponent item={item} isTeam={true} />
                 <div className={styles.textContainer}>
-                  <TextComponent item={item} />
+                  <TextComponent item={item} isTeam={true} />
                 </div>
               </div>
             ))}

@@ -5,18 +5,23 @@ import { PrismicNextImage } from '@prismicio/next';
 import {
   Simplify,
   TeamSliceSliceDefaultPrimaryTeamMemberItem,
+  WhatsNextSliceSliceDefaultPrimaryWhatsNextElementsItem,
 } from '../../../../prismicio-types';
 import NeumorphContainer from '@/app/components/Containers/NeumorphContainer';
 
 type Props = {
-  item: Simplify<TeamSliceSliceDefaultPrimaryTeamMemberItem>;
+  itemNext?: Simplify<WhatsNextSliceSliceDefaultPrimaryWhatsNextElementsItem>;
+  item?: Simplify<TeamSliceSliceDefaultPrimaryTeamMemberItem>;
+  isTeam?: boolean;
 };
 
-export default function ImageComponent({ item }: Props) {
+export default function ImageComponent({ item, itemNext, isTeam }: Props) {
   return (
     <NeumorphContainer>
       <div className={styles.imageContainer}>
-        <PrismicNextImage field={item.member_image} />
+        <PrismicNextImage
+          field={isTeam ? item?.member_image : itemNext?.whats_next_image}
+        />
       </div>
     </NeumorphContainer>
   );
