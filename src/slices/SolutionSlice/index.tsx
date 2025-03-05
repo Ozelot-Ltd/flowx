@@ -1,6 +1,11 @@
-import { FC } from "react";
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { FC } from 'react';
+import { Content } from '@prismicio/client';
+import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
+import SectionContainer from '@/app/components/HomeContent/SectionContainer';
+import MainHeadingContainer from '@/app/components/Containers/MainHeadingContainer';
+import styles from './index.module.css';
+import ContentLeft from './components/ContentLeft';
+import ContentRight from './components/ContentRight';
 
 /**
  * Props for `SolutionSlice`.
@@ -13,13 +18,28 @@ export type SolutionSliceProps =
  */
 const SolutionSlice: FC<SolutionSliceProps> = ({ slice }) => {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for solution_slice (variation: {slice.variation})
-      Slices
-    </section>
+    <SectionContainer id={'solution'}>
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+      >
+        <div className={styles.contentContainer}>
+          <MainHeadingContainer>
+            <PrismicRichText field={slice.primary.solution_title} />
+          </MainHeadingContainer>
+
+          <div className={styles.groupContainer}>
+            {slice.primary.solution_sections.map((item, index) =>
+              item.solution_side === 'left' ? (
+                <ContentLeft item={item} index={index} key={index} />
+              ) : item.solution_side === 'right' ? (
+                <ContentRight item={item} index={index} key={index} />
+              ) : null
+            )}
+          </div>
+        </div>
+      </section>
+    </SectionContainer>
   );
 };
 

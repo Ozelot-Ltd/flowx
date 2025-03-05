@@ -5,6 +5,7 @@
     filter: var(--brightness);
     border: 1px solid var(--lightgrey);
     transition: box-shadow 0.2s linear;
+    width: fit-content;
 }
 
 .container:hover {

@@ -42,6 +42,10 @@ export default function Glass() {
       containerRef.current.rotation.y = Math.sin(time) * 0.03;
       containerRef.current.rotation.z = Math.cos(time) * 0.03;
     }
+
+    if (containerRef.current && windowState === 'left') {
+      containerRef.current.rotation.y = time * 2;
+    }
   });
 
   useEffect(() => {
@@ -127,6 +131,20 @@ export default function Glass() {
         y: 0,
         z: 0,
         duration: longTransition,
+      });
+    }
+    if (isScroll && windowState === 'left' && activeSection === 'solution') {
+      gsap.to(glassRef.current.rotation, {
+        x: 0,
+        y: Math.PI * 2,
+        z: 0,
+        duration: shortTransition,
+      });
+      gsap.to(glassRef.current.position, {
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: shortTransition,
       });
     }
   }, [isScroll, windowState]);

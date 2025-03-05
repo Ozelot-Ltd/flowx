@@ -5,6 +5,7 @@ import SectionContainer from '@/app/components/HomeContent/SectionContainer';
 import styles from './index.module.css';
 import { PrismicNextImage } from '@prismicio/next';
 import NeumorphContainer from '@/app/components/Containers/NeumorphContainer';
+import MainHeadingContainer from '@/app/components/Containers/MainHeadingContainer';
 
 /**
  * Props for `MissionSlice`.
@@ -23,9 +24,9 @@ const MissionSlice: FC<MissionSliceProps> = ({ slice }) => {
         className={styles.container}
       >
         <div className={styles.contentContainer}>
-          <div className={styles.titleContainer}>
+          <MainHeadingContainer>
             <PrismicRichText field={slice.primary.title} />
-          </div>
+          </MainHeadingContainer>
 
           <div className={styles.groupContainer}>
             {slice.primary.mission_group_fields.map((item, index) => (

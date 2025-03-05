@@ -6,6 +6,8 @@ import { PrismicNextImage } from '@prismicio/next';
 
 import styles from './index.module.css';
 
+import MainHeadingContainer from '@/app/components/Containers/MainHeadingContainer';
+
 /**
  * Props for `VisionSlice`.
  */
@@ -23,9 +25,11 @@ const VisionSlice: FC<VisionSliceProps> = ({ slice }) => {
         className={styles.container}
       >
         <div className={styles.contentContainer}>
-          <div className={styles.titleContainer}>
-            <PrismicRichText field={slice.primary.vision_title} />
-          </div>
+          <MainHeadingContainer>
+            <div className={styles.titleContainer}>
+              <PrismicRichText field={slice.primary.vision_title} />
+            </div>
+          </MainHeadingContainer>
           <div className={styles.textContainer}>
             <PrismicRichText field={slice.primary.vision_text} />
           </div>

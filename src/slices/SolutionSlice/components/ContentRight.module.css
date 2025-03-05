@@ -1,0 +1,27 @@
+.contentRight {
+    display: flex;
+    justify-content: flex-start;
+    padding: 8rem 4rem;
+    border-radius: inherit;
+
+}
+
+
+.textContainer {
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    max-width: 28rem;
+    align-items: center;
+}
+
+.textContainer p {
+    max-width: 80%;
+    text-align: center;
+}
+
+.textContainer h3 {
+    font-size: 2rem;
+}
