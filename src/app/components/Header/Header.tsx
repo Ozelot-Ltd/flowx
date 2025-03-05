@@ -24,12 +24,12 @@ export default function Header({ settings }: { settings: SettingsDocument }) {
             <PrismicNextImage field={settings.data.logo} />
           </Link>
         </div>
-        <div className={styles.navbarContainer}>
-          <Navbar settings={settings} />
-        </div>
+      </div>
+      <div className={styles.navbarContainer}>
+        <Navbar settings={settings} />
       </div>
       <div className={styles.contactContainer}>
-        <Link href={'mailto:carlo_ettisberger@hotmail.com'}>CONTACT</Link>
+        <Link href={'mailto:info@flowx.one'}>CONTACT</Link>
       </div>
     </header>
   );

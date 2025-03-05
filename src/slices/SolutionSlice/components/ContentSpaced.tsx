@@ -39,7 +39,7 @@ export default function ContentLeft({
       end: 'bottom 50%',
       onEnter: () => setWindowState('spaced'),
       onEnterBack: () => setWindowState('spaced'),
-      markers: true,
+      markers: false,
     });
 
     return () => {

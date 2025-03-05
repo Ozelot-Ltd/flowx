@@ -60,6 +60,9 @@ export default function Glass() {
     if (activeSection === 'team') {
       setWindowState('team');
     }
+    if (activeSection === 'whatsnext') {
+      setWindowState('whatsnext');
+    }
 
     console.log();
   }, [isScroll, activeSection, setWindowState]);

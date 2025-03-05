@@ -28,7 +28,7 @@ export default function SectionContainer({
       end: 'bottom 50%',
       onEnter: () => id && setActiveSection(id),
       onEnterBack: () => id && setActiveSection(id),
-      markers: true,
+      markers: false,
     });
 
     console.log(activeSection);
