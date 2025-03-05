@@ -1,0 +1,29 @@
+.textContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 18rem;
+    padding: 1rem;
+}
+
+.textContainer h4 {
+    text-transform: uppercase;
+}
+
+.textContainer p {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.subContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.subContainer p {
+    font-size: 1rem;
+    font-weight: 600;
+    width: 80%;
+}

@@ -111,6 +111,7 @@ p {
 
 a {
     text-decoration: none;
+    font-family: var(--title-font)
 }
 
 p {

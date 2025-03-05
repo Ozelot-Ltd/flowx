@@ -63,6 +63,15 @@
                   "allowText": true,
                   "repeat": false
                 }
+              },
+              "member_text": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Member Text",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
               }
             }
           }
