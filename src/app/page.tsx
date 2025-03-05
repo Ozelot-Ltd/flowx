@@ -18,8 +18,6 @@ export default async function Page() {
   const settings = await client.getSingle('settings');
   const footer = await client.getSingle('footer');
 
-  console.log('fjödföjasjd', footer);
-
   return (
     <>
       <Background />

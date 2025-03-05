@@ -63,8 +63,6 @@ export default function Glass() {
     if (activeSection === 'whatsnext') {
       setWindowState('whatsnext');
     }
-
-    console.log();
   }, [isScroll, activeSection, setWindowState]);
 
   useGSAP(() => {

@@ -17,7 +17,7 @@ export default function SectionContainer({
   id: string | null | undefined;
 }) {
   const sectionRef = useRef(null);
-  const { setActiveSection, activeSection } = useNavigation();
+  const { setActiveSection } = useNavigation();
 
   useGSAP(() => {
     if (!sectionRef.current) return;
@@ -30,8 +30,6 @@ export default function SectionContainer({
       onEnterBack: () => id && setActiveSection(id),
       markers: false,
     });
-
-    console.log(activeSection);
 
     return () => {
       trigger.kill();

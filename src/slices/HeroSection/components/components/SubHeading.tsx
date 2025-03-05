@@ -45,7 +45,6 @@ export const SubHeading = ({ slice }: HeroSectionProps) => {
     };
   }, [windowState]);
 
-  console.log(windowState);
   return (
     <div className={styles.subHeading}>
       <div className={styles.overflowContainer} ref={subHeadingRef}>

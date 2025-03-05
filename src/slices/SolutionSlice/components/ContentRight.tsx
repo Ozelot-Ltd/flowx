@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 
 import styles from './ContentRight.module.css';
 
@@ -27,7 +27,7 @@ export default function ContentLeft({
   item: Simplify<SolutionSliceSliceDefaultPrimarySolutionSectionsItem>;
   index: number;
 }) {
-  const { setWindowState, windowState } = useWindowStore();
+  const { setWindowState } = useWindowStore();
   const sectionRef = useRef(null);
 
   useGSAP(() => {
@@ -46,10 +46,6 @@ export default function ContentLeft({
       trigger.kill();
     };
   }, []);
-
-  useEffect(() => {
-    console.log(windowState);
-  }, [windowState]);
 
   return (
     <div
