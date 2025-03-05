@@ -5,7 +5,6 @@ import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import gsap from 'gsap';
 import styles from './ScrollContainer.module.css';
 
-// Register the plugin
 gsap.registerPlugin(ScrollSmoother);
 
 export default function ScrollContainer({
@@ -13,28 +12,19 @@ export default function ScrollContainer({
 }: {
   children: React.ReactNode;
 }) {
-  // Create refs for our wrapper and content
   const wrapperRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  // Initialize ScrollSmoother after component mounts and DOM is ready
   useEffect(() => {
-    // Make sure elements exist before creating ScrollSmoother
     if (wrapperRef.current && contentRef.current) {
-      const smoother = ScrollSmoother.create({
-        wrapper: wrapperRef.current,
-        content: contentRef.current,
+      ScrollSmoother.create({
+        ignoreMobileResize: true,
         smooth: 1,
         effects: true,
-        smoothTouch: 0.1,
+        normalizeScroll: true,
       });
-
-      // Clean up on unmount
-      return () => {
-        smoother.kill();
-      };
     }
-  }, []); // Empty dependency array means this runs once after mount
+  }, []);
 
   return (
     <div className={styles.main} ref={wrapperRef}>

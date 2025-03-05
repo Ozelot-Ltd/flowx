@@ -10,10 +10,6 @@ import Header from './components/Header/Header';
 import { SliceZone } from '@prismicio/react';
 import { components } from '@/slices';
 
-// import ScrollContainer from './components/HomeContent/ScrollContainer';
-
-// const isDevelopment = process.env.NODE_ENV === 'development';
-
 export default async function Page() {
   const client = createClient();
   const page = await client.getSingle('home');
@@ -24,8 +20,8 @@ export default async function Page() {
       <Background />
       <Header settings={settings} />{' '}
       <section className={styles.container}>
-        <SliceZone slices={page.data.slices} components={components} />;
-      </section>
+        <SliceZone slices={page.data.slices} components={components} />
+      </section>{' '}
     </>
   );
 }
