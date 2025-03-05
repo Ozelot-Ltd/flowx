@@ -11,8 +11,9 @@
     text-transform: uppercase;
 }
 
-.textContainer p {
-    font-size: 1rem;
+
+.upperContainer p {
+    font-size: 0.8rem;
     font-weight: 600;
 }
 
@@ -25,5 +26,5 @@
 .subContainer p {
     font-size: 1rem;
     font-weight: 600;
-    width: 80%;
+    width: 90%;
 }
