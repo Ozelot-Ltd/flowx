@@ -9,3 +9,22 @@
     left: calc(50%-4rem);
     margin-top: 8rem;
 }
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {}
+
+
+
+/* Mobile */
+@media (max-width: 840px) {
+    .buttonsContainer {
+        transform: translateY(-30px);
+
+    }
+
+
+
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 840px) and (max-width: 1120px) {}

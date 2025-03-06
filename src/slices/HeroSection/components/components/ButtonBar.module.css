@@ -68,3 +68,32 @@
     transition: all var(--time-short) ease;
 
 }
+
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {}
+
+
+
+/* Mobile */
+@media (max-width: 840px) {
+    .buttonBar {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        left: 0;
+        width: 100%;
+        transform: translateY(calc(200% + 30px));
+        transition: all 0.4s linear;
+    }
+
+    .btnVisible {
+        transform: translateY(50%);
+        transition-delay: 0s;
+        visibility: visible;
+    }
+
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 840px) and (max-width: 1120px) {}

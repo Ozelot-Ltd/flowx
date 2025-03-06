@@ -11,6 +11,8 @@ import {
 } from '../../../../../stores/useWindowStore';
 import useNavigation from '../../../../../stores/useNavigation';
 
+import { useMobile } from '../../../../../context/MobileContext';
+
 gsap.registerPlugin(useGSAP);
 
 const shortTransition = 1.2;
@@ -23,6 +25,8 @@ export default function Glass() {
   const { windowState, setWindowState } = useWindowStore();
   const { isScroll } = useScrollStore();
   const { activeSection } = useNavigation();
+
+  const { isMobile } = useMobile();
 
   const material = useMemo(
     () =>
@@ -46,7 +50,7 @@ export default function Glass() {
 
   useEffect(() => {
     if (!glassRef.current) return;
-    glassRef.current.scale.set(0.25, 0.5, 0.005);
+    glassRef.current.scale.set(0.25, 0.5, 0.003);
 
     if (isScroll && activeSection === 'hero_vertical') {
       setWindowState('hero_vertical');
@@ -63,7 +67,7 @@ export default function Glass() {
     if (activeSection === 'whatsnext') {
       setWindowState('whatsnext');
     }
-  }, [isScroll, activeSection, setWindowState]);
+  }, [isScroll, activeSection, setWindowState, isMobile]);
 
   useGSAP(() => {
     if (!glassRef.current) return;
