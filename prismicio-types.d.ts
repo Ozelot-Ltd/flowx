@@ -770,16 +770,6 @@ export interface TeamSliceSliceDefaultPrimaryTeamMemberItem {
   member_name: prismic.RichTextField;
 
   /**
-   * Member Role field in *TeamSlice → Default → Primary → Team Member*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: CEO/CTO etc.
-   * - **API ID Path**: team_slice.default.primary.team_member[].member_role
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  member_role: prismic.RichTextField;
-
-  /**
    * member Email field in *TeamSlice → Default → Primary → Team Member*
    *
    * - **Field Type**: Link
@@ -794,16 +784,6 @@ export interface TeamSliceSliceDefaultPrimaryTeamMemberItem {
     prismic.FieldState,
     never
   >;
-
-  /**
-   * Member Text field in *TeamSlice → Default → Primary → Team Member*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: team_slice.default.primary.team_member[].member_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  member_text: prismic.RichTextField;
 }
 
 /**

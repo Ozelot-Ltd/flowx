@@ -61,20 +61,6 @@
 								}
 							],
 							[
-								"member_role",
-								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "paragraph",
-											"content": {
-												"text": "Minim elit irure exercitation nulla exercitation minim dolore et elit duis. Minim veniam dolor sint ullamco mollit magna occaecat do qui id pariatur magna. Commodo qui non magna."
-											}
-										}
-									]
-								}
-							],
-							[
 								"member_email",
 								{
 									"key": "7064e0ae-5336-441e-a5b9-6003c55894c3",
@@ -84,20 +70,6 @@
 										"url": "https://prismic.io",
 										"text": "supply"
 									}
-								}
-							],
-							[
-								"member_text",
-								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "paragraph",
-											"content": {
-												"text": "Proident amet ea reprehenderit. Reprehenderit veniam dolore fugiat culpa irure occaecat eu aliquip qui eu voluptate nulla."
-											}
-										}
-									]
 								}
 							]
 						]

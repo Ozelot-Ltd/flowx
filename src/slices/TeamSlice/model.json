@@ -44,15 +44,6 @@
                   "multi": "heading4"
                 }
               },
-              "member_role": {
-                "type": "StructuredText",
-                "config": {
-                  "label": "Member Role",
-                  "placeholder": "CEO/CTO etc.",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph"
-                }
-              },
               "member_email": {
                 "type": "Link",
                 "config": {
@@ -62,15 +53,6 @@
                   "allowTargetBlank": true,
                   "allowText": true,
                   "repeat": false
-                }
-              },
-              "member_text": {
-                "type": "StructuredText",
-                "config": {
-                  "label": "Member Text",
-                  "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph"
                 }
               }
             }

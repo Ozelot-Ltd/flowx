@@ -5,21 +5,16 @@
     border-radius: inherit;
 }
 
-
 .textContainer {
     height: fit-content;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     padding: 1rem;
-    max-width: 28rem;
+    width: 36rem;
     align-items: center;
 }
 
-.textContainer p {
-    max-width: 80%;
-    text-align: center;
-}
 
 .textContainer h3 {
     font-size: 2rem;

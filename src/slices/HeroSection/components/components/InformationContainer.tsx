@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import styles from './InformationContainer.module.css';
 import { PrismicRichText } from '@prismicio/react';
 import { HeroSectionProps } from '../..';
+
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 type Props = {
   windowState: string;

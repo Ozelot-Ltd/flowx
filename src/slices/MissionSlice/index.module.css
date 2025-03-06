@@ -20,21 +20,21 @@
 .groupContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .group {
-    max-width: 27rem;
-    color: var(--black);
+    width: 27rem;
     display: flex;
     flex-direction: column;
-    height: fit-content;
-    gap: 3rem;
+    height: 27rem;
+    justify-content: space-between;
     padding: 2rem;
+    gap: 1rem;
 }
 
 .textContainer h3 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
 }
 
