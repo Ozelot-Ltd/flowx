@@ -83,9 +83,8 @@
     .stickyHeader {
         width: 100%;
         z-index: 10;
-        margin-bottom: 2rem;
+        margin-bottom: 0rem;
         padding: 4rem 0;
-
     }
 
     /* Class added by ScrollTrigger when header is pinned */
@@ -96,7 +95,7 @@
     /* Ensure proper spacing when header is pinned */
     .stickyHeader.is-pinned+.groupContainer {
         padding-top: 1rem;
-        margin-top: 10rem;
+        margin-top: 0rem;
     }
 
 }

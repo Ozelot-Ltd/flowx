@@ -10,6 +10,7 @@
     height: 100%;
     width: 100%;
     padding: var(--main-padding) 2rem;
+    background-color: red;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

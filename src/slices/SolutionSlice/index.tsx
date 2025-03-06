@@ -38,7 +38,7 @@ const SolutionSlice: FC<SolutionSliceProps> = ({ slice }) => {
         pinSpacing: false,
         onEnter: () => headerRef.current?.classList.add('is-pinned'),
         onLeaveBack: () => headerRef.current?.classList.remove('is-pinned'),
-        markers: false,
+        markers: true,
       });
 
       return () => {

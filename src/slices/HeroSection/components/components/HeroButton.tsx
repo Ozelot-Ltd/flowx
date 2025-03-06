@@ -23,8 +23,6 @@ export default function HeroButton({
   const { isMobile } = useMobile();
   const { windowState } = useWindowStore();
 
-  console.log('asdfasdf', isMobile);
-
   useGSAP(() => {
     if (!containerRef.current) return;
 
