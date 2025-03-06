@@ -10,7 +10,6 @@
     height: 100%;
     width: 100%;
     padding: var(--main-padding) 2rem;
-    background-color: red;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -68,7 +67,9 @@
 /* Mobile */
 @media (max-width: 840px) {
 
-
+    .contentContainer {
+        padding: 0 1rem;
+    }
 
     .groupContainer {
         display: flex;
@@ -100,7 +101,6 @@
 
     .textContainer p {
         width: 100%;
-        font-size: 0.8rem;
         text-align: center;
     }
 

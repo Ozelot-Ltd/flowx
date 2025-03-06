@@ -27,7 +27,6 @@
     z-index: 2;
     height: 100%;
     width: 100%;
-    padding: var(--main-padding) 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -66,13 +65,10 @@
 
     .imageContainer {
         position: relative;
-        /* Changed to relative */
         height: auto;
         width: 100%;
         overflow: hidden;
         z-index: 1;
-        display: block;
-        /* Changed to block */
     }
 
     .imageContainer img {
@@ -106,14 +102,12 @@
     .titleContainer h2 {
         color: white;
         font-size: 2rem;
-        margin: 0.5rem 0;
     }
 
     .textContainer p {
         color: white;
         font-size: 0.8rem;
         width: 100%;
-        margin: 0.5rem 0;
     }
 }
 

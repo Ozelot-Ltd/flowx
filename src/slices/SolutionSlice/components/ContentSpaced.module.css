@@ -28,6 +28,7 @@
 .iconContainer {
     height: 4rem;
     width: 4rem;
+    margin-top: 1rem;
 }
 
 .iconContainer img {
@@ -47,7 +48,7 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        padding: 2rem 1rem;
+        padding: 2rem 0;
         border-radius: inherit;
         gap: 4rem;
     }
@@ -59,12 +60,13 @@
     }
 
     .textContainer p {
-        max-width: 80%;
+
         text-align: center;
     }
 
 
     .iconContainer {
+
         height: 3rem;
         width: 3rem;
     }

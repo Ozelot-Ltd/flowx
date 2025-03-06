@@ -54,14 +54,16 @@ export default function ContentLeft({
       data-slice-side="left"
       ref={sectionRef}
     >
+      {' '}
       <NeumorphContainer>
         <div className={styles.textContainer}>
           <PrismicRichText field={item.solution_subtitle_first} />
-          <PrismicRichText field={item.solution_text_first} />{' '}
+          <PrismicRichText field={item.solution_text_first} />
+
           <div className={styles.iconContainer}>
             <PrismicNextImage field={item.solution_icon} />
           </div>
-        </div>{' '}
+        </div>
       </NeumorphContainer>
     </div>
   );

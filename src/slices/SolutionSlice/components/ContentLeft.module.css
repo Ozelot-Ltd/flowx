@@ -24,6 +24,7 @@
 .iconContainer {
     height: 4rem;
     width: 4rem;
+    margin-top: 1rem;
 }
 
 .iconContainer img {
@@ -42,7 +43,7 @@
     .contentLeft {
         display: flex;
         justify-content: flex-end;
-        padding: 2rem 1rem;
+        padding: 2rem 0;
         border-radius: inherit;
     }
 
