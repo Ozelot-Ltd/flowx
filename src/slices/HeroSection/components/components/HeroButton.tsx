@@ -20,36 +20,36 @@ export default function HeroButton({
 }) {
   const { isScroll } = useScrollStore();
   const containerRef = useRef(null);
-  const isMobile = useMobile();
+  const { isMobile } = useMobile();
   const { windowState } = useWindowStore();
+
+  console.log('asdfasdf', isMobile);
 
   useGSAP(() => {
     if (!containerRef.current) return;
 
-    if (!isMobile) {
-      if (
-        windowState === 'front' ||
-        windowState === 'back' ||
-        windowState === 'between'
-      ) {
-        gsap.to(containerRef.current, {
-          left: '4rem',
-          ease: 'power2.out',
-          duration: 0.5,
-        });
-      } else {
-        gsap.to(containerRef.current, {
-          left: 'calc(50% - 4rem)',
-          ease: 'power2.out',
-          duration: 0.5,
-        });
-      }
+    if (
+      windowState === 'front' ||
+      windowState === 'back' ||
+      windowState === 'between'
+    ) {
+      gsap.to(containerRef.current, {
+        left: isMobile ? '2rem' : '4rem',
+        ease: 'power2.out',
+        duration: 0.5,
+      });
+    } else {
+      gsap.to(containerRef.current, {
+        left: 'calc(50% - 4rem)',
+        ease: 'power2.out',
+        duration: 0.5,
+      });
     }
 
     return () => {
       gsap.killTweensOf(containerRef.current);
     };
-  }, [windowState]);
+  }, [windowState, isMobile]);
 
   return (
     <div className={styles.buttonsContainer} ref={containerRef}>

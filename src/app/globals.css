@@ -87,6 +87,21 @@ h2,
 h3,
 h4,
 h5,
+h6,
+p,
+a,
+li,
+button {
+    -webkit-font-smoothing: antialiased;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
 h6 {
     font-family: var(--title-font);
     color: var(--darkgrey)
@@ -116,7 +131,7 @@ a {
 }
 
 p {
-    font-family: var(--text-font);
+    font-family: var(--text-font) !important;
     line-height: 1.4;
 }
 

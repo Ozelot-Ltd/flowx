@@ -80,9 +80,7 @@
     .buttonBar {
         display: flex;
         gap: 1rem;
-        justify-content: center;
-        left: 0;
-        width: 100%;
+        left: 2rem;
         transform: translateY(calc(200% + 30px));
         transition: all 0.4s linear;
     }
