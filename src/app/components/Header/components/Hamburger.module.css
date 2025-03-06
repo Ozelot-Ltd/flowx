@@ -29,5 +29,5 @@
 }
 
 .hamburger.active .line:nth-child(3) {
-    transform: translateY(-10px) rotate(-45deg);
+    transform: translateY(-9px) rotate(-45deg);
 }
