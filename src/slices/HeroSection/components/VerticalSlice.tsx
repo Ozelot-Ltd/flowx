@@ -14,20 +14,17 @@ import {
 
 import styles from './VerticalSlice.module.css';
 import { SubHeading } from './components/SubHeading';
-import ButtonBar from '@/slices/HeroSection/components/components/ButtonBar';
-import HeroButton from './components/HeroButton';
 
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
 import { SplitText } from 'gsap/all';
+import ButtonContainer from './components/ButtonContainer';
 
 gsap.registerPlugin(SplitText, useGSAP);
 
 export default function VerticalSlice({ slice }: HeroSectionProps) {
   const containerRef = useRef(null);
-
-  const buttonRef = useRef(null);
 
   const [activeButton, setActiveButton] = useState('');
   const { setWindowState, windowState } = useWindowStore();
@@ -86,12 +83,11 @@ export default function VerticalSlice({ slice }: HeroSectionProps) {
         <div className={styles.verticalLayout} ref={containerRef}>
           <Heading slice={slice} index={0} slices={[]} context={undefined} />
           <SubHeading slice={slice} index={0} slices={[]} context={undefined} />
-          <div className={styles.buttonsContainer}>
-            <div ref={buttonRef}>
-              <HeroButton slice={slice} onSeeMoreClick={onSeeMoreClick} />
-              <ButtonBar slice={slice} setActiveButton={setActiveButton} />
-            </div>
-          </div>
+          <ButtonContainer
+            slice={slice}
+            setActiveButton={setActiveButton}
+            onSeeMoreClick={onSeeMoreClick}
+          />
         </div>
       </section>
     </SectionContainer>

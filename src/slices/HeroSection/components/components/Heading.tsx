@@ -10,68 +10,50 @@ import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { useGSAP } from '@gsap/react';
 
-import { useScrollStore } from '../../../../../stores/useWindowStore';
+import { useWindowStore } from '../../../../../stores/useWindowStore';
 
 gsap.registerPlugin(SplitText);
 
 export default function Heading({ slice }: HeroSectionProps) {
   const text = asText(slice.primary.hero_title);
   const textRef = useRef(null);
+  const splitRef = useRef<SplitText | null>(null);
 
-  const { isScroll } = useScrollStore();
+  const { windowState } = useWindowStore();
 
   useGSAP(() => {
-    if (textRef.current) {
-      const split = new SplitText(textRef.current, { type: 'chars' });
-      const chars = split.chars;
-
-      const tl = gsap.timeline({
-        repeat: -1,
-        yoyo: true,
-      });
-
-      gsap.set(chars, {
-        fontVariationSettings: "'wght' 300",
-      });
-
-      tl.to(chars, {
-        fontVariationSettings: "'wght' 700",
-        duration: 4,
-        stagger: {
-          each: 0.2,
-          from: 'start',
-          repeat: 1,
-          yoyo: true,
-        },
-        ease: 'sine.inOut',
-      });
+    if (textRef.current && !splitRef.current) {
+      splitRef.current = new SplitText(textRef.current, { type: 'chars' });
     }
 
-    if (!isScroll) {
-      const split = new SplitText(textRef.current, { type: 'chars' });
+    if (!splitRef.current) return;
 
-      const chars = split.chars;
+    const chars = splitRef.current.chars;
 
+    if (
+      windowState === 'front' ||
+      windowState === 'back' ||
+      windowState === 'between'
+    ) {
       gsap.to(chars, {
-        y: -200,
+        y: '-100%',
         stagger: 0.05,
+        ease: 'power2.out',
         duration: 0.25,
-        ease: 'sine.inOut',
       });
-    }
-
-    if (isScroll) {
-      const split = new SplitText(textRef.current, { type: 'chars' });
-
-      const chars = split.chars;
-
+    } else {
       gsap.to(chars, {
-        y: 0,
+        y: '0%',
         stagger: 0.05,
-        ease: 'sine.inOut',
+        ease: 'power2.out',
+        duration: 0.25,
       });
     }
-  }, [textRef, text, isScroll]);
+
+    return () => {
+      gsap.killTweensOf(chars);
+    };
+  }, [textRef, text, windowState]);
 
   return (
     <div className={styles.heading}>
