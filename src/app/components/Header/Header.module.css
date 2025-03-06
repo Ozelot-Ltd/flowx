@@ -19,6 +19,7 @@
 
 .logoContainer a {
     cursor: pointer;
+    z-index: 11;
 }
 
 .logoContainer img {
@@ -33,7 +34,6 @@
 .contactContainer a {
     color: var(--black);
     padding: 0.8em 1.8em;
-    border-radius: 0.5em;
     background: var(--lightgrey);
     cursor: pointer;
     font-family: var(--title-font);
@@ -56,3 +56,29 @@
         0 0 0 rgba(197, 197, 197, 0), 0 0 0 rgba(255, 255, 255, 0),
         inset 3px 3px 5px #c5c5c5, inset -3px -3px 5px #ffffff;
 }
+
+
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {}
+
+
+
+/* Mobile */
+@media (max-width: 840px) {
+    .header {
+
+        padding: 1rem;
+
+    }
+
+    .contactContainer a {
+        color: var(--black);
+        padding: 0.5rem 1rem;
+
+    }
+
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 840px) and (max-width: 1120px) {}

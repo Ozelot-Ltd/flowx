@@ -10,3 +10,19 @@
 .heading h2 {
     width: fit-content;
 }
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {}
+
+
+
+/* Mobile */
+@media (max-width: 840px) {
+
+    .heading h2 {
+        font-size: 4rem;
+    }
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 840px) and (max-width: 1120px) {}

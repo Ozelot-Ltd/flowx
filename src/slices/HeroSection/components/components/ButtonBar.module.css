@@ -6,7 +6,8 @@
     gap: 2rem;
     padding-top: 2rem;
     transform: translateY(200%);
-    transition: all 0.2s linear
+    transition: all 0.2s linear;
+    left: 4rem;
 }
 
 .btnVisible {

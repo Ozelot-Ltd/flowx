@@ -49,3 +49,86 @@
     width: 50%;
     font-size: 1.2rem;
 }
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {}
+
+/* Mobile */
+@media (max-width: 840px) {
+    .container {
+        height: auto;
+        min-height: fit-content;
+        width: 100%;
+        max-width: 100vw;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .imageContainer {
+        position: relative;
+        /* Changed to relative */
+        height: auto;
+        width: 100%;
+        overflow: hidden;
+        z-index: 1;
+        display: block;
+        /* Changed to block */
+    }
+
+    .imageContainer img {
+        display: block;
+        height: auto;
+        width: 100%;
+        object-fit: contain;
+        filter: brightness(0.5)
+    }
+
+    .contentContainer {
+        position: absolute;
+        /* Position over the image */
+        top: 0;
+        left: 0;
+        z-index: 2;
+        height: 100%;
+        width: 100%;
+        padding: 1rem 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .titleContainer,
+    .textContainer {
+        z-index: 2;
+        position: relative;
+    }
+
+    .titleContainer h2 {
+        color: white;
+        font-size: 2rem;
+        margin: 0.5rem 0;
+    }
+
+    .textContainer p {
+        color: white;
+        font-size: 0.8rem;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 840px) and (max-width: 1120px) {
+    .contentContainer {
+        padding: 3rem 1.5rem;
+    }
+
+    .titleContainer h2 {
+        font-size: 1.5rem;
+    }
+
+    .textContainer p {
+        width: 70%;
+        font-size: 1rem;
+    }
+}

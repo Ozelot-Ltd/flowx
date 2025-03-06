@@ -76,7 +76,7 @@ export default function Glass() {
         duration: shortTransition,
       });
       gsap.to(glassRef.current.position, {
-        x: 0,
+        x: 0.2,
         y: 0,
         z: 0,
         duration: shortTransition,
@@ -90,7 +90,7 @@ export default function Glass() {
         duration: shortTransition,
       });
       gsap.to(glassRef.current.position, {
-        x: 0,
+        x: 0.2,
         y: 0,
         z: 0,
         duration: shortTransition,
@@ -104,7 +104,7 @@ export default function Glass() {
         duration: shortTransition,
       });
       gsap.to(glassRef.current.position, {
-        x: 0,
+        x: 0.2,
         y: 0,
         z: 0,
         duration: shortTransition,

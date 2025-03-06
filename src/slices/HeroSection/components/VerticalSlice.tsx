@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 import { HeroSectionProps } from '..';
+
 import SectionContainer from '@/app/components/HomeContent/SectionContainer';
 
 import Heading from './components/Heading';
@@ -20,6 +21,7 @@ import { useGSAP } from '@gsap/react';
 
 import { SplitText } from 'gsap/all';
 import ButtonContainer from './components/ButtonContainer';
+import InformationContainer from './components/InformationContainer';
 
 gsap.registerPlugin(SplitText, useGSAP);
 
@@ -89,6 +91,7 @@ export default function VerticalSlice({ slice }: HeroSectionProps) {
             onSeeMoreClick={onSeeMoreClick}
           />
         </div>
+        <InformationContainer slice={slice} windowState={windowState} />
       </section>
     </SectionContainer>
   );

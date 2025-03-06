@@ -2,3 +2,11 @@
     font-size: 4rem;
     text-transform: lowercase;
 }
+
+@media (max-width: 840px) {
+
+    .container h2 {
+        font-size: 2rem;
+    }
+
+}

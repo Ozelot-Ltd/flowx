@@ -22,8 +22,8 @@ export function MobileProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      setIsMobile(width < 768);
-      setIsTablet(width >= 768 && width < 1024);
+      setIsMobile(width < 840);
+      setIsTablet(width >= 840 && width < 1024);
       setIsDesktop(width >= 1024);
     };
 

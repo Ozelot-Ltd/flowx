@@ -21,6 +21,7 @@
     font-size: 16px;
     --padding: 0.5rem;
     --padding-small: 0.25rem;
+    --main-padding: 4rem;
 
 
     /* font variables */
@@ -122,6 +123,11 @@ p {
 
 
 @media (max-width: 840px) {
+
+    :root {
+        font-size: 14px;
+        --main-padding: 2rem;
+    }
 
     body {
         max-width: 100svw;

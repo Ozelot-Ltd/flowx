@@ -19,8 +19,18 @@
 
 }
 
-.overflowContainer {
-    height: fit-content;
-    overflow: hidden;
-    border: 1px solid black;
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {}
+
+
+
+/* Mobile */
+@media (max-width: 840px) {
+    .verticalLayout {
+        justify-content: space-around;
+    }
 }
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 840px) and (max-width: 1120px) {}

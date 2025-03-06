@@ -1,0 +1,23 @@
+.informationContainer {
+    position: absolute;
+    left: var(--main-padding);
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.content h3 {
+    width: fit-content;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.content p {
+    font-size: 1.2rem;
+}

@@ -32,14 +32,12 @@ export default function HeroButton({
     ) {
       gsap.to(containerRef.current, {
         left: '4rem',
-        stagger: 0.05,
         ease: 'power2.out',
         duration: 0.5,
       });
     } else {
       gsap.to(containerRef.current, {
         left: 'calc(50% - 4rem)',
-        stagger: 0.5,
         ease: 'power2.out',
         duration: 0.5,
       });

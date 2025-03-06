@@ -5,9 +5,9 @@
     background: #7cb48f;
     box-shadow: inset 33px 33px 56px #69997a,
         inset -33px -33px 56px #8fcfa4;
-    gap: 4rem;
+    gap: var(--main-padding);
     width: 50%;
-    margin-top: 4rem;
+    margin-top: var(--main-padding);
 }
 
 
@@ -19,7 +19,7 @@
 .leftContainer {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: var(--main-padding);
 }
 
 
