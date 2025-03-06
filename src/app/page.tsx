@@ -21,6 +21,7 @@ export default async function Page() {
   const page = await client.getSingle('home');
   const settings = await client.getSingle('settings');
   const footer = await client.getSingle('footer');
+  console.log('hehehe');
 
   return (
     <>
