@@ -17,6 +17,13 @@ import { SubHeading } from './components/SubHeading';
 import ButtonBar from '@/slices/HeroSection/components/components/ButtonBar';
 import HeroButton from './components/HeroButton';
 
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+
+import { SplitText } from 'gsap/all';
+
+gsap.registerPlugin(SplitText, useGSAP);
+
 export default function VerticalSlice({ slice }: HeroSectionProps) {
   const containerRef = useRef(null);
 

@@ -1,9 +1,10 @@
 .heading {
-    margin: 2rem 0;
+    margin: 0rem 0;
     width: fit-content !important;
     font-size: 6rem;
     will-change: font-variation-settings;
     font-variation-settings: 'wght' 300;
+    overflow: hidden;
 }
 
 .heading h2 {

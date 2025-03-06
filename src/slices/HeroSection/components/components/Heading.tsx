@@ -10,11 +10,15 @@ import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { useGSAP } from '@gsap/react';
 
+import { useScrollStore } from '../../../../../stores/useWindowStore';
+
 gsap.registerPlugin(SplitText);
 
 export default function Heading({ slice }: HeroSectionProps) {
   const text = asText(slice.primary.hero_title);
   const textRef = useRef(null);
+
+  const { isScroll } = useScrollStore();
 
   useGSAP(() => {
     if (textRef.current) {
@@ -42,7 +46,32 @@ export default function Heading({ slice }: HeroSectionProps) {
         ease: 'sine.inOut',
       });
     }
-  }, [textRef, text]);
+
+    if (!isScroll) {
+      const split = new SplitText(textRef.current, { type: 'chars' });
+
+      const chars = split.chars;
+
+      gsap.to(chars, {
+        y: -200,
+        stagger: 0.05,
+        duration: 0.25,
+        ease: 'sine.inOut',
+      });
+    }
+
+    if (isScroll) {
+      const split = new SplitText(textRef.current, { type: 'chars' });
+
+      const chars = split.chars;
+
+      gsap.to(chars, {
+        y: 0,
+        stagger: 0.05,
+        ease: 'sine.inOut',
+      });
+    }
+  }, [textRef, text, isScroll]);
 
   return (
     <div className={styles.heading}>
