@@ -25,17 +25,9 @@ export default function TextComponent({ item, itemNext, isTeam }: Props) {
           <PrismicRichText
             field={isTeam ? item?.member_name : itemNext?.whats_next_title}
           />
-          {isTeam && (
-            <PrismicRichText field={isTeam ? item?.member_role : null} />
-          )}
         </div>
 
         <div className={styles.subContainer}>
-          <PrismicRichText
-            field={
-              isTeam ? item?.member_text : itemNext?.whats_next_description
-            }
-          />
           {isTeam && <PrismicNextLink field={item?.member_email} />}
         </div>
       </div>
