@@ -35,3 +35,45 @@
     height: 4rem;
     width: 4rem;
 }
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {}
+
+
+
+/* Mobile */
+@media (max-width: 840px) {
+    .contentSpaced {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 2rem 1rem;
+        border-radius: inherit;
+        gap: 4rem;
+    }
+
+    .textContainer {
+        gap: 1rem;
+        padding: 1rem 0;
+        max-width: 100%;
+    }
+
+    .textContainer p {
+        max-width: 80%;
+        text-align: center;
+    }
+
+
+    .iconContainer {
+        height: 3rem;
+        width: 3rem;
+    }
+
+    .iconContainer img {
+        height: 3rem;
+        width: 3rem;
+    }
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 840px) and (max-width: 1120px) {}
