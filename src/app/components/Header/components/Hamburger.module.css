@@ -1,17 +1,33 @@
 .hamburger {
-
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    justify-content: center;
+    gap: 3px;
     cursor: pointer;
+    width: 2rem;
+    height: 3rem;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
 }
 
-.hamburger div {
+.line {
     height: 4px;
-    width: 2.4rem;
-    border-radius: 41px;
-    border: 1px solid var(--darkgreen);
-    background: #f1f1f1;
-    box-shadow: 33px 33px 56px #cdcdcd,
-        -33px -33px 56px #ffffff;
+    width: 100%;
+    border: 1px solid var(--darkgrey);
+    background: var(--darkgrey);
+    transition: transform 0.3s ease;
+}
+
+.hamburger.active .line:nth-child(1) {
+    transform: translateY(5px) rotate(45deg);
+}
+
+.hamburger.active .line:nth-child(2) {
+    visibility: hidden;
+    transform: translateX(-20px);
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
 }

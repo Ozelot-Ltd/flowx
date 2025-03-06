@@ -10,12 +10,14 @@ type Props = {
 export default function Hamburger({ isMenuOpen, setIsMenuOpen }: Props) {
   return (
     <div
-      className={styles.hamburger}
+      className={`${styles.hamburger} ${isMenuOpen ? styles.active : ''}`}
       onClick={() => setIsMenuOpen(!isMenuOpen)}
+      aria-expanded={isMenuOpen}
+      aria-label="Toggle menu"
     >
-      <div></div>
-      <div></div>
-      <div></div>
+      <div className={styles.line}></div>
+      <div className={styles.line}></div>
+      <div className={styles.line}></div>
     </div>
   );
 }
