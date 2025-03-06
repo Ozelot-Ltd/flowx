@@ -28,6 +28,7 @@ export default function TextComponent({ item, itemNext, isTeam }: Props) {
         </div>
 
         <div className={styles.subContainer}>
+          <PrismicRichText field={itemNext?.whats_next_description} />
           {isTeam && <PrismicNextLink field={item?.member_email} />}
         </div>
       </div>
