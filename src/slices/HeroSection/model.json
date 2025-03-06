@@ -179,7 +179,7 @@
             "label": "Front Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading3"
+            "multi": "heading2"
           }
         },
         "front_text": {
@@ -197,7 +197,7 @@
             "label": "Back Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading3"
+            "multi": "heading2"
           }
         },
         "back_text": {
@@ -215,7 +215,7 @@
             "label": "Between Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading3"
+            "multi": "heading2"
           }
         },
         "between_text": {
