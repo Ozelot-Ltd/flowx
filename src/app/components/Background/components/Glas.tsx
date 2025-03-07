@@ -35,17 +35,13 @@ export default function Glass() {
 
   const { isMobile } = useMobile();
 
-  const material = useMemo(
-    () =>
-      new MeshStandardMaterial({
-        transparent: true,
-        opacity: 0.8,
-        color: '#88ccff',
-        metalness: 0.5,
-        roughness: 0.1,
-      }),
-    []
-  );
+  const material = new MeshStandardMaterial({
+    transparent: true,
+    opacity: 0.8,
+    color: '#88ccff',
+    metalness: 0.5,
+    roughness: 0.1,
+  });
 
   useFrame(({ clock }) => {
     const time = clock.getElapsedTime() * 0.4; // Slower animation
@@ -79,16 +75,19 @@ export default function Glass() {
   useGSAP(() => {
     if (!glassRef.current) return;
 
+    gsap.killTweensOf(glassRef.current.rotation);
+    gsap.killTweensOf(glassRef.current.position);
+
     if (windowState === 'front') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
-        y: Math.PI,
+        y: -0.5,
         z: 0,
         duration: shortTransition,
       });
       gsap.to(glassRef.current.position, {
-        x: 0.2,
-        y: 0,
+        x: 0.25,
+        y: 0.05,
         z: 0,
         duration: shortTransition,
       });
@@ -96,13 +95,13 @@ export default function Glass() {
     if (windowState === 'back') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
-        y: Math.PI * 2,
+        y: Math.PI,
         z: 0,
         duration: shortTransition,
       });
       gsap.to(glassRef.current.position, {
-        x: 0.2,
-        y: 0,
+        x: 0.25,
+        y: 0.05,
         z: 0,
         duration: shortTransition,
       });
@@ -111,12 +110,12 @@ export default function Glass() {
       gsap.to(glassRef.current.rotation, {
         x: Math.PI / 1.5,
         y: 0,
-        z: Math.PI / 2.5,
+        z: Math.PI,
         duration: shortTransition,
       });
       gsap.to(glassRef.current.position, {
         x: 0.2,
-        y: 0,
+        y: 0.05,
         z: 0,
         duration: shortTransition,
       });
@@ -130,7 +129,7 @@ export default function Glass() {
       });
       gsap.to(glassRef.current.position, {
         x: 0,
-        y: 0,
+        y: 0.05,
         z: 0,
         duration: longTransition,
       });
