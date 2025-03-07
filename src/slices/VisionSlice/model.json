@@ -37,6 +37,13 @@
             "allowTargetBlank": true,
             "multi": "paragraph"
           }
+        },
+        "vision_url": {
+          "type": "Text",
+          "config": {
+            "label": "Vision URL",
+            "placeholder": "Prismic -> Files"
+          }
         }
       },
       "items": {}

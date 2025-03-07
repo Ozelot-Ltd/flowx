@@ -13,6 +13,9 @@ import useNavigation from '../../../../../stores/useNavigation';
 
 import { useMobile } from '../../../../../context/MobileContext';
 
+import { useLoader } from '@react-three/fiber';
+import { GLTFLoader } from 'three/examples/jsm/Addons.js';
+
 gsap.registerPlugin(useGSAP);
 
 const shortTransition = 1.2;
@@ -21,6 +24,10 @@ const longTransition = 2.5;
 export default function Glass() {
   const containerRef = useRef<Object3D>(null);
   const glassRef = useRef<Object3D>(null);
+
+  const model = useLoader(GLTFLoader, '/asset/glasss.glb');
+
+  console.log(model);
 
   const { windowState, setWindowState } = useWindowStore();
   const { isScroll } = useScrollStore();
@@ -50,7 +57,8 @@ export default function Glass() {
 
   useEffect(() => {
     if (!glassRef.current) return;
-    glassRef.current.scale.set(0.25, 0.5, 0.003);
+    glassRef.current.scale.set(0.5, 0.5, 0.5);
+    glassRef.current.position.set(0, 0, 0);
 
     if (isScroll && activeSection === 'hero_vertical') {
       setWindowState('hero_vertical');
@@ -116,14 +124,14 @@ export default function Glass() {
     }
     if (isScroll && windowState === 'hero_vertical') {
       gsap.to(glassRef.current.rotation, {
-        x: Math.PI / 1.2,
+        x: 0,
         y: 0,
         z: 0,
         duration: longTransition,
       });
       gsap.to(glassRef.current.position, {
         x: 0,
-        y: 0.05,
+        y: 0,
         z: 0,
         duration: longTransition,
       });
@@ -204,7 +212,7 @@ export default function Glass() {
     <group ref={containerRef}>
       <group ref={glassRef}>
         <mesh material={material}>
-          <boxGeometry />
+          <primitive object={model.scene as Object3D} />
         </mesh>
       </group>
     </group>

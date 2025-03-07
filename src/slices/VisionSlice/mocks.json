@@ -47,6 +47,11 @@
 						}
 					}
 				]
+			},
+			"vision_url": {
+				"__TYPE__": "FieldContent",
+				"value": "foot",
+				"type": "Text"
 			}
 		},
 		"items": []

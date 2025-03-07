@@ -2,8 +2,6 @@ import { FC } from 'react';
 import { Content } from '@prismicio/client';
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
 import SectionContainer from '@/app/components/HomeContent/SectionContainer';
-import { PrismicNextImage } from '@prismicio/next';
-
 import styles from './index.module.css';
 
 import MainHeadingContainer from '@/app/components/Containers/MainHeadingContainer';
@@ -36,7 +34,13 @@ const VisionSlice: FC<VisionSliceProps> = ({ slice }) => {
         </div>
 
         <div className={styles.imageContainer}>
-          <PrismicNextImage field={slice.primary.vision_image} />
+          <video
+            src="https://flow-x.cdn.prismic.io/flow-x/Z8r9MBsAHJWomO1x_Vision_2.0.mp4"
+            autoPlay={true}
+            loop={true}
+            muted={true}
+            playsInline={true}
+          />
         </div>
       </section>{' '}
     </SectionContainer>

@@ -7,6 +7,14 @@ const nextConfig: NextConfig = {
       type: 'asset/source',
       use: ['raw-loader', 'glslify-loader'],
     });
+
+    config.module.rules.push({
+      test: /\.(glb|gltf)$/,
+      type: 'asset/resource',
+      generator: {
+        filename: 'static/models/[hash][ext]',
+      },
+    });
     return config;
   },
 };
