@@ -69,6 +69,7 @@
 
     .contentContainer {
         padding: 0 1rem;
+
     }
 
     .groupContainer {
@@ -76,15 +77,16 @@
         flex-direction: column;
         justify-content: space-evenly;
         gap: 2rem;
+        align-items: center;
     }
 
     .group {
-        max-width: 27rem;
+        max-width: 24rem;
         color: var(--black);
         display: flex;
         flex-direction: column;
         height: fit-content;
-        gap: 2rem;
+        gap: 4rem;
         padding: 1rem;
     }
 

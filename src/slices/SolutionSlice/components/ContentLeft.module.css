@@ -17,8 +17,9 @@
 
 
 .textContainer h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
+
 
 
 .iconContainer {
@@ -42,19 +43,33 @@
 @media (max-width: 840px) {
     .contentLeft {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         padding: 2rem 0;
         border-radius: inherit;
     }
 
     .textContainer {
-        gap: 1rem;
-        padding: 1rem 0;
-        max-width: 100%;
+        gap: 2rem;
+        padding: 1rem 1rem;
+        max-width: 24rem;
+        align-items: center;
+        justify-content: center;
     }
 
+
+    .titleContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .textContainer h3 {
+        text-align: center;
+    }
+
+
     .textContainer p {
-        max-width: 80%;
+        max-width: 100%;
         text-align: center;
     }
 

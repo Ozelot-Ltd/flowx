@@ -56,8 +56,10 @@ export default function ContentLeft({
     >
       <NeumorphContainer>
         <div className={styles.textContainer}>
-          <PrismicRichText field={item.solution_subtitle_first} />
-          <PrismicRichText field={item.solution_text_first} />
+          <div className={styles.titleContainer}>
+            <PrismicRichText field={item.solution_subtitle_first} />
+            <PrismicRichText field={item.solution_text_first} />
+          </div>
           <div className={styles.iconContainer}>
             <PrismicNextImage field={item.solution_icon} />
           </div>

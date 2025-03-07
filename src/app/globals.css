@@ -107,6 +107,10 @@ h6 {
     color: var(--darkgrey)
 }
 
+h3 {
+    font-size: 2rem;
+}
+
 
 body {
     height: fit-content;
