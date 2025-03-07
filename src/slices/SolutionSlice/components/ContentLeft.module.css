@@ -15,6 +15,12 @@
     align-items: center;
 }
 
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 
 .textContainer h3 {
     font-size: 1.8rem;
