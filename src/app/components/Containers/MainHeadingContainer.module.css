@@ -1,6 +1,6 @@
 .container h2 {
     font-size: 4rem;
-    text-transform: lowercase;
+    text-transform: uppercase;
 }
 
 @media (max-width: 840px) {

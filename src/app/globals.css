@@ -33,7 +33,7 @@
     --black: #0c160b;
     --green: #ace0af;
     --darkgrey: #343933;
-    --lightgrey: #f1f1f1;
+    --lightgrey: #f9f9f9;
     --white: #fff;
 
     --lightgreen: #bfd8bd;
@@ -41,13 +41,6 @@
     --darkergreen: #5aa071;
     --darkgreen: #4a7856;
 
-
-    /* neumorphism */
-
-    --boxshadow-positive_large: 20px 20px 54px #e3e3e3;
-    --boxshadow-negative_large: -20px -20px 54px #ffffff;
-    --boxshadow-positive_large-hover: inset 10px 10px 54px #e3e3e3, ;
-    --boxshadow-negative_large-hover: inset -10px -10px 54px #ffffff;
 
 
     /* filters */
