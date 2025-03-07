@@ -1,9 +1,27 @@
 .contentSpaced {
     display: flex;
     justify-content: space-between;
-    padding: 12rem 4rem;
+    padding: 12rem 2rem;
     border-radius: inherit;
 }
+
+
+.triggerContainer {
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.triggerContainer> :first-child {
+    transform: translateY(calc(100% + 2rem));
+    transition: transform 0.8s ease-in-out;
+}
+
+.visible> :first-child {
+    transform: translateY(0);
+    transition: transform 0.8s ease-in-out;
+
+}
+
 
 .textContainer {
     height: fit-content;
@@ -50,6 +68,22 @@
         gap: 4rem;
     }
 
+    .triggerContainer {
+        padding: 1rem;
+        overflow: hidden;
+    }
+
+    .triggerContainer> :first-child {
+        transform: translateY(calc(100% + 1rem));
+        transition: transform 0.8s ease-in-out;
+    }
+
+    .visible> :first-child {
+        transform: translateY(0);
+        transition: transform 0.8s ease-in-out;
+
+    }
+
     .titleContainer {
         display: flex;
         flex-direction: column;
@@ -65,13 +99,8 @@
     }
 
 
-    .textContainer h3 {
-        text-align: center;
-    }
-
-
+    .textContainer h3,
     .textContainer p {
-        max-width: 100%;
         text-align: center;
     }
 

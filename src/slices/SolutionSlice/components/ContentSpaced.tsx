@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 import styles from './ContentSpaced.module.css';
 
@@ -29,6 +29,12 @@ export default function ContentLeft({
 }) {
   const { setWindowState } = useWindowStore();
   const sectionRef = useRef(null);
+  const [sectionVisible, setSectionVisible] = useState(false);
+
+  const setSomeStuff = () => {
+    setWindowState('spaced');
+    setSectionVisible(true);
+  };
 
   useGSAP(() => {
     if (!sectionRef.current) return;
@@ -37,13 +43,24 @@ export default function ContentLeft({
       trigger: sectionRef.current,
       start: 'top 50%',
       end: 'bottom 50%',
-      onEnter: () => setWindowState('spaced'),
+      onEnter: () => setSomeStuff(),
       onEnterBack: () => setWindowState('spaced'),
       markers: false,
     });
 
+    const showTrigger = ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: 'top 50%',
+      end: 'bottom 50%',
+      onEnter: () => {
+        setSectionVisible(true);
+      },
+      markers: true,
+    });
+
     return () => {
       trigger.kill();
+      showTrigger.kill();
     };
   }, []);
 
@@ -54,28 +71,37 @@ export default function ContentLeft({
       data-slice-side="spaced"
       ref={sectionRef}
     >
-      <NeumorphContainer>
-        <div className={styles.textContainer}>
-          <div className={styles.titleContainer}>
-            <PrismicRichText field={item.solution_subtitle_first} />
-            <PrismicRichText field={item.solution_text_first} />
+      {' '}
+      <div
+        className={`${styles.triggerContainer} ${sectionVisible && styles.visible} `}
+      >
+        <NeumorphContainer>
+          <div className={styles.textContainer}>
+            <div className={styles.titleContainer}>
+              <PrismicRichText field={item.solution_subtitle_first} />
+              <PrismicRichText field={item.solution_text_first} />
+            </div>
+            <div className={styles.iconContainer}>
+              <PrismicNextImage field={item.solution_icon} />
+            </div>
           </div>
-          <div className={styles.iconContainer}>
-            <PrismicNextImage field={item.solution_icon} />
+        </NeumorphContainer>
+      </div>{' '}
+      <div
+        className={`${styles.triggerContainer} ${sectionVisible && styles.visible} `}
+      >
+        <NeumorphContainer>
+          <div className={styles.textContainer}>
+            <div className={styles.titleContainer}>
+              <PrismicRichText field={item.solution_subtitle_second} />
+              <PrismicRichText field={item.solution_text_second} />
+            </div>
+            <div className={styles.iconContainer}>
+              <PrismicNextImage field={item.image_solution_second} />
+            </div>
           </div>
-        </div>
-      </NeumorphContainer>
-      <NeumorphContainer>
-        <div className={styles.textContainer}>
-          <div className={styles.titleContainer}>
-            <PrismicRichText field={item.solution_subtitle_second} />
-            <PrismicRichText field={item.solution_text_second} />
-          </div>
-          <div className={styles.iconContainer}>
-            <PrismicNextImage field={item.image_solution_second} />
-          </div>
-        </div>
-      </NeumorphContainer>
+        </NeumorphContainer>
+      </div>
     </div>
   );
 }

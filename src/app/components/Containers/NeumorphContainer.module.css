@@ -7,3 +7,25 @@
     transition: box-shadow 0.2s linear;
     width: fit-content;
 }
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {}
+
+
+
+/* Mobile */
+@media (max-width: 840px) {
+    .container {
+        border-radius: 5%;
+        background: var(--lightgrey);
+        box-shadow: 6px 6px 15px #cdcdcd,
+            -6px -6px 15px #ffffff;
+        border: 1px solid var(--lightgrey);
+        transition: box-shadow 0.2s linear;
+        width: fit-content;
+    }
+
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 840px) and (max-width: 1120px) {}

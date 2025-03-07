@@ -5,6 +5,23 @@
     border-radius: inherit;
 }
 
+.triggerContainer {
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.triggerContainer> :first-child {
+    transform: translateY(calc(100% + 2rem));
+    transition: transform 0.8s ease-in-out;
+}
+
+.visible> :first-child {
+    transform: translateY(0);
+    transition: transform 0.8s ease-in-out;
+
+}
+
+
 .textContainer {
     height: fit-content;
     display: flex;
@@ -62,6 +79,22 @@
         justify-content: center;
     }
 
+    .triggerContainer {
+        padding: 1rem;
+        overflow: hidden;
+    }
+
+    .triggerContainer> :first-child {
+        transform: translateY(calc(100% + 1rem));
+        transition: transform 0.8s ease-in-out;
+    }
+
+    .visible> :first-child {
+        transform: translateY(0);
+        transition: transform 0.8s ease-in-out;
+
+    }
+
 
     .titleContainer {
         display: flex;
@@ -69,16 +102,19 @@
         gap: 1rem;
     }
 
-    .textContainer h3 {
-        text-align: center;
+    .textContainer {
+        gap: 2rem;
+        padding: 1rem 1rem;
+        max-width: 24rem;
+        align-items: center;
+        justify-content: center;
     }
 
 
+    .textContainer h3,
     .textContainer p {
-        max-width: 100%;
         text-align: center;
     }
-
 
     .iconContainer {
         height: 3rem;
