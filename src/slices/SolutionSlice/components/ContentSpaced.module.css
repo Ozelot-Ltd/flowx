@@ -12,7 +12,7 @@
 }
 
 .triggerContainer> :first-child {
-    transform: translateY(calc(100% + 2rem));
+    transform: translateY(120%);
     transition: transform 0.8s ease-in-out;
 }
 
@@ -74,7 +74,7 @@
     }
 
     .triggerContainer> :first-child {
-        transform: translateY(calc(100% + 1rem));
+        transform: translateY(calc(100% + 6rem));
         transition: transform 0.8s ease-in-out;
     }
 

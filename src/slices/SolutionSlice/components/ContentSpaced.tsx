@@ -36,6 +36,10 @@ export default function ContentLeft({
     setSectionVisible(true);
   };
 
+  const setSomeOtherStuff = () => {
+    setSectionVisible(false);
+  };
+
   useGSAP(() => {
     if (!sectionRef.current) return;
 
@@ -44,22 +48,13 @@ export default function ContentLeft({
       start: 'top 50%',
       end: 'bottom 50%',
       onEnter: () => setSomeStuff(),
-      onEnterBack: () => setWindowState('spaced'),
+      onLeave: () => setSomeOtherStuff(),
+      onEnterBack: () => setSomeStuff(),
       markers: false,
-    });
-
-    const showTrigger = ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: 'top 50%',
-      end: 'bottom 50%',
-      onEnter: () => {
-        setSectionVisible(true);
-      },
     });
 
     return () => {
       trigger.kill();
-      showTrigger.kill();
     };
   }, []);
 

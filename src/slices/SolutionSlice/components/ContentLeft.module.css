@@ -11,7 +11,7 @@
 }
 
 .triggerContainer> :first-child {
-    transform: translateY(calc(100% + 2rem));
+    transform: translateY(120%);
     transition: transform 0.8s ease-in-out;
 }
 

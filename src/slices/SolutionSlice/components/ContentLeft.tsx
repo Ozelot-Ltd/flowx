@@ -53,19 +53,8 @@ export default function ContentLeft({
       markers: false,
     });
 
-    const showTrigger = ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: 'top 50%',
-      end: 'bottom 50%',
-      onEnter: () => {
-        setSectionVisible(true);
-      },
-      markers: true,
-    });
-
     return () => {
       trigger.kill();
-      showTrigger.kill();
     };
   }, []);
 
