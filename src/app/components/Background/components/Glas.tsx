@@ -173,7 +173,7 @@ export default function Glass() {
     if (isScroll && windowState === 'spaced' && activeSection === 'solution') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
-        y: Math.PI,
+        y: Math.PI * 2,
         z: 0,
         duration: shortTransition,
       });
