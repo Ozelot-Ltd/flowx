@@ -11,7 +11,7 @@
 }
 
 .btnVisible {
-    transform: translateY(50%);
+    transform: translateY(30%);
     transition-delay: 0s;
     visibility: visible;
 }
