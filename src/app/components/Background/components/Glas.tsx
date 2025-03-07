@@ -35,13 +35,17 @@ export default function Glass() {
 
   const { isMobile } = useMobile();
 
-  const material = new MeshStandardMaterial({
-    transparent: true,
-    opacity: 0.8,
-    color: '#88ccff',
-    metalness: 0.5,
-    roughness: 0.1,
-  });
+  const material = useMemo(
+    () =>
+      new MeshStandardMaterial({
+        transparent: true,
+        opacity: 0.8,
+        color: '#88ccff',
+        metalness: 0.5,
+        roughness: 0.1,
+      }),
+    []
+  );
 
   useFrame(({ clock }) => {
     const time = clock.getElapsedTime() * 0.4; // Slower animation
@@ -110,7 +114,7 @@ export default function Glass() {
       gsap.to(glassRef.current.rotation, {
         x: Math.PI / 1.5,
         y: 0,
-        z: Math.PI,
+        z: 0,
         duration: shortTransition,
       });
       gsap.to(glassRef.current.position, {
