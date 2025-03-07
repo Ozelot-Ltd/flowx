@@ -55,7 +55,6 @@ export default function ContentLeft({
       onEnter: () => {
         setSectionVisible(true);
       },
-      markers: true,
     });
 
     return () => {

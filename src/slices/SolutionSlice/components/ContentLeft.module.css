@@ -87,6 +87,7 @@
     .triggerContainer> :first-child {
         transform: translateY(calc(100% + 1rem));
         transition: transform 0.8s ease-in-out;
+
     }
 
     .visible> :first-child {
