@@ -58,7 +58,6 @@ export default function Glass() {
   useEffect(() => {
     if (!glassRef.current) return;
     glassRef.current.scale.set(0.5, 0.5, 0.5);
-    glassRef.current.position.set(0, 0, 0);
 
     if (isScroll && activeSection === 'hero_vertical') {
       setWindowState('hero_vertical');
@@ -211,9 +210,11 @@ export default function Glass() {
   return (
     <group ref={containerRef}>
       <group ref={glassRef}>
-        <mesh material={material}>
-          <primitive object={model.scene as Object3D} />
-        </mesh>
+        <group>
+          <mesh material={material}>
+            <primitive object={model.scene as Object3D} />
+          </mesh>
+        </group>
       </group>
     </group>
   );
