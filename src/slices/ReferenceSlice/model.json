@@ -1,0 +1,45 @@
+{
+  "id": "reference_slice",
+  "type": "SharedSlice",
+  "name": "ReferenceSlice",
+  "description": "ReferenceSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "reference_group": {
+          "type": "Group",
+          "config": {
+            "label": "Reference Group",
+            "repeat": true,
+            "fields": {
+              "reference_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Reference Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "reference_name": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Reference Name",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading4"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

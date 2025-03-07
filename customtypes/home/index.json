@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "reference_slice": {
+              "type": "SharedSlice"
+            },
             "vision_slice": {
               "type": "SharedSlice"
             },

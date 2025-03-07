@@ -70,6 +70,7 @@ export type FooterDocument<Lang extends string = string> =
   >;
 
 type HomeDocumentDataSlicesSlice =
+  | ReferenceSliceSlice
   | VisionSliceSlice
   | WhatsNextSliceSlice
   | TeamSliceSlice
@@ -614,6 +615,78 @@ export type MissionSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *ReferenceSlice → Default → Primary → Reference Group*
+ */
+export interface ReferenceSliceSliceDefaultPrimaryReferenceGroupItem {
+  /**
+   * Reference Image field in *ReferenceSlice → Default → Primary → Reference Group*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reference_slice.default.primary.reference_group[].reference_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  reference_image: prismic.ImageField<never>;
+
+  /**
+   * Reference Name field in *ReferenceSlice → Default → Primary → Reference Group*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reference_slice.default.primary.reference_group[].reference_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  reference_name: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *ReferenceSlice → Default → Primary*
+ */
+export interface ReferenceSliceSliceDefaultPrimary {
+  /**
+   * Reference Group field in *ReferenceSlice → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reference_slice.default.primary.reference_group[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  reference_group: prismic.GroupField<
+    Simplify<ReferenceSliceSliceDefaultPrimaryReferenceGroupItem>
+  >;
+}
+
+/**
+ * Default variation for ReferenceSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ReferenceSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ReferenceSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ReferenceSlice*
+ */
+type ReferenceSliceSliceVariation = ReferenceSliceSliceDefault;
+
+/**
+ * ReferenceSlice Shared Slice
+ *
+ * - **API ID**: `reference_slice`
+ * - **Description**: ReferenceSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ReferenceSliceSlice = prismic.SharedSlice<
+  "reference_slice",
+  ReferenceSliceSliceVariation
+>;
+
+/**
  * Item in *SolutionSlice → Default → Primary → Solution Sections*
  */
 export interface SolutionSliceSliceDefaultPrimarySolutionSectionsItem {
@@ -1043,6 +1116,11 @@ declare module "@prismicio/client" {
       MissionSliceSliceDefaultPrimary,
       MissionSliceSliceVariation,
       MissionSliceSliceDefault,
+      ReferenceSliceSlice,
+      ReferenceSliceSliceDefaultPrimaryReferenceGroupItem,
+      ReferenceSliceSliceDefaultPrimary,
+      ReferenceSliceSliceVariation,
+      ReferenceSliceSliceDefault,
       SolutionSliceSlice,
       SolutionSliceSliceDefaultPrimarySolutionSectionsItem,
       SolutionSliceSliceDefaultPrimary,

@@ -33,11 +33,9 @@ export default function ContentLeft({
 
   const setSomeStuff = () => {
     setWindowState('right');
-    setSectionVisible(true);
-  };
 
-  const setSomeOtherStuff = () => {
-    setSectionVisible(false);
+    if (sectionVisible) return;
+    setSectionVisible(true);
   };
 
   useGSAP(() => {
@@ -48,7 +46,6 @@ export default function ContentLeft({
       start: 'top 50%',
       end: 'bottom 50%',
       onEnter: () => setSomeStuff(),
-      onLeave: () => setSomeOtherStuff(),
       onEnterBack: () => setSomeStuff(),
       markers: false,
     });
