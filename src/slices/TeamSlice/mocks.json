@@ -71,6 +71,18 @@
 										"text": "supply"
 									}
 								}
+							],
+							[
+								"member_cv",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "ca8d0cb2-7231-486d-aa68-1977eff5ed14",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "earlier"
+									}
+								}
 							]
 						]
 					}

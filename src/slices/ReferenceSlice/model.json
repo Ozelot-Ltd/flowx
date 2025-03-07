@@ -12,6 +12,15 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "References",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
         "reference_group": {
           "type": "Group",
           "config": {
@@ -33,6 +42,17 @@
                   "placeholder": "",
                   "allowTargetBlank": true,
                   "multi": "heading4"
+                }
+              },
+              "reference_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Reference Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
                 }
               }
             }

@@ -48,8 +48,31 @@
 										}
 									]
 								}
+							],
+							[
+								"reference_link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "30f13623-8b83-479b-8295-a39b177d8ec5",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "treated"
+									}
+								}
 							]
 						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Daily"
+						}
 					}
 				]
 			}

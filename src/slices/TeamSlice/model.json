@@ -54,6 +54,17 @@
                   "allowText": true,
                   "repeat": false
                 }
+              },
+              "member_cv": {
+                "type": "Link",
+                "config": {
+                  "label": "Member CV",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
               }
             }
           }

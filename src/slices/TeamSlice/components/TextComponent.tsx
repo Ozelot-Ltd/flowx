@@ -30,6 +30,9 @@ export default function TextComponent({ item, itemNext, isTeam }: Props) {
         <div className={styles.subContainer}>
           <PrismicRichText field={itemNext?.whats_next_description} />
           {isTeam && <PrismicNextLink field={item?.member_email} />}
+          {isTeam && item?.member_cv?.text !== '' && (
+            <PrismicNextLink field={item?.member_cv} />
+          )}
         </div>
       </div>
     </NeumorphContainer>

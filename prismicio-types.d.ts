@@ -637,12 +637,38 @@ export interface ReferenceSliceSliceDefaultPrimaryReferenceGroupItem {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   reference_name: prismic.RichTextField;
+
+  /**
+   * Reference Link field in *ReferenceSlice → Default → Primary → Reference Group*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reference_slice.default.primary.reference_group[].reference_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  reference_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**
  * Primary content in *ReferenceSlice → Default → Primary*
  */
 export interface ReferenceSliceSliceDefaultPrimary {
+  /**
+   * Title field in *ReferenceSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: References
+   * - **API ID Path**: reference_slice.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
   /**
    * Reference Group field in *ReferenceSlice → Default → Primary*
    *
@@ -851,6 +877,22 @@ export interface TeamSliceSliceDefaultPrimaryTeamMemberItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   member_email: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Member CV field in *TeamSlice → Default → Primary → Team Member*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_slice.default.primary.team_member[].member_cv
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  member_cv: prismic.LinkField<
     string,
     string,
     unknown,
