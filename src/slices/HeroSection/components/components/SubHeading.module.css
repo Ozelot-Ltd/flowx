@@ -3,8 +3,8 @@
 }
 
 .subHeading h3 {
-    font-size: 2rem;
-    text-transform: uppercase;
+    font-size: 3rem;
+    text-transform: lowercase;
     font-variation-settings: "wgth", 800;
 }
 
