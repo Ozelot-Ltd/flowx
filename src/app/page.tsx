@@ -24,7 +24,7 @@ export default async function Page() {
 
   return (
     <>
-      {isDevelopment ? (
+      {!isDevelopment ? (
         <Splashscreen />
       ) : (
         <>
