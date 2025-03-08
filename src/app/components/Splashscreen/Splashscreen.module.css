@@ -12,12 +12,16 @@
     height: var(--height);
     width: var(--height);
     position: relative;
-    filter: url("#goo")
+    filter: url("#goo");
 }
 
 .logo .drop {
     height: 2rem;
     width: 2rem;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow: 20px 20px 60px #bebebe,
+        -20px -20px 60px #ffffff;
 
 }
 
@@ -157,13 +161,18 @@
     background: transparent;
     box-shadow: var(--boxshadow-positive_large), var(--boxshadow-negative_large);
     transition: box-shadow 0.2s ease-in-out;
+    border-radius: 50%;
+    background: var(--lightgrey);
+    box-shadow: 10px 10px 20px #e3e3e3,
+        -10px -10px 20px #ffffff;
 }
 
 .drop:nth-child(2),
 .drop:nth-child(3),
 .drop:nth-child(4) {
     background: var(--lightgrey);
-    box-shadow: var(--boxshadow-positive_large), var(--boxshadow-negative_large);
+    box-shadow: 10px 10px 20px #e3e3e3,
+        -10px -10px 20px #ffffff;
 }
 
 .drop:nth-child(2) {
