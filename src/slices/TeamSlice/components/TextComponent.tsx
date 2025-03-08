@@ -7,7 +7,6 @@ import {
 
 import styles from './TextComponent.module.css';
 
-import NeumorphContainer from '@/app/components/Containers/NeumorphContainer';
 import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextLink } from '@prismicio/next';
 
@@ -19,22 +18,20 @@ type Props = {
 
 export default function TextComponent({ item, itemNext, isTeam }: Props) {
   return (
-    <NeumorphContainer>
-      <div className={styles.textContainer}>
-        <div className={styles.upperContainer}>
-          <PrismicRichText
-            field={isTeam ? item?.member_name : itemNext?.whats_next_title}
-          />
-        </div>
-
-        <div className={styles.subContainer}>
-          <PrismicRichText field={itemNext?.whats_next_description} />
-          {isTeam && <PrismicNextLink field={item?.member_email} />}
-          {isTeam && item?.member_cv?.text !== '' && (
-            <PrismicNextLink field={item?.member_cv} />
-          )}
-        </div>
+    <div className={styles.textContainer}>
+      <div className={styles.upperContainer}>
+        <PrismicRichText
+          field={isTeam ? item?.member_name : itemNext?.whats_next_title}
+        />
       </div>
-    </NeumorphContainer>
+
+      <div className={styles.subContainer}>
+        <PrismicRichText field={itemNext?.whats_next_description} />
+        {isTeam && <PrismicNextLink field={item?.member_email} />}
+        {isTeam && item?.member_cv?.text !== '' && (
+          <PrismicNextLink field={item?.member_cv} />
+        )}
+      </div>
+    </div>
   );
 }

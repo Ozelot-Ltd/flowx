@@ -24,7 +24,6 @@ export type SolutionSliceProps =
  * Component for "SolutionSlice" Slices.
  */
 const SolutionSlice: FC<SolutionSliceProps> = ({ slice }) => {
-  const headerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -34,11 +33,9 @@ const SolutionSlice: FC<SolutionSliceProps> = ({ slice }) => {
         data-slice-variation={slice.variation}
       >
         <div className={styles.contentContainer}>
-          <div ref={headerRef} className={styles.stickyHeader}>
-            <MainHeadingContainer>
-              <PrismicRichText field={slice.primary.solution_title} />
-            </MainHeadingContainer>
-          </div>
+          <MainHeadingContainer>
+            <PrismicRichText field={slice.primary.solution_title} />
+          </MainHeadingContainer>
 
           <div ref={contentRef} className={styles.groupContainer}>
             {slice.primary.solution_sections.map((item, index) =>

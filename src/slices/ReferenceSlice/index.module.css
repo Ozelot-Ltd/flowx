@@ -1,17 +1,15 @@
 .container {
-
     position: relative;
-
 }
 
 .contentContainer {
     z-index: 2;
     height: 100%;
     width: 100%;
-    padding: var(--main-padding) 2rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     gap: var(--main-padding);
 }
 
@@ -27,8 +25,8 @@
     height: 15rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 2rem;
+    align-items: center;
+    justify-content: center;
     gap: 2rem;
 }
 

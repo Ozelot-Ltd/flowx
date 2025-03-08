@@ -1,18 +1,8 @@
-.container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    width: 18rem;
-    align-items: center;
-    justify-content: center;
-}
-
 .contentContainer {
     z-index: 2;
     height: 100%;
     width: 100%;
-    padding: var(--main-padding) 2rem;
+    padding: 0 4rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -20,23 +10,22 @@
 }
 
 .groupContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    align-content: center;
 }
 
-.iconContainer {
+.container {
+    position: relative;
     display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: fit-content;
     align-items: center;
     justify-content: center;
+    width: 14rem;
 }
 
-.iconContainer img {
-    height: 4rem;
-    width: auto;
-}
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {}
