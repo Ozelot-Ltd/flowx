@@ -80,7 +80,6 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 h1,
@@ -110,10 +109,8 @@ h6 {
 
 h3 {
     font-size: 2rem;
-    font-weight: 600;
-
+    font-weight: 400;
 }
-
 
 body {
     height: fit-content;

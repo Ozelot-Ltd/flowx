@@ -1,6 +1,6 @@
 .container {
-    height: 100vh;
     width: 100vw;
+    height: 110vh;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -18,14 +18,15 @@
     justify-content: space-between;
     padding: 2rem;
     overflow: hidden;
-    border: 1px solid black;
     position: absolute;
     border-radius: 20px;
-    transition: transform 0.3s ease-in-out;
+    transition: all 0.3s linear;
+    box-shadow: 0px 0px 0px rgb(136, 136, 136);
 }
 
 .contentContainer:hover {
-    transform: scale(1.05)
+    transform: scale(1.01);
+    box-shadow: 0px 10px 50px rgb(136, 136, 136);
 }
 
 .imageContainer {

@@ -1,16 +1,14 @@
 .container {
-
     position: relative;
     overflow: hidden;
-
 }
 
 .contentContainer {
     z-index: 2;
     height: 100%;
     width: 100%;
-    padding: var(--main-padding) 2rem;
     display: flex;
+    padding: 0 var(--main-padding);
     flex-direction: column;
     justify-content: space-between;
     gap: var(--main-padding);
@@ -32,13 +30,6 @@
     padding: 2rem;
 }
 
-.stickyHeader {
-    width: 100%;
-    z-index: 10;
-    margin-bottom: 2rem;
-    padding: 4rem 0;
-
-}
 
 /* Class added by ScrollTrigger when header is pinned */
 .stickyHeader.is-pinned {
