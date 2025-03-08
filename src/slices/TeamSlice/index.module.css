@@ -10,9 +10,10 @@
 }
 
 .groupContainer {
-    display: grid;
-    grid-template-columns: repeat(5, 20%);
-    align-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .container {

@@ -4,7 +4,6 @@ import React, { useRef, useState } from 'react';
 
 import styles from './ContentLeft.module.css';
 
-import NeumorphContainer from '@/app/components/Containers/NeumorphContainer';
 import { PrismicRichText } from '@prismicio/react';
 import {
   Simplify,
@@ -65,18 +64,12 @@ export default function ContentLeft({
       <div
         className={`${styles.triggerContainer} ${sectionVisible && styles.visible} `}
       >
-        <NeumorphContainer>
-          <div className={styles.textContainer}>
-            <div className={styles.titleContainer}>
-              <PrismicRichText field={item.solution_subtitle_first} />
-              <PrismicRichText field={item.solution_text_first} />
-            </div>
-
-            {/* <div className={styles.iconContainer}>
-              <PrismicNextImage field={item.solution_icon} />
-            </div> */}
+        <div className={styles.textContainer}>
+          <div className={styles.titleContainer}>
+            <PrismicRichText field={item.solution_subtitle_first} />
+            <PrismicRichText field={item.solution_text_first} />
           </div>
-        </NeumorphContainer>
+        </div>
       </div>
     </div>
   );
