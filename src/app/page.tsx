@@ -3,7 +3,7 @@ import { isFilled, asImageSrc } from '@prismicio/client';
 
 import { createClient } from '@/prismicio';
 
-import Background from './components/Background/Background';
+// import Background from './components/Background/Background';
 import styles from './page.module.css';
 import Header from './components/Header/Header';
 

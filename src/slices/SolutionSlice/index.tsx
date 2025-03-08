@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useRef, useEffect } from 'react';
+import { FC, useRef } from 'react';
 import { Content } from '@prismicio/client';
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
 import SectionContainer from '@/app/components/HomeContent/SectionContainer';
