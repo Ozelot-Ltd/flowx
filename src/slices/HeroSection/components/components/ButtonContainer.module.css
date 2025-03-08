@@ -2,11 +2,9 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 0 var(--main-padding);
+    justify-content: flex-start;
     position: relative;
     height: var(--main-padding);
-    left: calc(50%-4rem);
     margin-top: 8rem;
 }
 

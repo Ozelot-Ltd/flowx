@@ -1,0 +1,19 @@
+{
+  "format": "custom",
+  "id": "background_image",
+  "label": "Background Image",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "backgorund_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Backgorund Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

@@ -201,7 +201,7 @@ export default function Glass() {
         duration: longTransition,
       });
       gsap.to(glassRef.current.position, {
-        x: 0,
+        x: 1,
         y: 0.05,
         z: 0,
         duration: longTransition,

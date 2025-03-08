@@ -5,6 +5,38 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
+ * Content for Background Image documents
+ */
+interface BackgroundImageDocumentData {
+  /**
+   * Backgorund Logo field in *Background Image*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: background_image.backgorund_logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  backgorund_logo: prismic.ImageField<never>;
+}
+
+/**
+ * Background Image document from Prismic
+ *
+ * - **API ID**: `background_image`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BackgroundImageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<BackgroundImageDocumentData>,
+    "background_image",
+    Lang
+  >;
+
+/**
  * Content for Footer documents
  */
 interface FooterDocumentData {
@@ -211,7 +243,11 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = FooterDocument | HomeDocument | SettingsDocument;
+export type AllDocumentTypes =
+  | BackgroundImageDocument
+  | FooterDocument
+  | HomeDocument
+  | SettingsDocument;
 
 /**
  * Item in *HeroSection → Default → Primary → Hero Buttons*
@@ -1146,6 +1182,8 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      BackgroundImageDocument,
+      BackgroundImageDocumentData,
       FooterDocument,
       FooterDocumentData,
       HomeDocument,

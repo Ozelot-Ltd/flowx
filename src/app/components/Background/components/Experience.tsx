@@ -3,11 +3,6 @@
 import React from 'react';
 
 import Glas from './Glas';
-
-import BackgroundImage from '../../../../../public/images/background_pattern.png';
-
-import Background from './Background';
-
 export default function Experience() {
   return (
     <>
@@ -31,7 +26,6 @@ export default function Experience() {
         castShadow
       />
       <Glas />
-      <Background url={BackgroundImage.src} />
     </>
   );
 }

@@ -3,12 +3,12 @@
     width: fit-content !important;
     font-size: 6rem;
     will-change: font-variation-settings;
-    font-variation-settings: 'wght' 400;
     overflow: hidden;
 }
 
 .heading h2 {
     width: fit-content;
+
 }
 
 /* Enable hover only on non-touch devices */

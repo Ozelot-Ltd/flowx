@@ -8,8 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--lightgrey);
-
+    background-color: var(--background-grey);
 }
 
 .rightContainer {
