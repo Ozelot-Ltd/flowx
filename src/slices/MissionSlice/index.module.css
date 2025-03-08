@@ -1,6 +1,7 @@
 .container {
-
+    padding: 2rem 0;
     position: relative;
+    background-color: var(--darkgrey);
 
 }
 
@@ -15,6 +16,11 @@
     gap: var(--main-padding);
 }
 
+
+
+.contentContainer h2 {
+    color: var(--white);
+}
 
 .groupContainer {
     display: flex;

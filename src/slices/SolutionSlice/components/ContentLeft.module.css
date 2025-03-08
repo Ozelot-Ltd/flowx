@@ -1,7 +1,7 @@
 .contentLeft {
     display: flex;
     justify-content: flex-end;
-    padding: 12rem 4rem;
+    padding: 2rem 2rem;
     border-radius: inherit;
 }
 

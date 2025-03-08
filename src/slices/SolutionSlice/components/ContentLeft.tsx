@@ -16,7 +16,7 @@ import { useWindowStore } from '../../../../stores/useWindowStore';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { PrismicNextImage } from '@prismicio/next';
+// import { PrismicNextImage } from '@prismicio/next';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -72,9 +72,9 @@ export default function ContentLeft({
               <PrismicRichText field={item.solution_text_first} />
             </div>
 
-            <div className={styles.iconContainer}>
+            {/* <div className={styles.iconContainer}>
               <PrismicNextImage field={item.solution_icon} />
-            </div>
+            </div> */}
           </div>
         </NeumorphContainer>
       </div>
