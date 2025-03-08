@@ -4,8 +4,9 @@
     align-items: center;
     justify-content: flex-start;
     position: relative;
-    height: var(--main-padding);
+    height: calc(var(--main-padding) + 3rem);
     margin-top: 8rem;
+    overflow: hidden;
 }
 
 /* Enable hover only on non-touch devices */

@@ -1,8 +1,7 @@
 .footer {
     background-color: var(--darkgrey);
     display: flex;
-    padding: 2rem;
-
+    padding: 2rem 4rem;
     gap: var(--main-padding);
     margin-top: var(--main-padding);
 }
@@ -26,7 +25,7 @@
 }
 
 .logoContainer img {
-    height: 1.5rem;
+    height: 3em;
     width: auto;
 }
 

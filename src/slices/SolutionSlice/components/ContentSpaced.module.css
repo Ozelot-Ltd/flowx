@@ -1,7 +1,7 @@
 .contentSpaced {
     display: flex;
     justify-content: space-between;
-    padding: 12rem 2rem;
+    padding: 4rem 2rem;
     border-radius: inherit;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .triggerContainer> :first-child {
-    transform: translateY(120%);
+    transform: translateY(140%);
     transition: transform 0.8s ease-in-out;
 }
 
