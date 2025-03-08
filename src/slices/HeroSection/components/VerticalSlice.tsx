@@ -6,8 +6,6 @@ import { HeroSectionProps } from '..';
 
 import SectionContainer from '@/app/components/HomeContent/SectionContainer';
 
-import Heading from './components/Heading';
-
 import {
   useWindowStore,
   useScrollStore,
@@ -83,7 +81,6 @@ export default function VerticalSlice({ slice }: HeroSectionProps) {
         className={styles.herocontent}
       >
         <div className={styles.verticalLayout} ref={containerRef}>
-          <Heading slice={slice} index={0} slices={[]} context={undefined} />
           <SubHeading slice={slice} index={0} slices={[]} context={undefined} />
           <ButtonContainer
             slice={slice}
