@@ -1,7 +1,0 @@
-.sticky {
-    position: sticky;
-    top: 0;
-    left: 0;
-    /* This will make it sticky only when the --is-sticky variable is 1 */
-    position: var(--is-sticky, sticky);
-}

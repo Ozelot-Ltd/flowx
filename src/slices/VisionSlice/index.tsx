@@ -28,19 +28,19 @@ const VisionSlice: FC<VisionSliceProps> = ({ slice }) => {
               <PrismicRichText field={slice.primary.vision_title} />
             </div>
           </MainHeadingContainer>
+          <div></div>
           <div className={styles.textContainer}>
             <PrismicRichText field={slice.primary.vision_text} />
           </div>
-        </div>
-
-        <div className={styles.imageContainer}>
-          <video
-            src="https://flow-x.cdn.prismic.io/flow-x/Z8r9MBsAHJWomO1x_Vision_2.0.mp4"
-            autoPlay={true}
-            loop={true}
-            muted={true}
-            playsInline={true}
-          />
+          <div className={styles.imageContainer}>
+            <video
+              src="https://flow-x.cdn.prismic.io/flow-x/Z8r9MBsAHJWomO1x_Vision_2.0.mp4"
+              autoPlay={true}
+              loop={true}
+              muted={true}
+              playsInline={true}
+            />
+          </div>
         </div>
       </section>{' '}
     </SectionContainer>

@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: 100svw;
-    padding: 2rem;
+    padding: 2rem 4rem;
     z-index: 100;
     display: grid;
     align-items: flex-start;
@@ -34,9 +34,7 @@
 
 .navbarContainer {
     position: relative;
-    border: 1px solid var(--darkgrey);
     overflow: hidden;
-    border-radius: 20px;
 }
 
 .contactContainer a {
@@ -47,7 +45,6 @@
     font-family: var(--title-font);
     text-transform: uppercase;
     transition: all 0.3s;
-    border: 1px solid var(--darkgrey);
     font-size: 0.8rem;
     border-radius: 20px;
 }

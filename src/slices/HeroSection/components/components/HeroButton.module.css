@@ -20,6 +20,7 @@
 
 .button p {
     font-size: 1.8rem;
+    text-transform: lowercase;
 }
 
 .button:hover {

@@ -3,20 +3,20 @@
     width: fit-content;
     height: fit-content;
     overflow: hidden;
+    transition: all 0.3s ease-in;
+    border: 1px solid var(--darkgrey);
+    border-radius: 20px;
     transform: translateY(100%);
-    transition: all 0.5s ease;
 }
 
 .open {
-    transform: translateY(0%);
-    transition: all 0.5s ease;
+    transform: translateY(0);
 }
 
 
-/* Initial state - items are hidden */
 .navbarItem {
     transition: all 0.5s ease;
-    padding: 0.5rem 1rem;
+
     width: 8rem;
     display: flex;
     align-items: center;
@@ -31,13 +31,19 @@
     transition: all 0.5s ease;
     width: fit-content;
     mix-blend-mode: difference;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 1rem;
 }
 
-.active {
+.active,
+.navbarItem:hover {
     background-color: var(--black);
 }
 
-.active a {
+.active a,
+.navbarItem:hover a {
     color: var(--white);
 }
 

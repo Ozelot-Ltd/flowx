@@ -106,10 +106,8 @@ export default function Glass() {
           const material = node.material as Material;
           const materialName = material.name as keyof typeof materials;
 
-          // If we have a custom material defined for this mesh
           if (materials[materialName]) {
             node.material = materials[materialName];
-            console.log(`Applied custom material to ${materialName}`);
           }
         }
       });

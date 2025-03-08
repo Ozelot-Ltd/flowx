@@ -27,26 +27,6 @@ const SolutionSlice: FC<SolutionSliceProps> = ({ slice }) => {
   const headerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (headerRef.current && contentRef.current) {
-      // Create ScrollTrigger to pin the header with an offset
-      const headerTrigger = ScrollTrigger.create({
-        start: 'top top',
-        endTrigger: contentRef.current,
-        end: 'bottom-=100px',
-        pin: headerRef.current,
-        pinSpacing: false,
-        onEnter: () => headerRef.current?.classList.add('is-pinned'),
-        onLeaveBack: () => headerRef.current?.classList.remove('is-pinned'),
-        markers: false,
-      });
-
-      return () => {
-        headerTrigger.kill();
-      };
-    }
-  }, []);
-
   return (
     <SectionContainer id={'solution'}>
       <section
