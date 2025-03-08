@@ -17,7 +17,7 @@
 .card {
     position: relative;
     width: 1000px;
-    height: 500px;
+    height: 480px;
     border-radius: 14px;
     overflow: hidden;
     display: flex;
@@ -25,7 +25,7 @@
     align-items: center;
     justify-content: center;
     box-shadow:
-        20px 20px 60px #e3e3e3,
+        20px 20px 60px #cecdcd,
         -20px -20px 60px #ffffff;
     transform: translateX(10rem);
 }

@@ -3,10 +3,9 @@
 }
 
 .subHeading h3 {
-    font-size: 3rem;
+    font-size: 2rem;
     text-transform: uppercase;
     font-variation-settings: "wgth", 800;
-    font-style: italic;
 }
 
 /* Enable hover only on non-touch devices */
