@@ -64,15 +64,11 @@
 /* Mobile */
 @media (max-width: 840px) {
     .header {
-
         padding: 1rem;
-
     }
 
     .contactContainer a {
-        color: var(--black);
         padding: 0.5rem 1rem;
-
     }
 
 }

@@ -31,6 +31,17 @@
     --main-padding: 4rem;
 
 
+
+    /* CARD HERO */
+
+    --card-width: min(90vw, 1000px);
+    --card-height: min(70vh, 480px);
+    --border-radius: 14px;
+    --shadow-light: #cecdcd;
+    --shadow-dark: #ffffff;
+    --blur-amount: 24px;
+    --blob-blur: 22px;
+
     /* font variables */
     --title-size: 1.5rem;
     --title-font: "Satoshi Variable", sans-serif;
@@ -49,15 +60,10 @@
     --darkergreen: #5aa071;
     --darkgreen: #4a7856;
 
-
-
     /* filters */
-
     --brightness: brightness(1.03);
 
-
     /* time stuff */
-
     --time-short: 0.3s;
     --time-long: 0.5s;
 

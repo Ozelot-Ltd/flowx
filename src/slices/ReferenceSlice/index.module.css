@@ -6,7 +6,7 @@
     z-index: 2;
     height: 100%;
     width: 100%;
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,26 +18,18 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
 }
 
 .group {
-    width: 20rem;
-    height: 15rem;
+    width: 15rem;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
 }
-
-
-
-.textContainer p {
-    width: 100%;
-    font-size: 1rem;
-}
-
-.textContainer {}
 
 .iconContainer {
     display: flex;
@@ -58,7 +50,6 @@
 
     .contentContainer {
         padding: 0 1rem;
-
     }
 
     .groupContainer {
@@ -107,8 +98,6 @@
         width: auto;
         object-fit: contain;
     }
-
-
 }
 
 /* Tablet and Smaller Desktop */

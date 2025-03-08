@@ -4,6 +4,11 @@
     right: 0;
     height: 50rem;
     width: 80rem;
+    transition: all 0.4s ease-in-out;
+}
+
+.hidden {
+    transform: translateY(100%);
 }
 
 .backgroundContainer {
@@ -79,3 +84,17 @@
         transform: translate(-100%, -100%) translate3d(0, 0, 0);
     }
 }
+
+
+
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {}
+
+
+
+/* Mobile */
+@media (max-width: 840px) {}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 840px) and (max-width: 1120px) {}

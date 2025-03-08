@@ -3,7 +3,7 @@ import { isFilled, asImageSrc } from '@prismicio/client';
 
 import { createClient } from '@/prismicio';
 
-// import Background from './components/Background/Background';
+import Background from './components/Background/Background';
 import styles from './page.module.css';
 import Header from './components/Header/Header';
 
@@ -28,7 +28,7 @@ export default async function Page() {
         <Splashscreen />
       ) : (
         <>
-          {/* <Background /> */}
+          <Background />
           <Header settings={settings} />
           <section className={styles.container}>
             <SliceZone slices={page.data.slices} components={components} />

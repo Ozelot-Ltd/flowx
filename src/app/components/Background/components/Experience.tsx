@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-// import Glas from './Glas';
+import Glas from './Glas';
 
 export default function Experience() {
   return (
@@ -25,7 +25,7 @@ export default function Experience() {
         penumbra={1}
         castShadow
       />
-      {/* <Glas /> */}
+      <Glas />
     </>
   );
 }
