@@ -140,9 +140,6 @@ export default function Glass() {
     if (activeSection === 'team') {
       setWindowState('team');
     }
-    if (activeSection === 'whatsnext') {
-      setWindowState('whatsnext');
-    }
   }, [isScroll, activeSection, setWindowState, isMobile]);
 
   useGSAP(() => {

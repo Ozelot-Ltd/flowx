@@ -1,19 +1,18 @@
 'use client';
 
-import { ImageField } from '@prismicio/client';
 import React from 'react';
 
-import { PrismicNextImage } from '@prismicio/next';
-
 type Props = {
-  background: ImageField<never>;
   styles: { readonly [key: string]: string };
 };
 
-export default function Content({ background, styles }: Props) {
+export default function Content({ styles }: Props) {
   return (
     <div className={styles.backgroundContainer}>
-      <PrismicNextImage field={background} />
+      <div className={styles.card}>
+        <div className={styles.bg}></div>
+        <div className={styles.blob}></div>
+      </div>
     </div>
   );
 }

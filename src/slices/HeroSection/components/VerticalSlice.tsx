@@ -20,6 +20,7 @@ import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/all';
 import ButtonContainer from './components/ButtonContainer';
 import InformationContainer from './components/InformationContainer';
+import HeroBackground from '@/app/components/HeroBackground/HeroBackground';
 
 gsap.registerPlugin(SplitText, useGSAP);
 
@@ -89,7 +90,8 @@ export default function VerticalSlice({ slice }: HeroSectionProps) {
           />
         </div>
         <InformationContainer slice={slice} windowState={windowState} />
-      </section>{' '}
+      </section>
+      <HeroBackground />
     </SectionContainer>
   );
 }
