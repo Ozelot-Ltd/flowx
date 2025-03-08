@@ -1,7 +1,15 @@
 'use client';
 
 import React, { useRef, useMemo, useEffect } from 'react';
-import { Object3D, MeshStandardMaterial } from 'three';
+import {
+  Object3D,
+  MeshStandardMaterial,
+  MeshPhysicalMaterial,
+  DoubleSide,
+  Color,
+  Mesh,
+  Material,
+} from 'three';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useFrame } from '@react-three/fiber';
@@ -27,25 +35,86 @@ export default function Glass() {
 
   const model = useLoader(GLTFLoader, '/asset/glasss.glb');
 
-  console.log(model);
-
   const { windowState, setWindowState } = useWindowStore();
   const { isScroll } = useScrollStore();
   const { activeSection } = useNavigation();
 
   const { isMobile } = useMobile();
 
-  const material = useMemo(
-    () =>
-      new MeshStandardMaterial({
+  // Create custom materials
+  const materials = useMemo(() => {
+    return {
+      // Glass material
+      'Architectural Glass.001': new MeshPhysicalMaterial({
         transparent: true,
-        opacity: 0.8,
-        color: '#88ccff',
-        metalness: 0.5,
+        opacity: 0.6,
+        color: new Color('#a3d5ff'),
+        metalness: 0.4,
         roughness: 0.1,
+        transmission: 0.9,
+        thickness: 0.1,
+        ior: 1.5, // Glass-like refraction
+        clearcoat: 1.0,
+        clearcoatRoughness: 0.1,
       }),
-    []
-  );
+
+      // Light material
+      'Bulb Emmision Light.001': new MeshPhysicalMaterial({
+        color: new Color('#ffffff'),
+        emissive: new Color('#ffee88'),
+        emissiveIntensity: 2,
+        metalness: 0.5,
+        roughness: 0.2,
+        transparent: true,
+      }),
+
+      // Basic white material
+      'Default White': new MeshStandardMaterial({
+        color: new Color('grey'),
+        roughness: 0.2,
+        metalness: 0.1,
+      }),
+
+      // Glitter material
+      'Glitter Gel.002': new MeshPhysicalMaterial({
+        color: new Color('#c0e8ff'),
+        roughness: 0.3,
+        metalness: 0.8,
+        clearcoat: 1.0,
+        clearcoatRoughness: 0.1,
+        reflectivity: 1.0,
+        transparent: true,
+      }),
+
+      // Gas cloud material
+      'Procedural volumetric gas cloud.001': new MeshStandardMaterial({
+        color: new Color('yellow'),
+        transparent: true,
+        opacity: 0.5,
+        side: DoubleSide,
+        metalness: 0.1,
+        roughness: 0.9,
+      }),
+    };
+  }, []);
+
+  // Apply materials to the model
+  useEffect(() => {
+    if (model && model.scene) {
+      model.scene.traverse((node) => {
+        if (node instanceof Mesh && node.material) {
+          const material = node.material as Material;
+          const materialName = material.name as keyof typeof materials;
+
+          // If we have a custom material defined for this mesh
+          if (materials[materialName]) {
+            node.material = materials[materialName];
+            console.log(`Applied custom material to ${materialName}`);
+          }
+        }
+      });
+    }
+  }, [model, materials]);
 
   useFrame(({ clock }) => {
     const time = clock.getElapsedTime() * 0.4; // Slower animation
@@ -213,11 +282,7 @@ export default function Glass() {
   return (
     <group ref={containerRef}>
       <group ref={glassRef}>
-        <group>
-          <mesh material={material}>
-            <primitive object={model.scene as Object3D} />
-          </mesh>
-        </group>
+        <primitive object={model.scene} />
       </group>
     </group>
   );
