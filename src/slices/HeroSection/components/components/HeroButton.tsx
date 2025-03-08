@@ -5,6 +5,7 @@ import { HeroSectionSlice } from '../../../../../prismicio-types'; // Make sure 
 import { useGSAP } from '@gsap/react';
 
 import gsap from 'gsap';
+import Arrow from '@/app/components/Icons/Arrow';
 gsap.registerPlugin(useGSAP);
 
 export default function HeroButton({
@@ -30,6 +31,9 @@ export default function HeroButton({
             ? slice.primary.toggle_button_text
             : slice.primary.toggle_button_text_active}
         </p>
+        <div>
+          <Arrow />
+        </div>
       </div>
     </div>
   );

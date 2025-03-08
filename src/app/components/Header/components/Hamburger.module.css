@@ -16,12 +16,13 @@
     height: 4px;
     width: 100%;
     border: 1px solid var(--darkgrey);
-    background: var(--darkgrey);
+    background: transparent;
     transition: transform 0.3s ease;
 }
 
 .hamburger.active .line:nth-child(1) {
     transform: translateY(5px) rotate(45deg);
+    background-color: var(--darkgrey);
 }
 
 .hamburger.active .line:nth-child(2) {
@@ -31,6 +32,8 @@
 
 .hamburger.active .line:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
+    background-color: var(--darkgrey);
+
 }
 
 
