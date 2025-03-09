@@ -198,15 +198,15 @@ export default function Glass() {
     }
     if (windowState === 'between') {
       gsap.to(glassRef.current.rotation, {
-        x: Math.PI / 1.5,
+        x: Math.PI / 1.8,
         y: 0,
-        z: 0,
+        z: 0.3,
         duration: shortTransition,
       });
       gsap.to(glassRef.current.position, {
         x: 0.2,
-        y: 0.05,
-        z: 0,
+        y: -0.05,
+        z: 0.1,
         duration: shortTransition,
       });
     }
