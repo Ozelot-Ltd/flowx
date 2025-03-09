@@ -47,8 +47,8 @@ export default function Glass() {
       // Glass material
       'Architectural Glass.001': new MeshPhysicalMaterial({
         transparent: true,
-        opacity: 0.6,
-        color: new Color('#a3d5ff'),
+        opacity: 0.3,
+        color: new Color('#ffffff'),
         metalness: 0.4,
         roughness: 0.1,
         transmission: 0.9,
@@ -70,14 +70,14 @@ export default function Glass() {
 
       // Basic white material
       'Default White': new MeshStandardMaterial({
-        color: new Color('grey'),
+        color: new Color('#ffffff'),
         roughness: 0.2,
         metalness: 0.1,
       }),
 
       // Glitter material
       'Glitter Gel.002': new MeshPhysicalMaterial({
-        color: new Color('#c0e8ff'),
+        color: new Color('#ffffff'),
         roughness: 0.3,
         metalness: 0.8,
         clearcoat: 1.0,
@@ -88,9 +88,9 @@ export default function Glass() {
 
       // Gas cloud material
       'Procedural volumetric gas cloud.001': new MeshStandardMaterial({
-        color: new Color('yellow'),
+        color: new Color('lightgreen'),
         transparent: true,
-        opacity: 0.5,
+        opacity: 0.8,
         side: DoubleSide,
         metalness: 0.1,
         roughness: 0.9,

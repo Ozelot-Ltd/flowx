@@ -6,8 +6,10 @@ import SectionContainer from '@/app/components/HomeContent/SectionContainer';
 
 import styles from './index.module.css';
 
-import TextComponent from '../TeamSlice/components/TextComponent';
+import TextComponent from './components/TextComponent';
 import ImageComponent from '../TeamSlice/components/ImageComponent';
+
+import BackgroundElement from './BackgroundElement';
 
 /**
  * Props for `WhatsNextSlice`.
@@ -24,22 +26,24 @@ const WhatsNextSlice: FC<WhatsNextSliceProps> = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
+        className={styles.container}
       >
         <div className={styles.contentContainer}>
           <MainHeadingContainer>
             <PrismicRichText field={slice.primary.whats_next_title} />
           </MainHeadingContainer>
-
-          <div className={styles.groupContainer}>
+          <BackgroundElement item={slice.primary.whats_next_elements[0]}>
             {slice.primary.whats_next_elements.map((item, index) => (
-              <div key={index} className={styles.container}>
-                <ImageComponent itemNext={item} isTeam={false} />
+              <div key={index} className={styles.innerContainer}>
+                <div className={styles.imageContainer}>
+                  <ImageComponent itemNext={item} isTeam={false} />
+                </div>
                 <div className={styles.textContainer}>
-                  <TextComponent itemNext={item} isTeam={false} />
+                  <TextComponent itemNext={item} />
                 </div>
               </div>
             ))}
-          </div>
+          </BackgroundElement>
         </div>
       </section>
     </SectionContainer>

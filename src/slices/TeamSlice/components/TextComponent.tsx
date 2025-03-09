@@ -31,18 +31,20 @@ export default function TextComponent({
       <div className={styles.upperContainer}>
         <PrismicRichText
           field={isTeam ? item?.member_name : itemNext?.whats_next_title}
-        />
-      </div>
-
-      <div className={styles.subContainer}>
-        <PrismicRichText field={itemNext?.whats_next_description} />{' '}
-        {isTeam && item?.linkedin_logo && (
-          <PrismicNextImage field={item?.linkedin_logo} />
-        )}
-        {isTeam && <PrismicNextLink field={item?.member_email} />}
+        />{' '}
         {isTeam && item?.member_cv?.text !== '' && (
           <PrismicNextLink field={item?.member_cv} />
         )}
+      </div>
+
+      <div className={styles.subContainer}>
+        <PrismicRichText field={itemNext?.whats_next_description} />
+        {isTeam && item?.linkedin_logo && (
+          <PrismicNextLink field={item?.linkedin_link}>
+            <PrismicNextImage field={item?.linkedin_logo} />
+          </PrismicNextLink>
+        )}
+        {isTeam && <PrismicNextLink field={item?.member_email} />}
       </div>
     </div>
   );

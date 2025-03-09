@@ -21,19 +21,22 @@
 }
 
 .textContainer h4 {
-    text-transform: uppercase;
     text-align: left;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     font-weight: 500;
+}
+
+.textContainer a {
+    font-size: 0.8rem;
 }
 
 
 .subContainer {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
     width: 100%;
-    gap: 0.25rem;
+    gap: 2rem;
+    align-items: flex-end
 }
 
 .subContainer a {

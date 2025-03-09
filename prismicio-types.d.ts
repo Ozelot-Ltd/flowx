@@ -618,6 +618,17 @@ export interface MissionSliceSliceDefaultPrimary {
   mission_group_fields: prismic.GroupField<
     Simplify<MissionSliceSliceDefaultPrimaryMissionGroupFieldsItem>
   >;
+
+  /**
+   * Is Next field in *MissionSlice → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: mission_slice.default.primary.is_next
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  is_next: prismic.BooleanField;
 }
 
 /**

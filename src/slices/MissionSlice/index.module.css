@@ -1,5 +1,4 @@
 .container {
-    padding: 2rem 0;
     position: relative;
     height: fit-content;
     padding: var(--main-padding);
@@ -53,13 +52,13 @@
     width: auto;
 }
 
-.group:nth-child(2) .iconContainer img {
+.small:nth-child(2) .iconContainer img {
     height: 3rem;
     width: auto;
 
 }
 
-.group:nth-child(4) .iconContainer img {
+.small:nth-child(4) .iconContainer img {
     height: 3rem;
     width: auto;
 
@@ -154,13 +153,13 @@
 
     }
 
-    .group:nth-child(2) .iconContainer img {
+    .small:nth-child(2) .iconContainer img {
         height: 3rem;
         width: auto;
 
     }
 
-    .group:nth-child(4) .iconContainer img {
+    .small:nth-child(4) .iconContainer img {
         height: 3rem;
         width: auto;
 

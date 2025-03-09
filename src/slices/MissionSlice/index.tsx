@@ -37,7 +37,10 @@ const MissionSlice: FC<MissionSliceProps> = ({ slice }) => {
           </MainHeadingContainer>
           <BackgroundElement item={slice.primary.mission_group_fields[0]}>
             {slice.primary.mission_group_fields.map((item, index) => (
-              <div className={styles.group} key={index}>
+              <div
+                className={`${styles.group} ${!slice.primary.is_next && styles.small}`}
+                key={index}
+              >
                 <div className={styles.iconContainer}>
                   <PrismicNextImage field={item.icon} />
                 </div>

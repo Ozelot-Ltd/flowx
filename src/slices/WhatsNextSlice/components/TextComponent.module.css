@@ -1,0 +1,19 @@
+.text {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.text h4 {
+
+    font-size: 1.5rem;
+}
+
+.text p {
+    text-align: justify;
+    hyphens: auto;
+    width: 80%;
+}
