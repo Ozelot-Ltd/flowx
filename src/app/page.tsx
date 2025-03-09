@@ -12,9 +12,9 @@ import { components } from '@/slices';
 
 import Footer from './components/Footer/Footer';
 
-import Splashscreen from './components/Splashscreen/Splashscreen';
+// import Splashscreen from './components/Splashscreen/Splashscreen';
 
-const isDevelopment = process.env.NODE_ENV === 'development';
+// const isDevelopment = process.env.NODE_ENV === 'development';
 
 export default async function Page() {
   const client = createClient();
@@ -24,18 +24,18 @@ export default async function Page() {
 
   return (
     <>
-      {!isDevelopment ? (
+      {/* {!isDevelopment ? (
         <Splashscreen />
-      ) : (
-        <>
-          <Background />
-          <Header settings={settings} />
-          <section className={styles.container}>
-            <SliceZone slices={page.data.slices} components={components} />
-          </section>
-          <Footer footer={footer} />
-        </>
-      )}
+      ) : ( */}
+      <>
+        <Background />
+        <Header settings={settings} />
+        <section className={styles.container}>
+          <SliceZone slices={page.data.slices} components={components} />
+        </section>
+        <Footer footer={footer} />
+      </>
+      {/* )} */}
     </>
   );
 }
