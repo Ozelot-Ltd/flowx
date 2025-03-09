@@ -17,6 +17,7 @@
     visibility: visible;
 }
 
+
 .button {
     background: var(--lightgrey);
     cursor: pointer;
@@ -32,11 +33,21 @@
     border: 1px solid var(--darkgrey);
 }
 
+.active {
+    background-color: var(--darkgrey);
+}
+
 .button p {
     color: var(--darkgrey);
     transition: color 0.5s ease;
     width: 4rem;
     text-align: center;
+    height: 100%;
+    transition: all 0.5s ease;
+}
+
+.active p {
+    color: var(--white)
 }
 
 
