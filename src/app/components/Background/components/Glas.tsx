@@ -224,6 +224,19 @@ export default function Glass() {
         duration: longTransition,
       });
     }
+    if (isScroll && activeSection === 'mission') {
+      gsap.to(glassRef.current.position, {
+        x: 1.1,
+        y: 0,
+        duration: shortTransition,
+      });
+      gsap.to(glassRef.current.rotation, {
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: shortTransition,
+      });
+    }
     if (isScroll && activeSection === 'solution') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
@@ -233,6 +246,20 @@ export default function Glass() {
       });
       gsap.to(glassRef.current.position, {
         x: -0.2,
+        y: 0,
+        z: 0,
+        duration: shortTransition,
+      });
+    }
+    if (windowState === 'spaced') {
+      gsap.to(glassRef.current.rotation, {
+        x: 0,
+        y: Math.PI * 2,
+        z: 0,
+        duration: shortTransition,
+      });
+      gsap.to(glassRef.current.position, {
+        x: 0,
         y: 0,
         z: 0,
         duration: shortTransition,
