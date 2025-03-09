@@ -65,6 +65,25 @@
                   "allowText": true,
                   "repeat": false
                 }
+              },
+              "linkedin_logo": {
+                "type": "Image",
+                "config": {
+                  "label": "Linkedin Logo",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "linkedin_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Linkedin Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
               }
             }
           }

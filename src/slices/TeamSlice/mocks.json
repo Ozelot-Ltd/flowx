@@ -75,12 +75,50 @@
 							[
 								"member_cv",
 								{
-									"__TYPE__": "LinkContent",
 									"key": "ca8d0cb2-7231-486d-aa68-1977eff5ed14",
+									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "ExternalLink",
 										"url": "http://twitter.com",
 										"text": "earlier"
+									}
+								}
+							],
+							[
+								"linkedin_logo",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+										"width": 3277,
+										"height": 4092
+									},
+									"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+									"width": 3277,
+									"height": 4092,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"linkedin_link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "17b927df-61ee-4542-ae30-a29a775760a2",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com",
+										"text": "some"
 									}
 								}
 							]

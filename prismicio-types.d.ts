@@ -935,6 +935,32 @@ export interface TeamSliceSliceDefaultPrimaryTeamMemberItem {
     prismic.FieldState,
     never
   >;
+
+  /**
+   * Linkedin Logo field in *TeamSlice → Default → Primary → Team Member*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_slice.default.primary.team_member[].linkedin_logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  linkedin_logo: prismic.ImageField<never>;
+
+  /**
+   * Linkedin Link field in *TeamSlice → Default → Primary → Team Member*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_slice.default.primary.team_member[].linkedin_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkedin_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**

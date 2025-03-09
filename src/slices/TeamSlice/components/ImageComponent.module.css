@@ -13,3 +13,31 @@
     width: auto;
 
 }
+
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {}
+
+
+
+/* Mobile */
+@media (max-width: 840px) {
+    .imageContainer {
+        height: fit-content;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 14rem;
+        width: 14rem;
+    }
+
+    .imageContainer img {
+        height: 100%;
+        width: auto;
+
+    }
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 840px) and (max-width: 1120px) {}
