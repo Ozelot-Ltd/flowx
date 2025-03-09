@@ -50,10 +50,16 @@
     }
 
     .container {
-        align-items: center;
-        gap: 1rem;
-        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow: hidden;
+        border-radius: 20px;
     }
+
 }
 
 /* Tablet and Smaller Desktop */
