@@ -14,7 +14,7 @@ type Props = {
   itemNext?: Simplify<WhatsNextSliceSliceDefaultPrimaryWhatsNextElementsItem>;
   item?: Simplify<TeamSliceSliceDefaultPrimaryTeamMemberItem>;
   isTeam?: boolean;
-  isHovered?: boolean; // Changed to boolean - true if this specific item is hovered
+  isHovered?: boolean;
   index?: number;
 };
 

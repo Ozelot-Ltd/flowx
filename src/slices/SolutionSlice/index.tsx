@@ -7,7 +7,6 @@ import SectionContainer from '@/app/components/HomeContent/SectionContainer';
 import MainHeadingContainer from '@/app/components/Containers/MainHeadingContainer';
 import styles from './index.module.css';
 import ContentLeft from './components/ContentLeft';
-import ContentRight from './components/ContentRight';
 import ContentSpaced from './components/ContentSpaced';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -41,8 +40,6 @@ const SolutionSlice: FC<SolutionSliceProps> = ({ slice }) => {
             {slice.primary.solution_sections.map((item, index) =>
               item.solution_side === 'left' ? (
                 <ContentLeft item={item} index={index} key={index} />
-              ) : item.solution_side === 'right' ? (
-                <ContentRight item={item} index={index} key={index} />
               ) : item.solution_side === 'spaced' ? (
                 <ContentSpaced item={item} index={index} key={index} />
               ) : null

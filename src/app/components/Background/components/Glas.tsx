@@ -117,14 +117,14 @@ export default function Glass() {
   useFrame(({ clock }) => {
     const time = clock.getElapsedTime() * 0.4; // Slower animation
     if (containerRef.current) {
-      containerRef.current.rotation.y = Math.sin(time) * 0.08;
-      containerRef.current.rotation.z = Math.cos(time) * 0.08;
+      containerRef.current.rotation.y = Math.sin(time) * 0.03;
+      containerRef.current.rotation.z = Math.cos(time) * 0.03;
     }
   });
 
   useEffect(() => {
     if (!glassRef.current) return;
-    glassRef.current.scale.set(0.45, 0.45, 0.45);
+    glassRef.current.scale.set(0.42, 0.42, 0.42);
 
     if (isScroll && activeSection === 'hero_vertical') {
       setWindowState('hero_vertical');
@@ -156,8 +156,14 @@ export default function Glass() {
 
     if (isScroll && windowState === 'hero_vertical') {
       gsap.to(glassRef.current.position, {
-        x: 1,
+        x: 1.1,
         y: 0,
+        duration: shortTransition,
+      });
+      gsap.to(glassRef.current.rotation, {
+        x: 0,
+        y: 0,
+        z: 0,
         duration: shortTransition,
       });
     }
@@ -204,7 +210,6 @@ export default function Glass() {
         duration: shortTransition,
       });
     }
-
     if (isScroll && windowState === 'vision') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
@@ -219,10 +224,10 @@ export default function Glass() {
         duration: longTransition,
       });
     }
-    if (isScroll && windowState === 'left' && activeSection === 'solution') {
+    if (isScroll && activeSection === 'solution') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
-        y: Math.PI * 2,
+        y: Math.PI * 1.8,
         z: 0,
         duration: shortTransition,
       });
@@ -236,7 +241,7 @@ export default function Glass() {
     if (windowState === 'team') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
-        y: Math.PI * 2,
+        y: Math.PI * 2.2,
         z: 0,
         duration: longTransition,
       });
