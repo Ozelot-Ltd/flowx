@@ -39,6 +39,11 @@
 
     }
 
+    .button p {
+        font-size: 1.4rem;
+        text-transform: lowercase;
+    }
+
 
 
 

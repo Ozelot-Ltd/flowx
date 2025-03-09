@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './SectionContainer.module.css';
 import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useNavigation from '../../../../stores/useNavigation';
+import { useMobile } from '../../../../context/MobileContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,13 +16,15 @@ export default function SectionContainer({
   children: React.ReactNode;
   id: string | null | undefined;
 }) {
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const { setActiveSection } = useNavigation();
+  const { isMobile } = useMobile();
 
-  useGSAP(() => {
+  useEffect(() => {
     if (!sectionRef.current) return;
 
-    const trigger = ScrollTrigger.create({
+    // Default navigation trigger for all sections
+    const navTrigger = ScrollTrigger.create({
       trigger: sectionRef.current,
       start: 'top 50%',
       end: 'bottom 50%',
@@ -31,10 +33,50 @@ export default function SectionContainer({
       markers: false,
     });
 
+    // Special behavior for mission section on mobile only
+    if (id === 'mission' && isMobile) {
+      // Find the BackgroundElement within this section for horizontal scrolling
+      const section = sectionRef.current;
+      const backgroundElement = section.querySelector('[class*="card"]');
+
+      if (backgroundElement) {
+        const backgroundWidth = backgroundElement.scrollWidth;
+        const windowWidth = window.innerWidth;
+        const distanceToScroll = backgroundWidth - windowWidth + 100;
+
+        if (distanceToScroll > 0) {
+          const horizontalScroll = gsap.to(backgroundElement, {
+            x: -distanceToScroll,
+            ease: 'none',
+            duration: 3,
+          });
+
+          const horizontalTrigger = ScrollTrigger.create({
+            trigger: section,
+            start: 'top top',
+            end: `+=${distanceToScroll}`, // End after scrolling the width of background content
+            animation: horizontalScroll,
+            pin: true, // Pin the entire section
+            pinSpacing: true,
+            scrub: 1, // Smooth scrolling
+            anticipatePin: 1,
+            invalidateOnRefresh: true, // Recalculate on window resize
+            markers: process.env.NODE_ENV === 'development',
+          });
+
+          return () => {
+            navTrigger.kill();
+            horizontalTrigger.kill();
+            horizontalScroll.kill();
+          };
+        }
+      }
+    }
+
     return () => {
-      trigger.kill();
+      navTrigger.kill();
     };
-  }, [id, setActiveSection]);
+  }, [id, setActiveSection, isMobile]);
 
   return (
     <section

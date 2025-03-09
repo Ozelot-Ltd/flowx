@@ -8,6 +8,8 @@ import gsap from 'gsap';
 import Arrow from '@/app/components/Icons/Arrow';
 gsap.registerPlugin(useGSAP);
 
+import { useMobile } from '../../../../../context/MobileContext';
+
 export default function HeroButton({
   slice,
   onSeeMoreClick,
@@ -17,6 +19,8 @@ export default function HeroButton({
 }) {
   const { isScroll } = useScrollStore();
   const containerRef = useRef(null);
+
+  const { isMobile } = useMobile();
 
   return (
     <div className={styles.buttonsContainer} ref={containerRef}>
@@ -32,7 +36,7 @@ export default function HeroButton({
             : slice.primary.toggle_button_text_active}
         </p>
         <div>
-          <Arrow />
+          <Arrow height={isMobile ? 16 : 22} />
         </div>
       </div>
     </div>

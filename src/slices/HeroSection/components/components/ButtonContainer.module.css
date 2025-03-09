@@ -18,6 +18,7 @@
 @media (max-width: 840px) {
     .buttonsContainer {
         transform: translateY(-30px);
+        height: calc(var(--main-padding) + 4rem);
     }
 
 

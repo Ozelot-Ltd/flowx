@@ -1,3 +1,5 @@
+'use client';
+
 import { FC } from 'react';
 import { Content } from '@prismicio/client';
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
@@ -6,6 +8,12 @@ import styles from './index.module.css';
 import { PrismicNextImage } from '@prismicio/next';
 import MainHeadingContainer from '@/app/components/Containers/MainHeadingContainer';
 import BackgroundElement from './BackgroundElement';
+
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 /**
  * Props for `MissionSlice`.

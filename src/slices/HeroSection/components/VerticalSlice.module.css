@@ -5,6 +5,7 @@
     width: 100%;
     display: flex;
     align-items: center;
+    z-index: 10;
 }
 
 .verticalLayout {
@@ -26,7 +27,9 @@
 /* Mobile */
 @media (max-width: 840px) {
     .verticalLayout {
-        justify-content: space-around;
+        justify-content: space-between;
+        padding: 6rem var(--main-padding) var(--main-padding) var(--main-padding);
+        padding-left: var(--main-padding);
     }
 }
 

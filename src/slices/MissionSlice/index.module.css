@@ -10,7 +10,6 @@
     height: 100vh;
     flex-direction: column;
     gap: 2rem;
-
 }
 
 .group {
@@ -73,57 +72,100 @@
 
 /* Mobile */
 @media (max-width: 840px) {
-
-    .contentContainer {
-        padding: 0 1rem;
-
+    .container {
+        padding: 1rem 0;
+        position: relative;
+        height: fit-content;
+        padding: var(--main-padding);
     }
 
-    .groupContainer {
+    .contentContainer {
         display: flex;
+        height: fit-content;
         flex-direction: column;
-        justify-content: space-evenly;
-        gap: 4rem;
-        align-items: center;
+        height: 80vh;
     }
 
     .group {
-        max-width: 24rem;
-        color: var(--black);
-        display: flex;
-        flex-direction: column;
-        height: fit-content;
-        gap: 4rem;
+        width: 20rem;
+        display: grid;
+        height: 100%;
+        justify-content: space-between;
         padding: 1rem;
+        gap: 1rem;
+        height: 30rem;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .group:nth-child(2) {
+        width: fit-content;
+        height: 30rem !important;
+
+    }
+
+    .group:nth-child(4) {
+        width: fit-content;
+        height: 30rem !important;
+
+    }
+
+
+    .textContainer p {
+        width: 100%;
+        font-size: 0.8rem;
+        text-align: justify;
+        hyphens: auto;
     }
 
     .textContainer {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
-    .textContainer h3 {
-        font-size: 1.8rem;
-        text-align: center;
-    }
-
-    .textContainer p {
-        width: 100%;
-        text-align: center;
-    }
 
 
     .iconContainer {
         display: flex;
         align-items: center;
         justify-content: center;
+        height: 100%;
+        width: 100%;
+
     }
 
+
+
+
     .iconContainer img {
-        height: 3rem;
+        height: 10rem;
         width: auto;
     }
+
+    .group:nth-child(2) {
+        height: 3rem;
+        width: auto;
+
+    }
+
+    .group:nth-child(4) {
+        height: 3rem;
+        width: auto;
+
+    }
+
+    .group:nth-child(2) .iconContainer img {
+        height: 3rem;
+        width: auto;
+
+    }
+
+    .group:nth-child(4) .iconContainer img {
+        height: 3rem;
+        width: auto;
+
+    }
+
 
 }
 

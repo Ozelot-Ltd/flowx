@@ -28,7 +28,6 @@ const VisionSlice: FC<VisionSliceProps> = ({ slice }) => {
               <PrismicRichText field={slice.primary.vision_title} />
             </div>
           </MainHeadingContainer>
-          <div></div>
           <div className={styles.textContainer}>
             <PrismicRichText field={slice.primary.vision_text} />
           </div>
