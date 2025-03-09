@@ -142,9 +142,25 @@ export default function Glass() {
 
   useGSAP(() => {
     if (!glassRef.current) return;
+    gsap.set(glassRef.current.position, {
+      x: 1,
+      y: 0,
+    });
+  }, [window.onload]);
+
+  useGSAP(() => {
+    if (!glassRef.current) return;
 
     gsap.killTweensOf(glassRef.current.rotation);
     gsap.killTweensOf(glassRef.current.position);
+
+    if (isScroll && windowState === 'hero_vertical') {
+      gsap.to(glassRef.current.position, {
+        x: 1,
+        y: 0,
+        duration: shortTransition,
+      });
+    }
 
     if (windowState === 'front') {
       gsap.to(glassRef.current.rotation, {
@@ -188,20 +204,7 @@ export default function Glass() {
         duration: shortTransition,
       });
     }
-    if (isScroll && windowState === 'hero_vertical') {
-      gsap.to(glassRef.current.rotation, {
-        x: 0,
-        y: 0,
-        z: 0,
-        duration: longTransition,
-      });
-      gsap.to(glassRef.current.position, {
-        x: 1,
-        y: 0.05,
-        z: 0,
-        duration: longTransition,
-      });
-    }
+
     if (isScroll && windowState === 'vision') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
