@@ -1,11 +1,9 @@
 .imageContainer {
-    height: fit-content;
-    width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 14rem;
-    width: 14rem;
+    height: calc(7rem + 7vw);
+    width: calc(7rem + 7vw);
 }
 
 .imageContainer img {
@@ -28,8 +26,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 14rem;
-        width: 14rem;
+        height: calc(7rem + 7vw);
+        width: calc(7rem + 7vw);
     }
 
     .imageContainer img {
