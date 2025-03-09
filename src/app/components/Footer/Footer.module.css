@@ -80,9 +80,6 @@
     .footer {
         background-color: var(--darkgrey);
         padding: 1rem;
-        background: #7cb48f;
-        box-shadow: inset 33px 33px 56px #69997a,
-            inset -33px -33px 56px #8fcfa4;
         width: 100%;
         display: flex;
         justify-content: space-between;

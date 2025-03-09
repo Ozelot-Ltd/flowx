@@ -31,6 +31,8 @@ export default function VerticalSlice({ slice }: HeroSectionProps) {
   const { setWindowState, windowState } = useWindowStore();
   const { setIsScroll, isScroll } = useScrollStore();
 
+  console.log(activeButton);
+
   const onSeeMoreClick = () => {
     if (window.scrollY > 0) {
       window.scrollTo({ top: 0, behavior: 'smooth' });

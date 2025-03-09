@@ -54,13 +54,13 @@ export default function SectionContainer({
           const horizontalTrigger = ScrollTrigger.create({
             trigger: section,
             start: 'top top',
-            end: `+=${distanceToScroll}`, // End after scrolling the width of background content
+            end: `+=${distanceToScroll}`,
             animation: horizontalScroll,
-            pin: true, // Pin the entire section
+            pin: true,
             pinSpacing: true,
-            scrub: 1, // Smooth scrolling
+            scrub: 1,
             anticipatePin: 1,
-            invalidateOnRefresh: true, // Recalculate on window resize
+            invalidateOnRefresh: true,
             markers: process.env.NODE_ENV === 'development',
           });
 
