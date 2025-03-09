@@ -9,6 +9,7 @@
 .imageContainer img {
     height: 100%;
     width: auto;
+    border-radius: 15px;
 
 }
 

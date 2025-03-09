@@ -50,6 +50,7 @@
 .iconContainer img {
     height: 12rem;
     width: auto;
+    border-radius: 15px;
 }
 
 .small:nth-child(2) .iconContainer img {
