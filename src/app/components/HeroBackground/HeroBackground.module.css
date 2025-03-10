@@ -98,7 +98,7 @@
 @media (max-width: 840px) {
     .background {
         position: absolute;
-        bottom: 0;
+        bottom: 5vh;
         right: 0;
         height: fit-content;
         width: fit-content;
@@ -122,6 +122,9 @@
         width: 80vw;
         height: 40vh;
         transform: translateX(5vw);
+        box-shadow:
+            10px 10px 30px #cecdcd,
+            -10px -10px 30px #ffffff;
     }
 
     .bg {
