@@ -6,13 +6,10 @@
     align-items: left;
     gap: 1rem;
     height: fit-content;
-    background-color: var(--lightgrey);
     bottom: 0;
     left: 0;
-    position: absolute;
     padding: 0.5rem;
     visibility: visible;
-    transform: translateY(100%);
     transition: all 0.2s linear;
 }
 
@@ -22,7 +19,7 @@
 
 .textContainer h4 {
     text-align: left;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 500;
 }
 
@@ -33,21 +30,30 @@
 
 .subContainer {
     display: flex;
-    flex-direction: row;
     width: 100%;
+    height: 100%;
     gap: 2rem;
-    align-items: flex-end
+    align-items: flex-end;
+    height: 2rem
 }
 
-.subContainer a {
+
+.emailContainer {
+    position: relative;
+    overflow: hidden;
+}
+
+
+.emailContainer a {
+    transition: all 0.2s linear;
     font-size: 0.8rem;
     text-transform: uppercase;
 }
 
-
 .subContainer img {
-    height: 1.4rem;
-    width: 1.4rem;
+    height: 1.2rem;
+    width: 1.2rem;
+    transform: translateY(3px)
 }
 
 
