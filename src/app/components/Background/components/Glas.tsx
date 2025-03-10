@@ -18,9 +18,7 @@ import {
   useScrollStore,
 } from '../../../../../stores/useWindowStore';
 import useNavigation from '../../../../../stores/useNavigation';
-
 import { useMobile } from '../../../../../context/MobileContext';
-
 import { useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/Addons.js';
 
@@ -29,17 +27,32 @@ gsap.registerPlugin(useGSAP);
 const shortTransition = 1.2;
 const longTransition = 2.5;
 
+// Helper to track the previous state to prevent redundant animations
+const usePrevious = <T,>(value: T) => {
+  const ref = useRef<T | undefined>(undefined);
+  useEffect(() => {
+    ref.current = value;
+  }, [value]);
+  return ref.current;
+};
+
 export default function Glass() {
   const containerRef = useRef<Object3D>(null);
   const glassRef = useRef<Object3D>(null);
+  // Track animation in progress to prevent overlapping animations
+  const animating = useRef(false);
 
   const model = useLoader(GLTFLoader, '/asset/glasss.glb');
 
   const { windowState, setWindowState } = useWindowStore();
   const { isScroll } = useScrollStore();
   const { activeSection } = useNavigation();
-
   const { isMobile } = useMobile();
+
+  // Track previous states to prevent redundant animations
+  const prevWindowState = usePrevious(windowState);
+  const prevActiveSection = usePrevious(activeSection);
+  const prevIsScroll = usePrevious(isScroll);
 
   // Create custom materials
   const materials = useMemo(() => {
@@ -114,6 +127,7 @@ export default function Glass() {
     }
   }, [model, materials]);
 
+  // Subtle floating movement
   useFrame(({ clock }) => {
     const time = clock.getElapsedTime() * 0.4; // Slower animation
     if (containerRef.current) {
@@ -122,11 +136,23 @@ export default function Glass() {
     }
   });
 
+  // Handle section-based state changes but prevent excessive re-renders
   useEffect(() => {
     if (!glassRef.current) return;
-    glassRef.current.scale.set(0.42, 0.42, 0.42);
 
-    if (isScroll && activeSection === 'hero_vertical') {
+    // Set initial scale only once
+    if (!glassRef.current.userData.initialized) {
+      glassRef.current.scale.set(0.42, 0.42, 0.42);
+      glassRef.current.userData.initialized = true;
+    }
+
+    // Only update state if there's an actual change to avoid triggering animations
+    const needsUpdate =
+      isScroll !== prevIsScroll || activeSection !== prevActiveSection;
+
+    if (!needsUpdate) return;
+
+    if (isScroll === true && activeSection === 'hero_vertical') {
       setWindowState('hero_vertical');
     }
     if (activeSection === 'vision') {
@@ -138,8 +164,16 @@ export default function Glass() {
     if (activeSection === 'team') {
       setWindowState('team');
     }
-  }, [isScroll, activeSection, setWindowState, isMobile]);
+  }, [
+    isScroll,
+    activeSection,
+    setWindowState,
+    isMobile,
+    prevIsScroll,
+    prevActiveSection,
+  ]);
 
+  // Initial position setup
   useGSAP(() => {
     if (!glassRef.current) return;
     gsap.set(glassRef.current.position, {
@@ -148,17 +182,33 @@ export default function Glass() {
     });
   }, [window.onload]);
 
+  // Handle animations based on state changes
   useGSAP(() => {
     if (!glassRef.current) return;
 
-    gsap.killTweensOf(glassRef.current.rotation);
-    gsap.killTweensOf(glassRef.current.position);
+    // Skip if no state change or if animation is in progress
+    if (windowState === prevWindowState && !animating.current) return;
 
-    if (isScroll && windowState === 'hero_vertical') {
+    // Prevent animation stacking
+    if (animating.current) {
+      gsap.killTweensOf(glassRef.current.rotation);
+      gsap.killTweensOf(glassRef.current.position);
+    }
+
+    animating.current = true;
+
+    // Create onComplete callback to mark when animation is done
+    const onComplete = () => {
+      animating.current = false;
+    };
+
+    // Check for hero_vertical state when in scroll mode
+    if (isScroll === true && windowState === 'hero_vertical') {
       gsap.to(glassRef.current.position, {
         x: 1.1,
         y: 0,
         duration: shortTransition,
+        onComplete,
       });
       gsap.to(glassRef.current.rotation, {
         x: 0,
@@ -180,8 +230,10 @@ export default function Glass() {
         y: 0.05,
         z: 0,
         duration: shortTransition,
+        onComplete,
       });
     }
+
     if (windowState === 'back') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
@@ -194,8 +246,10 @@ export default function Glass() {
         y: 0.05,
         z: 0,
         duration: shortTransition,
+        onComplete,
       });
     }
+
     if (windowState === 'between') {
       gsap.to(glassRef.current.rotation, {
         x: Math.PI / 1.8,
@@ -208,27 +262,16 @@ export default function Glass() {
         y: -0.05,
         z: 0.1,
         duration: shortTransition,
+        onComplete,
       });
     }
-    if (isScroll && windowState === 'vision') {
-      gsap.to(glassRef.current.rotation, {
-        x: 0,
-        y: Math.PI,
-        z: 0,
-        duration: longTransition,
-      });
-      gsap.to(glassRef.current.position, {
-        x: 1,
-        y: 0,
-        z: 0,
-        duration: longTransition,
-      });
-    }
-    if (isScroll && activeSection === 'mission') {
+
+    if (isScroll === true && activeSection === 'mission') {
       gsap.to(glassRef.current.position, {
         x: 1.1,
         y: 0,
         duration: shortTransition,
+        onComplete,
       });
       gsap.to(glassRef.current.rotation, {
         x: 0,
@@ -237,7 +280,8 @@ export default function Glass() {
         duration: shortTransition,
       });
     }
-    if (isScroll && activeSection === 'solution') {
+
+    if (isScroll === true && activeSection === 'solution') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
         y: Math.PI * 1.8,
@@ -249,8 +293,10 @@ export default function Glass() {
         y: 0,
         z: 0,
         duration: shortTransition,
+        onComplete,
       });
     }
+
     if (windowState === 'spaced') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
@@ -263,8 +309,10 @@ export default function Glass() {
         y: 0,
         z: 0,
         duration: shortTransition,
+        onComplete,
       });
     }
+
     if (windowState === 'team') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
@@ -277,9 +325,10 @@ export default function Glass() {
         y: 0,
         z: 0,
         duration: longTransition,
+        onComplete,
       });
     }
-  }, [isScroll, windowState]);
+  }, [isScroll, windowState, activeSection, prevWindowState]);
 
   return (
     <group ref={containerRef}>

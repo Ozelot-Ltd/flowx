@@ -30,6 +30,7 @@ export default async function Page() {
       <>
         <Background />
         <Header settings={settings} />
+
         <section className={styles.container}>
           <SliceZone slices={page.data.slices} components={components} />
         </section>
