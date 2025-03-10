@@ -27,8 +27,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: calc(7rem + 7vw);
-        width: calc(7rem + 7vw);
+        height: calc(10rem + 12vw);
+        width: calc(10rem + 12vw);
+
     }
 
     .imageContainer img {
