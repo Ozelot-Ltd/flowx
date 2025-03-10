@@ -44,11 +44,11 @@ export default function TextComponent({
             <PrismicNextImage field={item?.linkedin_logo} />
           </PrismicNextLink>
         )}
-        {isTeam && (
+        {/* {isTeam && (
           <div className={styles.emailContainer}>
             <PrismicNextLink field={item?.member_email} />
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
