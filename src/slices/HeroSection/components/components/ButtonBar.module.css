@@ -44,6 +44,9 @@
     text-align: center;
     height: 100%;
     transition: all 0.5s ease;
+    line-height: 0;
+    padding: 0.5rem 0;
+    transform: translateY(1px)
 }
 
 .active p {
