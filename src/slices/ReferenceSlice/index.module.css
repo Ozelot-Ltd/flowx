@@ -61,9 +61,12 @@
         padding: 0 1rem;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        align-items: left;
         gap: 4rem;
+    }
+
+    .contentContainer h2 {
+        text-align: left;
     }
 
 
@@ -81,6 +84,7 @@
         justify-content: center;
         gap: 1rem;
     }
+
 
     .iconContainer {
         display: flex;
