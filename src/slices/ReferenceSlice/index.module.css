@@ -43,6 +43,7 @@
 .iconContainer img {
     height: auto;
     width: 15rem;
+    object-fit: contain;
 }
 
 /* Enable hover only on non-touch devices */
@@ -93,8 +94,9 @@
     }
 
     .iconContainer img {
-        height: auto;
         width: 8rem;
+        height: auto;
+
 
     }
 
