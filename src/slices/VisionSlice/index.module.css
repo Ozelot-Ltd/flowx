@@ -63,6 +63,12 @@
     font-size: 4rem;
 }
 
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 .textContainer p {
     color: white;
     width: 80%;
@@ -122,6 +128,12 @@
     .titleContainer h2 {
         color: white;
         font-size: clamp(1.2rem, 4vh, 2.5rem) !important;
+    }
+
+    .textContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
     }
 
     .textContainer p {

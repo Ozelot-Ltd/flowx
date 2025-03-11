@@ -18,18 +18,25 @@
 
 .textContainer h4 {
     text-align: left;
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-weight: 500;
+    width: fit-content;
 }
 
 .textContainer a {
     font-size: 0.8rem;
 }
 
+.upperContainer a {
+    cursor: initial;
+    pointer-events: none;
+}
+
+
 
 .subContainer {
     display: flex;
-    width: 100%;
+    width: fit-content;
     height: 100%;
     gap: 1rem;
     align-items: flex-end;

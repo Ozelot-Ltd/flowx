@@ -1074,6 +1074,16 @@ export interface VisionSliceSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   vision_url: prismic.KeyTextField;
+
+  /**
+   * Vision Text Second field in *VisionSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vision_slice.default.primary.vision_text_second
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  vision_text_second: prismic.RichTextField;
 }
 
 /**

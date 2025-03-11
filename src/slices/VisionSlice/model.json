@@ -44,6 +44,15 @@
             "label": "Vision URL",
             "placeholder": "Prismic -> Files"
           }
+        },
+        "vision_text_second": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Vision Text Second",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
         }
       },
       "items": {}

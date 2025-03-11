@@ -52,6 +52,17 @@
 				"__TYPE__": "FieldContent",
 				"value": "foot",
 				"type": "Text"
+			},
+			"vision_text_second": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sunt aute excepteur dolor labore incididunt eu. Lorem ad fugiat aute mollit velit voluptate velit magna."
+						}
+					}
+				]
 			}
 		},
 		"items": []
