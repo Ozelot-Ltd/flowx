@@ -60,7 +60,6 @@ export default function SectionContainer({
             scrub: 1,
             anticipatePin: 1,
             invalidateOnRefresh: true,
-            markers: process.env.NODE_ENV === 'development',
           });
 
           return () => {
