@@ -30,7 +30,6 @@ export default function SectionContainer({
       end: 'bottom 50%',
       onEnter: () => id && setActiveSection(id),
       onEnterBack: () => id && setActiveSection(id),
-      markers: true,
     });
 
     // Special behavior for mission section on mobile only
