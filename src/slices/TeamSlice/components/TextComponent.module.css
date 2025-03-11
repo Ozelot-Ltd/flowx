@@ -57,8 +57,9 @@
 
 .subContainer img {
     transform: translateY(3px);
-    height: 1.2rem;
-    width: auto;
+    width: 1.4rem;
+    height: auto;
+    object-fit: contain;
 }
 
 
