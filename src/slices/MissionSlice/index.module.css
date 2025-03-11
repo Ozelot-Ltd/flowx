@@ -73,10 +73,9 @@
 /* Mobile */
 @media (max-width: 840px) {
     .container {
-        padding: 1rem 0;
+        padding: 2rem 1rem;
         position: relative;
         height: fit-content;
-        padding: var(--main-padding);
     }
 
     .contentContainer {

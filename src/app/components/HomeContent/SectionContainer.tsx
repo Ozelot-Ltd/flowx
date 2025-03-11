@@ -1,13 +1,14 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import styles from './SectionContainer.module.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useNavigation from '../../../../stores/useNavigation';
 import { useMobile } from '../../../../context/MobileContext';
+import { useGSAP } from '@gsap/react';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function SectionContainer({
   children,
@@ -20,7 +21,7 @@ export default function SectionContainer({
   const { setActiveSection } = useNavigation();
   const { isMobile } = useMobile();
 
-  useEffect(() => {
+  useGSAP(() => {
     if (!sectionRef.current) return;
 
     // Default navigation trigger for all sections
@@ -44,22 +45,30 @@ export default function SectionContainer({
         const distanceToScroll = backgroundWidth - windowWidth + 100;
 
         if (distanceToScroll > 0) {
+          gsap.set(backgroundElement, {
+            willChange: 'transform',
+          });
+
           const horizontalScroll = gsap.to(backgroundElement, {
             x: -distanceToScroll,
-            ease: 'none',
-            duration: 3,
+            ease: 'power1.out', // Change from 'none' to a slightly eased animation
+            duration: 1, // Duration affects how the scrubbing feels
+            force3D: true,
           });
 
           const horizontalTrigger = ScrollTrigger.create({
             trigger: section,
-            start: 'top top',
-            end: `+=${distanceToScroll}`,
+            start: 'top 5%', // Adjusted trigger point for smoother entry
+            end: `+=${distanceToScroll * 1.05}`, // Add some extra scrolling distance
             animation: horizontalScroll,
             pin: true,
             pinSpacing: true,
-            scrub: 1,
+            scrub: 0.8, // Lower value for more responsive scrubbing
             anticipatePin: 1,
+            fastScrollEnd: true, // Better handling of fast scrolling
+            preventOverlaps: true,
             invalidateOnRefresh: true,
+            markers: false,
           });
 
           return () => {
