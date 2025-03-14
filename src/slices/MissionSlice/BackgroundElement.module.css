@@ -132,7 +132,7 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 48rem) {
+@media (min-width: 48rem) and (max-width: 70rem) {
     .card {
         position: relative;
         width: fit-content;

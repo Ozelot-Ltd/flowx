@@ -20,7 +20,7 @@
 
 
 /* Mobile */
-@media (max-width: 840px) {
+@media (max-width: 47.99rem) {
     .imageContainer {
         height: fit-content;
         width: fit-content;
@@ -35,9 +35,25 @@
     .imageContainer img {
         height: 100%;
         width: auto;
+        height: calc(10rem + 12vw);
+        width: calc(10rem + 12vw);
 
     }
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 840px) and (max-width: 1120px) {}
+@media (min-width: 48rem) and (max-width: 70rem) {
+    .imageContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: calc(7rem + 8vw);
+        width: calc(7rem + 8vw);
+    }
+
+    .imageContainer img {
+        height: 100%;
+        width: auto;
+        border-radius: 15px;
+    }
+}

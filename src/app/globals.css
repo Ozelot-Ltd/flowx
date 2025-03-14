@@ -152,7 +152,7 @@ p {
 
 
 
-@media (max-width: 48rem) {
+@media (max-width: 47.99rem) {
 
     :root {
         --p-font-size: clamp(0.8rem, 0.5rem + 1vw, 1rem);
@@ -184,9 +184,6 @@ p {
 
 @media (min-width: 48rem) and (max-width: 70rem) {
 
-    body {
-        background-color: rgb(255, 191, 191);
-    }
 
     h3 {
         font-size: clamp(1.2rem, 1.4vw + 0.6rem, 1.6rem);

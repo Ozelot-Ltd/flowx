@@ -2,7 +2,7 @@
     z-index: 2;
     height: 100%;
     width: 100%;
-    padding: 4rem;
+    padding: var(--main-padding);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -28,6 +28,7 @@
     justify-content: flex-start;
     border-radius: 20px;
     overflow: hidden;
+    max-width: calc(7rem + 8vw);
 }
 
 
@@ -35,7 +36,7 @@
 @media (hover: hover) and (pointer: fine) {}
 
 /* Mobile */
-@media (max-width: 840px) {
+@media (max-width: 47.99rem) {
     .contentContainer {
         z-index: 2;
         height: 100%;
@@ -44,6 +45,7 @@
         flex-direction: column;
         justify-content: space-between;
         gap: 4rem;
+
     }
 
     .groupContainer {
@@ -60,9 +62,37 @@
         width: 100%;
         justify-content: center;
         align-items: center;
+        width: fit-content;
+        max-width: fit-content;
     }
 
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 840px) and (max-width: 1120px) {}
+@media (min-width: 48rem) and (max-width: 70rem) {
+    .contentContainer {
+        z-index: 2;
+        height: 100%;
+        padding: var(--main-padding);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 4rem;
+    }
+
+    .groupContainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        row-gap: 2rem;
+        /* Add some gap between items */
+    }
+
+    .container {
+        border-radius: 20px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        max-width: fit-content;
+    }
+}

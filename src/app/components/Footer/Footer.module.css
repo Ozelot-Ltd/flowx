@@ -68,7 +68,7 @@
 
 
 /* Mobile */
-@media (max-width: 840px) {
+@media (max-width: 47.99rem) {
     .footer {
         background-color: var(--darkgrey);
         padding: 1rem;
@@ -96,4 +96,68 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 840px) and (max-width: 1120px) {}
+@media (min-width: 48rem) and (max-width: 70rem) {
+    .footer {
+        background-color: var(--darkgrey);
+        display: flex;
+        padding: 1rem var(--main-padding);
+        gap: var(--main-padding);
+        margin-top: var(--main-padding);
+    }
+
+
+
+    .footer * {
+        color: var(--white);
+    }
+
+    .leftContainer {
+        display: flex;
+        flex-direction: column;
+        gap: var(--main-padding);
+    }
+
+    .logoContainer a {
+        cursor: pointer;
+    }
+
+    .logoContainer img {
+        height: 2em;
+        width: auto;
+    }
+
+    .addressContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .contactContainer {
+        justify-self: flex-end;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .contactContainer a {
+        color: var(--white);
+        padding: 0.5em 1.5em;
+        border-radius: 0.5em;
+        background: var(--lightgrey);
+        cursor: pointer;
+        font-family: var(--title-font);
+        text-transform: uppercase;
+        transition: all 0.3s;
+        border: 1px solid var(--green);
+        transition: all 0.3s;
+        background: #343933;
+        font-size: 0.7rem;
+        border-radius: 20px;
+        filter: var(--brightness)
+    }
+
+    .contactContainer a:hover {
+        background-color: var(--green);
+        color: var(--black);
+    }
+}
