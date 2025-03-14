@@ -145,7 +145,7 @@ export default function Glass() {
       glassRef.current.scale.set(0.42, 0.42, 0.42);
       glassRef.current.userData.initialized = true;
     } else if (isMobile && !glassRef.current.userData.initialized) {
-      glassRef.current.scale.set(0.4, 0.4, 0.4);
+      glassRef.current.scale.set(0.3, 0.3, 0.3);
       glassRef.current.userData.initialized = true;
     }
 
@@ -232,7 +232,7 @@ export default function Glass() {
       });
       gsap.to(glassRef.current.position, {
         x: isDesktop ? 0.25 : isMobile ? 0 : 0.2,
-        y: 0.05,
+        y: isDesktop ? 0.05 : isMobile ? 0 : 0.1,
         z: 0,
         duration: shortTransition,
         onComplete,
@@ -247,8 +247,8 @@ export default function Glass() {
         duration: shortTransition,
       });
       gsap.to(glassRef.current.position, {
-        x: 0.25,
-        y: 0.05,
+        x: isDesktop ? 0.25 : isMobile ? 0 : 0.2,
+        y: isDesktop ? 0.05 : isMobile ? 0 : 0.1,
         z: 0,
         duration: shortTransition,
         onComplete,
@@ -263,8 +263,8 @@ export default function Glass() {
         duration: shortTransition,
       });
       gsap.to(glassRef.current.position, {
-        x: 0.2,
-        y: -0.05,
+        x: isDesktop ? 0.25 : isMobile ? 0.1 : 0.2,
+        y: isDesktop ? 0.05 : isMobile ? 0 : 0.1,
         z: 0.1,
         duration: shortTransition,
         onComplete,
