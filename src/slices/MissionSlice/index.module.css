@@ -52,6 +52,13 @@
     border-radius: 15px;
 }
 
+.small:nth-child(2),
+.small:nth-child(4) {
+    width: fit-content;
+    padding: 0;
+}
+
+
 .small:nth-child(2) .iconContainer img {
     height: 3rem;
     width: auto;
@@ -217,9 +224,14 @@
     .small:nth-child(2) .iconContainer img,
     .small:nth-child(4) .iconContainer img {
         height: clamp(2rem, 1rem + 3vw, 3rem);
-        width: auto;
+        width: fit-content;
         transform: translateY(120%);
         padding: 0;
     }
 
+    .small:nth-child(2),
+    .small:nth-child(4) {
+        width: fit-content;
+        padding: 0;
+    }
 }

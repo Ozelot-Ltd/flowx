@@ -51,7 +51,7 @@
 
 
 /* Mobile */
-@media (max-width: 840px) {
+@media (max-width: 47.99rem) {
     .contentLeft {
         display: flex;
         justify-content: center;
@@ -108,4 +108,18 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 840px) and (max-width: 1120px) {}
+@media (min-width: 48rem) and (max-width: 70rem) {
+
+    .triggerContainer {
+        padding: var(--main-padding);
+
+    }
+
+    .textContainer {
+
+        width: clamp(20rem, 15rem + 10vw, 24rem);
+
+    }
+
+
+}

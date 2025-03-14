@@ -31,8 +31,6 @@
     text-transform: uppercase;
 }
 
-
-
 .subContainer {
     display: flex;
     width: fit-content;
@@ -42,12 +40,10 @@
     padding-top: 0.5rem;
 }
 
-
 .emailContainer {
     position: relative;
     overflow: hidden;
 }
-
 
 .emailContainer a {
     transition: all 0.2s linear;
@@ -62,60 +58,21 @@
     object-fit: contain;
 }
 
-
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {}
-
-
-
 /* Mobile */
 @media (max-width: 47.9rem) {
-
-    .subContainer {
-        display: flex;
-        height: fit-content;
-        width: fit-content;
-        gap: 1rem;
-        align-items: flex-end;
-        height: fit-content;
-    }
-
     .textContainer {
-        height: fit-content;
         width: calc(10rem + 12vw) !important;
-
-
-    }
-
-    .textContainer h4 {
-        font-size: 1.2rem;
     }
 
     .subContainer img {
         height: 1.5rem;
-        width: auto;
-        transform: translateY(3px);
     }
 }
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 48rem) and (max-width: 70rem) {
-
-    .subContainer {
-        display: flex;
-        height: fit-content;
-        width: fit-content;
-        gap: 1rem;
-        align-items: flex-end;
-        height: fit-content;
-
-    }
-
     .textContainer {
-        height: fit-content;
         width: calc(7rem + 8vw);
-
     }
 
     .textContainer h4 {
@@ -128,7 +85,5 @@
 
     .subContainer img {
         height: clamp(1rem, 0.8rem + 1vh, 1.3rem);
-        width: auto;
-        transform: translateY(3px);
     }
 }

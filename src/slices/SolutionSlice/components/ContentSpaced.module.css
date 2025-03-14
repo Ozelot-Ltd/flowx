@@ -1,7 +1,7 @@
 .contentSpaced {
     display: flex;
     justify-content: space-between;
-    padding: 4rem 2rem;
+    padding: var(--main-padding) 2rem;
     border-radius: inherit;
 }
 
@@ -52,7 +52,7 @@
 
 
 /* Mobile */
-@media (max-width: 840px) {
+@media (max-width: 47.99rem) {
     .contentSpaced {
         display: flex;
         justify-content: center;
@@ -102,4 +102,21 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 840px) and (max-width: 1120px) {}
+@media (min-width: 48rem) and (max-width: 70rem) {
+
+    .contentSpaced {
+        padding: var(--main-padding) 0;
+        flex-direction: row;
+    }
+
+    .triggerContainer {
+        padding: var(--main-padding) 0;
+
+    }
+
+    .textContainer {
+        width: clamp(20rem, 15rem + 10vw, 24rem);
+    }
+
+
+}
