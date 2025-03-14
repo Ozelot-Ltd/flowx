@@ -29,8 +29,6 @@
     box-shadow: 0px 10px 50px rgb(136, 136, 136);
 }
 
-
-
 .imageContainer video {
     filter: brightness(0.6)
 }
@@ -71,7 +69,7 @@
 .textContainer p {
     color: white;
     width: 80%;
-    font-size: 1.2rem;
+    font-size: clamp(0.8rem, 0.4rem + 0.7vw, 1.2rem);
 }
 
 /* Enable hover only on non-touch devices */
