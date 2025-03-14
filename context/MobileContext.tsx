@@ -14,6 +14,8 @@ const MobileContext = createContext<MobileContextType>({
   isDesktop: true,
 });
 
+const width = window.innerWidth;
+
 export function MobileProvider({ children }: { children: React.ReactNode }) {
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
@@ -21,7 +23,6 @@ export function MobileProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const handleResize = () => {
-      const width = window.innerWidth;
       setIsMobile(width < 840);
       setIsTablet(width >= 840 && width < 1024);
       setIsDesktop(width >= 1024);
@@ -35,7 +36,7 @@ export function MobileProvider({ children }: { children: React.ReactNode }) {
 
     // Cleanup
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [width]);
 
   return (
     <MobileContext.Provider value={{ isMobile, isTablet, isDesktop }}>

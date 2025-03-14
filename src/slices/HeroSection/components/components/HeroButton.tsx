@@ -29,7 +29,7 @@ export default function HeroButton({
             : slice.primary.toggle_button_text_active}
         </p>
         <div>
-          <Arrow height={`clamp(16px, 16px + 0.5vw, 22px)`} />
+          <Arrow />
         </div>
       </div>
     </div>

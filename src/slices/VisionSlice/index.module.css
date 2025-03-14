@@ -60,7 +60,6 @@
 
 .titleContainer h2 {
     color: white;
-    font-size: 4rem;
 }
 
 .textContainer {
@@ -148,9 +147,6 @@
         padding: 1rem 1.5rem;
     }
 
-    .titleContainer h2 {
-        font-size: 1.5rem;
-    }
 
     .textContainer p {
         width: 70%;

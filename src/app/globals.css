@@ -7,7 +7,7 @@
 
 @font-face {
     font-family: "Gilroy Light";
-    src: url("/public/fonts/Gilroy-Light.ttf");
+    src: url("/fonts/Gilroy-Light.ttf");
 }
 
 @font-face {
@@ -34,8 +34,6 @@
 
     /* CARD HERO */
 
-    --card-width: min(90vw, 1000px);
-    --card-height: min(70vh, 480px);
     --border-radius: 14px;
     --shadow-light: #cecdcd;
     --shadow-dark: #ffffff;
@@ -87,6 +85,13 @@ html {
     box-sizing: border-box;
 }
 
+body {
+    height: fit-content;
+    width: 100svw;
+    min-height: 100svh;
+    background-color: var(--lightgrey);
+}
+
 h1,
 h2,
 h3,
@@ -114,17 +119,10 @@ h6 {
 
 h3 {
     font-size: clamp(1.2rem, 1.4vw + 0.6rem, 2rem);
-    /* 2rem initially */
     font-weight: 400;
 }
 
-body {
-    height: fit-content;
-    width: 100svw;
-    min-height: 100svh;
-    max-width: 2000px;
-    background-color: var(--lightgrey);
-}
+
 
 li {
     list-style-type: none;
