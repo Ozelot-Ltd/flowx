@@ -8,11 +8,9 @@ type Props = {
 
 export default function Content({ styles }: Props) {
   return (
-    <div className={styles.backgroundContainer}>
-      <div className={styles.card}>
-        <div className={styles.bg}></div>
-        <div className={styles.blob}></div>
-      </div>
+    <div className={styles.card}>
+      <div className={styles.bg}></div>
+      <div className={styles.blob}></div>
     </div>
   );
 }

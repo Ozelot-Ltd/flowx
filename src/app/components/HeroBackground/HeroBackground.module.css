@@ -2,8 +2,8 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    height: 50rem;
-    width: 80rem;
+    height: fit-content;
+    width: fit-content;
     transition: all 0.4s ease-in-out;
     z-index: -1;
 }
@@ -12,18 +12,11 @@
     transform: translateX(100%);
 }
 
-.backgroundContainer {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
 
 .card {
     position: relative;
-    width: 1000px;
-    height: 480px;
+    width: calc(20rem + 45vw);
+    height: calc(15rem + 25vh);
     border-radius: 14px;
     overflow: hidden;
     display: flex;
@@ -40,8 +33,8 @@
     position: absolute;
     top: 5px;
     left: 5px;
-    width: 1000px;
-    height: 500px;
+    width: calc(20rem + 45vw);
+    height: calc(15rem + 24vh);
     z-index: 2;
     background: var(--lightgrey);
     backdrop-filter: blur(24px);
@@ -59,7 +52,7 @@
     height: 600px;
     border-radius: 50%;
     background-color: var(--lightgreen);
-    opacity: 1;
+    opacity: 0.8;
     filter: blur(22px);
     animation: blob-bounce 10s infinite linear;
 }
