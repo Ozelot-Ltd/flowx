@@ -24,8 +24,8 @@
     align-items: center;
     justify-content: center;
     box-shadow:
-        20px 20px 60px #cecdcd,
-        -20px -20px 60px #ffffff;
+        -0px -0px 50px rgba(206, 205, 205, 0.3),
+        2px 2px 50px rgba(255, 255, 255, 0.3);
     transform: translateX(10rem);
 }
 
@@ -116,8 +116,8 @@
         height: 40vh;
         transform: translateX(5vw);
         box-shadow:
-            10px 10px 30px #cecdcd,
-            -10px -10px 30px #ffffff;
+            -0px -0px 20px rgba(206, 205, 205, 0.3),
+            2px 2px 20px rgba(255, 255, 255, 0.3);
     }
 
     .bg {

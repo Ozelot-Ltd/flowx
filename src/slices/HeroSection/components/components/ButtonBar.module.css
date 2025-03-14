@@ -126,7 +126,7 @@
     .button p {
         color: var(--black);
         transition: color 0.5s ease;
-        width: var(--main-padding);
+        width: calc(3rem + 3vw);
         text-align: center;
         height: 100%;
         transition: all 0.5s ease;
