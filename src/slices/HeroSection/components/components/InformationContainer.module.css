@@ -24,7 +24,7 @@
 
 
 .content p {
-    font-size: clamp(1rem, 0.6rem + 0.8vw, 1.2rem)
+    font-size: clamp(1rem, 0.6rem + 0.8vw, 1.2rem);
 }
 
 /* Enable hover only on non-touch devices */

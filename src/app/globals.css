@@ -28,7 +28,7 @@
     font-size: 16px;
     --padding: 0.5rem;
     --padding-small: 0.25rem;
-    --main-padding: 4rem;
+    --main-padding: clamp(3.2rem, 2.2rem + 2vw, 4rem);
 
 
 
@@ -41,7 +41,11 @@
     --blob-blur: 22px;
 
     /* font variables */
-    --title-size: 1.5rem;
+    --p-font-size: clamp(0.7rem, 0.35rem + 0.6vw, 1.2rem);
+    --h2-font-size: clamp(1.8rem, 1.1rem + 1.2vw, 3rem);
+    --h3-font-size: clamp(1.2rem, 1.4vw + 0.6rem, 1.6rem);
+    --main-padding: clamp(2rem, 5vw, 4rem);
+
     --title-font: "Satoshi Variable", sans-serif;
     --text-font: "Gilroy Regular";
 
@@ -118,7 +122,7 @@ h6 {
 }
 
 h3 {
-    font-size: clamp(1.2rem, 1.4vw + 0.6rem, 2rem);
+    font-size: var(--h3-font-size);
     font-weight: 400;
 }
 
@@ -131,6 +135,8 @@ li {
 a,
 p {
     color: var(--black);
+
+
 }
 
 a {
@@ -141,15 +147,20 @@ a {
 p {
     font-family: var(--text-font) !important;
     line-height: 1.4;
+    font-size: var(--p-font-size);
 }
 
 
 
-@media (max-width: 840px) {
+@media (max-width: 48rem) {
 
     :root {
-        font-size: 14px;
+        --p-font-size: clamp(0.8rem, 0.5rem + 1vw, 1rem);
+        --h2-font-size: clamp(0.8rem, 4vw + 1rem, 1.8rem);
+        --h3-font-size: clamp(0.5rem, 2vw + 0.8rem, 1.4rem);
         --main-padding: 2rem;
+        --main-padding: 2rem;
+        font-size: 14px;
     }
 
     body {
@@ -159,6 +170,23 @@ p {
     }
 
     h3 {
-        font-size: 1.8rem;
+        hyphens: auto;
+        font-size: var(--h3-font-size)
+    }
+
+    p {
+        font-size: var(--p-font-size)
+    }
+
+}
+
+
+@media (min-width: 48rem) {
+
+
+
+    h3 {
+        font-size: clamp(1.2rem, 1.4vw + 0.6rem, 1.6rem);
+        hyphens: auto;
     }
 }

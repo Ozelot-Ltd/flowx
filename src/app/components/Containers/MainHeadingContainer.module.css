@@ -1,13 +1,7 @@
 .container h2 {
-    font-size: calc(1.3rem + 1.5vw);
+    font-size: var(--h2-font-size);
     font-weight: 400;
     width: fit-content;
 }
 
-@media (max-width: 840px) {
-
-    .container h2 {
-        font-size: 1.8rem;
-    }
-
-}
+@media (max-width: 840px) {}

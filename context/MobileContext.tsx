@@ -14,7 +14,8 @@ const MobileContext = createContext<MobileContextType>({
   isDesktop: true,
 });
 
-const width = window.innerWidth;
+// Remove this line - it only gets the width once when the module loads
+// const width = window.innerWidth;
 
 export function MobileProvider({ children }: { children: React.ReactNode }) {
   const [isMobile, setIsMobile] = useState(false);
@@ -23,9 +24,10 @@ export function MobileProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(width < 840);
-      setIsTablet(width >= 840 && width < 1024);
-      setIsDesktop(width >= 1024);
+      const currentWidth = window.innerWidth; // Get the current width inside the handler
+      setIsMobile(currentWidth < 840);
+      setIsTablet(currentWidth >= 840 && currentWidth < 1024);
+      setIsDesktop(currentWidth >= 1024);
     };
 
     // Initial check
@@ -36,7 +38,7 @@ export function MobileProvider({ children }: { children: React.ReactNode }) {
 
     // Cleanup
     return () => window.removeEventListener('resize', handleResize);
-  }, [width]);
+  }, []); // Remove width from dependency array since we get it inside handleResize
 
   return (
     <MobileContext.Provider value={{ isMobile, isTablet, isDesktop }}>

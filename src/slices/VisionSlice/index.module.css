@@ -11,8 +11,8 @@
 
 .contentContainer {
     z-index: 2;
-    height: 80%;
-    width: 80%;
+    height: 85%;
+    width: 85%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -24,10 +24,6 @@
     box-shadow: 0px 0px 0px rgb(136, 136, 136);
 }
 
-.contentContainer:hover {
-    transform: scale(1.01);
-    box-shadow: 0px 10px 50px rgb(136, 136, 136);
-}
 
 .imageContainer video {
     filter: brightness(0.6)

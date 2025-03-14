@@ -1,7 +1,6 @@
 .container {
     position: relative;
     padding: 2rem 0;
-
 }
 
 .contentContainer {
@@ -12,7 +11,7 @@
     flex-direction: column;
     justify-content: center;
     gap: var(--main-padding);
-    padding: 4rem;
+    padding: var(--main-padding);
 }
 
 
@@ -24,8 +23,6 @@
 }
 
 .group {
-
-
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -42,7 +39,7 @@
 
 .iconContainer img {
     height: auto;
-    width: 12rem;
+    width: clamp(6rem, 4rem + 10vw, 12rem);
     object-fit: contain;
 }
 

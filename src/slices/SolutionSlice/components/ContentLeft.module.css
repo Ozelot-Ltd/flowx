@@ -44,23 +44,6 @@
 }
 
 
-.textContainer h3 {
-    font-size: 1.8rem;
-}
-
-
-
-.iconContainer {
-    height: 4rem;
-    width: 4rem;
-    margin-top: 1rem;
-}
-
-.iconContainer img {
-
-    height: 4rem;
-    width: 4rem;
-}
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {}
@@ -108,11 +91,6 @@
         gap: 1rem;
     }
 
-    .titleContainer h3 {
-
-        font-size: 1.5rem;
-    }
-
     .textContainer {
         gap: 2rem;
         padding: 1rem 1rem;
@@ -127,15 +105,6 @@
         text-align: justify;
     }
 
-    .iconContainer {
-        height: 3rem;
-        width: 3rem;
-    }
-
-    .iconContainer img {
-        height: 3rem;
-        width: 3rem;
-    }
 }
 
 /* Tablet and Smaller Desktop */

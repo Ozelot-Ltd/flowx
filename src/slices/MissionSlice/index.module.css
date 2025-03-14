@@ -25,7 +25,6 @@
 
 .textContainer p {
     width: 100%;
-    font-size: 1rem;
     text-align: justify;
     hyphens: auto;
 }
@@ -56,7 +55,6 @@
 .small:nth-child(2) .iconContainer img {
     height: 3rem;
     width: auto;
-
 }
 
 .small:nth-child(4) .iconContainer img {
@@ -109,15 +107,8 @@
 
     }
 
-    .textContainer h3 {
-
-        font-size: 1.5rem;
-    }
-
-
     .textContainer p {
         width: 100%;
-        font-size: 0.8rem;
         text-align: justify;
         hyphens: auto;
     }

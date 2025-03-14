@@ -40,13 +40,14 @@
 .button p {
     color: var(--black);
     transition: color 0.5s ease;
-    width: 4rem;
+    width: var(--main-padding);
     text-align: center;
     height: 100%;
     transition: all 0.5s ease;
     line-height: 0;
     padding: 0.5rem 0;
-    transform: translateY(1px)
+    transform: translateY(1px);
+    font-size: clamp(0.6rem, 0.2rem + 0.6vw, 0.7rem)
 }
 
 .active p {
@@ -73,6 +74,10 @@
         transform: translateY(30%);
         transition-delay: 0s;
         visibility: visible;
+    }
+
+    .button p {
+        width: calc(2rem + 2.5vw);
     }
 
 }
