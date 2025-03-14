@@ -64,14 +64,22 @@
 
 
 /* Mobile */
-@media (max-width: 840px) {
+@media (max-width: 47.99rem) {
     .header {
-        padding: 1rem var(--main-padding);
+        padding: 0.75rem var(--main-padding);
     }
 
     .contactContainer a {
         padding: 0.5rem 1rem;
+        font-size: calc(0.5rem + 0.5vw);
     }
+
+    .logoContainer img {
+        height: calc(0.8rem + 1vw);
+        width: auto;
+    }
+
+
 
 }
 

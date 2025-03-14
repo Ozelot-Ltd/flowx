@@ -58,7 +58,7 @@ export default function SectionContainer({
 
           const horizontalTrigger = ScrollTrigger.create({
             trigger: section,
-            start: 'top 5%', // Adjusted trigger point for smoother entry
+            start: 'top top', // Adjusted trigger point for smoother entry
             end: `+=${distanceToScroll}`, // Add some extra scrolling distance
             animation: horizontalScroll,
             pin: true,
