@@ -96,7 +96,8 @@
             -0px -0px 20px #cecdcd,
             20px 20px 20px #ffffff;
         transform: translateY(4rem);
-        max-width: 100%;
+        max-width: fit-content;
+        align-self: flex-start;
     }
 
     .children {
