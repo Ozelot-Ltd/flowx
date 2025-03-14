@@ -25,8 +25,8 @@ export function MobileProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const handleResize = () => {
       const currentWidth = window.innerWidth; // Get the current width inside the handler
-      setIsMobile(currentWidth < 840);
-      setIsTablet(currentWidth >= 840 && currentWidth < 1024);
+      setIsMobile(currentWidth < 768);
+      setIsTablet(currentWidth >= 768 && currentWidth < 1024);
       setIsDesktop(currentWidth >= 1024);
     };
 

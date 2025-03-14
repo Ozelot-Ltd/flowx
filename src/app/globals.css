@@ -166,7 +166,8 @@ p {
     body {
         max-width: 100svw;
         overflow-x: hidden;
-        max-height: 100svh;
+        height: fit-content;
+        background-color: rgb(152, 152, 255);
     }
 
     h3 {
@@ -181,9 +182,11 @@ p {
 }
 
 
-@media (min-width: 48rem) {
+@media (min-width: 48rem) and (max-width: 70rem) {
 
-
+    body {
+        background-color: rgb(255, 191, 191);
+    }
 
     h3 {
         font-size: clamp(1.2rem, 1.4vw + 0.6rem, 1.6rem);
