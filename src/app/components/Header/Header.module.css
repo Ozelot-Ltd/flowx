@@ -66,7 +66,7 @@
 /* Mobile */
 @media (max-width: 47.99rem) {
     .header {
-        padding: 0.75rem var(--main-padding);
+        padding: 0.75rem 1rem;
     }
 
     .contactContainer a {
