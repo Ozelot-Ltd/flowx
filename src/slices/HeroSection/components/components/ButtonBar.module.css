@@ -62,7 +62,7 @@
 
 
 /* Mobile */
-@media (max-width: 840px) {
+@media (max-width: 47.99rem) {
     .buttonBar {
         display: flex;
         gap: 1rem;
@@ -77,10 +77,67 @@
     }
 
     .button p {
-        width: calc(2rem + 2.5vw);
+        width: calc(3rem + 3vw);
     }
 
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 840px) and (max-width: 1120px) {}
+@media (min-width: 48rem) and (max-width: 70rem) {
+    .buttonBar {
+        display: flex;
+        width: fit-content;
+        flex-direction: row;
+        position: absolute;
+        gap: calc(0.8rem + 1vw);
+        padding-top: 2rem;
+        transform: translateY(200%);
+        transition: all 0.2s linear;
+        overflow: hidden;
+
+    }
+
+    .btnVisible {
+        transform: translateY(30%);
+        transition-delay: 0s;
+        visibility: visible;
+    }
+
+
+    .button {
+        background: var(--lightgrey);
+        cursor: pointer;
+        font-family: var(--title-font);
+        text-transform: uppercase;
+        font-size: clamp(0.65rem, 0.2rem + 0.25vw, 0.8rem);
+        transition: all 0.5s ease;
+        padding: clamp(0.1rem, 0.05rem + 0.1vw, 0.25rem);
+        border-radius: 20px;
+        border: none;
+        z-index: 2;
+        width: fit-content;
+        border: 1px solid var(--black);
+    }
+
+    .active {
+        background-color: var(--black);
+    }
+
+    .button p {
+        color: var(--black);
+        transition: color 0.5s ease;
+        width: var(--main-padding);
+        text-align: center;
+        height: 100%;
+        transition: all 0.5s ease;
+        line-height: 0;
+        padding: 0.5rem 0;
+        transform: translateY(1px);
+        font-size: clamp(0.6rem, 0.2rem + 0.6vw, 0.7rem)
+    }
+
+    .active p {
+        color: var(--white)
+    }
+
+}
