@@ -38,7 +38,7 @@
         position: absolute;
         left: var(--main-padding);
         right: var(--main-padding);
-        top: 40%;
+        top: 20%;
         transform: translateY(-50%);
 
     }
@@ -47,15 +47,10 @@
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        max-width: 60vw;
+        max-width: 80vw;
     }
 
 
-
-    .content p {
-        font-size: 1rem;
-
-    }
 
 
 }

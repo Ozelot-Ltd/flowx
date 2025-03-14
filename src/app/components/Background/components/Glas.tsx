@@ -47,7 +47,7 @@ export default function Glass() {
   const { windowState, setWindowState } = useWindowStore();
   const { isScroll } = useScrollStore();
   const { activeSection } = useNavigation();
-  const { isMobile } = useMobile();
+  const { isMobile, isDesktop, isTablet } = useMobile();
 
   // Track previous states to prevent redundant animations
   const prevWindowState = usePrevious(windowState);
@@ -141,8 +141,11 @@ export default function Glass() {
     if (!glassRef.current) return;
 
     // Set initial scale only once
-    if (!glassRef.current.userData.initialized) {
+    if (isDesktop && !glassRef.current.userData.initialized) {
       glassRef.current.scale.set(0.42, 0.42, 0.42);
+      glassRef.current.userData.initialized = true;
+    } else if (isMobile && !glassRef.current.userData.initialized) {
+      glassRef.current.scale.set(0.4, 0.4, 0.4);
       glassRef.current.userData.initialized = true;
     }
 
@@ -171,6 +174,8 @@ export default function Glass() {
     isMobile,
     prevIsScroll,
     prevActiveSection,
+    isDesktop,
+    isTablet,
   ]);
 
   // Initial position setup
@@ -226,7 +231,7 @@ export default function Glass() {
         duration: shortTransition,
       });
       gsap.to(glassRef.current.position, {
-        x: 0.25,
+        x: isDesktop ? 0.25 : isMobile ? 0 : 0.2,
         y: 0.05,
         z: 0,
         duration: shortTransition,
