@@ -3,9 +3,8 @@
 }
 
 .subHeading h3 {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 1.2rem + 2vw, 3.3rem);
     text-transform: lowercase;
-    font-variation-settings: "wgth", 800;
 }
 
 /* Enable hover only on non-touch devices */
@@ -20,7 +19,7 @@
     }
 
     .subHeading h3 {
-        font-size: 1.8rem;
+        font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
     }
 
 

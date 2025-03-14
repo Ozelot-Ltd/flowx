@@ -2,8 +2,8 @@ import React from 'react';
 
 interface ArrowProps {
   fill?: string;
-  width?: number;
-  height?: number;
+  width?: string | number;
+  height?: string | number;
 }
 
 const Arrow = ({ fill, width, height }: ArrowProps) => (
