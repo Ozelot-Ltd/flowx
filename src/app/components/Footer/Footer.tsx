@@ -5,7 +5,7 @@ import { PrismicRichText } from '@prismicio/react';
 
 import styles from './Footer.module.css';
 import Link from 'next/link';
-import ContactForm from '../ContactForm/ContactForm';
+// import ContactForm from '../ContactForm/ContactForm';
 
 type Props = {
   footer: FooterDocument;
