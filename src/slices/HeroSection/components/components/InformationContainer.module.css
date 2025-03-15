@@ -97,7 +97,7 @@
     .informationContainer {
         top: 20%;
         width: clamp(20rem, 70vw, 30rem);
-        height: calc(12rem + 8vh);
+        height: calc(8rem + 8vh);
     }
 
     .content {
