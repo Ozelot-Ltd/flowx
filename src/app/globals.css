@@ -175,7 +175,7 @@ p {
 
 @media (max-width: 47.99rem) {
     :root {
-        --p-font-size: clamp(0.8rem, 0.5rem + 1vw, 1rem);
+        --p-font-size: clamp(0.9rem, 0.5rem + 1vw, 1.1rem);
         --h2-font-size: clamp(0.8rem, 4vw + 1rem, 1.8rem);
         --h3-font-size: clamp(0.5rem, 2vw + 0.8rem, 1.4rem);
         --main-padding: 2rem;

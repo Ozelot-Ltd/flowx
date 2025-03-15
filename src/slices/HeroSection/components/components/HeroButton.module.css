@@ -4,6 +4,7 @@
     padding-top: 2rem;
     position: absolute;
     padding-bottom: var(--main-padding);
+
 }
 
 .button {
@@ -15,7 +16,32 @@
     gap: 1rem;
     border: none;
     z-index: 2;
+    overflow: hidden;
 }
+
+.leftArrow {
+
+    transform: rotate(180deg) translateX(100%);
+    transition: all 0.2s ease-in-out;
+}
+
+.rightArrow {
+
+    transform: translateX(0%);
+    transition: all 0.2s ease-in-out;
+}
+
+
+.scrollDisabled .leftArrow {
+    transform: rotate(180deg) translateX(0%);
+
+}
+
+.scrollDisabled .rightArrow {
+    transform: translateX(100%);
+
+}
+
 
 .button p {
     font-size: clamp(1.2rem, 0.9rem + 1vw, 2rem);

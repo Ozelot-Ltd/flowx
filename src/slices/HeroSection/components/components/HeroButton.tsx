@@ -18,17 +18,20 @@ export default function HeroButton({
   return (
     <div className={styles.buttonsContainer} ref={containerRef}>
       <div
-        className={styles.button}
+        className={`${styles.button} ${!isScroll ? styles.scrollDisabled : ''}`}
         onClick={() => {
           onSeeMoreClick();
         }}
       >
+        <div className={styles.leftArrow}>
+          <Arrow />
+        </div>
         <p>
           {isScroll
             ? slice.primary.toggle_button_text
             : slice.primary.toggle_button_text_active}
         </p>
-        <div>
+        <div className={styles.rightArrow}>
           <Arrow />
         </div>
       </div>

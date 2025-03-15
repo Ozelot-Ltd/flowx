@@ -9,7 +9,6 @@
 .contentContainer {
     display: flex;
     height: 100vh;
-    background-color: red;
     max-height: min(1000px, 90vh);
     flex-direction: column;
     gap: calc(0.5rem + 1vw);

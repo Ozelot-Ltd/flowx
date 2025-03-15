@@ -17,6 +17,8 @@
     position: relative;
     width: calc(20rem + 45vw);
     height: calc(15rem + 25vh);
+    max-height: 1000px;
+    max-width: 1400px;
     border-radius: 14px;
     overflow: hidden;
     display: flex;
@@ -34,7 +36,9 @@
     top: 5px;
     left: 5px;
     width: calc(20rem + 45vw);
-    height: calc(15rem + 24vh);
+    height: calc(14.25rem + 25vh);
+    max-height: 1000px;
+    max-width: 1400px;
     z-index: 2;
     background: var(--lightgrey);
     backdrop-filter: blur(24px);

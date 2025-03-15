@@ -87,9 +87,9 @@ export default function VerticalSlice({ slice }: HeroSectionProps) {
             slice={slice}
             setActiveButton={setActiveButton}
             onSeeMoreClick={onSeeMoreClick}
-          />
+          />{' '}
+          <InformationContainer slice={slice} windowState={windowState} />
         </div>
-        <InformationContainer slice={slice} windowState={windowState} />
       </section>
       <HeroBackground />
     </SectionContainer>
