@@ -69,22 +69,6 @@
                   "allowTargetBlank": true,
                   "multi": "paragraph"
                 }
-              },
-              "solution_icon": {
-                "type": "Image",
-                "config": {
-                  "label": "solution icon",
-                  "constraint": {},
-                  "thumbnails": []
-                }
-              },
-              "image_solution_second": {
-                "type": "Image",
-                "config": {
-                  "label": "image solution second",
-                  "constraint": {},
-                  "thumbnails": []
-                }
               }
             }
           }
