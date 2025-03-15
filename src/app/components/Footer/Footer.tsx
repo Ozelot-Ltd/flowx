@@ -5,6 +5,7 @@ import { PrismicRichText } from '@prismicio/react';
 
 import styles from './Footer.module.css';
 import Link from 'next/link';
+import ContactForm from '../ContactForm/ContactForm';
 
 type Props = {
   footer: FooterDocument;
@@ -28,6 +29,7 @@ export default function Footer({ footer }: Props) {
           <Link href={'mailto:info@flowx.one'}>CONTACT</Link>
         </div>
       </div>
+      <ContactForm />
     </footer>
   );
 }
