@@ -95,7 +95,7 @@
 /* Tablet in portrait orientation */
 @media (min-width: 48rem) and (max-width: 74rem) and (orientation: portrait) {
     .informationContainer {
-        top: 20%;
+        top: 10%;
         width: clamp(20rem, 70vw, 30rem);
         height: calc(8rem + 8vh);
     }

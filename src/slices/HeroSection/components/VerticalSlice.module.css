@@ -46,7 +46,7 @@
         align-items: center;
         z-index: 10;
         max-height: 1400px;
-        padding: calc(var(--main-padding)) 0;
+        padding: calc(var(--main-padding) * 1.5) 0;
     }
 
     .verticalLayout {
