@@ -22,7 +22,7 @@ export async function POST(request: Request) {
       html: `
         <h3>Thank you for contacting us</h3>
         <p>Hello ${name},</p>
-        <p>We have received your message and will get back to you as soon as possible.</p>
+        <p>We have received kafdklödafs your message and will get back to you as soon as possible.</p>
         <p>Your message:</p>
         <blockquote>${message.replace(/\n/g, '<br>')}</blockquote>
         <p>Best regards,<br>The FlowX Team</p>
