@@ -59,19 +59,19 @@
         left: var(--main-padding);
         right: var(--main-padding);
         width: auto;
-        top: 28%;
+        top: 20%;
         transform: translateY(-50%);
-        height: calc(10rem + 10vh);
+        height: calc(6rem + 8vh);
     }
 
     .content {
         gap: 1rem;
         width: 100%;
-        transform: translateY(calc(10rem + 10vh));
+        transform: translateY(calc(6rem + 10vh));
     }
 
     .visible .content {
-        transform: translateY(calc(10rem + 10vh));
+        transform: translateY(calc(6rem + 10vh));
     }
 }
 
