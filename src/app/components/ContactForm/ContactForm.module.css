@@ -33,7 +33,7 @@
     padding: 0.4rem 0.8rem;
     background-color: var(--darkgrey);
     color: var(--white);
-    transition: all 0.2s linear;
+    transition: outline 0.2s linear;
 }
 
 .formGroup input::placeholder,

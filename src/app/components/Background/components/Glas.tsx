@@ -66,7 +66,7 @@ export default function Glass() {
         roughness: 0.1,
         transmission: 0.9,
         thickness: 0.1,
-        ior: 1.5, // Glass-like refraction
+        ior: 1.5,
         clearcoat: 1.0,
         clearcoatRoughness: 0.1,
       }),
@@ -127,7 +127,6 @@ export default function Glass() {
     }
   }, [model, materials]);
 
-  // Subtle floating movement
   useFrame(({ clock }) => {
     const time = clock.getElapsedTime() * 0.4; // Slower animation
     if (containerRef.current) {
@@ -136,11 +135,9 @@ export default function Glass() {
     }
   });
 
-  // Handle section-based state changes but prevent excessive re-renders
   useEffect(() => {
     if (!glassRef.current) return;
 
-    // Set initial scale only once
     if (isDesktop && !glassRef.current.userData.initialized) {
       glassRef.current.scale.set(0.42, 0.42, 0.42);
       glassRef.current.userData.initialized = true;
@@ -152,7 +149,6 @@ export default function Glass() {
       glassRef.current.userData.initialized = true;
     }
 
-    // Only update state if there's an actual change to avoid triggering animations
     const needsUpdate =
       isScroll !== prevIsScroll || activeSection !== prevActiveSection;
 
@@ -181,7 +177,6 @@ export default function Glass() {
     isTablet,
   ]);
 
-  // Initial position setup
   useGSAP(() => {
     if (!glassRef.current) return;
     gsap.set(glassRef.current.position, {
@@ -190,14 +185,11 @@ export default function Glass() {
     });
   }, [window.onload]);
 
-  // Handle animations based on state changes
   useGSAP(() => {
     if (!glassRef.current) return;
 
-    // Skip if no state change or if animation is in progress
     if (windowState === prevWindowState && !animating.current) return;
 
-    // Prevent animation stacking
     if (animating.current) {
       gsap.killTweensOf(glassRef.current.rotation);
       gsap.killTweensOf(glassRef.current.position);
