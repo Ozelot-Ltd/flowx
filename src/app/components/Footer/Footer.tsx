@@ -29,9 +29,7 @@ export default function Footer({ footer }: Props) {
           </div>
         </div>
       </div>
-      <div className={styles.rightContainer}>
-        <ContactForm />
-      </div>
+      <div className={styles.rightContainer}>{/* <ContactForm /> */}</div>
     </footer>
   );
 }
