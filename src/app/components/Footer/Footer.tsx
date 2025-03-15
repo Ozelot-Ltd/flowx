@@ -18,18 +18,20 @@ export default function Footer({ footer }: Props) {
         <div className={styles.logoContainer}>
           <PrismicNextImage field={footer.data.logo} />
         </div>
-        <div className={styles.addressContainer}>
-          <PrismicRichText field={footer.data.address_name} />
-          <PrismicRichText field={footer.data.address_street} />
-          <PrismicRichText field={footer.data.address_city} />
+        <div className={styles.infoContainer}>
+          <div className={styles.addressContainer}>
+            <PrismicRichText field={footer.data.address_name} />
+            <PrismicRichText field={footer.data.address_street} />
+            <PrismicRichText field={footer.data.address_city} />
+          </div>
+          <div className={styles.contactContainer}>
+            <Link href={'mailto:info@flowx.one'}>CONTACT</Link>
+          </div>
         </div>
       </div>
       <div className={styles.rightContainer}>
-        <div className={styles.contactContainer}>
-          <Link href={'mailto:info@flowx.one'}>CONTACT</Link>
-        </div>
+        <ContactForm />
       </div>
-      <ContactForm />
     </footer>
   );
 }

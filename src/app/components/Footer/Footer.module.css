@@ -4,6 +4,7 @@
     padding: 2rem var(--main-padding);
     gap: var(--main-padding);
     margin-top: var(--main-padding);
+    justify-content: space-between;
 }
 
 
@@ -25,6 +26,11 @@
 .logoContainer img {
     height: 3em;
     width: auto;
+}
+
+.infoContainer {
+    display: flex;
+    gap: var(--main-padding);
 }
 
 .addressContainer {
