@@ -25,7 +25,7 @@
 
 
 /* Mobile */
-@media (max-width: 840px) {
+@media (max-width: 47.9rem) {
     .verticalLayout {
         justify-content: space-between;
         padding: 6rem var(--main-padding) var(--main-padding) var(--main-padding);
@@ -34,4 +34,4 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 840px) and (max-width: 1120px) {}
+@media (min-width: 48rem) and (max-width: 74rem) {}

@@ -1,7 +1,6 @@
 .header {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100svw;
     padding: 1.5rem var(--main-padding) 1rem var(--main-padding);
     z-index: 100;
