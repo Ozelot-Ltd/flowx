@@ -18,28 +18,24 @@ export default function InformationContainer({ windowState, slice }: Props) {
   const [transitioning, setTransitioning] = useState(false);
 
   useEffect(() => {
-    // If the windowState changes, start transition
     if (windowState !== activeState && !transitioning) {
       setTransitioning(true);
       setPreviousState(activeState);
 
-      // Wait for exit animation
       setTimeout(() => {
         setActiveState(windowState);
-        // Wait for entry animation
+
         setTimeout(() => {
           setTransitioning(false);
-        }, 500); // Match this to your CSS transition duration
-      }, 500); // Match this to your CSS transition duration
+        }, 300);
+      }, 300);
     }
   }, [windowState, activeState, transitioning]);
 
-  // Check if the content should be shown based on the state and variation
   const shouldShowContent = (state: string) => {
     return state === 'front' || state === 'back' || state === 'between';
   };
 
-  // Generate content based on state
   const getContent = (state: string) => {
     if (state === 'front' && slice.variation === 'heroVertical') {
       return (
