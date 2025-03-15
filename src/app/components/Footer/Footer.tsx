@@ -5,7 +5,7 @@ import { PrismicRichText } from '@prismicio/react';
 
 import styles from './Footer.module.css';
 import Link from 'next/link';
-// import ContactForm from '../ContactForm/ContactForm';
+import ContactForm from '../ContactForm/ContactForm';
 
 type Props = {
   footer: FooterDocument;
@@ -20,16 +20,26 @@ export default function Footer({ footer }: Props) {
         </div>
         <div className={styles.infoContainer}>
           <div className={styles.addressContainer}>
-            <PrismicRichText field={footer.data.address_name} />
-            <PrismicRichText field={footer.data.address_street} />
-            <PrismicRichText field={footer.data.address_city} />
+            <div className={styles.address}>
+              <PrismicRichText field={footer.data.address_name} />
+              <PrismicRichText field={footer.data.address_street} />
+              <PrismicRichText field={footer.data.address_city} />
+            </div>
+            <div className={styles.contact}>
+              <PrismicRichText field={footer.data.phone} />
+              <Link href={`mailto:${footer.data.email}`}>
+                <PrismicRichText field={footer.data.email} />
+              </Link>
+            </div>
           </div>
-          <div className={styles.contactContainer}>
+          {/* <div className={styles.contactContainer}>
             <Link href={'mailto:info@flowx.one'}>CONTACT</Link>
-          </div>
+          </div>{' '} */}
         </div>
+      </div>{' '}
+      <div className={styles.rightContainer}>
+        <ContactForm />
       </div>
-      <div className={styles.rightContainer}>{/* <ContactForm /> */}</div>
     </footer>
   );
 }

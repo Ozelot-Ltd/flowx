@@ -162,9 +162,29 @@ p {
     color: var(--black);
 }
 
-a {
+a,
+input,
+textarea,
+label {
     text-decoration: none;
     font-family: var(--title-font)
+}
+
+input,
+textarea {
+    border: 1px solid var(--green);
+}
+
+input {
+    border-radius: 15px;
+}
+
+textarea {
+    border-radius: 10px;
+}
+
+label {
+    color: var(--white);
 }
 
 p {

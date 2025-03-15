@@ -63,7 +63,7 @@
 }
 
 .titleContainer h2 {
-    color: white;
+    color: var(--white);
 }
 
 .textContainer {
@@ -73,7 +73,7 @@
 }
 
 .textContainer p {
-    color: white;
+    color: var(--white);
     width: 80%;
     font-size: clamp(0.8rem, 0.4rem + 0.7vw, 1.2rem);
     max-width: 800px;
