@@ -89,8 +89,10 @@
         gap: 2rem;
         padding: 1rem 1rem;
         max-width: 24rem;
+        width: 100%;
         align-items: center;
         justify-content: center;
+
     }
 
 
