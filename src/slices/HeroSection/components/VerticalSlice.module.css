@@ -29,7 +29,6 @@
     .verticalLayout {
         justify-content: space-between;
         padding: 6rem var(--main-padding) var(--main-padding) var(--main-padding);
-        padding-left: var(--main-padding);
     }
 }
 
@@ -46,8 +45,8 @@
         display: flex;
         align-items: center;
         z-index: 10;
-        max-height: 1200px;
-        padding-top: var(--main-padding)
+        max-height: 1400px;
+        padding: calc(var(--main-padding)) 0;
     }
 
     .verticalLayout {
