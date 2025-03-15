@@ -54,7 +54,7 @@
 @media (hover: hover) and (pointer: fine) {}
 
 /* Mobile */
-@media (max-width: 840px) {
+@media (max-width: 47.9rem) {
     .informationContainer {
         position: absolute;
         left: var(--main-padding);
@@ -72,4 +72,31 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 840px) and (max-width: 1120px) {}
+@media (min-width: 48rem) and (max-width: 74rem) {
+    .informationContainer {
+        position: absolute;
+        left: var(--main-padding);
+        top: 25%;
+        overflow: hidden;
+        height: calc(10rem + 8vh);
+        width: clamp(25rem, 15rem + 20vw, 35rem);
+        z-index: 5;
+    }
+}
+
+/* Tablet in portrait orientation */
+@media (min-width: 48rem) and (max-width: 74rem) and (orientation: portrait) {
+    .informationContainer {
+        position: absolute;
+        left: var(--main-padding);
+        top: 20%;
+        height: calc(8rem + 10vh);
+        width: clamp(25rem, 15rem + 20vw, 35rem);
+        z-index: 5;
+    }
+
+    .content {
+        gap: 1.5rem;
+        /* Slightly reduced spacing */
+    }
+}

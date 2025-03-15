@@ -204,9 +204,7 @@ p {
 }
 
 @media (min-width: 48rem) and (max-width: 74rem) {
-    body {
-        background-color: rgb(208, 208, 251)
-    }
+
 
     h3 {
         font-size: clamp(1rem, 1.4vw + 0.4rem, 1.6rem);

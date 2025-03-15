@@ -75,4 +75,19 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 840px) and (max-width: 1120px) {}
+@media (min-width: 48rem) and (max-width: 74rem) {}
+
+
+
+
+
+/* Tablet in portrait orientation */
+@media (min-width: 48rem) and (max-width: 74rem) and (orientation: portrait) {
+    .buttonsContainer {
+        display: flex;
+        gap: 2rem;
+        padding-top: 2rem;
+        position: absolute;
+        padding-bottom: var(--main-padding);
+    }
+}

@@ -35,3 +35,28 @@
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 48rem) and (max-width: 74rem) {}
+
+
+/* Tablet in portrait orientation */
+@media (min-width: 48rem) and (max-width: 74rem) and (orientation: portrait) {
+    .herocontent {
+        height: 100svh;
+        overflow: hidden;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        z-index: 10;
+        max-height: 1200px;
+        padding-top: var(--main-padding)
+    }
+
+    .verticalLayout {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding-left: var(--main-padding);
+    }
+}
