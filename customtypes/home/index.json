@@ -17,9 +17,6 @@
             "vision_slice": {
               "type": "SharedSlice"
             },
-            "whats_next_slice": {
-              "type": "SharedSlice"
-            },
             "team_slice": {
               "type": "SharedSlice"
             },

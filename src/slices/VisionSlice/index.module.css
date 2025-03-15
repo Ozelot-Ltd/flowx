@@ -136,7 +136,7 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 48rem) and (max-width: 70rem) {
+@media (min-width: 48rem) and (max-width: 74rem) {
     .container {
         width: 100svw;
         height: 100svh;

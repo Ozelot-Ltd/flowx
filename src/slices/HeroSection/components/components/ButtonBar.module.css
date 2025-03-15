@@ -83,7 +83,7 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 48rem) and (max-width: 70rem) {
+@media (min-width: 48rem) and (max-width: 74rem) {
     .buttonBar {
         display: flex;
         width: fit-content;

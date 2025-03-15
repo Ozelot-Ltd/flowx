@@ -104,7 +104,6 @@ export type FooterDocument<Lang extends string = string> =
 type HomeDocumentDataSlicesSlice =
   | ReferenceSliceSlice
   | VisionSliceSlice
-  | WhatsNextSliceSlice
   | TeamSliceSlice
   | SolutionSliceSlice
   | MissionSliceSlice
@@ -1116,98 +1115,6 @@ export type VisionSliceSlice = prismic.SharedSlice<
   VisionSliceSliceVariation
 >;
 
-/**
- * Item in *WhatsNextSlice → Default → Primary → What's Next Elements*
- */
-export interface WhatsNextSliceSliceDefaultPrimaryWhatsNextElementsItem {
-  /**
-   * Whats Next Image field in *WhatsNextSlice → Default → Primary → What's Next Elements*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: whats_next_slice.default.primary.whats_next_elements[].whats_next_image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  whats_next_image: prismic.ImageField<never>;
-
-  /**
-   * Whats Next Title field in *WhatsNextSlice → Default → Primary → What's Next Elements*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: whats_next_slice.default.primary.whats_next_elements[].whats_next_title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  whats_next_title: prismic.RichTextField;
-
-  /**
-   * Whats Next Description field in *WhatsNextSlice → Default → Primary → What's Next Elements*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: whats_next_slice.default.primary.whats_next_elements[].whats_next_description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  whats_next_description: prismic.RichTextField;
-}
-
-/**
- * Primary content in *WhatsNextSlice → Default → Primary*
- */
-export interface WhatsNextSliceSliceDefaultPrimary {
-  /**
-   * Whats Next Title field in *WhatsNextSlice → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: What's Next
-   * - **API ID Path**: whats_next_slice.default.primary.whats_next_title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  whats_next_title: prismic.RichTextField;
-
-  /**
-   * What's Next Elements field in *WhatsNextSlice → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: whats_next_slice.default.primary.whats_next_elements[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  whats_next_elements: prismic.GroupField<
-    Simplify<WhatsNextSliceSliceDefaultPrimaryWhatsNextElementsItem>
-  >;
-}
-
-/**
- * Default variation for WhatsNextSlice Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type WhatsNextSliceSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<WhatsNextSliceSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *WhatsNextSlice*
- */
-type WhatsNextSliceSliceVariation = WhatsNextSliceSliceDefault;
-
-/**
- * WhatsNextSlice Shared Slice
- *
- * - **API ID**: `whats_next_slice`
- * - **Description**: WhatsNextSlice
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type WhatsNextSliceSlice = prismic.SharedSlice<
-  "whats_next_slice",
-  WhatsNextSliceSliceVariation
->;
-
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1272,11 +1179,6 @@ declare module "@prismicio/client" {
       VisionSliceSliceDefaultPrimary,
       VisionSliceSliceVariation,
       VisionSliceSliceDefault,
-      WhatsNextSliceSlice,
-      WhatsNextSliceSliceDefaultPrimaryWhatsNextElementsItem,
-      WhatsNextSliceSliceDefaultPrimary,
-      WhatsNextSliceSliceVariation,
-      WhatsNextSliceSliceDefault,
     };
   }
 }

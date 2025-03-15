@@ -18,7 +18,7 @@
 }
 
 .button p {
-    font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem);
+    font-size: clamp(1.2rem, 0.9rem + 1vw, 2rem);
     text-transform: lowercase;
 }
 

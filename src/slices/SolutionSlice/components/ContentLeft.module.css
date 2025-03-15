@@ -28,13 +28,15 @@
     flex-direction: column;
     gap: 2rem;
     padding: 2rem 0;
-    width: 36rem;
+    max-width: 36rem;
+    width: calc(18rem + 14vw);
     align-items: center;
 }
 
 .textContainer p {
     text-align: justify;
     hyphens: auto;
+
 }
 
 .titleContainer {
@@ -108,17 +110,15 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 48rem) and (max-width: 70rem) {
+@media (min-width: 48rem) and (max-width: 74rem) {
 
     .triggerContainer {
-        padding: var(--main-padding);
+        padding: var(--main-padding) 0;
 
     }
 
     .textContainer {
-
         width: clamp(20rem, 15rem + 10vw, 24rem);
-
     }
 
 

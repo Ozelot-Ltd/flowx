@@ -147,6 +147,9 @@ export default function Glass() {
     } else if (isMobile && !glassRef.current.userData.initialized) {
       glassRef.current.scale.set(0.3, 0.3, 0.3);
       glassRef.current.userData.initialized = true;
+    } else if (isTablet && !glassRef.current.userData.initialized) {
+      glassRef.current.scale.set(0.35, 0.35, 0.35);
+      glassRef.current.userData.initialized = true;
     }
 
     // Only update state if there's an actual change to avoid triggering animations

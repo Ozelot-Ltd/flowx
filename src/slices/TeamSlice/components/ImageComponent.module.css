@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(7rem + 8vw);
-    width: calc(7rem + 8vw);
+    height: calc(5rem + 7vw);
+    width: calc(5rem + 7vw);
 }
 
 .imageContainer img {
@@ -42,13 +42,13 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 48rem) and (max-width: 70rem) {
+@media (min-width: 48rem) and (max-width: 74rem) {
     .imageContainer {
         display: flex;
         align-items: center;
         justify-content: center;
-        height: calc(7rem + 8vw);
-        width: calc(7rem + 8vw);
+        height: calc(4rem + 8vw);
+        width: calc(4rem + 8vw);
     }
 
     .imageContainer img {

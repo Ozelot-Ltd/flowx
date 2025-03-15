@@ -96,7 +96,7 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 48rem) and (max-width: 70rem) {
+@media (min-width: 48rem) and (max-width: 74rem) {
     .footer {
         background-color: var(--darkgrey);
         display: flex;

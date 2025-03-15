@@ -70,13 +70,13 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 48rem) and (max-width: 70rem) {
+@media (min-width: 48rem) and (max-width: 74rem) {
     .textContainer {
-        width: calc(7rem + 8vw);
+        width: calc(4rem + 8vw);
     }
 
     .textContainer h4 {
-        font-size: 1rem;
+        font-size: clamp(0.8rem, 0.5rem + 0.8vh, 1.2rem);
     }
 
     .textContainer a {
@@ -84,6 +84,6 @@
     }
 
     .subContainer img {
-        height: clamp(1rem, 0.8rem + 1vh, 1.3rem);
+        height: clamp(1rem, 0.5rem + 1vh, 1.3rem);
     }
 }

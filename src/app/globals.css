@@ -16,8 +16,8 @@
 }
 
 @font-face {
-    font-family: "Satoshi Black";
-    src: url("/fonts/satoshi/Switzer-Black.otf");
+    font-family: "Satoshi Variable";
+    src: url("/fonts/satoshi/Satoshi-Variable.ttf");
 }
 
 
@@ -26,8 +26,6 @@
 
     /* general settings */
     font-size: 16px;
-    --padding: 0.5rem;
-    --padding-small: 0.25rem;
     --main-padding: clamp(3.2rem, 2.2rem + 2vw, 4rem);
 
 
@@ -37,8 +35,7 @@
     --border-radius: 14px;
     --shadow-light: #cecdcd;
     --shadow-dark: #ffffff;
-    --blur-amount: 24px;
-    --blob-blur: 22px;
+
 
     /* font variables */
     --p-font-size: clamp(0.7rem, 0.35rem + 0.6vw, 1.2rem);
@@ -46,7 +43,7 @@
     --h3-font-size: clamp(1.2rem, 1.4vw + 0.6rem, 1.6rem);
     --main-padding: clamp(2rem, 5vw, 4rem);
 
-    --title-font: "Satoshi Variable", sans-serif;
+    --title-font: "Quicksand", sans-serif;
     --text-font: "Gilroy Regular";
 
     /* colors */
@@ -167,6 +164,7 @@ p {
         max-width: 100svw;
         overflow-x: hidden;
         height: fit-content;
+        background-color: rgb(231, 202, 202);
     }
 
     h3 {
@@ -181,11 +179,15 @@ p {
 }
 
 
-@media (min-width: 48rem) and (max-width: 70rem) {
+@media (min-width: 48rem) and (max-width: 74rem) {
+
+    body {
+        background-color: rgb(208, 208, 251)
+    }
 
 
     h3 {
-        font-size: clamp(1.2rem, 1.4vw + 0.6rem, 1.6rem);
+        font-size: clamp(1rem, 1.4vw + 0.4rem, 1.6rem);
         hyphens: auto;
     }
 }
