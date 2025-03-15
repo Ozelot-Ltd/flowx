@@ -3,7 +3,7 @@
     left: var(--main-padding);
     top: 25%;
     overflow: hidden;
-    height: calc(10rem + 8vh);
+    height: calc(8rem + 8vh);
     width: clamp(30rem, 25rem + 20vw, 40rem);
     z-index: 5;
 }
@@ -15,8 +15,8 @@
     flex-direction: column;
     gap: 2rem;
     overflow: hidden;
-    transition: transform 0.5s ease-in-out;
-    transform: translateY(calc(10rem + 8vh));
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(calc(8rem + 8vh));
     position: absolute;
     /* Position absolutely so they can overlap */
     top: 0;
@@ -25,19 +25,19 @@
 
 /* When container is visible, prepare for content transitions */
 .visible .content {
-    transform: translateY(calc(10rem + 8vh));
+    transform: translateY(calc(8rem + 8vh));
 }
 
 /* Active content state */
 .visible .content.active {
     transform: translateY(0);
-    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 /* Exiting content state */
 .visible .content.exiting {
     transform: translateY(-100%);
-    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .content h3 {

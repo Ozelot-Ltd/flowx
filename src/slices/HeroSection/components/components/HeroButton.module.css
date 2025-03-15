@@ -19,19 +19,13 @@
 }
 
 
-
-
 .rightArrow {
-
     transition: all 0.2s ease-in-out;
 }
-
-
 
 .scrollDisabled .rightArrow {
     transform: translateX(100%);
 }
-
 
 .button p {
     font-size: clamp(1.2rem, 0.9rem + 1vw, 2rem);
