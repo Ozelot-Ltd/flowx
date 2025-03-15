@@ -27,8 +27,8 @@ export default function InformationContainer({ windowState, slice }: Props) {
 
         setTimeout(() => {
           setTransitioning(false);
-        }, 300);
-      }, 300);
+        }, 400);
+      }, 400);
     }
   }, [windowState, activeState, transitioning]);
 
