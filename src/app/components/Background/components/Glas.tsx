@@ -46,7 +46,8 @@ type WindowState =
   | 'front'
   | 'back'
   | 'between'
-  | 'spaced';
+  | 'spaced'
+  | 'leftOutside';
 
 export default function Glass() {
   const containerRef = useRef<Object3D>(null);
@@ -172,6 +173,14 @@ export default function Glass() {
       gas: '#80ff80',
       frame: '#f0f0f0',
       glassMesh1: '#ffffff',
+      glassMesh2: '#ffffff',
+    },
+    leftOutside: {
+      fluid1: '#ffffff',
+      fluid2: '#ffffff',
+      gas: '#80ff80',
+      frame: 'lightgreen',
+      glassMesh1: '#585858',
       glassMesh2: '#ffffff',
     },
   };
@@ -384,6 +393,14 @@ export default function Glass() {
         glassFrame: { x: 0, y: 0, z: 0 },
         glassMesh1: { x: 0.02, y: 0, z: 0.02 },
         glassMesh2: { x: -0.02, y: 0, z: 0.02 },
+      },
+      leftOutside: {
+        fluid1: { x: 0, y: 0, z: 0 },
+        fluid2: { x: -0, y: 0, z: 0 },
+        gas: { x: 0, y: 0, z: 0 },
+        glassFrame: { x: 0, y: 0, z: 0 },
+        glassMesh1: { x: 0, y: 0, z: 0 },
+        glassMesh2: { x: -0, y: 0, z: 0 },
       },
     };
 
