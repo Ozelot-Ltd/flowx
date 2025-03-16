@@ -11,6 +11,8 @@ type Props = {
   footer: FooterDocument;
 };
 
+const isDevelopment = process.env.NODE_ENV === 'development';
+
 export default function Footer({ footer }: Props) {
   return (
     <footer className={styles.footer}>
@@ -38,7 +40,7 @@ export default function Footer({ footer }: Props) {
         </div>
       </div>{' '}
       <div className={styles.rightContainer}>
-        <ContactForm />
+        {!isDevelopment && <ContactForm />}
       </div>
     </footer>
   );
