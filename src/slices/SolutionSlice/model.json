@@ -69,6 +69,13 @@
                   "allowTargetBlank": true,
                   "multi": "paragraph"
                 }
+              },
+              "window_state_setter": {
+                "type": "Text",
+                "config": {
+                  "label": "Window State Setter",
+                  "placeholder": ""
+                }
               }
             }
           }

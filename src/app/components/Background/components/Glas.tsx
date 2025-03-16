@@ -143,16 +143,16 @@ export default function Glass() {
       glassMesh2: '#ffffff',
     },
     front: {
-      fluid1: '#FF191C',
+      fluid1: '#FFB6B6',
       fluid2: '#ffffff',
       gas: '#f0f0f0',
-      frame: 'green',
+      frame: '#fff',
       glassMesh1: '#fff',
       glassMesh2: '#f0f0f0',
     },
     back: {
-      fluid1: '#b3ffff',
-      fluid2: 'blue',
+      fluid1: '#ffffff',
+      fluid2: 'lightgreen',
       gas: '#ffffff',
       frame: '#f0f0f0',
       glassMesh1: '#ffffff',
@@ -199,7 +199,7 @@ export default function Glass() {
         metalness: 0.1,
         roughness: 0.2,
         transparent: true,
-        opacity: 0.4,
+        opacity: 0.8,
       }),
 
       // Basic white material --> frame
@@ -215,7 +215,7 @@ export default function Glass() {
         metalness: 0.1,
         roughness: 0.2,
         transparent: true,
-        opacity: 0.4,
+        opacity: 0.8,
       }),
 
       // Gas cloud material -> gas layer
@@ -794,6 +794,8 @@ export default function Glass() {
       // Apply colors for this state
       adjustMaterialColors('front');
     }
+
+    console.log(windowState);
 
     if (windowState === 'back') {
       gsap.to(glassRef.current.rotation, {

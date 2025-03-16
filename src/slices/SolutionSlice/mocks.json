@@ -83,6 +83,14 @@
 										}
 									]
 								}
+							],
+							[
+								"window_state_setter",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "onto",
+									"type": "Text"
+								}
 							]
 						]
 					}

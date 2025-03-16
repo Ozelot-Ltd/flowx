@@ -833,6 +833,16 @@ export interface SolutionSliceSliceDefaultPrimarySolutionSectionsItem {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   solution_text_second: prismic.RichTextField;
+
+  /**
+   * Window State Setter field in *SolutionSlice → Default → Primary → Solution Sections*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: solution_slice.default.primary.solution_sections[].window_state_setter
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  window_state_setter: prismic.KeyTextField;
 }
 
 /**
