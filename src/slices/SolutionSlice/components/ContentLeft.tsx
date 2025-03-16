@@ -31,7 +31,7 @@ export default function ContentLeft({
   const [sectionVisible, setSectionVisible] = useState(false);
 
   const setSomeStuff = () => {
-    setWindowState(item && (item.solution_side as string));
+    setWindowState(item && (item.window_state_setter as string));
 
     if (sectionVisible) return;
     setSectionVisible(true);

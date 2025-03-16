@@ -143,7 +143,7 @@ export default function Glass() {
       glassMesh2: '#ffffff',
     },
     front: {
-      fluid1: '#FFB6B6',
+      fluid1: '#b3ffb3',
       fluid2: '#ffffff',
       gas: '#f0f0f0',
       frame: '#fff',
@@ -152,7 +152,7 @@ export default function Glass() {
     },
     back: {
       fluid1: '#ffffff',
-      fluid2: 'lightgreen',
+      fluid2: '#b3ffb3',
       gas: '#ffffff',
       frame: '#f0f0f0',
       glassMesh1: '#ffffff',
@@ -199,7 +199,8 @@ export default function Glass() {
         metalness: 0.1,
         roughness: 0.2,
         transparent: true,
-        opacity: 0.8,
+        opacity: 0.6,
+        side: DoubleSide,
       }),
 
       // Basic white material --> frame
@@ -213,9 +214,9 @@ export default function Glass() {
       'Glitter Gel.002': new MeshPhysicalMaterial({
         color: new Color('#f9f9f9'),
         metalness: 0.1,
-        roughness: 0.2,
+        roughness: 0.6,
         transparent: true,
-        opacity: 0.8,
+        opacity: 0.6,
       }),
 
       // Gas cloud material -> gas layer
@@ -779,7 +780,7 @@ export default function Glass() {
     if (!isScroll && windowState === 'front') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
-        y: -1.4,
+        y: -0.8,
         z: 0,
         duration: shortTransition,
       });
@@ -800,7 +801,7 @@ export default function Glass() {
     if (windowState === 'back') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
-        y: -2.8,
+        y: -4,
         z: 0,
         duration: shortTransition,
       });
@@ -851,7 +852,7 @@ export default function Glass() {
       adjustMaterialColors('hero_vertical');
     }
 
-    if (isScroll === true && activeSection === 'solution') {
+    if (windowState === 'leftOutside') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
         y: Math.PI * 1.8,
