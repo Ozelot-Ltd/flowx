@@ -40,7 +40,7 @@ export default function Footer({ footer }: Props) {
         </div>
       </div>{' '}
       <div className={styles.rightContainer}>
-        {!isDevelopment && <ContactForm />}
+        {isDevelopment && <ContactForm />}
       </div>
     </footer>
   );
