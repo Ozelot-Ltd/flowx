@@ -10,11 +10,16 @@ import Link from 'next/link';
 
 import useNavigation from '../../../../stores/useNavigation';
 
+import { useScrollStore } from '../../../../stores/useWindowStore';
+
 export default function Header({ settings }: { settings: SettingsDocument }) {
+  const { isScroll } = useScrollStore();
   const { setActiveSection } = useNavigation();
 
   return (
-    <header className={styles.header}>
+    <header
+      className={`${styles.header} ${!isScroll ? styles.transparent : ''}`}
+    >
       <div className={styles.rightContainer}>
         <div
           className={styles.logoContainer}

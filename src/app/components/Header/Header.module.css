@@ -11,6 +11,10 @@
     background-color: var(--lightgrey);
 }
 
+.transparent {
+    background-color: transparent;
+}
+
 .hamburgerContainer {
     display: flex;
     flex-direction: column;
