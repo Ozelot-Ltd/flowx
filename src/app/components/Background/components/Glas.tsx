@@ -182,11 +182,11 @@ export default function Glass() {
       // Glass material
       'Architectural Glass.001': new MeshPhysicalMaterial({
         transparent: true,
-        opacity: 0.81,
+        opacity: 0.1,
         color: new Color('#ffffff'),
         metalness: 0.1,
         roughness: 0.1,
-        transmission: 0.5,
+        transmission: 1,
         thickness: 0.1,
         ior: 1.5,
         clearcoat: 1.0,
@@ -199,7 +199,7 @@ export default function Glass() {
         metalness: 0.1,
         roughness: 0.2,
         transparent: true,
-        opacity: 0.6,
+        opacity: 0.3,
         side: DoubleSide,
       }),
 
@@ -214,9 +214,9 @@ export default function Glass() {
       'Glitter Gel.002': new MeshPhysicalMaterial({
         color: new Color('#f9f9f9'),
         metalness: 0.1,
-        roughness: 0.6,
+        roughness: 0.3,
         transparent: true,
-        opacity: 0.6,
+        opacity: 0.3,
       }),
 
       // Gas cloud material -> gas layer
@@ -661,7 +661,7 @@ export default function Glass() {
 
     // Set initial scale only once
     if (isDesktop && !glassRef.current.userData.initialized) {
-      glassRef.current.scale.set(0.43, 0.43, 0.43);
+      glassRef.current.scale.set(0.4, 0.4, 0.4);
       glassRef.current.userData.initialized = true;
     } else if (isMobile && !glassRef.current.userData.initialized) {
       glassRef.current.scale.set(0.3, 0.3, 0.3);
