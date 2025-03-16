@@ -37,6 +37,8 @@
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto;
+    max-width: calc(10rem + 13vw);
+
 }
 
 .textContainer {
