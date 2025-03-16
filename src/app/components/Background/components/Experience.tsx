@@ -6,7 +6,7 @@ import Glas from './Glas';
 export default function Experience() {
   return (
     <>
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.8} />
       <Glas />
     </>
   );

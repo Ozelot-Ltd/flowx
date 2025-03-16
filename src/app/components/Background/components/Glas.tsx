@@ -780,7 +780,7 @@ export default function Glass() {
     if (!isScroll && windowState === 'front') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
-        y: -0.8,
+        y: -1.3,
         z: 0,
         duration: shortTransition,
       });
@@ -801,7 +801,7 @@ export default function Glass() {
     if (windowState === 'back') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
-        y: -4,
+        y: -2.6,
         z: 0,
         duration: shortTransition,
       });
