@@ -40,7 +40,6 @@ const usePrevious = <T,>(value: T) => {
 
 type WindowState =
   | 'hero_vertical'
-  | 'vision'
   | 'solution'
   | 'team'
   | 'front'
@@ -136,14 +135,7 @@ export default function Glass() {
       glassMesh1: '#ffffff',
       glassMesh2: '#ffffff',
     },
-    vision: {
-      fluid1: '#b3e0ff',
-      fluid2: '#80d4ff',
-      gas: '#b3ffb3',
-      frame: '#f0f0f0',
-      glassMesh1: '#ffffff',
-      glassMesh2: '#ffffff',
-    },
+
     solution: {
       fluid1: '#ffb3b3',
       fluid2: '#ff8080',
@@ -164,15 +156,15 @@ export default function Glass() {
       fluid1: '#b3ffb3',
       fluid2: '#ffffff',
       gas: '#f0f0f0',
-      frame: '#fff',
+      frame: '#ffffff',
       glassMesh1: '#fff',
-      glassMesh2: '#f0f0f0',
+      glassMesh2: '#fff',
     },
     back: {
       fluid1: '#ffffff',
       fluid2: '#b3ffb3',
       gas: '#ffffff',
-      frame: '#f0f0f0',
+      frame: '#ffffff',
       glassMesh1: '#ffffff',
       glassMesh2: '#ffffff',
     },
@@ -180,7 +172,7 @@ export default function Glass() {
       fluid1: '#ffffff',
       fluid2: '#ffffff',
       gas: '#b3ffb3',
-      frame: '#f0f0f0',
+      frame: '#ffffff',
       glassMesh1: '#ffffff',
       glassMesh2: '#ffffff',
     },
@@ -188,7 +180,7 @@ export default function Glass() {
       fluid1: '#dfffdf',
       fluid2: '#b3ffb3',
       gas: '#80ff80',
-      frame: '#f0f0f0',
+      frame: '#ffffff',
       glassMesh1: '#ffffff',
       glassMesh2: '#ffffff',
     },
@@ -196,7 +188,7 @@ export default function Glass() {
       fluid1: '#ffffff',
       fluid2: '#ffffff',
       gas: '#80ff80',
-      frame: '#f0f0f0',
+      frame: '#ffffff',
       glassMesh1: '#414141',
       glassMesh2: '#ffffff',
     },
@@ -204,7 +196,7 @@ export default function Glass() {
       fluid1: '#ffffff',
       fluid2: '#ffffff',
       gas: '#80ff80',
-      frame: '#f0f0f0',
+      frame: '#ffffff',
       glassMesh1: '#FF6B6B',
       glassMesh2: '#ffffff',
     },
@@ -379,14 +371,7 @@ export default function Glass() {
         glassMesh1: { x: 0, y: 0, z: 0 },
         glassMesh2: { x: 0, y: 0, z: 0 },
       },
-      vision: {
-        fluid1: { x: 0, y: 0, z: 0 },
-        fluid2: { x: 0, y: 0, z: 0 },
-        gas: { x: 0, y: 0, z: 0 },
-        glassFrame: { x: 0, y: 0, z: 0 },
-        glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: 0, y: 0, z: 0 },
-      },
+
       solution: {
         fluid1: { x: 0, y: 0, z: 0 },
         fluid2: { x: 0, y: 0, z: 0 },
