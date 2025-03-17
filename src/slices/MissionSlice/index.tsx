@@ -25,7 +25,7 @@ export type MissionSliceProps = SliceComponentProps<Content.MissionSliceSlice>;
  */
 const MissionSlice: FC<MissionSliceProps> = ({ slice }) => {
   return (
-    <SectionContainer id={'mission'}>
+    <SectionContainer id={`${slice.primary.is_next ? 'next' : 'mission'}`}>
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}

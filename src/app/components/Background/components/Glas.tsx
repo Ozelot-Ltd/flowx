@@ -56,6 +56,20 @@ export default function Glass() {
   const containerRef = useRef<Object3D>(null);
   const glassRef = useRef<Object3D>(null);
 
+  const [initialized, setInitialized] = useState(false);
+
+  useEffect(() => {
+    if (glassRef.current && !initialized) {
+      // Set initial position far outside the window
+      gsap.set(glassRef.current.position, {
+        x: 1.5, // Far right (off-screen)
+        y: 0,
+        z: 0,
+      });
+      setInitialized(true);
+    }
+  }, [initialized]);
+
   // Refs for specific model nodes
   const fluid1Ref = useRef<Mesh | null>(null);
   const fluid2Ref = useRef<Mesh | null>(null);
@@ -183,7 +197,7 @@ export default function Glass() {
       fluid2: '#ffffff',
       gas: '#80ff80',
       frame: '#f0f0f0',
-      glassMesh1: '#909090',
+      glassMesh1: '#414141',
       glassMesh2: '#ffffff',
     },
     leftInsideWarm: {
@@ -207,7 +221,7 @@ export default function Glass() {
       fluid2: '#ffffff',
       gas: '#80ff80',
       frame: '#f0f0f0',
-      glassMesh1: '#80ff80',
+      glassMesh1: '#ffffff',
       glassMesh2: '#ffffff',
     },
   };
@@ -751,11 +765,11 @@ export default function Glass() {
     if (activeSection === 'vision') {
       setWindowState('vision');
     }
-    if (activeSection === 'solution') {
-      setWindowState('solution');
-    }
     if (activeSection === 'team') {
       setWindowState('team');
+    }
+    if (activeSection === 'mission') {
+      setWindowState('mission');
     }
   }, [
     isScroll,
@@ -768,10 +782,14 @@ export default function Glass() {
     isTablet,
   ]);
 
+  useEffect(() => {
+    console.log(windowState);
+  }, [windowState]);
+
   // Initial position setup
   // Handle animations based on state changes
   useGSAP(() => {
-    if (!glassRef.current) return;
+    if (!glassRef.current || !initialized) return;
 
     // Skip if no state change or if animation is in progress
     if (windowState === prevWindowState && !animating.current) return;
@@ -910,7 +928,7 @@ export default function Glass() {
 
     // Apply node position changes in parallel
     adjustNodePositions(windowState as WindowState);
-  }, [isScroll, windowState, activeSection, prevWindowState]);
+  }, [isScroll, windowState, activeSection, prevWindowState, initialized]);
 
   return (
     <group ref={containerRef}>

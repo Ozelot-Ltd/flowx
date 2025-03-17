@@ -23,6 +23,9 @@ export default function HeroButton({
           onSeeMoreClick();
         }}
       >
+        <div className={styles.leftArrow}>
+          <Arrow />
+        </div>
         <p>
           {isScroll
             ? slice.primary.toggle_button_text
