@@ -42,11 +42,11 @@ export default function ContentLeft({
 
     const trigger = ScrollTrigger.create({
       trigger: sectionRef.current,
-      start: 'top 50%',
+      start: `top 50%`,
       end: 'bottom 50%',
       onEnter: () => setSomeStuff(),
       onEnterBack: () => setSomeStuff(),
-      markers: false,
+      markers: process.env.NODE_ENV === 'development',
     });
 
     return () => {
