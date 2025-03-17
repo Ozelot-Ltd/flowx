@@ -6,7 +6,7 @@
 }
 
 .triggerContainer {
-    padding: 2rem;
+    padding: var(--main-padding);
     overflow: hidden;
 }
 

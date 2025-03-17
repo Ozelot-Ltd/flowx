@@ -1,7 +1,7 @@
 .contentSpaced {
     display: flex;
     justify-content: space-between;
-    padding: var(--main-padding) 2rem;
+    padding: var(--main-padding);
     border-radius: inherit;
 }
 
