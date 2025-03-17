@@ -92,11 +92,6 @@
 /* Mobile */
 @media (max-width: 47.99rem) {
     .footer {
-        background-color: var(--darkgrey);
-        padding: 1rem;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
         flex-direction: column;
     }
 
