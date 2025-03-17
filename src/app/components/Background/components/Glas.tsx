@@ -449,7 +449,7 @@ export default function Glass() {
         gas: { x: 0, y: 0, z: 0 },
         glassFrame: { x: 0, y: 0, z: 0 },
         glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: 12, y: 0, z: 0 },
+        glassMesh2: { x: 6, y: 0, z: 6 },
       },
       leftInsideCold: {
         fluid1: { x: 0, y: 0, z: 0 },
@@ -457,7 +457,7 @@ export default function Glass() {
         gas: { x: 0, y: 0, z: 0 },
         glassFrame: { x: 0, y: 0, z: 0 },
         glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: 12, y: 0, z: 0 },
+        glassMesh2: { x: 6, y: 0, z: 6 },
       },
       leftInsideReduced: {
         fluid1: { x: 0, y: 0, z: 0 },
@@ -859,17 +859,17 @@ export default function Glass() {
     } else if (windowState === 'back') {
       targetPosition = {
         x: isDesktop ? 0.25 : isMobile ? 0 : 0.2,
-        y: isDesktop ? 0 : isMobile ? 0 : 0.1,
+        y: isDesktop ? 0.1 : isMobile ? 0 : 0.1,
         z: 0,
       };
       targetRotation = { x: 0, y: -2.6, z: 0 };
     } else if (windowState === 'between') {
       targetPosition = {
         x: isDesktop ? 0.2 : isMobile ? 0.1 : 0.2,
-        y: 0,
+        y: -0.05,
         z: 0.2,
       };
-      targetRotation = { x: Math.PI / 1.8, y: 0, z: 0.3 };
+      targetRotation = { x: Math.PI / 1.8, y: -0.2, z: 0.8 };
     } else if (isScroll && activeSection === 'mission') {
       targetPosition = { x: 1.1, y: 0, z: 0 };
       targetRotation = { x: 0, y: 0, z: 0 };
