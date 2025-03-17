@@ -17,7 +17,7 @@ export default function ReactCanvas() {
         far: 100,
       }}
     >
-      <Environment preset="forest" />
+      <Environment preset="studio" environmentIntensity={0.3} far={6} />
       <Experience />
     </Canvas>
   );
