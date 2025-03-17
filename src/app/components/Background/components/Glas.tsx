@@ -25,8 +25,7 @@ import { GLTFLoader } from 'three/examples/jsm/Addons.js';
 
 gsap.registerPlugin(useGSAP);
 
-const shortTransition = 1.2;
-const longTransition = 2.5;
+const longTransition = 1.4;
 const colorTransition = 1.5; // Duration for color transitions
 
 // Helper to track the previous state to prevent redundant animations
@@ -422,7 +421,7 @@ export default function Glass() {
       },
       leftOutside: {
         fluid1: { x: 0, y: 0, z: 0 },
-        fluid2: { x: -0, y: 0, z: 0 },
+        fluid2: { x: 0, y: 0, z: 0 },
         gas: { x: 0, y: 0, z: 0 },
         glassFrame: { x: 0, y: 0, z: 0 },
         glassMesh1: { x: 0, y: 0, z: 0 },
@@ -818,7 +817,7 @@ export default function Glass() {
     };
 
     // Get transition duration based on state
-    const duration = windowState === 'team' ? longTransition : shortTransition;
+    const duration = longTransition;
 
     // Create a timeline for the animations
     const tl = gsap.timeline({
@@ -827,7 +826,7 @@ export default function Glass() {
     });
 
     // Define position and rotation based on state
-    let targetPosition = { x: 1.2, y: 0, z: 0 };
+    let targetPosition = { x: 1.25, y: 0, z: 0 };
     let targetRotation = { x: 0, y: 0, z: 0 };
 
     // Set target position and rotation based on windowState
@@ -856,7 +855,7 @@ export default function Glass() {
       };
       targetRotation = { x: Math.PI / 1.8, y: -0.2, z: 0.8 };
     } else if (isScroll && activeSection === 'mission') {
-      targetPosition = { x: 1.1, y: 0, z: 0 };
+      targetPosition = { x: isMobile ? 1.25 : 1.25, y: 0, z: 0 };
       targetRotation = { x: 0, y: 0, z: 0 };
     } else if (
       [
@@ -866,7 +865,7 @@ export default function Glass() {
         'leftInsideReduced',
       ].includes(windowState)
     ) {
-      targetPosition = { x: -0.2, y: 0, z: 0 };
+      targetPosition = { x: isMobile ? 1.25 : -0.2, y: 0, z: 0 };
 
       // Each of these states has a different rotation
       if (windowState === 'leftOutside') {
@@ -880,10 +879,10 @@ export default function Glass() {
         targetRotation = { x: 0, y: Math.PI * 2, z: 0 };
       }
     } else if (windowState === 'spaced') {
-      targetPosition = { x: 0, y: 0, z: 0 };
+      targetPosition = { x: isMobile ? 1.25 : 0, y: 0, z: 0 };
       targetRotation = { x: 0, y: Math.PI * 2, z: 0 };
     } else if (windowState === 'team') {
-      targetPosition = { x: -1, y: 0, z: 0 };
+      targetPosition = { x: isMobile ? 1.25 : -1, y: 0, z: 0 };
       targetRotation = { x: 0, y: Math.PI * 2.2, z: 0 };
     }
 

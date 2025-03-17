@@ -44,7 +44,7 @@ export default function ContentLeft({
       end: 'bottom 50%',
       onEnter: () => setSomeStuff(),
       onEnterBack: () => setSomeStuff(),
-      markers: process.env.NODE_ENV === 'development',
+      markers: false,
     });
 
     return () => {

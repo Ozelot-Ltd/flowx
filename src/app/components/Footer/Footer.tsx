@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { FooterDocument } from '../../../../prismicio-types';
 import { PrismicNextImage } from '@prismicio/next';
@@ -28,7 +30,6 @@ export default function Footer({ footer }: Props) {
               <PrismicRichText field={footer.data.address_city} />
             </div>
             <div className={styles.contact}>
-              <PrismicRichText field={footer.data.phone} />
               <Link href={`mailto:${footer.data.email}`}>
                 <PrismicRichText field={footer.data.email} />
               </Link>

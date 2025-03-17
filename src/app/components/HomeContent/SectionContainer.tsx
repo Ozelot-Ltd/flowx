@@ -34,7 +34,7 @@ export default function SectionContainer({
     });
 
     // Special behavior for mission section on mobile only
-    if (id === 'mission' && isMobile) {
+    if ((id === 'mission' && isMobile) || (id === 'next' && isMobile)) {
       // Find the BackgroundElement within this section for horizontal scrolling
       const section = sectionRef.current;
       const backgroundElement = section.querySelector('[class*="card"]');
