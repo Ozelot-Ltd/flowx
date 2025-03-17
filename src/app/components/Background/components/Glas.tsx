@@ -204,7 +204,7 @@ export default function Glass() {
       fluid2: '#ffffff',
       gas: '#80ff80',
       frame: '#f0f0f0',
-      glassMesh1: '#57C2FB',
+      glassMesh1: '#3E78FF',
       glassMesh2: '#ffffff',
     },
     leftInsideReduced: {
