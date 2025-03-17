@@ -17,7 +17,7 @@ export default function ReactCanvas() {
         far: 100,
       }}
     >
-      <Environment preset="studio" />
+      <Environment preset="city" />
       <Experience />
     </Canvas>
   );
