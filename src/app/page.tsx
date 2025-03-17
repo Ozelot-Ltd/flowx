@@ -30,7 +30,7 @@ export default async function Page() {
       <section className={styles.container}>
         <SliceZone slices={page.data.slices} components={components} />
       </section>
-      {/* <Footer footer={footer} /> */}
+      <Footer footer={footer} />
     </>
   );
 }

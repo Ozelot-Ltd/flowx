@@ -81,7 +81,83 @@
 
 
 /* Mobile */
-@media (max-width: 48rem) {}
+@media (max-width: 48rem) {
+    .formContainer {
+        height: fit-content;
+        width: fit-content;
+
+    }
+
+    .form {
+        display: flex;
+        align-items: flex-end;
+        gap: 2rem;
+    }
+
+    .formContent {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .formContent h3 {
+        color: var(--white);
+        text-transform: lowercase;
+    }
+
+    .formGroup {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .formGroup input,
+    .formGroup textarea {
+        width: calc(8rem + 10vw);
+        padding: 0.4rem 0.8rem;
+        background-color: var(--darkgrey);
+        color: var(--white);
+        transition: outline 0.2s linear;
+    }
+
+    .formGroup input::placeholder,
+    .formGroup textarea::placeholder {
+        color: var(--white);
+        opacity: 0.7;
+    }
+
+    .formGroup input:focus,
+    .formGroup textarea:focus {
+        outline: 2px solid var(--green);
+    }
+
+    .formGroup input::-webkit-input-placeholder,
+    .formGroup textarea::-webkit-input-placeholder {
+        color: var(--white);
+    }
+
+    .formGroup input::-moz-placeholder,
+    .formGroup textarea::-moz-placeholder {
+        color: var(--white);
+        opacity: 1;
+        /* Firefox applies opacity to placeholders by default */
+    }
+
+    .formGroup input:-ms-input-placeholder,
+    .formGroup textarea:-ms-input-placeholder {
+        color: var(--white);
+    }
+
+    .buttonContainer button {
+        padding: 0.25rem 1rem;
+        border: 1px solid var(--green);
+        border-radius: 20px;
+        background-color: var(--darkgrey);
+        color: var(--white);
+        font-family: var(--title-font);
+        text-transform: uppercase
+    }
+}
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 48rem) and (max-width: 74rem) {}
