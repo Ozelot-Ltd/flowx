@@ -769,14 +769,6 @@ export default function Glass() {
   ]);
 
   // Initial position setup
-  useGSAP(() => {
-    if (!glassRef.current) return;
-    gsap.set(glassRef.current.position, {
-      x: 1.2,
-      y: 0,
-    });
-  }, [window.onload]);
-
   // Handle animations based on state changes
   useGSAP(() => {
     if (!glassRef.current) return;
@@ -820,212 +812,104 @@ export default function Glass() {
     // Create onComplete callback to mark when animation is done
     const onComplete = () => {
       animating.current = false;
-
-      // Re-adjust node positions and colors based on the new state
-      adjustNodePositions(windowState as WindowState);
-      adjustMaterialColors(windowState as WindowState);
     };
 
-    // Check for hero_vertical state when in scroll mode
-    if (isScroll === true && windowState === 'hero_vertical') {
-      gsap.to(glassRef.current.position, {
-        x: 1.25,
-        y: 0,
-        duration: shortTransition,
-        onComplete,
-      });
-      gsap.to(glassRef.current.rotation, {
-        x: 0,
-        y: 0,
-        z: 0,
-        duration: shortTransition,
-      });
+    // Get transition duration based on state
+    const duration = windowState === 'team' ? longTransition : shortTransition;
 
-      // Apply colors for this state
-      adjustMaterialColors('hero_vertical');
-    }
+    // Create a timeline for the animations
+    const tl = gsap.timeline({
+      onComplete,
+      defaults: { duration, ease: 'power2.inOut' },
+    });
 
-    if (!isScroll && windowState === 'front') {
-      gsap.to(glassRef.current.rotation, {
-        x: 0,
-        y: -1.3,
-        z: 0,
-        duration: shortTransition,
-      });
-      gsap.to(glassRef.current.position, {
+    // Define position and rotation based on state
+    let targetPosition = { x: 1.2, y: 0, z: 0 };
+    let targetRotation = { x: 0, y: 0, z: 0 };
+
+    // Set target position and rotation based on windowState
+    if (isScroll && windowState === 'hero_vertical') {
+      targetPosition = { x: 1.25, y: 0, z: 0 };
+      targetRotation = { x: 0, y: 0, z: 0 };
+    } else if (!isScroll && windowState === 'front') {
+      targetPosition = {
         x: isDesktop ? 0.25 : isMobile ? 0 : 0.2,
         y: isDesktop ? 0 : isMobile ? 0 : 0.1,
         z: 0,
-        duration: shortTransition,
-        onComplete,
-      });
-
-      // Apply colors for this state
-      adjustMaterialColors('front');
-    }
-
-    console.log(windowState);
-
-    if (windowState === 'back') {
-      gsap.to(glassRef.current.rotation, {
-        x: 0,
-        y: -2.6,
-        z: 0,
-        duration: shortTransition,
-      });
-      gsap.to(glassRef.current.position, {
+      };
+      targetRotation = { x: 0, y: -1.3, z: 0 };
+    } else if (windowState === 'back') {
+      targetPosition = {
         x: isDesktop ? 0.25 : isMobile ? 0 : 0.2,
         y: isDesktop ? 0 : isMobile ? 0 : 0.1,
         z: 0,
-        duration: shortTransition,
-        onComplete,
-      });
-
-      // Apply colors for this state
-      adjustMaterialColors('back');
-    }
-
-    if (windowState === 'between') {
-      gsap.to(glassRef.current.rotation, {
-        x: Math.PI / 1.8,
-        y: 0,
-        z: 0.3,
-        duration: shortTransition,
-      });
-      gsap.to(glassRef.current.position, {
+      };
+      targetRotation = { x: 0, y: -2.6, z: 0 };
+    } else if (windowState === 'between') {
+      targetPosition = {
         x: isDesktop ? 0.2 : isMobile ? 0.1 : 0.2,
         y: 0,
         z: 0.2,
-        duration: shortTransition,
-        onComplete,
-      });
+      };
+      targetRotation = { x: Math.PI / 1.8, y: 0, z: 0.3 };
+    } else if (isScroll && activeSection === 'mission') {
+      targetPosition = { x: 1.1, y: 0, z: 0 };
+      targetRotation = { x: 0, y: 0, z: 0 };
+    } else if (
+      [
+        'leftOutside',
+        'leftInsideWarm',
+        'leftInsideCold',
+        'leftInsideReduced',
+      ].includes(windowState)
+    ) {
+      targetPosition = { x: -0.2, y: 0, z: 0 };
 
-      adjustMaterialColors('between');
+      // Each of these states has a different rotation
+      if (windowState === 'leftOutside') {
+        targetRotation = { x: 0, y: Math.PI * 1.9, z: 0 };
+      } else if (
+        windowState === 'leftInsideWarm' ||
+        windowState === 'leftInsideCold'
+      ) {
+        targetRotation = { x: 0, y: Math.PI * 1.3, z: 0 };
+      } else if (windowState === 'leftInsideReduced') {
+        targetRotation = { x: 0, y: Math.PI * 2, z: 0 };
+      }
+    } else if (windowState === 'spaced') {
+      targetPosition = { x: 0, y: 0, z: 0 };
+      targetRotation = { x: 0, y: Math.PI * 2, z: 0 };
+    } else if (windowState === 'team') {
+      targetPosition = { x: -1, y: 0, z: 0 };
+      targetRotation = { x: 0, y: Math.PI * 2.2, z: 0 };
     }
 
-    if (isScroll && activeSection === 'mission') {
-      gsap.to(glassRef.current.position, {
-        x: 1.1,
-        y: 0,
-        duration: shortTransition,
-        onComplete,
-      });
-      gsap.to(glassRef.current.rotation, {
-        x: 0,
-        y: 0,
-        z: 0,
-        duration: shortTransition,
-      });
+    // Add animations to the timeline
+    tl.to(
+      glassRef.current.position,
+      {
+        x: targetPosition.x,
+        y: targetPosition.y,
+        z: targetPosition.z,
+      },
+      0
+    ); // Start at 0
 
-      adjustMaterialColors('hero_vertical');
-    }
+    tl.to(
+      glassRef.current.rotation,
+      {
+        x: targetRotation.x,
+        y: targetRotation.y,
+        z: targetRotation.z,
+      },
+      0
+    ); // Start at 0
 
-    if (windowState === 'leftOutside') {
-      gsap.to(glassRef.current.rotation, {
-        x: 0,
-        y: Math.PI * 1.9,
-        z: 0,
-        duration: shortTransition,
-      });
-      gsap.to(glassRef.current.position, {
-        x: -0.2,
-        y: 0,
-        z: 0,
-        duration: shortTransition,
-        onComplete,
-      });
+    // Apply material color changes in parallel
+    adjustMaterialColors(windowState as WindowState);
 
-      adjustMaterialColors('solution');
-    }
-
-    if (windowState === 'leftInsideWarm') {
-      gsap.to(glassRef.current.rotation, {
-        x: 0,
-        y: Math.PI * 1.3,
-        z: 0,
-        duration: shortTransition,
-      });
-      gsap.to(glassRef.current.position, {
-        x: -0.2,
-        y: 0,
-        z: 0,
-        duration: shortTransition,
-        onComplete,
-      });
-
-      adjustMaterialColors('solution');
-    }
-    if (windowState === 'leftInsideCold') {
-      gsap.to(glassRef.current.rotation, {
-        x: 0,
-        y: Math.PI * 1.3,
-        z: 0,
-        duration: shortTransition,
-      });
-      gsap.to(glassRef.current.position, {
-        x: -0.2,
-        y: 0,
-        z: 0,
-        duration: shortTransition,
-        onComplete,
-      });
-
-      adjustMaterialColors('solution');
-    }
-
-    if (windowState === 'leftInsideReduced') {
-      gsap.to(glassRef.current.rotation, {
-        x: 0,
-        y: Math.PI * 2,
-        z: 0,
-        duration: shortTransition,
-      });
-      gsap.to(glassRef.current.position, {
-        x: -0.2,
-        y: 0,
-        z: 0,
-        duration: shortTransition,
-        onComplete,
-      });
-
-      adjustMaterialColors('solution');
-    }
-
-    if (windowState === 'spaced') {
-      gsap.to(glassRef.current.rotation, {
-        x: 0,
-        y: Math.PI * 2,
-        z: 0,
-        duration: shortTransition,
-      });
-      gsap.to(glassRef.current.position, {
-        x: 0,
-        y: 0,
-        z: 0,
-        duration: shortTransition,
-        onComplete,
-      });
-
-      adjustMaterialColors('spaced');
-    }
-
-    if (windowState === 'team') {
-      gsap.to(glassRef.current.rotation, {
-        x: 0,
-        y: Math.PI * 2.2,
-        z: 0,
-        duration: longTransition,
-      });
-      gsap.to(glassRef.current.position, {
-        x: -1,
-        y: 0,
-        z: 0,
-        duration: longTransition,
-        onComplete,
-      });
-
-      adjustMaterialColors('team');
-    }
+    // Apply node position changes in parallel
+    adjustNodePositions(windowState as WindowState);
   }, [isScroll, windowState, activeSection, prevWindowState]);
 
   return (
