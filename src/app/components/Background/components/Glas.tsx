@@ -820,7 +820,7 @@ export default function Glass() {
     // Create a timeline for the animations
     const tl = gsap.timeline({
       onComplete,
-      defaults: { duration, ease: 'power2.inOut' },
+      defaults: { duration, ease: 'power.out' },
     });
 
     // Define position and rotation based on state
