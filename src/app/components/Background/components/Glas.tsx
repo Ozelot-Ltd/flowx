@@ -48,7 +48,9 @@ type WindowState =
   | 'between'
   | 'spaced'
   | 'leftOutside'
-  | 'leftInsideWarm';
+  | 'leftInsideWarm'
+  | 'leftInsideCold'
+  | 'leftInsideReduced';
 
 export default function Glass() {
   const containerRef = useRef<Object3D>(null);
@@ -188,8 +190,24 @@ export default function Glass() {
       fluid1: '#ffffff',
       fluid2: '#ffffff',
       gas: '#80ff80',
-      frame: 'lightgreen',
+      frame: 'black',
       glassMesh1: 'red',
+      glassMesh2: '#ffffff',
+    },
+    leftInsideCold: {
+      fluid1: '#ffffff',
+      fluid2: '#ffffff',
+      gas: '#80ff80',
+      frame: 'lightgreen',
+      glassMesh1: 'blue',
+      glassMesh2: '#ffffff',
+    },
+    leftInsideReduced: {
+      fluid1: '#ffffff',
+      fluid2: '#ffffff',
+      gas: '#80ff80',
+      frame: 'lightgreen',
+      glassMesh1: 'green',
       glassMesh2: '#ffffff',
     },
   };
@@ -396,12 +414,12 @@ export default function Glass() {
         glassMesh2: { x: 0, y: 0, z: 0 },
       },
       spaced: {
-        fluid1: { x: 0.05, y: 0.04, z: 0.04 },
-        fluid2: { x: -0.05, y: 0.04, z: 0.04 },
-        gas: { x: 0, y: 0.1, z: 0 },
+        fluid1: { x: 0, y: 0, z: 0 },
+        fluid2: { x: 0, y: 0, z: 0 },
+        gas: { x: 0, y: 0, z: 0 },
         glassFrame: { x: 0, y: 0, z: 0 },
-        glassMesh1: { x: 0.02, y: 0, z: 0.02 },
-        glassMesh2: { x: -0.02, y: 0, z: 0.02 },
+        glassMesh1: { x: 0, y: 0, z: 0 },
+        glassMesh2: { x: 0, y: 0, z: 0 },
       },
       leftOutside: {
         fluid1: { x: 0, y: 0, z: 0 },
@@ -409,7 +427,7 @@ export default function Glass() {
         gas: { x: 0, y: 0, z: 0 },
         glassFrame: { x: 0, y: 0, z: 0 },
         glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: -0, y: 0, z: 0 },
+        glassMesh2: { x: 0, y: 0, z: 0 },
       },
       leftInsideWarm: {
         fluid1: { x: 0, y: 0, z: 0 },
@@ -417,7 +435,23 @@ export default function Glass() {
         gas: { x: 0, y: 0, z: 0 },
         glassFrame: { x: 0, y: 0, z: 0 },
         glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: -0, y: 0, z: 0 },
+        glassMesh2: { x: 12, y: 0, z: 0 },
+      },
+      leftInsideCold: {
+        fluid1: { x: 0, y: 0, z: 0 },
+        fluid2: { x: -0, y: 0, z: 0 },
+        gas: { x: 0, y: 0, z: 0 },
+        glassFrame: { x: 0, y: 0, z: 0 },
+        glassMesh1: { x: 0, y: 0, z: 0 },
+        glassMesh2: { x: 12, y: 0, z: 0 },
+      },
+      leftInsideReduced: {
+        fluid1: { x: 0, y: 0, z: 0 },
+        fluid2: { x: -0, y: 0, z: 0 },
+        gas: { x: 0, y: 0, z: 0 },
+        glassFrame: { x: 0, y: 0, z: 0 },
+        glassMesh1: { x: 0, y: 0, z: 0 },
+        glassMesh2: { x: 0, y: 0, z: 0 },
       },
     };
 
@@ -889,7 +923,7 @@ export default function Glass() {
     if (windowState === 'leftOutside') {
       gsap.to(glassRef.current.rotation, {
         x: 0,
-        y: Math.PI * 1.8,
+        y: Math.PI * 1.9,
         z: 0,
         duration: shortTransition,
       });
@@ -908,6 +942,41 @@ export default function Glass() {
       gsap.to(glassRef.current.rotation, {
         x: 0,
         y: Math.PI * 1.3,
+        z: 0,
+        duration: shortTransition,
+      });
+      gsap.to(glassRef.current.position, {
+        x: -0.2,
+        y: 0,
+        z: 0,
+        duration: shortTransition,
+        onComplete,
+      });
+
+      adjustMaterialColors('solution');
+    }
+    if (windowState === 'leftInsideCold') {
+      gsap.to(glassRef.current.rotation, {
+        x: 0,
+        y: Math.PI * 1.3,
+        z: 0,
+        duration: shortTransition,
+      });
+      gsap.to(glassRef.current.position, {
+        x: -0.2,
+        y: 0,
+        z: 0,
+        duration: shortTransition,
+        onComplete,
+      });
+
+      adjustMaterialColors('solution');
+    }
+
+    if (windowState === 'leftInsideReduced') {
+      gsap.to(glassRef.current.rotation, {
+        x: 0,
+        y: Math.PI * 2,
         z: 0,
         duration: shortTransition,
       });
