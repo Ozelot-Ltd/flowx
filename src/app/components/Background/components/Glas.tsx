@@ -107,7 +107,7 @@ export default function Glass() {
   const { windowState, setWindowState } = useWindowStore();
   const { isScroll } = useScrollStore();
   const { activeSection } = useNavigation();
-  const { isMobile, isDesktop, isTablet } = useMobile();
+  const { isMobile, isDesktop, isTablet, isTabletPortrait } = useMobile();
 
   // Track previous states to prevent redundant animations
   const prevWindowState = usePrevious(windowState);
@@ -735,6 +735,9 @@ export default function Glass() {
     } else if (isTablet && !glassRef.current.userData.initialized) {
       glassRef.current.scale.set(0.35, 0.35, 0.35);
       glassRef.current.userData.initialized = true;
+    } else if (isTabletPortrait && !glassRef.current.userData.initialized) {
+      glassRef.current.scale.set(0.25, 0.25, 0.25);
+      glassRef.current.userData.initialized = true;
     }
 
     // Only update state if there's an actual change to avoid triggering animations
@@ -763,6 +766,7 @@ export default function Glass() {
     prevIsScroll,
     prevActiveSection,
     isDesktop,
+    isTabletPortrait,
     isTablet,
   ]);
 
@@ -835,21 +839,21 @@ export default function Glass() {
       targetRotation = { x: 0, y: 0, z: 0 };
     } else if (!isScroll && windowState === 'front') {
       targetPosition = {
-        x: isDesktop ? 0.25 : isMobile ? 0 : 0.2,
-        y: isDesktop ? 0 : isMobile ? 0 : 0.1,
+        x: isDesktop ? 0.25 : isMobile ? 0 : isTabletPortrait ? 0 : 0.2,
+        y: isDesktop ? 0 : isMobile ? 0 : isTabletPortrait ? 0.05 : 0.1,
         z: 0,
       };
-      targetRotation = { x: 0, y: -1.3, z: 0 };
+      targetRotation = { x: 0, y: -0.8, z: 0 };
     } else if (windowState === 'back') {
       targetPosition = {
-        x: isDesktop ? 0.25 : isMobile ? 0 : 0.2,
+        x: isDesktop ? 0.25 : isMobile ? 0 : isTabletPortrait ? 0 : 0.2,
         y: isDesktop ? 0.1 : isMobile ? 0 : 0.1,
         z: 0,
       };
       targetRotation = { x: 0, y: -2.6, z: 0 };
     } else if (windowState === 'between') {
       targetPosition = {
-        x: isDesktop ? 0.2 : isMobile ? 0.1 : 0.2,
+        x: isDesktop ? 0.25 : isMobile ? 0 : isTabletPortrait ? 0 : 0.2,
         y: -0.05,
         z: 0.2,
       };

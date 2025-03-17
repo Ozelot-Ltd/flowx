@@ -24,19 +24,13 @@ export default async function Page() {
 
   return (
     <>
-      {/* {!isDevelopment ? (
-        <Splashscreen />
-      ) : ( */}
-      <>
-        <Background />
-        <Header settings={settings} />
+      <Background />
+      <Header settings={settings} />
 
-        <section className={styles.container}>
-          <SliceZone slices={page.data.slices} components={components} />
-        </section>
-        <Footer footer={footer} />
-      </>
-      {/* )} */}
+      <section className={styles.container}>
+        <SliceZone slices={page.data.slices} components={components} />
+      </section>
+      {/* <Footer footer={footer} /> */}
     </>
   );
 }
