@@ -738,7 +738,7 @@ export default function Glass() {
   useGSAP(() => {
     if (!glassRef.current) return;
     gsap.set(glassRef.current.position, {
-      x: 1,
+      x: 1.2,
       y: 0,
     });
   }, [window.onload]);
@@ -795,7 +795,7 @@ export default function Glass() {
     // Check for hero_vertical state when in scroll mode
     if (isScroll === true && windowState === 'hero_vertical') {
       gsap.to(glassRef.current.position, {
-        x: 1.1,
+        x: 1.25,
         y: 0,
         duration: shortTransition,
         onComplete,
