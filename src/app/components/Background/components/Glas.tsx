@@ -403,7 +403,7 @@ export default function Glass() {
         gas: { x: 0, y: 0, z: 0 },
         glassFrame: { x: 0, y: 0, z: 0 },
         glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: 0, y: 0, z: 0 },
+        glassMesh2: { x: 6, y: 0, z: 6 },
       },
       between: {
         fluid1: { x: 0, y: 0, z: 0 },
@@ -411,7 +411,7 @@ export default function Glass() {
         gas: { x: 0, y: 0, z: 0 },
         glassFrame: { x: 0, y: 0, z: 0 },
         glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: 0, y: 0, z: 0 },
+        glassMesh2: { x: 6, y: -8, z: 0 },
       },
       spaced: {
         fluid1: { x: 0, y: 0, z: 0 },
@@ -903,7 +903,7 @@ export default function Glass() {
       adjustMaterialColors('between');
     }
 
-    if (isScroll === true && activeSection === 'mission') {
+    if (isScroll && activeSection === 'mission') {
       gsap.to(glassRef.current.position, {
         x: 1.1,
         y: 0,
