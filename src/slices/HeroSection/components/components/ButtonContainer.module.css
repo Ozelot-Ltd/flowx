@@ -17,7 +17,7 @@
 /* Mobile */
 @media (max-width: 47.99rem) {
     .buttonsContainer {
-        transform: translateY(-60px);
+        transform: translateY(-15vh);
         height: calc(var(--main-padding) + 4rem);
     }
 
