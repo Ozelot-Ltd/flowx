@@ -1,88 +1,77 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
-interface MobileContextType {
+type MobileContextType = {
   isMobile: boolean;
   isTablet: boolean;
-  isDesktop: boolean;
-  isPortrait: boolean;
   isTabletPortrait: boolean;
-}
+  isDesktop: boolean;
+};
 
+// Create context with default values
 const MobileContext = createContext<MobileContextType>({
   isMobile: false,
   isTablet: false,
-  isDesktop: true,
-  isPortrait: false,
   isTabletPortrait: false,
+  isDesktop: true, // Default to desktop to match server rendering
 });
 
-export function MobileProvider({ children }: { children: React.ReactNode }) {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isTablet, setIsTablet] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(true);
-  const [isPortrait, setIsPortrait] = useState(false);
-  const [isTabletPortrait, setIsTabletPortrait] = useState(false);
+export const MobileProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  // Start with "not initialized" state to prevent hydration mismatch
+  const [isInitialized, setIsInitialized] = useState(false);
+  const [state, setState] = useState<MobileContextType>({
+    isMobile: false,
+    isTablet: false,
+    isTabletPortrait: false,
+    isDesktop: true, // Default to desktop to match server rendering
+  });
 
   useEffect(() => {
-    const handleResize = () => {
-      const currentWidth = window.innerWidth;
-      const currentHeight = window.innerHeight;
+    // Only run device detection on client side
+    const checkDeviceType = () => {
+      const width = window.innerWidth;
 
-      // Device type checks
-      const mobile = currentWidth < 768;
-      const tablet = currentWidth >= 768 && currentWidth < 1100;
-      const desktop = currentWidth >= 1100;
+      const isMobile = width < 768;
+      const isTablet = width >= 768 && width < 1024;
+      const isTabletPortrait =
+        isTablet && window.innerHeight > window.innerWidth;
+      const isDesktop = width >= 1024;
 
-      // Orientation check
-      const portrait = currentHeight > currentWidth;
+      setState({
+        isMobile,
+        isTablet,
+        isTabletPortrait,
+        isDesktop,
+      });
 
-      // Combined check
-      const tabletPortrait = tablet && portrait;
-
-      // Update all states at once
-      setIsMobile(mobile);
-      setIsTablet(tablet);
-      setIsDesktop(desktop);
-      setIsPortrait(portrait);
-      setIsTabletPortrait(tabletPortrait);
+      setIsInitialized(true);
     };
 
     // Initial check
-    handleResize();
+    checkDeviceType();
 
-    // Add event listeners for both resize and orientation change
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('orientationchange', handleResize);
+    // Add resize listener
+    window.addEventListener('resize', checkDeviceType);
 
     // Cleanup
     return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('orientationchange', handleResize);
+      window.removeEventListener('resize', checkDeviceType);
     };
   }, []);
 
   return (
-    <MobileContext.Provider
-      value={{
-        isMobile,
-        isTablet,
-        isDesktop,
-        isPortrait,
-        isTabletPortrait,
-      }}
-    >
+    <MobileContext.Provider value={state}>
+      {/* Ensure first client render matches server render to prevent hydration errors */}
+      {!isInitialized ? (
+        // This will match server rendering
+        <div style={{ display: 'none' }} data-hydration-trigger></div>
+      ) : null}
       {children}
     </MobileContext.Provider>
   );
-}
+};
 
-// Custom hook to use the mobile context
-export function useMobile() {
-  const context = useContext(MobileContext);
-  if (context === undefined) {
-    throw new Error('useMobile must be used within a MobileProvider');
-  }
-  return context;
-}
+export const useMobile = () => useContext(MobileContext);

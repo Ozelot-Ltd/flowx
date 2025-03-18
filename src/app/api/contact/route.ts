@@ -31,7 +31,7 @@ export async function POST(request: Request) {
 
     // You may also want to send a copy to yourself
     await resend.emails.send({
-      from: 'FlowX Contact <info@flowx.one>',
+      from: 'flowX Contact <info@flowx.one>',
       to: ['info@flowx.one'],
       subject: `New contact form submission from ${name}`,
       replyTo: email,

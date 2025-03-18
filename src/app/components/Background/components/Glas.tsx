@@ -121,107 +121,111 @@ export default function Glass() {
   const prevIsScroll = usePrevious(isScroll);
 
   // Color mapping for each material in each state
-  const stateColors: Record<
-    WindowState,
-    {
-      fluid1: string;
-      fluid2: string;
-      gas: string;
-      frame: string;
-      glassMesh1: string;
-      glassMesh2: string;
-    }
-  > = {
-    hero_vertical: {
-      fluid1: '#f9f9f9',
-      fluid2: '#f9f9f9',
-      gas: '#b3ffb3',
-      frame: '#f9f9f9',
-      glassMesh1: '#ffffff',
-      glassMesh2: '#ffffff',
-    },
-
-    solution: {
-      fluid1: '#ffb3b3',
-      fluid2: '#ff8080',
-      gas: '#b3ffb3',
-      frame: '#f0f0f0',
-      glassMesh1: '#ffffff',
-      glassMesh2: '#ffffff',
-    },
-    team: {
-      fluid1: '#d9b3ff',
-      fluid2: '#c299ff',
-      gas: '#b3ffb3',
-      frame: '#f0f0f0',
-      glassMesh1: '#ffffff',
-      glassMesh2: '#ffffff',
-    },
-    front: {
-      fluid1: '#b3ffb3',
-      fluid2: '#ffffff',
-      gas: '#f0f0f0',
-      frame: '#ffffff',
-      glassMesh1: '#fff',
-      glassMesh2: '#fff',
-    },
-    back: {
-      fluid1: '#ffffff',
-      fluid2: '#b3ffb3',
-      gas: '#ffffff',
-      frame: '#ffffff',
-      glassMesh1: '#ffffff',
-      glassMesh2: '#ffffff',
-    },
-    between: {
-      fluid1: '#ffffff',
-      fluid2: '#ffffff',
-      gas: '#b3ffb3',
-      frame: '#ffffff',
-      glassMesh1: '#ffffff',
-      glassMesh2: '#ffffff',
-    },
-    spaced: {
-      fluid1: '#dfffdf',
-      fluid2: '#b3ffb3',
-      gas: '#80ff80',
-      frame: '#ffffff',
-      glassMesh1: '#ffffff',
-      glassMesh2: '#ffffff',
-    },
-    leftOutside: {
-      fluid1: '#ffffff',
-      fluid2: '#ffffff',
-      gas: '#80ff80',
-      frame: '#ffffff',
-      glassMesh1: '#414141',
-      glassMesh2: '#ffffff',
-    },
-    leftInsideWarm: {
-      fluid1: '#ffffff',
-      fluid2: '#ffffff',
-      gas: '#80ff80',
-      frame: '#ffffff',
-      glassMesh1: '#FF6B6B',
-      glassMesh2: '#ffffff',
-    },
-    leftInsideCold: {
-      fluid1: '#ffffff',
-      fluid2: '#ffffff',
-      gas: '#80ff80',
-      frame: '#f0f0f0',
-      glassMesh1: '#3E78FF',
-      glassMesh2: '#ffffff',
-    },
-    leftInsideReduced: {
-      fluid1: '#ffffff',
-      fluid2: '#ffffff',
-      gas: '#80ff80',
-      frame: '#f0f0f0',
-      glassMesh1: '#ffffff',
-      glassMesh2: '#ffffff',
-    },
-  };
+  const stateColors = useMemo<
+    Record<
+      WindowState,
+      {
+        fluid1: string;
+        fluid2: string;
+        gas: string;
+        frame: string;
+        glassMesh1: string;
+        glassMesh2: string;
+      }
+    >
+  >(
+    () => ({
+      hero_vertical: {
+        fluid1: '#f9f9f9',
+        fluid2: '#f9f9f9',
+        gas: '#b3ffb3',
+        frame: '#f9f9f9',
+        glassMesh1: '#ffffff',
+        glassMesh2: '#ffffff',
+      },
+      solution: {
+        fluid1: '#ffb3b3',
+        fluid2: '#ff8080',
+        gas: '#b3ffb3',
+        frame: '#f0f0f0',
+        glassMesh1: '#ffffff',
+        glassMesh2: '#ffffff',
+      },
+      team: {
+        fluid1: '#d9b3ff',
+        fluid2: '#c299ff',
+        gas: '#b3ffb3',
+        frame: '#f0f0f0',
+        glassMesh1: '#ffffff',
+        glassMesh2: '#ffffff',
+      },
+      front: {
+        fluid1: '#b3ffb3',
+        fluid2: '#ffffff',
+        gas: '#f0f0f0',
+        frame: '#ffffff',
+        glassMesh1: '#fff',
+        glassMesh2: '#fff',
+      },
+      back: {
+        fluid1: '#ffffff',
+        fluid2: '#b3ffb3',
+        gas: '#ffffff',
+        frame: '#ffffff',
+        glassMesh1: '#ffffff',
+        glassMesh2: '#ffffff',
+      },
+      between: {
+        fluid1: '#ffffff',
+        fluid2: '#ffffff',
+        gas: '#b3ffb3',
+        frame: '#ffffff',
+        glassMesh1: '#ffffff',
+        glassMesh2: '#ffffff',
+      },
+      spaced: {
+        fluid1: '#dfffdf',
+        fluid2: '#b3ffb3',
+        gas: '#80ff80',
+        frame: '#ffffff',
+        glassMesh1: '#ffffff',
+        glassMesh2: '#ffffff',
+      },
+      leftOutside: {
+        fluid1: '#ffffff',
+        fluid2: '#ffffff',
+        gas: '#80ff80',
+        frame: '#ffffff',
+        glassMesh1: '#414141',
+        glassMesh2: '#ffffff',
+      },
+      leftInsideWarm: {
+        fluid1: '#ffffff',
+        fluid2: '#ffffff',
+        gas: '#80ff80',
+        frame: '#ffffff',
+        glassMesh1: '#FF6B6B',
+        glassMesh2: '#ffffff',
+      },
+      leftInsideCold: {
+        fluid1: '#ffffff',
+        fluid2: '#ffffff',
+        gas: '#80ff80',
+        frame: '#f0f0f0',
+        glassMesh1: '#3E78FF',
+        glassMesh2: '#ffffff',
+      },
+      leftInsideReduced: {
+        fluid1: '#ffffff',
+        fluid2: '#ffffff',
+        gas: '#80ff80',
+        frame: '#f0f0f0',
+        glassMesh1: '#ffffff',
+        glassMesh2: '#ffffff',
+      },
+    }),
+    []
+  );
 
   // Create custom materials
   const materials = useMemo(() => {
@@ -356,328 +360,330 @@ export default function Glass() {
   }, [model, materials, getNodeByName]);
 
   // Function to adjust node positions based on state
-  const adjustNodePositions = (
-    state: WindowState = windowState as WindowState
-  ) => {
-    // Define position adjustments for each node based on state
-    const nodePositions: Record<
-      WindowState,
-      {
-        fluid1: { x: number; y: number; z: number };
-        fluid2: { x: number; y: number; z: number };
-        gas: { x: number; y: number; z: number };
-        glassFrame: { x: number; y: number; z: number };
-        glassMesh1: { x: number; y: number; z: number };
-        glassMesh2: { x: number; y: number; z: number };
-      }
-    > = {
-      hero_vertical: {
-        fluid1: { x: 0, y: 0, z: 0 },
-        fluid2: { x: 0, y: 0, z: 0 },
-        gas: { x: 0, y: 0, z: 0 },
-        glassFrame: { x: 0, y: 0, z: 0 },
-        glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: 0, y: 0, z: 0 },
-      },
+  const adjustNodePositions = useCallback(
+    (state: WindowState = windowState as WindowState) => {
+      // Define position adjustments for each node based on state
+      const nodePositions: Record<
+        WindowState,
+        {
+          fluid1: { x: number; y: number; z: number };
+          fluid2: { x: number; y: number; z: number };
+          gas: { x: number; y: number; z: number };
+          glassFrame: { x: number; y: number; z: number };
+          glassMesh1: { x: number; y: number; z: number };
+          glassMesh2: { x: number; y: number; z: number };
+        }
+      > = {
+        hero_vertical: {
+          fluid1: { x: 0, y: 0, z: 0 },
+          fluid2: { x: 0, y: 0, z: 0 },
+          gas: { x: 0, y: 0, z: 0 },
+          glassFrame: { x: 0, y: 0, z: 0 },
+          glassMesh1: { x: 0, y: 0, z: 0 },
+          glassMesh2: { x: 0, y: 0, z: 0 },
+        },
 
-      solution: {
-        fluid1: { x: 0, y: 0, z: 0 },
-        fluid2: { x: 0, y: 0, z: 0 },
-        gas: { x: 0, y: 0, z: 0 },
-        glassFrame: { x: 0, y: 0, z: 0 },
-        glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: 0, y: 0, z: 0 },
-      },
-      team: {
-        fluid1: { x: 0, y: 0, z: 0 },
-        fluid2: { x: 0, y: 0, z: 0 },
-        gas: { x: 0, y: 0, z: 0 },
-        glassFrame: { x: 0, y: 0, z: 0 },
-        glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: 0, y: 0, z: 0 },
-      },
-      front: {
-        fluid1: { x: 0, y: 0, z: 0 },
-        fluid2: { x: 0, y: 0, z: 0 },
-        gas: { x: 0, y: 0, z: 0 },
-        glassFrame: { x: 0, y: 0, z: 0 },
-        glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: 0, y: 0, z: 0 },
-      },
-      back: {
-        fluid1: { x: 0, y: 0, z: 0 },
-        fluid2: { x: 0, y: 0, z: 0 },
-        gas: { x: 0, y: 0, z: 0 },
-        glassFrame: { x: 0, y: 0, z: 0 },
-        glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: 6, y: 0, z: 6 },
-      },
-      between: {
-        fluid1: { x: 0, y: 0, z: 0 },
-        fluid2: { x: 0, y: 0, z: 0 },
-        gas: { x: 0, y: 0, z: 0 },
-        glassFrame: { x: 0, y: 0, z: 0 },
-        glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: 6, y: -8, z: 0 },
-      },
-      spaced: {
-        fluid1: { x: 0, y: 0, z: 0 },
-        fluid2: { x: 0, y: 0, z: 0 },
-        gas: { x: 0, y: 0, z: 0 },
-        glassFrame: { x: 0, y: 0, z: 0 },
-        glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: 0, y: 0, z: 0 },
-      },
-      leftOutside: {
-        fluid1: { x: 0, y: 0, z: 0 },
-        fluid2: { x: 0, y: 0, z: 0 },
-        gas: { x: 0, y: 0, z: 0 },
-        glassFrame: { x: 0, y: 0, z: 0 },
-        glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: 0, y: 0, z: 0 },
-      },
-      leftInsideWarm: {
-        fluid1: { x: 0, y: 0, z: 0 },
-        fluid2: { x: 0, y: 0, z: 0 },
-        gas: { x: 0, y: 0, z: 0 },
-        glassFrame: { x: 0, y: 0, z: 0 },
-        glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: 6, y: 0, z: 6 },
-      },
-      leftInsideCold: {
-        fluid1: { x: 0, y: 0, z: 0 },
-        fluid2: { x: -0, y: 0, z: 0 },
-        gas: { x: 0, y: 0, z: 0 },
-        glassFrame: { x: 0, y: 0, z: 0 },
-        glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: 6, y: 0, z: 6 },
-      },
-      leftInsideReduced: {
-        fluid1: { x: 0, y: 0, z: 0 },
-        fluid2: { x: -0, y: 0, z: 0 },
-        gas: { x: 0, y: 0, z: 0 },
-        glassFrame: { x: 0, y: 0, z: 0 },
-        glassMesh1: { x: 0, y: 0, z: 0 },
-        glassMesh2: { x: 0, y: 0, z: 0 },
-      },
-    };
-
-    // Get positions for current state or default to hero_vertical
-    const positions = nodePositions[state] || nodePositions['hero_vertical'];
-
-    // Apply positions to each node
-    if (fluid1Ref.current && positions.fluid1) {
-      const originalPos = fluid1Ref.current.userData.originalPosition || {
-        x: fluid1Ref.current.position.x,
-        y: fluid1Ref.current.position.y,
-        z: fluid1Ref.current.position.z,
+        solution: {
+          fluid1: { x: 0, y: 0, z: 0 },
+          fluid2: { x: 0, y: 0, z: 0 },
+          gas: { x: 0, y: 0, z: 0 },
+          glassFrame: { x: 0, y: 0, z: 0 },
+          glassMesh1: { x: 0, y: 0, z: 0 },
+          glassMesh2: { x: 0, y: 0, z: 0 },
+        },
+        team: {
+          fluid1: { x: 0, y: 0, z: 0 },
+          fluid2: { x: 0, y: 0, z: 0 },
+          gas: { x: 0, y: 0, z: 0 },
+          glassFrame: { x: 0, y: 0, z: 0 },
+          glassMesh1: { x: 0, y: 0, z: 0 },
+          glassMesh2: { x: 0, y: 0, z: 0 },
+        },
+        front: {
+          fluid1: { x: 0, y: 0, z: 0 },
+          fluid2: { x: 0, y: 0, z: 0 },
+          gas: { x: 0, y: 0, z: 0 },
+          glassFrame: { x: 0, y: 0, z: 0 },
+          glassMesh1: { x: 0, y: 0, z: 0 },
+          glassMesh2: { x: 0, y: 0, z: 0 },
+        },
+        back: {
+          fluid1: { x: 0, y: 0, z: 0 },
+          fluid2: { x: 0, y: 0, z: 0 },
+          gas: { x: 0, y: 0, z: 0 },
+          glassFrame: { x: 0, y: 0, z: 0 },
+          glassMesh1: { x: 0, y: 0, z: 0 },
+          glassMesh2: { x: 6, y: 0, z: 6 },
+        },
+        between: {
+          fluid1: { x: 0, y: 0, z: 0 },
+          fluid2: { x: 0, y: 0, z: 0 },
+          gas: { x: 0, y: 0, z: 0 },
+          glassFrame: { x: 0, y: 0, z: 0 },
+          glassMesh1: { x: 0, y: 0, z: 0 },
+          glassMesh2: { x: 6, y: -8, z: 0 },
+        },
+        spaced: {
+          fluid1: { x: 0, y: 0, z: 0 },
+          fluid2: { x: 0, y: 0, z: 0 },
+          gas: { x: 0, y: 0, z: 0 },
+          glassFrame: { x: 0, y: 0, z: 0 },
+          glassMesh1: { x: 0, y: 0, z: 0 },
+          glassMesh2: { x: 0, y: 0, z: 0 },
+        },
+        leftOutside: {
+          fluid1: { x: 0, y: 0, z: 0 },
+          fluid2: { x: 0, y: 0, z: 0 },
+          gas: { x: 0, y: 0, z: 0 },
+          glassFrame: { x: 0, y: 0, z: 0 },
+          glassMesh1: { x: 0, y: 0, z: 0 },
+          glassMesh2: { x: 0, y: 0, z: 0 },
+        },
+        leftInsideWarm: {
+          fluid1: { x: 0, y: 0, z: 0 },
+          fluid2: { x: 0, y: 0, z: 0 },
+          gas: { x: 0, y: 0, z: 0 },
+          glassFrame: { x: 0, y: 0, z: 0 },
+          glassMesh1: { x: 0, y: 0, z: 0 },
+          glassMesh2: { x: 6, y: 0, z: 6 },
+        },
+        leftInsideCold: {
+          fluid1: { x: 0, y: 0, z: 0 },
+          fluid2: { x: -0, y: 0, z: 0 },
+          gas: { x: 0, y: 0, z: 0 },
+          glassFrame: { x: 0, y: 0, z: 0 },
+          glassMesh1: { x: 0, y: 0, z: 0 },
+          glassMesh2: { x: 6, y: 0, z: 6 },
+        },
+        leftInsideReduced: {
+          fluid1: { x: 0, y: 0, z: 0 },
+          fluid2: { x: -0, y: 0, z: 0 },
+          gas: { x: 0, y: 0, z: 0 },
+          glassFrame: { x: 0, y: 0, z: 0 },
+          glassMesh1: { x: 0, y: 0, z: 0 },
+          glassMesh2: { x: 0, y: 0, z: 0 },
+        },
       };
 
-      if (!fluid1Ref.current.userData.originalPosition) {
-        fluid1Ref.current.userData.originalPosition = { ...originalPos };
+      // Get positions for current state or default to hero_vertical
+      const positions = nodePositions[state] || nodePositions['hero_vertical'];
+
+      // Apply positions to each node
+      if (fluid1Ref.current && positions.fluid1) {
+        const originalPos = fluid1Ref.current.userData.originalPosition || {
+          x: fluid1Ref.current.position.x,
+          y: fluid1Ref.current.position.y,
+          z: fluid1Ref.current.position.z,
+        };
+
+        if (!fluid1Ref.current.userData.originalPosition) {
+          fluid1Ref.current.userData.originalPosition = { ...originalPos };
+        }
+
+        gsap.to(fluid1Ref.current.position, {
+          x: originalPos.x + positions.fluid1.x,
+          y: originalPos.y + positions.fluid1.y,
+          z: originalPos.z + positions.fluid1.z,
+          duration: 1.5,
+        });
       }
 
-      gsap.to(fluid1Ref.current.position, {
-        x: originalPos.x + positions.fluid1.x,
-        y: originalPos.y + positions.fluid1.y,
-        z: originalPos.z + positions.fluid1.z,
-        duration: 1.5,
-      });
-    }
+      if (fluid2Ref.current && positions.fluid2) {
+        const originalPos = fluid2Ref.current.userData.originalPosition || {
+          x: fluid2Ref.current.position.x,
+          y: fluid2Ref.current.position.y,
+          z: fluid2Ref.current.position.z,
+        };
 
-    if (fluid2Ref.current && positions.fluid2) {
-      const originalPos = fluid2Ref.current.userData.originalPosition || {
-        x: fluid2Ref.current.position.x,
-        y: fluid2Ref.current.position.y,
-        z: fluid2Ref.current.position.z,
-      };
+        if (!fluid2Ref.current.userData.originalPosition) {
+          fluid2Ref.current.userData.originalPosition = { ...originalPos };
+        }
 
-      if (!fluid2Ref.current.userData.originalPosition) {
-        fluid2Ref.current.userData.originalPosition = { ...originalPos };
+        gsap.to(fluid2Ref.current.position, {
+          x: originalPos.x + positions.fluid2.x,
+          y: originalPos.y + positions.fluid2.y,
+          z: originalPos.z + positions.fluid2.z,
+          duration: 1.5,
+        });
       }
 
-      gsap.to(fluid2Ref.current.position, {
-        x: originalPos.x + positions.fluid2.x,
-        y: originalPos.y + positions.fluid2.y,
-        z: originalPos.z + positions.fluid2.z,
-        duration: 1.5,
-      });
-    }
+      if (gasRef.current && positions.gas) {
+        const originalPos = gasRef.current.userData.originalPosition || {
+          x: gasRef.current.position.x,
+          y: gasRef.current.position.y,
+          z: gasRef.current.position.z,
+        };
 
-    if (gasRef.current && positions.gas) {
-      const originalPos = gasRef.current.userData.originalPosition || {
-        x: gasRef.current.position.x,
-        y: gasRef.current.position.y,
-        z: gasRef.current.position.z,
-      };
+        if (!gasRef.current.userData.originalPosition) {
+          gasRef.current.userData.originalPosition = { ...originalPos };
+        }
 
-      if (!gasRef.current.userData.originalPosition) {
-        gasRef.current.userData.originalPosition = { ...originalPos };
+        gsap.to(gasRef.current.position, {
+          x: originalPos.x + positions.gas.x,
+          y: originalPos.y + positions.gas.y,
+          z: originalPos.z + positions.gas.z,
+          duration: 1.5,
+        });
       }
 
-      gsap.to(gasRef.current.position, {
-        x: originalPos.x + positions.gas.x,
-        y: originalPos.y + positions.gas.y,
-        z: originalPos.z + positions.gas.z,
-        duration: 1.5,
-      });
-    }
+      if (glassFrameRef.current && positions.glassFrame) {
+        const originalPos = glassFrameRef.current.userData.originalPosition || {
+          x: glassFrameRef.current.position.x,
+          y: glassFrameRef.current.position.y,
+          z: glassFrameRef.current.position.z,
+        };
 
-    if (glassFrameRef.current && positions.glassFrame) {
-      const originalPos = glassFrameRef.current.userData.originalPosition || {
-        x: glassFrameRef.current.position.x,
-        y: glassFrameRef.current.position.y,
-        z: glassFrameRef.current.position.z,
-      };
+        if (!glassFrameRef.current.userData.originalPosition) {
+          glassFrameRef.current.userData.originalPosition = { ...originalPos };
+        }
 
-      if (!glassFrameRef.current.userData.originalPosition) {
-        glassFrameRef.current.userData.originalPosition = { ...originalPos };
+        gsap.to(glassFrameRef.current.position, {
+          x: originalPos.x + positions.glassFrame.x,
+          y: originalPos.y + positions.glassFrame.y,
+          z: originalPos.z + positions.glassFrame.z,
+          duration: 1.5,
+        });
       }
 
-      gsap.to(glassFrameRef.current.position, {
-        x: originalPos.x + positions.glassFrame.x,
-        y: originalPos.y + positions.glassFrame.y,
-        z: originalPos.z + positions.glassFrame.z,
-        duration: 1.5,
-      });
-    }
+      if (glassMesh1Ref.current && positions.glassMesh1) {
+        const originalPos = glassMesh1Ref.current.userData.originalPosition || {
+          x: glassMesh1Ref.current.position.x,
+          y: glassMesh1Ref.current.position.y,
+          z: glassMesh1Ref.current.position.z,
+        };
 
-    if (glassMesh1Ref.current && positions.glassMesh1) {
-      const originalPos = glassMesh1Ref.current.userData.originalPosition || {
-        x: glassMesh1Ref.current.position.x,
-        y: glassMesh1Ref.current.position.y,
-        z: glassMesh1Ref.current.position.z,
-      };
+        if (!glassMesh1Ref.current.userData.originalPosition) {
+          glassMesh1Ref.current.userData.originalPosition = { ...originalPos };
+        }
 
-      if (!glassMesh1Ref.current.userData.originalPosition) {
-        glassMesh1Ref.current.userData.originalPosition = { ...originalPos };
+        gsap.to(glassMesh1Ref.current.position, {
+          x: originalPos.x + positions.glassMesh1.x,
+          y: originalPos.y + positions.glassMesh1.y,
+          z: originalPos.z + positions.glassMesh1.z,
+          duration: 1.5,
+        });
       }
 
-      gsap.to(glassMesh1Ref.current.position, {
-        x: originalPos.x + positions.glassMesh1.x,
-        y: originalPos.y + positions.glassMesh1.y,
-        z: originalPos.z + positions.glassMesh1.z,
-        duration: 1.5,
-      });
-    }
+      if (glassMesh2Ref.current && positions.glassMesh2) {
+        const originalPos = glassMesh2Ref.current.userData.originalPosition || {
+          x: glassMesh2Ref.current.position.x,
+          y: glassMesh2Ref.current.position.y,
+          z: glassMesh2Ref.current.position.z,
+        };
 
-    if (glassMesh2Ref.current && positions.glassMesh2) {
-      const originalPos = glassMesh2Ref.current.userData.originalPosition || {
-        x: glassMesh2Ref.current.position.x,
-        y: glassMesh2Ref.current.position.y,
-        z: glassMesh2Ref.current.position.z,
-      };
+        if (!glassMesh2Ref.current.userData.originalPosition) {
+          glassMesh2Ref.current.userData.originalPosition = { ...originalPos };
+        }
 
-      if (!glassMesh2Ref.current.userData.originalPosition) {
-        glassMesh2Ref.current.userData.originalPosition = { ...originalPos };
+        gsap.to(glassMesh2Ref.current.position, {
+          x: originalPos.x + positions.glassMesh2.x,
+          y: originalPos.y + positions.glassMesh2.y,
+          z: originalPos.z + positions.glassMesh2.z,
+          duration: 1.5,
+        });
       }
-
-      gsap.to(glassMesh2Ref.current.position, {
-        x: originalPos.x + positions.glassMesh2.x,
-        y: originalPos.y + positions.glassMesh2.y,
-        z: originalPos.z + positions.glassMesh2.z,
-        duration: 1.5,
-      });
-    }
-  };
+    },
+    [windowState]
+  );
 
   // Function to adjust material colors based on state
-  const adjustMaterialColors = (
-    state: WindowState = windowState as WindowState
-  ) => {
-    // Get colors for current state
-    const colors = stateColors[state] || stateColors['hero_vertical'];
+  const adjustMaterialColors = useCallback(
+    (state: WindowState = windowState as WindowState) => {
+      // Get colors for current state
+      const colors = stateColors[state] || stateColors['hero_vertical'];
 
-    // Apply color to FLUID1002
-    if (fluid1MaterialRef.current) {
-      gsap.to(fluid1MaterialRef.current.color, {
-        r: new Color(colors.fluid1).r,
-        g: new Color(colors.fluid1).g,
-        b: new Color(colors.fluid1).b,
-        duration: colorTransition,
-        onUpdate: () => {
-          if (fluid1MaterialRef.current) {
-            fluid1MaterialRef.current.needsUpdate = true;
-          }
-        },
-      });
-    }
+      // Apply color to FLUID1002
+      if (fluid1MaterialRef.current) {
+        gsap.to(fluid1MaterialRef.current.color, {
+          r: new Color(colors.fluid1).r,
+          g: new Color(colors.fluid1).g,
+          b: new Color(colors.fluid1).b,
+          duration: colorTransition,
+          onUpdate: () => {
+            if (fluid1MaterialRef.current) {
+              fluid1MaterialRef.current.needsUpdate = true;
+            }
+          },
+        });
+      }
 
-    // Apply color to FLUID2001
-    if (fluid2MaterialRef.current) {
-      gsap.to(fluid2MaterialRef.current.color, {
-        r: new Color(colors.fluid2).r,
-        g: new Color(colors.fluid2).g,
-        b: new Color(colors.fluid2).b,
-        duration: colorTransition,
-        onUpdate: () => {
-          if (fluid2MaterialRef.current) {
-            fluid2MaterialRef.current.needsUpdate = true;
-          }
-        },
-      });
-    }
+      // Apply color to FLUID2001
+      if (fluid2MaterialRef.current) {
+        gsap.to(fluid2MaterialRef.current.color, {
+          r: new Color(colors.fluid2).r,
+          g: new Color(colors.fluid2).g,
+          b: new Color(colors.fluid2).b,
+          duration: colorTransition,
+          onUpdate: () => {
+            if (fluid2MaterialRef.current) {
+              fluid2MaterialRef.current.needsUpdate = true;
+            }
+          },
+        });
+      }
 
-    // Apply color to GAS001
-    if (gasMaterialRef.current) {
-      gsap.to(gasMaterialRef.current.color, {
-        r: new Color(colors.gas).r,
-        g: new Color(colors.gas).g,
-        b: new Color(colors.gas).b,
-        duration: colorTransition,
-        onUpdate: () => {
-          if (gasMaterialRef.current) {
-            gasMaterialRef.current.needsUpdate = true;
-          }
-        },
-      });
-    }
+      // Apply color to GAS001
+      if (gasMaterialRef.current) {
+        gsap.to(gasMaterialRef.current.color, {
+          r: new Color(colors.gas).r,
+          g: new Color(colors.gas).g,
+          b: new Color(colors.gas).b,
+          duration: colorTransition,
+          onUpdate: () => {
+            if (gasMaterialRef.current) {
+              gasMaterialRef.current.needsUpdate = true;
+            }
+          },
+        });
+      }
 
-    // Apply color to glass mesh 1
-    if (glassMesh1MaterialRef.current) {
-      gsap.to(glassMesh1MaterialRef.current.color, {
-        r: new Color(colors.glassMesh1).r,
-        g: new Color(colors.glassMesh1).g,
-        b: new Color(colors.glassMesh1).b,
-        duration: colorTransition,
-        onUpdate: () => {
-          if (glassMesh1MaterialRef.current) {
-            glassMesh1MaterialRef.current.needsUpdate = true;
-          }
-        },
-      });
-    }
+      // Apply color to glass mesh 1
+      if (glassMesh1MaterialRef.current) {
+        gsap.to(glassMesh1MaterialRef.current.color, {
+          r: new Color(colors.glassMesh1).r,
+          g: new Color(colors.glassMesh1).g,
+          b: new Color(colors.glassMesh1).b,
+          duration: colorTransition,
+          onUpdate: () => {
+            if (glassMesh1MaterialRef.current) {
+              glassMesh1MaterialRef.current.needsUpdate = true;
+            }
+          },
+        });
+      }
 
-    // Apply color to glass mesh 2
-    if (glassMesh2MaterialRef.current) {
-      gsap.to(glassMesh2MaterialRef.current.color, {
-        r: new Color(colors.glassMesh2).r,
-        g: new Color(colors.glassMesh2).g,
-        b: new Color(colors.glassMesh2).b,
-        duration: colorTransition,
-        onUpdate: () => {
-          if (glassMesh2MaterialRef.current) {
-            glassMesh2MaterialRef.current.needsUpdate = true;
-          }
-        },
-      });
-    }
+      // Apply color to glass mesh 2
+      if (glassMesh2MaterialRef.current) {
+        gsap.to(glassMesh2MaterialRef.current.color, {
+          r: new Color(colors.glassMesh2).r,
+          g: new Color(colors.glassMesh2).g,
+          b: new Color(colors.glassMesh2).b,
+          duration: colorTransition,
+          onUpdate: () => {
+            if (glassMesh2MaterialRef.current) {
+              glassMesh2MaterialRef.current.needsUpdate = true;
+            }
+          },
+        });
+      }
 
-    // Apply color to frame
-    if (frameMaterialRef.current) {
-      gsap.to(frameMaterialRef.current.color, {
-        r: new Color(colors.frame).r,
-        g: new Color(colors.frame).g,
-        b: new Color(colors.frame).b,
-        duration: colorTransition,
-        onUpdate: () => {
-          if (frameMaterialRef.current) {
-            frameMaterialRef.current.needsUpdate = true;
-          }
-        },
-      });
-    }
-  };
+      // Apply color to frame
+      if (frameMaterialRef.current) {
+        gsap.to(frameMaterialRef.current.color, {
+          r: new Color(colors.frame).r,
+          g: new Color(colors.frame).g,
+          b: new Color(colors.frame).b,
+          duration: colorTransition,
+          onUpdate: () => {
+            if (frameMaterialRef.current) {
+              frameMaterialRef.current.needsUpdate = true;
+            }
+          },
+        });
+      }
+    },
+    [windowState, stateColors]
+  );
 
   // Apply node position and color adjustments when loaded
   useEffect(() => {
@@ -711,7 +717,7 @@ export default function Glass() {
       adjustNodePositions(windowState as WindowState);
       adjustMaterialColors(windowState as WindowState);
     }
-  }, [nodesLoaded, windowState]);
+  }, [nodesLoaded, windowState, adjustMaterialColors, adjustNodePositions]);
 
   // Update node positions and colors when windowState changes
   useEffect(() => {
@@ -719,7 +725,13 @@ export default function Glass() {
       adjustNodePositions(windowState as WindowState);
       adjustMaterialColors(windowState as WindowState);
     }
-  }, [windowState, nodesLoaded, prevWindowState]);
+  }, [
+    windowState,
+    nodesLoaded,
+    prevWindowState,
+    adjustMaterialColors,
+    adjustNodePositions,
+  ]);
 
   // Subtle floating movement
   useFrame(({ clock }) => {
@@ -777,6 +789,7 @@ export default function Glass() {
     isDesktop,
     isTabletPortrait,
     isTablet,
+    model,
   ]);
 
   useEffect(() => {

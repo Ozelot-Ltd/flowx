@@ -71,7 +71,8 @@
     background-color: var(--darkgrey);
     color: var(--white);
     font-family: var(--title-font);
-    text-transform: uppercase
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
 

@@ -11,6 +11,9 @@ export default function ContactForm() {
     message: '',
   });
 
+  // Add a new state to track form status
+  const [formStatus, setFormStatus] = useState('idle'); // 'idle', 'submitting', 'success', 'error'
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -23,6 +26,9 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Set status to submitting
+    setFormStatus('submitting');
 
     try {
       const response = await fetch('/api/contact', {
@@ -40,8 +46,8 @@ export default function ContactForm() {
       const result = await response.json();
       console.log('Success:', result);
 
-      // Show success message to user
-      alert('Thank you for your message. We will get back to you soon!');
+      // Set status to success
+      setFormStatus('success');
 
       // Reset form after submission
       setFormData({
@@ -49,11 +55,49 @@ export default function ContactForm() {
         email: '',
         message: '',
       });
+
+      // Reset heading after 5 seconds
+      setTimeout(() => {
+        setFormStatus('idle');
+      }, 5000);
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert(
-        'Sorry, there was an error sending your message. Please try again later.'
-      );
+
+      // Set status to error
+      setFormStatus('error');
+
+      // Reset heading after 5 seconds
+      setTimeout(() => {
+        setFormStatus('idle');
+      }, 5000);
+    }
+  };
+
+  // Function to get the heading text based on form status
+  const getHeadingText = () => {
+    switch (formStatus) {
+      case 'submitting':
+        return 'SENDING...';
+      case 'success':
+        return 'THANK YOU!';
+      case 'error':
+        return 'ERROR';
+      default:
+        return 'CONTACT US';
+    }
+  };
+
+  // Function to get heading class based on form status
+  const getHeadingClass = () => {
+    switch (formStatus) {
+      case 'submitting':
+        return styles.headingSubmitting;
+      case 'success':
+        return styles.headingSuccess;
+      case 'error':
+        return styles.headingError;
+      default:
+        return '';
     }
   };
 
@@ -61,7 +105,7 @@ export default function ContactForm() {
     <div className={styles.formContainer}>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.formContent}>
-          <h3>CONTACT US</h3>
+          <h3 className={getHeadingClass()}>{getHeadingText()}</h3>
           <div className={styles.formGroup}>
             <input
               type="text"

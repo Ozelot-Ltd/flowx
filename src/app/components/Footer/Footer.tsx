@@ -13,8 +13,6 @@ type Props = {
   footer: FooterDocument;
 };
 
-const isDevelopment = process.env.NODE_ENV === 'development';
-
 export default function Footer({ footer }: Props) {
   return (
     <footer className={styles.footer}>
@@ -35,13 +33,10 @@ export default function Footer({ footer }: Props) {
               </Link>
             </div>
           </div>
-          {/* <div className={styles.contactContainer}>
-            <Link href={'mailto:info@flowx.one'}>CONTACT</Link>
-          </div>{' '} */}
         </div>
       </div>{' '}
       <div className={styles.rightContainer}>
-        {isDevelopment && <ContactForm />}
+        <ContactForm />
       </div>
     </footer>
   );
