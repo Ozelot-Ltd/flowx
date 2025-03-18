@@ -11,6 +11,7 @@ import { SliceZone } from '@prismicio/react';
 import { components } from '@/slices';
 
 import Footer from './components/Footer/Footer';
+import { SmoothScroll } from './components/SmoothScroller/SmoothScroller';
 
 // import Splashscreen from './components/Splashscreen/Splashscreen';
 
@@ -26,11 +27,12 @@ export default async function Page() {
     <>
       <Background />
       <Header settings={settings} />
-
-      <section className={styles.container}>
-        <SliceZone slices={page.data.slices} components={components} />
-      </section>
-      <Footer footer={footer} />
+      <SmoothScroll>
+        <section className={styles.container}>
+          <SliceZone slices={page.data.slices} components={components} />
+        </section>
+        <Footer footer={footer} />
+      </SmoothScroll>
     </>
   );
 }
