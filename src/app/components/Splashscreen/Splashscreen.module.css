@@ -20,7 +20,7 @@
     left: 10vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    transform: rotate(45deg)
+    opacity: 0.5;
 }
 
 
