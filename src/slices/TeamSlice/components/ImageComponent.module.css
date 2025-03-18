@@ -4,6 +4,8 @@
     justify-content: center;
     height: calc(5rem + 7vw);
     width: calc(5rem + 7vw);
+    max-height: 12rem;
+    max-width: 12rem;
 }
 
 .imageContainer img {

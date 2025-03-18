@@ -3,12 +3,14 @@
     justify-content: space-between;
     padding: var(--main-padding);
     border-radius: inherit;
+
 }
 
 
 .triggerContainer {
     padding: 2rem;
     overflow: hidden;
+    max-width: 40rem;
 }
 
 .triggerContainer> :first-child {

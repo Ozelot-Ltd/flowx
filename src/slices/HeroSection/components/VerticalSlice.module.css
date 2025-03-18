@@ -5,7 +5,8 @@
     display: flex;
     align-items: center;
     z-index: 10;
-    max-height: 1400px;
+    max-height: 1600px;
+    min-height: 100vh;
 }
 
 .verticalLayout {

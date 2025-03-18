@@ -8,6 +8,7 @@
 .triggerContainer {
     padding: var(--main-padding);
     overflow: hidden;
+    max-width: 40rem;
 }
 
 .triggerContainer> :first-child {

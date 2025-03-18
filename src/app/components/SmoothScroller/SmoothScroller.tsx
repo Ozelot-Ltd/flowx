@@ -42,7 +42,11 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
 
   // For desktop, use the smooth scrolling wrapper
   return (
-    <div id="smooth-wrapper" ref={wrapperRef}>
+    <div
+      id="smooth-wrapper"
+      ref={wrapperRef}
+      style={{ maxWidth: '2200px', margin: '0 auto' }}
+    >
       <div id="smooth-content" ref={contentRef}>
         {children}
       </div>
