@@ -176,11 +176,11 @@ export default function Glass() {
         glassMesh2: '#ffffff',
       },
       between: {
-        fluid1: '#ffffff',
-        fluid2: '#ffffff',
-        gas: '#b3ffb3',
+        fluid1: '#ff6f6f',
+        fluid2: '#6f98ff',
+        gas: '#ffffff',
         frame: '#ffffff',
-        glassMesh1: '#ffffff',
+        glassMesh1: 'lightblue',
         glassMesh2: '#ffffff',
       },
       spaced: {
@@ -416,12 +416,12 @@ export default function Glass() {
           glassMesh2: { x: 6, y: 0, z: 6 },
         },
         between: {
-          fluid1: { x: 0, y: 0, z: 0 },
-          fluid2: { x: 0, y: 0, z: 0 },
+          fluid1: { x: 0.4, y: 0, z: 0 },
+          fluid2: { x: 0.2, y: 0, z: 0 },
           gas: { x: 0, y: 0, z: 0 },
           glassFrame: { x: 0, y: 0, z: 0 },
           glassMesh1: { x: 0, y: 0, z: 0 },
-          glassMesh2: { x: 6, y: -8, z: 0 },
+          glassMesh2: { x: 6, y: -12, z: 0 },
         },
         spaced: {
           fluid1: { x: 0, y: 0, z: 0 },
@@ -865,21 +865,21 @@ export default function Glass() {
         y: isDesktop ? 0 : isMobile ? 0 : isTabletPortrait ? 0.05 : 0.1,
         z: 0,
       };
-      targetRotation = { x: 0, y: -0.8, z: 0 };
+      targetRotation = { x: 0, y: Math.PI * 1.8, z: 0 };
     } else if (windowState === 'back') {
       targetPosition = {
         x: isDesktop ? 0.25 : isMobile ? 0 : isTabletPortrait ? 0 : 0.2,
         y: isDesktop ? 0.1 : isMobile ? 0 : 0.1,
         z: 0,
       };
-      targetRotation = { x: 0, y: -2.6, z: 0 };
+      targetRotation = { x: 0, y: Math.PI * 1.2, z: 0 };
     } else if (windowState === 'between') {
       targetPosition = {
         x: isDesktop ? 0.25 : isMobile ? 0 : isTabletPortrait ? 0 : 0.2,
-        y: -0.05,
+        y: 0,
         z: 0.2,
       };
-      targetRotation = { x: Math.PI / 1.8, y: -0.2, z: 0.8 };
+      targetRotation = { x: 0, y: Math.PI * 1.2, z: 0 };
     } else if (isScroll && activeSection === 'mission') {
       targetPosition = { x: isMobile ? 1.25 : 1.25, y: 0, z: 0 };
       targetRotation = { x: 0, y: 0, z: 0 };
