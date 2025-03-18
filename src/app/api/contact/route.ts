@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import ContactEmail from '@/emails/ContactEmail';
 
 const resend = new Resend(process.env.RESEND_TOKEN);
 
@@ -19,14 +20,7 @@ export async function POST(request: Request) {
       from: 'flowX Contact <info@flowx.one>',
       to: [email],
       subject: `Thank you for contacting flowX`,
-      html: `
-        <h3>Thank you for contacting us</h3>
-        <p>Hello ${name},</p>
-        <p>We have received kafdklödafs your message and will get back to you as soon as possible.</p>
-        <p>Your message:</p>
-        <blockquote>${message.replace(/\n/g, '<br>')}</blockquote>
-        <p>Best regards,<br>The flowX Team</p>
-      `,
+      react: ContactEmail({ name }),
     });
 
     // You may also want to send a copy to yourself

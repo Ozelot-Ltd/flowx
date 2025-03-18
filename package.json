@@ -11,13 +11,15 @@
     "start": "next start",
     "lint": "next lint",
     "slicemachine": "start-slicemachine",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "email": "email dev --dir src/emails"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "@prismicio/client": "^7.16.1",
     "@prismicio/next": "^2.0.0",
     "@prismicio/react": "^3.0.0",
+    "@react-email/components": "0.0.34",
     "@react-three/drei": "^10.0.2",
     "@react-three/fiber": "^9.0.4",
     "dotenv": "^16.4.7",
@@ -26,8 +28,8 @@
     "gsap": "npm:@gsap/shockingly@^3.12.7",
     "next": "^15.1.6",
     "raw-loader": "^4.0.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "resend": "^4.1.2",
     "three": "^0.173.0",
     "zustand": "^5.0.3"
@@ -41,6 +43,7 @@
     "concurrently": "^9.1.2",
     "eslint": "^9.19.0",
     "eslint-config-next": "^15.1.6",
+    "react-email": "3.0.7",
     "slice-machine-ui": "^2.13.0",
     "typescript": "^5.7.3"
   }
