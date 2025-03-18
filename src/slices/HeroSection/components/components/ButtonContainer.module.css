@@ -17,7 +17,7 @@
 /* Mobile */
 @media (max-width: 47.99rem) {
     .buttonsContainer {
-        transform: translateY(-15vh);
+        transform: translateY(-18vh);
         height: calc(var(--main-padding) + 4rem);
     }
 
@@ -27,3 +27,11 @@
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 48rem) and (max-width: 74rem) {}
+
+@media (min-width: 48rem) and (max-width: 64rem) and (orientation: portrait) {
+    .buttonsContainer {
+        transform: translateY(-12vh);
+        height: calc(var(--main-padding) + 3.5rem);
+        margin-top: 6rem;
+    }
+}

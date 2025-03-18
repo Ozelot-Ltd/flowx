@@ -875,7 +875,7 @@ export default function Glass() {
       targetRotation = { x: 0, y: Math.PI * 1.2, z: 0 };
     } else if (windowState === 'between') {
       targetPosition = {
-        x: isDesktop ? 0.25 : isMobile ? 0 : isTabletPortrait ? 0 : 0.2,
+        x: isDesktop ? 0.25 : 0.1,
         y: 0,
         z: 0.2,
       };
@@ -891,7 +891,11 @@ export default function Glass() {
         'leftInsideReduced',
       ].includes(windowState)
     ) {
-      targetPosition = { x: isMobile ? 1.25 : -0.2, y: 0, z: 0 };
+      targetPosition = {
+        x: isMobile ? 1.25 : isTabletPortrait ? -0.12 : -0.2,
+        y: 0,
+        z: 0,
+      };
 
       // Each of these states has a different rotation
       if (windowState === 'leftOutside') {
