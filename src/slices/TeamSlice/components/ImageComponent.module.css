@@ -29,16 +29,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: calc(10rem + 12vw);
-        width: calc(10rem + 12vw);
+        height: calc(8rem + 12vw);
+        width: calc(8rem + 12vw);
 
     }
 
     .imageContainer img {
         height: 100%;
         width: auto;
-        height: calc(10rem + 12vw);
-        width: calc(10rem + 12vw);
+        height: calc(8rem + 12vw);
+        width: calc(8rem + 12vw);
 
     }
 }

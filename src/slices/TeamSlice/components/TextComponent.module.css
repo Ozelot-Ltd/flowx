@@ -61,7 +61,8 @@
 /* Mobile */
 @media (max-width: 47.9rem) {
     .textContainer {
-        width: calc(10rem + 12vw) !important;
+
+        width: calc(8rem + 12vw);
     }
 
     .subContainer img {
