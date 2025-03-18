@@ -1,4 +1,5 @@
 .container {
+    position: fixed;
     display: flex;
     min-height: 100svh;
     width: 100%;
@@ -6,157 +7,35 @@
     justify-content: center;
     flex-direction: column;
     gap: 8rem;
+    z-index: -10;
+
 }
 
 .drops {
-    height: var(--height);
-    width: var(--height);
+    height: calc(10rem + 10vw);
+    width: calc(10rem + 10vw);
     position: relative;
-    filter: url("#goo");
+    position: absolute;
+    top: 30vh;
+    left: 10vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    transform: rotate(45deg)
 }
 
-.logo .drop {
-    height: 2rem;
-    width: 2rem;
-    border-radius: 50px;
-    background: #e0e0e0;
-    box-shadow: 20px 20px 60px #bebebe,
-        -20px -20px 60px #ffffff;
-
-}
-
-@keyframes drop-left-top-anim {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    10% {
-        transform: translate(0, 0);
-    }
-
-    33% {
-        transform: translate(calc(-1 * var(--distance-x)), 0);
-    }
-
-    40% {
-        transform: translate(calc(-1 * var(--distance-x)), 0);
-    }
-
-    62% {
-        transform: translate(calc(-1 * var(--distance-x)), calc(-1 * var(--distance-y)));
-    }
-
-    80% {
-        transform: translate(calc(-1 * var(--distance-x)), calc(-1 * var(--distance-y)));
-    }
 
 
-    94% {
-        transform: translate(0, 0);
-    }
-}
-
-@keyframes drop-right-top-anim {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    10% {
-        transform: translate(0, 0);
-    }
-
-    33% {
-        transform: translate(var(--distance-x), 0);
-    }
-
-    40% {
-        transform: translate(var(--distance-x), 0);
-    }
-
-    64% {
-        transform: translate(var(--distance-x), calc(-1 * var(--distance-y)));
-    }
-
-
-    80% {
-        transform: translate(var(--distance-x), calc(-1 * var(--distance-y)));
-    }
-
-    96% {
-        transform: translate(0, 0);
-    }
-}
-
-@keyframes drop-left-bottom-anim {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    10% {
-        transform: translate(0, 0);
-    }
-
-    33% {
-        transform: translate(calc(-1 * var(--distance-x)), 0);
-    }
-
-    40% {
-        transform: translate(calc(-1 * var(--distance-x)), 0);
-    }
-
-    66% {
-        transform: translate(calc(-1 * var(--distance-x)), var(--distance-y));
-    }
-
-    75% {
-        transform: translate(calc(-1 * var(--distance-x)), var(--distance-y));
-    }
-
-    98% {
-        transform: translate(0, 0);
-    }
-}
-
-@keyframes drop-right-bottom-anim {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    10% {
-        transform: translate(0, 0);
-    }
-
-    33% {
-        transform: translate(var(--distance-x), 0);
-    }
-
-    40% {
-        transform: translate(var(--distance-x), 0);
-    }
-
-    68% {
-        transform: translate(var(--distance-x), var(--distance-y));
-    }
-
-    100% {
-        transform: translate(0, 0);
-    }
-}
 
 .drop {
-    position: absolute;
     background-color: var(--green);
-    left: 50%;
-    top: 50%;
-    width: 100px;
-    height: 100px;
+    height: calc(4vw + 4rem);
+    width: calc(4vw + 4rem);
     line-height: 100px;
     text-align: center;
     font-size: 40px;
     border-radius: 100%;
     margin-top: -50px;
     margin-left: -50px;
-    animation: drop-left-top-anim ease-in-out 12s infinite;
     border-radius: 50%;
     background: transparent;
     box-shadow: var(--boxshadow-positive_large), var(--boxshadow-negative_large);
@@ -167,50 +46,7 @@
         -10px -10px 20px #ffffff;
 }
 
-.drop:nth-child(2),
-.drop:nth-child(3),
-.drop:nth-child(4) {
-    background: var(--lightgrey);
-    box-shadow: 10px 10px 20px #e3e3e3,
-        -10px -10px 20px #ffffff;
-}
 
-.drop:nth-child(2) {
-    animation-name: drop-right-top-anim;
-    z-index: 1;
-}
-
-.drop:nth-child(3) {
-    animation-name: drop-left-bottom-anim;
-    z-index: 1;
-}
-
-.drop:nth-child(4) {
-    animation-name: drop-right-bottom-anim;
-    z-index: 1;
-}
-
-.drop svg {
-    height: 1.8rem;
-    width: 1.8rem;
-}
-
-.logocontainer h1 {
-    color: transparent;
-    text-transform: uppercase;
-    font-size: 4rem;
-    background-color: var(--black);
-    text-shadow: 1px 1px 1px #e7e7e7,
-        -1px -1px 1px #f5f5f5;
-    -webkit-background-clip: text;
-    background-clip: text;
-    font-weight: bold;
-    transition: 0.2s color ease-in-out
-}
-
-.logocontainer h1:hover {
-    color: var(--green);
-}
 
 
 @media (max-width: 768px) {
