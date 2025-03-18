@@ -177,7 +177,7 @@ export default function Glass() {
       },
       between: {
         fluid1: '#ff6f6f',
-        fluid2: '#6f98ff',
+        fluid2: '#b3ffb3',
         gas: '#ffffff',
         frame: '#ffffff',
         glassMesh1: 'lightblue',
