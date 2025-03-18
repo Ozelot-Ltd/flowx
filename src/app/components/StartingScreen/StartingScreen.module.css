@@ -1,0 +1,72 @@
+.container {
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--lightgrey);
+    transition: transform 0.8s ease-out;
+}
+
+.hidden {
+    transform: translateY(-100vh)
+}
+
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+}
+
+.loader {
+    position: relative;
+    height: calc(5rem + 5vh);
+    width: calc(15rem + 15vw);
+    filter: url(#liquid);
+    transform: translateY(calc(-3rem - 5vh));
+}
+
+.loader>span {
+    height: calc(2rem + 2vh);
+    width: calc(2rem + 2vh);
+    background-color: var(--green);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    box-shadow: 0 0 20px var(--green);
+    animation: animate 5s ease-in-out infinite;
+    /* Use the CSS variable with var() function */
+    animation-delay: calc(0.2s * var(--delay));
+}
+
+@keyframes animate {
+    0% {
+        left: 0;
+    }
+
+    25% {
+        left: calc(100% - (2rem + 2vh));
+    }
+
+    50% {
+        left: calc(100% - (2rem + 2vh));
+    }
+
+    75%,
+    100% {
+        left: 0;
+    }
+}
+
+.content svg {
+    background-color: red;
+    height: 0;
+    width: 0;
+}

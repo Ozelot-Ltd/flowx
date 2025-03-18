@@ -12,6 +12,7 @@ import { components } from '@/slices';
 
 import Footer from './components/Footer/Footer';
 import { SmoothScroll } from './components/SmoothScroller/SmoothScroller';
+import StartingScreen from './components/StartingScreen/StartingScreen';
 
 // import Splashscreen from './components/Splashscreen/Splashscreen';
 
@@ -25,6 +26,7 @@ export default async function Page() {
 
   return (
     <>
+      <StartingScreen />
       <Background />
       <Header settings={settings} />
       <section className={styles.container}>
