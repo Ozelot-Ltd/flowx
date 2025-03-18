@@ -1,6 +1,12 @@
 'use client';
 
-import React, { useRef, useMemo, useEffect, useState } from 'react';
+import React, {
+  useRef,
+  useMemo,
+  useEffect,
+  useState,
+  useCallback,
+} from 'react';
 import {
   Object3D,
   MeshStandardMaterial,
@@ -273,17 +279,20 @@ export default function Glass() {
   }, []);
 
   // Function to get nodes by name from the model
-  const getNodeByName = (name: string) => {
-    let foundNode = null;
-    if (model && model.scene) {
-      model.scene.traverse((node) => {
-        if (node.name === name) {
-          foundNode = node;
-        }
-      });
-    }
-    return foundNode;
-  };
+  const getNodeByName = useCallback(
+    (name: string) => {
+      let foundNode = null;
+      if (model && model.scene) {
+        model.scene.traverse((node) => {
+          if (node.name === name) {
+            foundNode = node;
+          }
+        });
+      }
+      return foundNode;
+    },
+    [model]
+  );
 
   // Apply materials to the model and get references to specific nodes
   useEffect(() => {
@@ -344,7 +353,7 @@ export default function Glass() {
 
       setNodesLoaded(true);
     }
-  }, [model, materials]);
+  }, [model, materials, getNodeByName]);
 
   // Function to adjust node positions based on state
   const adjustNodePositions = (
@@ -724,7 +733,7 @@ export default function Glass() {
   // Handle section-based state changes but prevent excessive re-renders
   useEffect(() => {
     if (!glassRef.current) return;
-
+    console.log(model);
     // Set initial scale only once
     if (isDesktop && !glassRef.current.userData.initialized) {
       glassRef.current.scale.set(0.4, 0.4, 0.4);

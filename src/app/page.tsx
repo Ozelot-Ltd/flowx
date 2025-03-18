@@ -27,12 +27,13 @@ export default async function Page() {
     <>
       <Background />
       <Header settings={settings} />
-      <SmoothScroll>
-        <section className={styles.container}>
-          <SliceZone slices={page.data.slices} components={components} />
-        </section>
-        <Footer footer={footer} />
-      </SmoothScroll>
+
+      <section className={styles.container}>
+        <SmoothScroll>
+          <SliceZone slices={page.data.slices} components={components} />{' '}
+          <Footer footer={footer} />
+        </SmoothScroll>
+      </section>
     </>
   );
 }
