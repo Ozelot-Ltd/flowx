@@ -16,8 +16,8 @@ export async function POST(request: Request) {
     }
 
     const { error } = await resend.emails.send({
-      from: 'flowX Contact <info@flowx.one>', // Your verified domain
-      to: [email], // Send to the email provided in the form
+      from: 'flowX Contact <info@flowx.one>',
+      to: [email],
       subject: `Thank you for contacting flowX`,
       html: `
         <h3>Thank you for contacting us</h3>
@@ -31,7 +31,7 @@ export async function POST(request: Request) {
 
     // You may also want to send a copy to yourself
     await resend.emails.send({
-      from: 'flowX Contact <info@flowx.one>',
+      from: 'Website Contact Form <info@flowx.one>',
       to: ['info@flowx.one'],
       subject: `New contact form submission from ${name}`,
       replyTo: email,

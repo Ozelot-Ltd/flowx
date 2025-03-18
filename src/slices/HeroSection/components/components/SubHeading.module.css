@@ -3,7 +3,7 @@
 }
 
 .subHeading h3 {
-    font-size: clamp(2.5rem, 1.2rem + 2vw, 3.3rem);
+    font-size: clamp(1.8rem, 1.2rem + 2vw, 3.3rem);
     text-transform: lowercase;
 }
 
@@ -19,7 +19,7 @@
     }
 
     .subHeading h3 {
-        font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+        font-size: clamp(1.2rem, 1.2rem + 1.5vw, 2.5rem);
     }
 
 

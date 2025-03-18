@@ -77,9 +77,9 @@ export default function ContactForm() {
   const getHeadingText = () => {
     switch (formStatus) {
       case 'submitting':
-        return 'SENDING...';
+        return 'sending...';
       case 'success':
-        return 'THANK YOU!';
+        return 'thank you!';
       case 'error':
         return 'ERROR';
       default:
