@@ -1,26 +1,14 @@
-.container {
-    position: fixed;
-    display: flex;
-    min-height: 100svh;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 8rem;
-    z-index: -10;
-
-}
-
 .drops {
     height: calc(10rem + 10vw);
     width: calc(10rem + 10vw);
     position: relative;
     position: absolute;
-    top: 30vh;
-    left: 10vh;
+    top: 42%;
+    left: 10%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     opacity: 0.5;
+    z-index: -1000;
 }
 
 
@@ -50,18 +38,6 @@
 
 
 @media (max-width: 768px) {
-
-    .container {
-        display: flex;
-        height: 100svh;
-        width: 100svw;
-        max-height: 100svh;
-        max-width: 100svw;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 6rem;
-    }
 
     .logo .drop {
         height: 1.5rem;

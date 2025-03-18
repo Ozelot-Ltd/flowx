@@ -21,6 +21,7 @@ import { SplitText } from 'gsap/all';
 import ButtonContainer from './components/ButtonContainer';
 import InformationContainer from './components/InformationContainer';
 import HeroBackground from '@/app/components/HeroBackground/HeroBackground';
+import Splashscreen from '@/app/components/Splashscreen/Splashscreen';
 
 gsap.registerPlugin(SplitText, useGSAP);
 
@@ -75,6 +76,7 @@ export default function VerticalSlice({ slice }: HeroSectionProps) {
 
   return (
     <SectionContainer id={slice.primary.uid?.toString()}>
+      <Splashscreen />
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
