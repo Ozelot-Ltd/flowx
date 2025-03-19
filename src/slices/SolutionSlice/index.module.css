@@ -1,6 +1,7 @@
 .container {
     position: relative;
     overflow: hidden;
+    padding: var(--main-padding) 0;
 }
 
 .contentContainer {

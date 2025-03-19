@@ -43,7 +43,7 @@
     box-shadow: 0 0 20px var(--green);
     animation: animate 5s ease-in-out infinite;
     /* Use the CSS variable with var() function */
-    animation-delay: calc(0.2s * var(--delay));
+    animation-delay: calc(0.15s * var(--delay));
 }
 
 @keyframes animate {

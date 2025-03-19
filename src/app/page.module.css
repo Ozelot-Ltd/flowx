@@ -5,4 +5,25 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 4vh;
 }
+
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {}
+
+
+
+/* Mobile */
+@media (max-width: 48rem) {
+    .container {
+
+        gap: 2vh;
+    }
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 48rem) and (max-width: 74rem) {}
+
+
+@media (min-width: 48rem) and (max-width: 74rem) and (orientation: portrait) {}

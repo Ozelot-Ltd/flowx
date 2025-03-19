@@ -13,7 +13,7 @@
     height: fit-content;
     flex-direction: column;
     gap: var(--main-padding);
-    padding-bottom: var(--main-padding)
+
 }
 
 .group {
@@ -104,11 +104,12 @@
         height: -webkit-fit-content;
         height: -moz-fit-content;
         height: fit-content;
+        background-color: blue;
     }
 
     .contentContainer {
         display: flex;
-        height: 80vh;
+        height: fit-content;
         flex-direction: column;
     }
 
@@ -180,7 +181,6 @@
         height: -webkit-fit-content;
         height: -moz-fit-content;
         height: fit-content;
-        padding-bottom: var(--main-padding);
     }
 
     .contentContainer {
