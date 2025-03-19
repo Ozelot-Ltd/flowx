@@ -1,3 +1,5 @@
+'use client';
+
 import { FC } from 'react';
 import { Content } from '@prismicio/client';
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
@@ -38,7 +40,7 @@ const VisionSlice: FC<VisionSliceProps> = ({ slice }) => {
             </div>
             <div className={styles.videoPlayerContainer}>
               <iframe
-                src="https://www.youtube.com/embed/wsTv9y931o8?si=J1cLI5Y4Wtye_WSQ&autoplay=1&mute=1"
+                src={`https://www.youtube.com/embed/wsTv9y931o8?si=J1cLI5Y4Wtye_WSQ&controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=wsTv9y931o8&`}
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
                 allowFullScreen
