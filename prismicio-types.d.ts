@@ -584,6 +584,27 @@ export type HeroSectionSlice = prismic.SharedSlice<
  */
 export interface MissionSliceSliceDefaultPrimaryMissionGroupFieldsItem {
   /**
+   * icon field in *MissionSlice → Default → Primary → Mission Group Fields*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_slice.default.primary.mission_group_fields[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Has Title field in *MissionSlice → Default → Primary → Mission Group Fields*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: mission_slice.default.primary.mission_group_fields[].has_title
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  has_title: prismic.BooleanField;
+
+  /**
    * Group Title field in *MissionSlice → Default → Primary → Mission Group Fields*
    *
    * - **Field Type**: Rich Text
@@ -592,6 +613,17 @@ export interface MissionSliceSliceDefaultPrimaryMissionGroupFieldsItem {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   group_title: prismic.RichTextField;
+
+  /**
+   * Has Text field in *MissionSlice → Default → Primary → Mission Group Fields*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: mission_slice.default.primary.mission_group_fields[].has_text
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  has_text: prismic.BooleanField;
 
   /**
    * Group Text field in *MissionSlice → Default → Primary → Mission Group Fields*
@@ -604,14 +636,25 @@ export interface MissionSliceSliceDefaultPrimaryMissionGroupFieldsItem {
   group_text: prismic.RichTextField;
 
   /**
-   * icon field in *MissionSlice → Default → Primary → Mission Group Fields*
+   * Has Link field in *MissionSlice → Default → Primary → Mission Group Fields*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **API ID Path**: mission_slice.default.primary.mission_group_fields[].icon
-   * - **Documentation**: https://prismic.io/docs/field#image
+   * - **Default Value**: false
+   * - **API ID Path**: mission_slice.default.primary.mission_group_fields[].has_link
+   * - **Documentation**: https://prismic.io/docs/field#boolean
    */
-  icon: prismic.ImageField<never>;
+  has_link: prismic.BooleanField;
+
+  /**
+   * Link field in *MissionSlice → Default → Primary → Mission Group Fields*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_slice.default.primary.mission_group_fields[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**

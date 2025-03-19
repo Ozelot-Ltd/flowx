@@ -27,6 +27,23 @@
             "label": "Mission Group Fields",
             "repeat": true,
             "fields": {
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "label": "icon",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "has_title": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Has Title",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              },
               "group_title": {
                 "type": "StructuredText",
                 "config": {
@@ -34,6 +51,15 @@
                   "placeholder": "smart, energy efficient etc. ",
                   "allowTargetBlank": true,
                   "multi": "heading3"
+                }
+              },
+              "has_text": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Has Text",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
                 }
               },
               "group_text": {
@@ -45,12 +71,24 @@
                   "multi": "paragraph"
                 }
               },
-              "icon": {
-                "type": "Image",
+              "has_link": {
+                "type": "Boolean",
                 "config": {
-                  "label": "icon",
-                  "constraint": {},
-                  "thumbnails": []
+                  "label": "Has Link",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
                 }
               }
             }

@@ -14,14 +14,17 @@
         2px 2px 50px rgba(255, 255, 255, 0.3);
     transform: translateY(4rem);
     max-width: 1880px;
+    min-width: 65vw;
 }
 
 .children {
     z-index: 100;
     display: flex;
     padding: 2rem;
-    align-items: flex-start;
-    gap: calc(1rem + 1vw);
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: calc(0.5rem + 1vw);
 }
 
 .bg {
@@ -153,6 +156,7 @@
         box-shadow:
             -0px -0px 20px rgba(206, 205, 205, 0.3),
             2px 2px 20px rgba(255, 255, 255, 0.3);
+        min-width: 80vw;
     }
 
 

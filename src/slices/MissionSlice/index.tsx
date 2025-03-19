@@ -5,13 +5,14 @@ import { Content } from '@prismicio/client';
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
 import SectionContainer from '@/app/components/HomeContent/SectionContainer';
 import styles from './index.module.css';
-import { PrismicNextImage } from '@prismicio/next';
+import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
 import MainHeadingContainer from '@/app/components/Containers/MainHeadingContainer';
 import BackgroundElement from './BackgroundElement';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import Arrow from '@/app/components/Icons/Arrow';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -46,8 +47,16 @@ const MissionSlice: FC<MissionSliceProps> = ({ slice }) => {
                 </div>
 
                 <div className={styles.textContainer}>
-                  <PrismicRichText field={item.group_title} />
-                  <PrismicRichText field={item.group_text} />
+                  {item.has_title && (
+                    <PrismicRichText field={item.group_title} />
+                  )}
+                  {item.has_text && <PrismicRichText field={item.group_text} />}{' '}
+                  {item.has_link && (
+                    <div className={styles.linkContainer}>
+                      <PrismicNextLink field={item.link} />
+                      <Arrow height={14} />
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
