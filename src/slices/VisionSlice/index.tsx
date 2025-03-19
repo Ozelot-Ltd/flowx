@@ -40,9 +40,12 @@ const VisionSlice: FC<VisionSliceProps> = ({ slice }) => {
             </div>
             <div className={styles.videoPlayerContainer}>
               <iframe
-                src={`https://www.youtube.com/embed/wsTv9y931o8?si=J1cLI5Y4Wtye_WSQ&controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=wsTv9y931o8&`}
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/uSQra_r0RqA?si=GJmwzAMa2f2hrEJ4&autoplay=1&mute=1"
                 title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               ></iframe>
             </div>
