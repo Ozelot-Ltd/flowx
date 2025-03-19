@@ -16,7 +16,7 @@ export default function StartingScreen() {
   // Effect to hide the splash screen after a random time
   useEffect(() => {
     // Calculate a random time between 1000ms (1s) and 2000ms (2s)
-    const randomInterval = Math.floor(Math.random() * 1500) + 1000;
+    const randomInterval = Math.floor(Math.random() * 1600) + 1000;
 
     // Set timeout to hide the splash screen
     timeoutRef.current = setTimeout(() => {
