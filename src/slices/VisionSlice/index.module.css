@@ -45,8 +45,6 @@
 
 }
 
-
-
 .imageContainer {
     height: 100%;
     width: 100%;
@@ -148,6 +146,7 @@
         height: fit-content;
         max-height: 80vh;
         padding: 4rem 2rem;
+
     }
 
     .contentContainer {
@@ -171,12 +170,12 @@
         font-size: clamp(0.7rem, 1.4vh, 1.2rem);
     }
 
-    .videoPlayerContainer {
+    .videoPlayerContainer iframe {
         position: relative;
         width: 100%;
         height: 100%;
         border: none;
-        object-fit: cover;
+        object-fit: contain;
     }
 }
 
@@ -185,8 +184,22 @@
     .container {
         width: 100svw;
         height: 100svh;
+        padding: 0;
     }
 }
 
 
-@media (min-width: 48rem) and (max-width: 74rem) and (orientation: portrait) {}
+@media (min-width: 48rem) and (max-width: 74rem) and (orientation: portrait) {
+    .container {
+        width: 100svw;
+        height: 50vh;
+
+    }
+
+    .contentContainer {
+        width: 95vw;
+        padding: 1rem;
+        height: auto;
+        aspect-ratio: none;
+    }
+}

@@ -88,7 +88,7 @@
     .card {
         position: relative;
         width: fit-content;
-        height: fit-content;
+        height: fit-content !important;
         border-radius: 14px;
         overflow: hidden;
         display: flex;
@@ -101,14 +101,15 @@
         transform: translateY(4rem);
         max-width: fit-content;
         align-self: flex-start;
-        height: fit-content !important;
+
     }
 
     .children {
         z-index: 100;
         display: flex;
         padding: 2rem;
-        gap: 1rem;
+        gap: 2rem;
+
     }
 
     .bg {
@@ -159,6 +160,8 @@
             -0px -0px 20px rgba(206, 205, 205, 0.3),
             2px 2px 20px rgba(255, 255, 255, 0.3);
         min-width: 80vw;
+        height: fit-content;
+        min-height: none;
     }
 
 
