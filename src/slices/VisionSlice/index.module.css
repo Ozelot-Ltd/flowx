@@ -95,6 +95,7 @@
 }
 
 .videoPlayerContainer iframe {
+    position: relative;
     width: 100%;
     height: 100%;
     border: none;
@@ -170,9 +171,12 @@
         font-size: clamp(0.7rem, 1.4vh, 1.2rem);
     }
 
-    .videoPlayerContainer iframe {
+    .videoPlayerContainer {
+        position: relative;
         width: 100%;
         height: 100%;
+        border: none;
+        object-fit: cover;
     }
 }
 
