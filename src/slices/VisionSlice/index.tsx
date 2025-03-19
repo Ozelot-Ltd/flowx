@@ -33,13 +33,17 @@ const VisionSlice: FC<VisionSliceProps> = ({ slice }) => {
             <PrismicRichText field={slice.primary.vision_text_second} />
           </div>
           <div className={styles.imageContainer}>
-            <video
-              src="https://flow-x.cdn.prismic.io/flow-x/Z8r9MBsAHJWomO1x_Vision_2.0.mp4"
-              autoPlay={true}
-              loop={true}
-              muted={true}
-              playsInline={true}
-            />
+            <div className={styles.videoBackground}>
+              <div className={styles.videoOverlay}></div>
+            </div>
+            <div className={styles.videoPlayerContainer}>
+              <iframe
+                src="https://www.youtube.com/embed/wsTv9y931o8?si=J1cLI5Y4Wtye_WSQ&autoplay=1&mute=1"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>{' '}
