@@ -26,7 +26,7 @@ export default async function Page() {
 
   return (
     <>
-      {/* <StartingScreen /> */}
+      <StartingScreen />
       <Background />
       <Header settings={settings} />
       <section className={styles.container}>
