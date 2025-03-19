@@ -10,8 +10,10 @@
     display: flex;
     height: 100vh;
     max-height: min(1000px, 90vh);
+    height: fit-content;
     flex-direction: column;
-    gap: calc(0.5rem + 1vw);
+    gap: var(--main-padding);
+    padding-bottom: var(--main-padding)
 }
 
 .group {
@@ -25,6 +27,7 @@
     grid-template-rows: 1fr 1fr;
     align-self: center;
     transition: height 0.3s ease;
+
 }
 
 .textContainer {
