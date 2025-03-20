@@ -42,7 +42,7 @@ const VisionSlice: FC<VisionSliceProps> = ({ slice }) => {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/uSQra_r0RqA?si=GJmwzAMa2f2hrEJ4&autoplay=1&mute=1&modestbranding=1&color=white&loop=1&playlist=uSQra_r0RqA"
+                src="https://www.youtube.com/embed/bBydQkBwxzE?si=KmtaoIhn-JfqiklY&autoplay=1&mute=1&modestbranding=1&color=white&loop=1&playlist=bBydQkBwxzE"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
