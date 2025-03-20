@@ -8,13 +8,13 @@
     overflow: hidden;
     max-height: min(1000px, 100vh);
     max-width: 2200px;
-    padding: var(--main-padding)
+    padding: var(--main-padding);
 }
 
 .contentContainer {
     z-index: 2;
     aspect-ratio: 16 / 9;
-    width: 90%;
+    width: 85%;
     height: auto;
     display: flex;
     flex-direction: column;
