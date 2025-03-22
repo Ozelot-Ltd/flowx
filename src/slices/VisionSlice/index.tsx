@@ -8,14 +8,8 @@ import styles from './index.module.css';
 
 import MainHeadingContainer from '@/app/components/Containers/MainHeadingContainer';
 
-/**
- * Props for `VisionSlice`.
- */
 export type VisionSliceProps = SliceComponentProps<Content.VisionSliceSlice>;
 
-/**
- * Component for "VisionSlice" Slices.
- */
 const VisionSlice: FC<VisionSliceProps> = ({ slice }) => {
   return (
     <SectionContainer id={'vision'}>
