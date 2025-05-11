@@ -30,7 +30,6 @@
 }
 
 .contentContainer:hover {
-    transform: scale(1.01);
     box-shadow: 5px 5px 10px rgb(136, 136, 136);
 
 }
