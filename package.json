@@ -26,7 +26,7 @@
     "glslify": "^7.1.1",
     "glslify-loader": "^2.0.0",
     "gsap": "npm:@gsap/shockingly@^3.12.7",
-    "next": "^15.1.6",
+    "next": "15.1.11",
     "raw-loader": "^4.0.2",
     "react": "19.0.0",
     "react-dom": "19.0.0",
