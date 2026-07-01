@@ -7,6 +7,8 @@ type MobileContextType = {
   isTablet: boolean;
   isTabletPortrait: boolean;
   isDesktop: boolean;
+  /** False until client-side device detection has run at least once. */
+  isInitialized: boolean;
 };
 
 // Create context with default values
@@ -15,6 +17,7 @@ const MobileContext = createContext<MobileContextType>({
   isTablet: false,
   isTabletPortrait: false,
   isDesktop: true, // Default to desktop to match server rendering
+  isInitialized: false,
 });
 
 export const MobileProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -22,7 +25,7 @@ export const MobileProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   // Start with "not initialized" state to prevent hydration mismatch
   const [isInitialized, setIsInitialized] = useState(false);
-  const [state, setState] = useState<MobileContextType>({
+  const [state, setState] = useState<Omit<MobileContextType, 'isInitialized'>>({
     isMobile: false,
     isTablet: false,
     isTabletPortrait: false,
@@ -63,7 +66,7 @@ export const MobileProvider: React.FC<{ children: React.ReactNode }> = ({
   }, []);
 
   return (
-    <MobileContext.Provider value={state}>
+    <MobileContext.Provider value={{ ...state, isInitialized }}>
       {/* Ensure first client render matches server render to prevent hydration errors */}
       {!isInitialized ? (
         // This will match server rendering
