@@ -19,8 +19,10 @@ const Arrow = ({
 
   return (
     <svg
-      width={width || responsiveSize}
-      height={height || responsiveSize}
+      // Size via CSS, not the SVG width/height attributes: those only accept
+      // plain lengths, so a clamp() there is invalid and iOS Safari errors on
+      // it every render (a WebContent crash trigger). CSS width/height take it.
+      style={{ width: width || responsiveSize, height: height || responsiveSize }}
       viewBox="0 0 22 23"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
