@@ -1,29 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 @font-face {
-    font-family: "Gilroy Bold";
-    src: url("/fonts/Gilroy-Bold.ttf") format("truetype");
-    font-display: swap;
-    -webkit-font-smoothing: antialiased;
-}
-
-@font-face {
-    font-family: "Gilroy Light";
-    src: url("/fonts/Gilroy-Light.ttf") format("truetype");
-    font-display: swap;
-    -webkit-font-smoothing: antialiased;
-}
-
-@font-face {
     font-family: "Gilroy Regular";
     src: url("/fonts/Gilroy-Regular.ttf") format("truetype");
-    font-display: swap;
-    -webkit-font-smoothing: antialiased;
-}
-
-@font-face {
-    font-family: "Satoshi Variable";
-    src: url("/fonts/satoshi/Satoshi-Variable.ttf") format("truetype");
     font-display: swap;
     -webkit-font-smoothing: antialiased;
 }
