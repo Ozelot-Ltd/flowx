@@ -7,17 +7,7 @@ import Experience from './Experience';
 import { Canvas } from '@react-three/fiber';
 import { Environment } from '@react-three/drei';
 
-import { useMobile } from '../../../../../context/MobileContext';
-
 export default function ReactCanvas() {
-  const { isMobile, isInitialized } = useMobile();
-
-  // The 3D scene is desktop-only. On mobile it triggered a WebGL crash/reload
-  // loop, so we skip WebGL there entirely. Wait for device detection first
-  // (MobileContext reports desktop until it has measured the viewport) so a
-  // phone never mounts the Canvas at all.
-  if (!isInitialized || isMobile) return null;
-
   return (
     <Canvas
       // Cap the pixel ratio: retina screens otherwise render this
