@@ -17,13 +17,12 @@ import { SubHeading } from './components/SubHeading';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
-import { SplitText } from 'gsap/all';
 import ButtonContainer from './components/ButtonContainer';
 import InformationContainer from './components/InformationContainer';
 import HeroBackground from '@/app/components/HeroBackground/HeroBackground';
 import Splashscreen from '@/app/components/Splashscreen/Splashscreen';
 
-gsap.registerPlugin(SplitText, useGSAP);
+gsap.registerPlugin(useGSAP);
 
 export default function VerticalSlice({ slice }: HeroSectionProps) {
   const containerRef = useRef(null);
