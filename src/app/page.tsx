@@ -11,12 +11,7 @@ import { SliceZone } from '@prismicio/react';
 import { components } from '@/slices';
 
 import Footer from './components/Footer/Footer';
-// import { SmoothScroll } from './components/SmoothScroller/SmoothScroller';
 import StartingScreen from './components/StartingScreen/StartingScreen';
-
-// import Splashscreen from './components/Splashscreen/Splashscreen';
-
-// const isDevelopment = process.env.NODE_ENV === 'development';
 
 export default async function Page() {
   const client = createClient();

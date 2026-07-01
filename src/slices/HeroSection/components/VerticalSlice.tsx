@@ -28,11 +28,9 @@ gsap.registerPlugin(SplitText, useGSAP);
 export default function VerticalSlice({ slice }: HeroSectionProps) {
   const containerRef = useRef(null);
 
-  const [activeButton, setActiveButton] = useState('');
+  const [, setActiveButton] = useState('');
   const { setWindowState, windowState } = useWindowStore();
   const { setIsScroll, isScroll } = useScrollStore();
-
-  console.log(activeButton);
 
   const onSeeMoreClick = () => {
     if (window.scrollY > 0) {
