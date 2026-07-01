@@ -43,9 +43,6 @@ export default function ContactForm() {
         throw new Error(`Error: ${response.status}`);
       }
 
-      const result = await response.json();
-      console.log('Success:', result);
-
       // Set status to success
       setFormStatus('success');
 
