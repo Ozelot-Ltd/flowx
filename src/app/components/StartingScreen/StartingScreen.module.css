@@ -69,3 +69,12 @@
     height: 0;
     width: 0;
 }
+
+/* iOS Safari can crash compositing an animated full-screen SVG gaussian-blur
+   filter. Drop the gooey liquid effect on phones — the loader still animates,
+   just as separate circles instead of merging. */
+@media (max-width: 47.99rem) {
+    .loader {
+        filter: none;
+    }
+}

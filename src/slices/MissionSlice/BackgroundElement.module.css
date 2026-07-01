@@ -139,6 +139,15 @@
 
 }
 
+/* iOS Safari runs out of memory compositing this continuously-animating
+   filter: blur(22px) blob. It sits behind the opaque card background anyway
+   (and backdrop-filter is disabled on phones), so hide it entirely there. */
+@media (max-width: 47.99rem) {
+    .blob {
+        display: none;
+    }
+}
+
 /* Tablet and Smaller Desktop */
 @media (min-width: 48rem) and (max-width: 74rem) {
     .card {

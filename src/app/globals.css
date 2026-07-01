@@ -218,6 +218,17 @@ p {
     p {
         font-size: var(--p-font-size)
     }
+
+    /* iOS Safari crashes ("a problem repeatedly occurred") compositing large
+       backdrop-filter blurs — the whole single-page DOM paints at once, so all
+       of them stack on first paint and blow the tab's memory budget. Desktop /
+       Blink handle it fine. Purely visual; no layout change. */
+    *,
+    *::before,
+    *::after {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
 }
 
 @media (min-width: 48rem) and (max-width: 74rem) {
