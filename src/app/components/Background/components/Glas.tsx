@@ -12,6 +12,7 @@ import { useMobile } from '../../../../../context/MobileContext';
 
 import {
   STATES,
+  SECTION_STATE,
   POSITION_KEYS,
   COLOR_KEYS,
   NODE_NAMES,
@@ -189,16 +190,13 @@ export default function Glass() {
     };
   }, []);
 
-  // Translate the currently visible section into a window state.
-  // NOTE: 'vision' and 'mission' are not real WindowStates, so they fall back
-  // to the hero visuals — preserved from the original; worth designing properly.
+  // Translate the currently visible nav section into a glass state via the
+  // single declarative SECTION_STATE map. While the hero is in button-driven
+  // interactive mode (isScroll === false) the nav must not touch the glass —
+  // the hero buttons own windowState then.
   useEffect(() => {
-    let next: string | null = null;
-    if (isScroll && activeSection === 'hero_vertical') next = 'hero_vertical';
-    else if (activeSection === 'vision') next = 'vision';
-    else if (activeSection === 'team') next = 'team';
-    else if (activeSection === 'mission') next = 'mission';
-
+    if (!isScroll) return;
+    const next = SECTION_STATE[activeSection];
     if (next && next !== windowState) setWindowState(next);
   }, [isScroll, activeSection, windowState, setWindowState]);
 

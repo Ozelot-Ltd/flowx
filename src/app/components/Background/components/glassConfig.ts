@@ -202,6 +202,28 @@ export const STATES: Record<WindowState, StateVisual> = {
   },
 };
 
+/**
+ * Maps a nav section id (from `useNavigation`) to the glass visual state that
+ * section should show. This is the single declarative source for the
+ * nav-driven glass transitions, replacing the ad-hoc if/else that used to live
+ * in `Glas.tsx`.
+ *
+ * NOTE: 'vision' and 'mission' have no dedicated visual yet, so they
+ * intentionally resolve to the hero look. This makes explicit what the old code
+ * did implicitly — it set `windowState` to the non-existent states 'vision' /
+ * 'mission', which silently fell back to 'hero_vertical'. To give either its
+ * own look, add a `STATES` entry and point it here.
+ *
+ * Sections not listed (e.g. 'solution', 'reference', 'contact') are either
+ * driven by their own slice interactions or intentionally leave the glass as-is.
+ */
+export const SECTION_STATE: Record<string, WindowState> = {
+  hero_vertical: 'hero_vertical',
+  vision: 'hero_vertical',
+  team: 'team',
+  mission: 'hero_vertical',
+};
+
 /** Cache of parsed colors so we never re-instantiate the same hex each tween. */
 const colorCache = new Map<string, Color>();
 export function getColor(hex: string): Color {
