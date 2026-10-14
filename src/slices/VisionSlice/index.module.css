@@ -45,16 +45,6 @@
 
 }
 
-.imageContainer {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-}
-
 /* Dims the video like filter: brightness(0.5) did (a 50% black layer is the
    same thing), but fading an overlay's opacity is compositor-only, whereas the
    filter re-processed every frame of the always-playing video. */
@@ -110,12 +100,6 @@
 }
 
 
-.contentContainer:hover .titleContainer,
-.contentContainer:hover .textContainer {
-    opacity: 0;
-}
-
-
 .titleContainer,
 .textContainer {
     z-index: 2;
@@ -164,7 +148,7 @@
         padding: 1rem;
         height: auto;
         min-height: 60vh;
-        aspect-ratio: none;
+        aspect-ratio: auto;
     }
 
     .titleContainer h2 {
@@ -210,6 +194,5 @@
         width: 95vw;
         padding: 1rem;
         height: auto;
-        aspect-ratio: none;
     }
 }

@@ -39,7 +39,7 @@ const MissionSlice: FC<MissionSliceProps> = ({ slice }) => {
           <BackgroundElement item={slice.primary.mission_group_fields[0]}>
             {slice.primary.mission_group_fields.map((item, index) => (
               <div
-                className={`${styles.group} ${!slice.primary.is_next && styles.small}`}
+                className={`${styles.group} ${!slice.primary.is_next ? styles.small : ''}`}
                 key={index}
               >
                 <div className={styles.iconContainer}>

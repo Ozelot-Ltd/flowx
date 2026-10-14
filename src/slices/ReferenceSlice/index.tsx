@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Content } from '@prismicio/client';
+import { Content, asText, isFilled } from '@prismicio/client';
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
 import SectionContainer from '@/app/components/HomeContent/SectionContainer';
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
@@ -30,18 +30,40 @@ const ReferenceSlice: FC<ReferenceSliceProps> = ({ slice }) => {
             <PrismicRichText field={slice.primary.title} />
           </MainHeadingContainer>
           <div className={styles.groupContainer}>
-            {slice.primary.reference_group.map((item, index) => (
-              <div key={index}>
-                <div className={styles.group}>
-                  {/* <PrismicRichText field={item.reference_name} /> */}
-                  <PrismicNextLink field={item.reference_link}>
-                    <div className={styles.iconContainer}>
-                      <PrismicNextImage field={item.reference_image} />
-                    </div>{' '}
-                  </PrismicNextLink>
+            {slice.primary.reference_group.map((item, index) => {
+              const name = asText(item.reference_name).trim();
+
+              return (
+                <div key={index}>
+                  <div className={styles.group}>
+                    {/* <PrismicRichText field={item.reference_name} /> */}
+                    {isFilled.link(item.reference_link) ? (
+                      // The logo is the link's only content, so the reference
+                      // name labels the link (falling back to the image's alt).
+                      <PrismicNextLink
+                        field={item.reference_link}
+                        aria-label={name || undefined}
+                      >
+                        <div className={styles.iconContainer}>
+                          <PrismicNextImage
+                            field={item.reference_image}
+                            alt={name ? '' : undefined}
+                            width={192}
+                          />
+                        </div>{' '}
+                      </PrismicNextLink>
+                    ) : (
+                      <div className={styles.iconContainer}>
+                        <PrismicNextImage
+                          field={item.reference_image}
+                          width={192}
+                        />
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

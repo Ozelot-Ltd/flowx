@@ -1,6 +1,4 @@
-'use client';
-
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Content } from '@prismicio/client';
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
 
@@ -19,9 +17,6 @@ export type TeamSliceProps = SliceComponentProps<Content.TeamSliceSlice>;
  * Component for "TeamSlice" Slices.
  */
 const TeamSlice: FC<TeamSliceProps> = ({ slice }) => {
-  // Track hoveredIndex instead of a generic isHovered boolean
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   return (
     <SectionContainer id={'team'}>
       <section
@@ -35,20 +30,10 @@ const TeamSlice: FC<TeamSliceProps> = ({ slice }) => {
 
           <div className={styles.groupContainer}>
             {slice.primary.team_member.map((item, index) => (
-              <div
-                key={index}
-                className={styles.container}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
+              <div key={index} className={styles.container}>
                 <ImageComponent item={item} isTeam={true} />
 
-                <TextComponent
-                  item={item}
-                  isTeam={true}
-                  isHovered={hoveredIndex === index}
-                  index={index}
-                />
+                <TextComponent item={item} isTeam={true} />
               </div>
             ))}
           </div>

@@ -1,12 +1,10 @@
-'use client';
-
 import React from 'react';
+import { asText } from '@prismicio/client';
 import { FooterDocument } from '../../../../prismicio-types';
 import { PrismicNextImage } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
 
 import styles from './Footer.module.css';
-import Link from 'next/link';
 import ContactForm from '../ContactForm/ContactForm';
 
 type Props = {
@@ -14,6 +12,8 @@ type Props = {
 };
 
 export default function Footer({ footer }: Props) {
+  const email = asText(footer.data.email).trim();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.leftContainer}>
@@ -28,9 +28,9 @@ export default function Footer({ footer }: Props) {
               <PrismicRichText field={footer.data.address_city} />
             </div>
             <div className={styles.contact}>
-              <Link href={`mailto:${footer.data.email}`}>
+              <a href={`mailto:${email}`}>
                 <PrismicRichText field={footer.data.email} />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

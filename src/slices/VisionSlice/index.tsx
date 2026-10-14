@@ -7,6 +7,7 @@ import SectionContainer from '@/app/components/HomeContent/SectionContainer';
 import styles from './index.module.css';
 
 import MainHeadingContainer from '@/app/components/Containers/MainHeadingContainer';
+import VisionVideo from './VisionVideo';
 
 export type VisionSliceProps = SliceComponentProps<Content.VisionSliceSlice>;
 
@@ -32,18 +33,7 @@ const VisionSlice: FC<VisionSliceProps> = ({ slice }) => {
             <div className={styles.videoBackground}>
               <div className={styles.videoOverlay}></div>
             </div>
-            <div className={styles.videoPlayerContainer}>
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/bpTvgYByvH4?si=LsHVVpg-5RYDvGDj&autoplay=1&mute=1&modestbranding=1&color=white&loop=1&playlist=bpTvgYByvH4"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                frameBorder="0"
-              ></iframe>
-            </div>
+            <VisionVideo className={styles.videoPlayerContainer} />
           </div>
         </div>
       </section>{' '}

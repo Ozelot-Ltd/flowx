@@ -87,7 +87,7 @@
 
 
 /* Mobile */
-@media (max-width: 48rem) {
+@media (max-width: 47.99rem) {
     .card {
         position: relative;
         width: fit-content;
@@ -168,7 +168,7 @@
             2px 2px 20px rgba(255, 255, 255, 0.3);
         min-width: 80vw;
         height: fit-content;
-        min-height: none;
+        min-height: 0;
     }
 
 

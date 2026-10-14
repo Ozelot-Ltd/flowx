@@ -1,17 +1,12 @@
 .textContainer {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start;
     height: fit-content;
     bottom: 0;
     left: 0;
     padding: 0.5rem;
     visibility: visible;
-    transition: transform 0.2s linear;
-}
-
-.hovered {
-    transform: translateY(0)
 }
 
 .textContainer h4 {
@@ -21,14 +16,18 @@
     width: fit-content;
 }
 
-.textContainer a {
+.textContainer a,
+.label {
     font-size: 0.8rem;
 }
 
-.upperContainer a {
-    cursor: initial;
-    pointer-events: none;
+/* Role/CV text: a plain label (was a link with pointer-events: none) */
+.label {
+    font-family: var(--title-font);
+    color: var(--black);
     text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .subContainer {
@@ -40,17 +39,6 @@
     padding-top: 0.5rem;
 }
 
-.emailContainer {
-    position: relative;
-    overflow: hidden;
-}
-
-.emailContainer a {
-    transition: all 0.2s linear;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-}
-
 .subContainer img {
     transform: translateY(3px);
     width: 1.3rem;
@@ -59,7 +47,7 @@
 }
 
 /* Mobile */
-@media (max-width: 47.9rem) {
+@media (max-width: 47.99rem) {
     .textContainer {
 
         width: calc(8rem + 12vw);
@@ -80,7 +68,8 @@
         font-size: clamp(0.8rem, 0.5rem + 0.8vh, 1.2rem);
     }
 
-    .textContainer a {
+    .textContainer a,
+    .label {
         font-size: 0.6rem;
     }
 

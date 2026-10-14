@@ -15,7 +15,8 @@ type Props = {
 export default function ImageComponent({ item }: Props) {
   return (
     <div className={styles.imageContainer}>
-      <PrismicNextImage field={item?.member_image} />
+      {/* Height-bound: up to ~12rem (≈208px on phones); next/image adds 2x */}
+      <PrismicNextImage field={item?.member_image} height={208} />
     </div>
   );
 }
