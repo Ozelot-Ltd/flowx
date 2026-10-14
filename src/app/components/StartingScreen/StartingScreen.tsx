@@ -7,29 +7,43 @@ import Image from 'next/image';
 import Logo from '../../../../public/images/flow_x_Logo.png';
 
 import { useMobile } from '../../../../context/MobileContext';
+import { useSplashStore } from '../../../../stores/useSplashStore';
+
+// Must match the .container transform transition in the CSS module.
+const HIDE_DELAY = 2200;
+const SLIDE_DURATION = 800;
 
 export default function StartingScreen() {
   const { isMobile } = useMobile();
+  const { isSplashDone, setSplashDone } = useSplashStore();
   const [isHidden, setIsHidden] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const hideRef = useRef<NodeJS.Timeout | null>(null);
+  const doneRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Effect to hide the splash screen after a random time
+  // Slide the splash away after a fixed time. Done is signalled on
+  // transitionend, with a timeout fallback for when that never fires
+  // (background tab, reduced motion, etc.).
   useEffect(() => {
-    // Set timeout to hide the splash screen
-    timeoutRef.current = setTimeout(() => {
-      setIsHidden(true);
-    }, 2200);
+    hideRef.current = setTimeout(() => setIsHidden(true), HIDE_DELAY);
+    doneRef.current = setTimeout(setSplashDone, HIDE_DELAY + SLIDE_DURATION + 200);
 
-    // Clean up timeout when component unmounts
     return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
+      if (hideRef.current) clearTimeout(hideRef.current);
+      if (doneRef.current) clearTimeout(doneRef.current);
     };
-  }, []);
+  }, [setSplashDone]);
+
+  // Unmount once gone so the infinite loader animations and the SVG filter
+  // stop running off-screen.
+  if (isSplashDone) return null;
 
   return (
-    <div className={`${styles.container} ${isHidden ? styles.hidden : ''}`}>
+    <div
+      className={`${styles.container} ${isHidden ? styles.hidden : ''}`}
+      onTransitionEnd={(e) => {
+        if (e.target === e.currentTarget && isHidden) setSplashDone();
+      }}
+    >
       <div className={styles.content}>
         <div className={styles.logoContainer}>
           <Image

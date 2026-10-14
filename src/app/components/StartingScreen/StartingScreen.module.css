@@ -7,6 +7,7 @@
     width: 100vw;
     background-color: var(--lightgrey);
     transition: transform 0.8s ease-out;
+    will-change: transform;
 }
 
 .hidden {
@@ -30,38 +31,46 @@
     transform: translateY(calc(-3rem - 5vh));
 }
 
+/* Each span is a full-width track so translateX(%) is relative to the loader
+   width; the visible dot is ::before. Animating transform (not left) keeps the
+   motion on the compositor, so it stays smooth while the main thread is busy
+   hydrating and spinning up the 3D background. */
 .loader>span {
-    height: calc(2rem + 2vh);
-    width: calc(2rem + 2vh);
-    background-color: var(--green);
-    border-radius: 50%;
+    --dot: calc(2rem + 2vh);
+    position: absolute;
+    inset: 0;
+    display: block;
+    will-change: transform;
+    animation: animate 5s ease-in-out infinite;
+    animation-delay: calc(0.15s * var(--delay));
+}
+
+.loader>span::before {
+    content: '';
     position: absolute;
     left: 0;
     top: 50%;
-    transform: translateY(-50%);
-    display: block;
+    height: var(--dot);
+    width: var(--dot);
+    margin-top: calc(var(--dot) / -2);
+    background-color: var(--green);
+    border-radius: 50%;
     box-shadow: 0 0 20px var(--green);
-    animation: animate 5s ease-in-out infinite;
-    /* Use the CSS variable with var() function */
-    animation-delay: calc(0.15s * var(--delay));
 }
 
 @keyframes animate {
     0% {
-        left: 0;
+        transform: translateX(0);
     }
 
-    25% {
-        left: calc(100% - (2rem + 2vh));
-    }
-
+    25%,
     50% {
-        left: calc(100% - (2rem + 2vh));
+        transform: translateX(calc(100% - var(--dot)));
     }
 
     75%,
     100% {
-        left: 0;
+        transform: translateX(0);
     }
 }
 

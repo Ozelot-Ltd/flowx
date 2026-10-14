@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useRef, useMemo, useEffect, useState, useCallback } from 'react';
-import { Object3D, Mesh, MeshStandardMaterial, MeshPhysicalMaterial } from 'three';
+import { Object3D, Mesh, MeshStandardMaterial, MeshPhysicalMaterial, type Vector3Tuple } from 'three';
 import gsap from 'gsap';
-import { useFrame, useLoader } from '@react-three/fiber';
+import { useFrame, useLoader, useThree } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/Addons.js';
 
 import { useWindowStore, useScrollStore } from '../../../../../stores/useWindowStore';
@@ -36,6 +36,11 @@ useLoader.preload(GLTFLoader, MODEL_PATH);
 
 type MaterialRef = MeshStandardMaterial | MeshPhysicalMaterial | null;
 
+// Off-screen start so the first transition is a slide-in from the right.
+// Applied as the group's initial prop (stable reference, so R3F never re-applies
+// it) — parking it in an effect left the glass visible at rest for a few frames.
+const PARKED_POSITION: Vector3Tuple = [1.5, 0, 0];
+
 export default function Glass() {
   const containerRef = useRef<Object3D>(null);
   const glassRef = useRef<Object3D>(null);
@@ -66,6 +71,7 @@ export default function Glass() {
   const [initialized, setInitialized] = useState(false);
 
   const model = useLoader(GLTFLoader, MODEL_PATH);
+  const { gl, scene, camera } = useThree();
 
   const { windowState, setWindowState } = useWindowStore();
   const { isScroll } = useScrollStore();
@@ -105,8 +111,20 @@ export default function Glass() {
       }
     }
 
-    setNodesLoaded(true);
-  }, [model, materials]);
+    // Compile the custom materials' shaders before the slide-in starts, so the
+    // first animated frames aren't eaten by a synchronous compile. compileAsync
+    // uses KHR_parallel_shader_compile where available, so it doesn't block.
+    let cancelled = false;
+    gl.compileAsync(scene, camera)
+      .catch(() => {})
+      .then(() => {
+        if (!cancelled) setNodesLoaded(true);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [model, materials, gl, scene, camera]);
 
   // Build ONE timeline that animates the group transform, every node position,
   // and every material color together. All tweens start at 0 (parallel), so the
@@ -162,11 +180,10 @@ export default function Glass() {
     [isScroll, activeSection, device]
   );
 
-  // One-time setup: park the glass off-screen so its first transition is a
-  // slide-in from the right.
+  // One-time setup: the glass starts parked (PARKED_POSITION); mark it ready
+  // for its first transition.
   useEffect(() => {
-    if (!nodesLoaded || !glassRef.current || initialized) return;
-    gsap.set(glassRef.current.position, { x: 1.5, y: 0, z: 0 });
+    if (!nodesLoaded || initialized) return;
     setInitialized(true);
   }, [nodesLoaded, initialized]);
 
@@ -210,7 +227,7 @@ export default function Glass() {
 
   return (
     <group ref={containerRef}>
-      <group ref={glassRef}>
+      <group ref={glassRef} position={PARKED_POSITION}>
         <primitive object={model.scene} />
       </group>
     </group>
