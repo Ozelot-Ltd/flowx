@@ -6,7 +6,7 @@
     gap: calc(0.8rem + 1vw);
     padding-top: 2rem;
     transform: translateY(200%);
-    transition: all 0.2s linear;
+    transition: transform 0.2s linear;
     overflow: hidden;
 
 }
@@ -24,7 +24,7 @@
     font-family: var(--title-font);
     text-transform: uppercase;
     font-size: clamp(0.65rem, 0.2rem + 0.25vw, 0.8rem);
-    transition: all 0.5s ease;
+    transition: background-color 0.5s ease;
     padding: clamp(0.1rem, 0.05rem + 0.1vw, 0.25rem);
     border-radius: 20px;
     border: none;
@@ -39,11 +39,10 @@
 
 .button p {
     color: var(--black);
-    transition: color 0.5s ease;
     width: var(--main-padding);
     text-align: center;
     height: 100%;
-    transition: all 0.5s ease;
+    transition: color 0.5s ease;
     line-height: 0;
     padding: 0.5rem 0;
     transform: translateY(1px);
@@ -67,7 +66,7 @@
         display: flex;
         gap: 1rem;
         transform: translateY(calc(100% + 30px));
-        transition: all 0.4s linear;
+        transition: transform 0.4s linear;
     }
 
     .btnVisible {
@@ -92,7 +91,7 @@
         gap: calc(0.8rem + 1vw);
         padding-top: 2rem;
         transform: translateY(200%);
-        transition: all 0.2s linear;
+        transition: transform 0.2s linear;
         overflow: hidden;
 
     }
@@ -110,7 +109,7 @@
         font-family: var(--title-font);
         text-transform: uppercase;
         font-size: clamp(0.65rem, 0.2rem + 0.25vw, 0.8rem);
-        transition: all 0.5s ease;
+        transition: background-color 0.5s ease;
         padding: clamp(0.1rem, 0.05rem + 0.1vw, 0.25rem);
         border-radius: 20px;
         border: none;
@@ -125,11 +124,10 @@
 
     .button p {
         color: var(--black);
-        transition: color 0.5s ease;
         width: calc(3rem + 3vw);
         text-align: center;
         height: 100%;
-        transition: all 0.5s ease;
+        transition: color 0.5s ease;
         line-height: 0;
         padding: 0.5rem 0;
         transform: translateY(1px);

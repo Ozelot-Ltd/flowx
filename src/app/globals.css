@@ -225,3 +225,20 @@ p {
         hyphens: auto;
     }
 }
+/* Respect the OS "reduce motion" setting for CSS animations/transitions: the
+   infinite loops (splash loader, blobs) settle, state changes snap. Tiny
+   non-zero durations (not `none`) so transitionend still fires — the splash
+   relies on it. GSAP and the 3D scene are JS-driven and not covered here. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

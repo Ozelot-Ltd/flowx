@@ -4,7 +4,7 @@
     right: 0;
     height: fit-content;
     width: fit-content;
-    transition: all 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out;
     z-index: -1;
 }
 
@@ -13,7 +13,11 @@
 }
 
 
+/* .bg is opaque, so the blob only shows through the 5px ring around it. A soft
+   radial gradient reads the same there as the old live filter: blur(22px) and
+   costs nothing per frame (backdrop-filter on the opaque .bg did nothing). */
 .card {
+    --blob-gradient: radial-gradient(closest-side, var(--lightgreen) calc(100% - 44px), transparent);
     position: relative;
     width: calc(20rem + 45vw);
     height: calc(15rem + 25vh);
@@ -41,7 +45,6 @@
     max-width: 1400px;
     z-index: 2;
     background: var(--lightgrey);
-    backdrop-filter: blur(24px);
     border-radius: 10px;
     overflow: hidden;
     outline: 2px solid white;
@@ -55,9 +58,9 @@
     width: 800px;
     height: 600px;
     border-radius: 50%;
-    background-color: var(--lightgreen);
+    background: var(--blob-gradient);
     opacity: 0.8;
-    filter: blur(22px);
+    will-change: transform;
     animation: blob-bounce 10s infinite linear;
 }
 
@@ -99,7 +102,7 @@
         right: 0;
         height: fit-content;
         width: fit-content;
-        transition: all 0.4s ease-in-out;
+        transition: transform 0.4s ease-in-out;
     }
 
     .hidden {
@@ -132,7 +135,6 @@
         height: 40vh;
         z-index: 2;
         background: var(--lightgrey);
-        backdrop-filter: blur(24px);
         border-radius: 10px;
         overflow: hidden;
         outline: 2px solid white;
@@ -146,9 +148,9 @@
         width: 70vw;
         height: 30vh;
         border-radius: 50%;
-        background-color: var(--lightgreen);
+        background: var(--blob-gradient);
         opacity: 1;
-        filter: blur(22px);
+        will-change: transform;
         animation: blob-bounce 10s infinite linear;
     }
 }

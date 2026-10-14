@@ -27,7 +27,6 @@
     gap: calc(0.4rem + 0.6vw);
     grid-template-rows: 1fr 1fr;
     align-self: center;
-    transition: height 0.3s ease;
 
 }
 

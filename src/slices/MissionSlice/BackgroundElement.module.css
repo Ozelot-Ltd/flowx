@@ -1,4 +1,9 @@
+/* The card's .bg is opaque, so the blob only shows through the 5px ring around
+   it. A soft radial gradient reads the same there as the old filter: blur(22px)
+   but costs nothing per frame (no live blur, and no backdrop-filter on an
+   opaque layer that hid its own result anyway). */
 .card {
+    --blob-gradient: radial-gradient(closest-side, var(--lightgreen) calc(100% - 44px), transparent);
     position: relative;
     width: fit-content;
     height: fit-content;
@@ -35,7 +40,6 @@
     height: 98.5%;
     z-index: 2;
     background: var(--lightgrey);
-    backdrop-filter: blur(24px);
     border-radius: 10px;
     overflow: hidden;
     outline: 2px solid white;
@@ -49,9 +53,9 @@
     width: 80%;
     height: 80%;
     border-radius: 50%;
-    background-color: var(--lightgreen);
+    background: var(--blob-gradient);
     opacity: 1;
-    filter: blur(22px);
+    will-change: transform;
     animation: blob-bounce 10s infinite linear;
 }
 
@@ -117,8 +121,7 @@
         height: 99%;
         z-index: 2;
         background: var(--lightgrey);
-        backdrop-filter: blur(24px);
-        border-radius: 10px;
+            border-radius: 10px;
         overflow: hidden;
         outline: 2px solid white;
     }
@@ -131,17 +134,16 @@
         width: 99%;
         height: 99%;
         border-radius: 50%;
-        background-color: var(--lightgreen);
+        background: var(--blob-gradient);
         opacity: 1;
-        filter: blur(22px);
+        will-change: transform;
         animation: blob-bounce 10s infinite linear;
     }
 
 }
 
-/* iOS Safari runs out of memory compositing this continuously-animating
-   filter: blur(22px) blob. It sits behind the opaque card background anyway
-   (and backdrop-filter is disabled on phones), so hide it entirely there. */
+/* iOS Safari ran out of memory compositing this blob back when it was a live
+   filter: blur(). It's hidden on phones to stay on the safe side. */
 @media (max-width: 47.99rem) {
     .blob {
         display: none;
@@ -189,8 +191,7 @@
         height: 99%;
         z-index: 2;
         background: var(--lightgrey);
-        backdrop-filter: blur(24px);
-        border-radius: 10px;
+            border-radius: 10px;
         overflow: hidden;
         outline: 2px solid white;
     }
@@ -203,9 +204,9 @@
         width: 99%;
         height: 99%;
         border-radius: 50%;
-        background-color: var(--lightgreen);
+        background: var(--blob-gradient);
         opacity: 1;
-        filter: blur(22px);
+        will-change: transform;
         animation: blob-bounce 10s infinite linear;
     }
 }

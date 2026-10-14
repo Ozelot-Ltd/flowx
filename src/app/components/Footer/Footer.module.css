@@ -67,9 +67,8 @@
     cursor: pointer;
     font-family: var(--title-font);
     text-transform: uppercase;
-    transition: all 0.3s;
     border: 1px solid var(--green);
-    transition: all 0.3s;
+    transition: background-color 0.3s, color 0.3s;
     background: #343933;
     font-size: clamp(0.7rem, 0.7rem + 0.8vw, 1.1rem);
     border-radius: 20px;
@@ -166,9 +165,8 @@
         cursor: pointer;
         font-family: var(--title-font);
         text-transform: uppercase;
-        transition: all 0.3s;
         border: 1px solid var(--green);
-        transition: all 0.3s;
+        transition: background-color 0.3s, color 0.3s;
         background: #343933;
         font-size: 0.7rem;
         border-radius: 20px;

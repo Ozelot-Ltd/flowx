@@ -7,7 +7,6 @@
     width: 2rem;
     height: 3rem;
     position: relative;
-    transition: all 0.3s ease;
     overflow: hidden;
     z-index: 10;
 
