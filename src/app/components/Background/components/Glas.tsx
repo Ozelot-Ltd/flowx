@@ -31,8 +31,11 @@ import {
 } from './glassConfig';
 
 // Preload so the GLB is parsed/decoded before this component ever mounts,
-// which removes the hitch during the hero -> 3D transition.
-useLoader.preload(GLTFLoader, MODEL_PATH);
+// which removes the hitch during the hero -> 3D transition. Browser only —
+// there's nothing to load it into during SSR.
+if (typeof window !== 'undefined') {
+  useLoader.preload(GLTFLoader, MODEL_PATH);
+}
 
 type MaterialRef = MeshStandardMaterial | MeshPhysicalMaterial | null;
 

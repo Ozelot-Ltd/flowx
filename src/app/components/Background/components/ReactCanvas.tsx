@@ -8,7 +8,11 @@ import { Canvas } from '@react-three/fiber';
 import { Environment, useEnvironment } from '@react-three/drei';
 
 // Fetch + decode the HDR during the splash so it's ready when the canvas mounts.
-useEnvironment.preload({ preset: 'studio' });
+// Browser only: on the server three's FileLoader really fetches the file and
+// then throws on the browser-only ProgressEvent global.
+if (typeof window !== 'undefined') {
+  useEnvironment.preload({ preset: 'studio' });
+}
 
 export default function ReactCanvas() {
   return (
