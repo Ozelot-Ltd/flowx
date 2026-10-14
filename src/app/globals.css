@@ -1,10 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
-
 @font-face {
     font-family: "Gilroy Regular";
     src: url("/fonts/Gilroy-Regular.ttf") format("truetype");
     font-display: swap;
-    -webkit-font-smoothing: antialiased;
 }
 
 :root {
@@ -31,7 +28,7 @@
     --h2-font-size: clamp(1.8rem, 1.1rem + var(--constrained-vw-5) * 0.24, 3rem);
     --h3-font-size: clamp(1.2rem, 0.6rem + var(--constrained-vw-5) * 0.28, 1.6rem);
 
-    --title-font: "Quicksand", -apple-system, BlinkMacSystemFont, sans-serif;
+    --title-font: var(--font-quicksand), -apple-system, BlinkMacSystemFont, sans-serif;
     --text-font: "Gilroy Regular", -apple-system, BlinkMacSystemFont, sans-serif;
 
     /* colors */
@@ -80,8 +77,8 @@ body {
     height: -moz-fit-content;
     height: fit-content;
     width: 100%;
-    min-height: 100svh;
     min-height: -webkit-fill-available;
+    min-height: 100svh;
     background-color: var(--lightgrey);
     -webkit-overflow-scrolling: touch;
     margin-left: auto;

@@ -38,30 +38,14 @@
 
 .formGroup input::placeholder,
 .formGroup textarea::placeholder {
+    /* Dimmed so empty fields read differently from filled ones */
     color: var(--white);
-    opacity: 0.7;
+    opacity: 0.5;
 }
 
 .formGroup input:focus,
 .formGroup textarea:focus {
     outline: 2px solid var(--green);
-}
-
-.formGroup input::-webkit-input-placeholder,
-.formGroup textarea::-webkit-input-placeholder {
-    color: var(--white);
-}
-
-.formGroup input::-moz-placeholder,
-.formGroup textarea::-moz-placeholder {
-    color: var(--white);
-    opacity: 1;
-    /* Firefox applies opacity to placeholders by default */
-}
-
-.formGroup input:-ms-input-placeholder,
-.formGroup textarea:-ms-input-placeholder {
-    color: var(--white);
 }
 
 .buttonContainer button {
@@ -73,6 +57,24 @@
     font-family: var(--title-font);
     text-transform: uppercase;
     cursor: pointer;
+}
+
+.buttonContainer button:disabled {
+    opacity: 0.5;
+    cursor: wait;
+}
+
+/* Visually hidden but still available to screen readers */
+.srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 
@@ -125,29 +127,12 @@
     .formGroup input::placeholder,
     .formGroup textarea::placeholder {
         color: var(--white);
-        opacity: 0.7;
+        opacity: 0.5;
     }
 
     .formGroup input:focus,
     .formGroup textarea:focus {
         outline: 2px solid var(--green);
-    }
-
-    .formGroup input::-webkit-input-placeholder,
-    .formGroup textarea::-webkit-input-placeholder {
-        color: var(--white);
-    }
-
-    .formGroup input::-moz-placeholder,
-    .formGroup textarea::-moz-placeholder {
-        color: var(--white);
-        opacity: 1;
-        /* Firefox applies opacity to placeholders by default */
-    }
-
-    .formGroup input:-ms-input-placeholder,
-    .formGroup textarea:-ms-input-placeholder {
-        color: var(--white);
     }
 
     .buttonContainer button {

@@ -25,14 +25,15 @@ export const ContactEmail = ({ name }: ContactEmail) => (
           <Link href={`https://flowx.one`} target="_blank">
             <Img
               src={`https://images.prismic.io/flow-x/Z79Ny57c43Q3gRjX_logo_black.png?auto=format,compress`}
-              width="auto"
+              style={{ width: 'auto' }}
               height="40"
               alt="Logo flowX"
             />
           </Link>
         </Container>
         <Heading style={h1}>
-          Hey {name}, thanks a lot for your interest in flowX!
+          {name ? `Hey ${name}, thanks` : 'Thanks'} a lot for your interest in
+          flowX!
         </Heading>
 
         <Text style={{ ...text, marginBottom: '14px' }}>
@@ -56,14 +57,14 @@ export const ContactEmail = ({ name }: ContactEmail) => (
           >
             flowx.one
           </Link>
-          , disrupting the standards of bulding
+          , disrupting the standards of building
           <br />
           with clean tech and sustainable solutions.
         </Text>
         <Container style={{ padding: '24px 0' }}>
           <Img
             src={`https://images.prismic.io/flow-x/Z79Ny57c43Q3gRjX_logo_black.png?auto=format,compress`}
-            width="auto"
+            style={{ width: 'auto' }}
             height="15"
             alt="Logo flowX"
           />
@@ -78,10 +79,9 @@ export const ContactEmail = ({ name }: ContactEmail) => (
           <Container style={{ padding: '24px 0' }}>
             <Img
               src={`https://images.prismic.io/flow-x/Z8ne5BsAHJWomMvH_Unknown.jpeg?auto=format,compress`}
-              width="auto"
               height="120"
-              alt="Logo flowX"
-              style={{ borderRadius: '10px' }}
+              alt="Prof. Dietrich Schwarz"
+              style={{ width: 'auto', borderRadius: '10px' }}
             />
             <Text style={dieter}>Prof. Dietrich Schwarz</Text>
             <Text style={subtext}>
@@ -97,7 +97,7 @@ export const ContactEmail = ({ name }: ContactEmail) => (
 );
 
 ContactEmail.PreviewProps = {
-  loginCode: 'sparo-ndigo-amurt-secan',
+  name: 'Jane',
 } as ContactEmail;
 
 export default ContactEmail;

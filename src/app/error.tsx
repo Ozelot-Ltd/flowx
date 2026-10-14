@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Logo from '../../public/images/flow_x_Logo.png';
 import styles from './fallback.module.css';
 
-export default function Error({
+export default function ErrorPage({
   error,
   reset,
 }: {

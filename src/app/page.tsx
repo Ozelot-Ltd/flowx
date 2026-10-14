@@ -15,9 +15,11 @@ import StartingScreen from './components/StartingScreen/StartingScreen';
 
 export default async function Page() {
   const client = createClient();
-  const page = await client.getSingle('home');
-  const settings = await client.getSingle('settings');
-  const footer = await client.getSingle('footer');
+  const [page, settings, footer] = await Promise.all([
+    client.getSingle('home'),
+    client.getSingle('settings'),
+    client.getSingle('footer'),
+  ]);
 
   return (
     <>
@@ -36,16 +38,22 @@ export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
   const page = await client.getSingle('home');
 
+  // Empty fields fall back to undefined so the layout's defaults apply.
+  const title = isFilled.keyText(page.data.meta_title)
+    ? page.data.meta_title
+    : undefined;
+  const description = isFilled.keyText(page.data.meta_description)
+    ? page.data.meta_description
+    : undefined;
+
   return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
+    // The home page title is used as-is, not run through the "%s | flowX"
+    // template meant for other pages.
+    title: title ? { absolute: title } : undefined,
+    description,
     openGraph: {
-      title: isFilled.keyText(page.data.meta_title)
-        ? page.data.meta_title
-        : undefined,
-      description: isFilled.keyText(page.data.meta_description)
-        ? page.data.meta_description
-        : undefined,
+      title,
+      description,
       images: isFilled.image(page.data.meta_image)
         ? [asImageSrc(page.data.meta_image)]
         : undefined,
