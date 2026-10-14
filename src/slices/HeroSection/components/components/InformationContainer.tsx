@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import styles from './InformationContainer.module.css';
 import { PrismicRichText } from '@prismicio/react';
@@ -12,25 +12,41 @@ type Props = {
 };
 
 export default function InformationContainer({ windowState, slice }: Props) {
-  const { isScroll } = useScrollStore();
+  const isScroll = useScrollStore((s) => s.isScroll);
   const [activeState, setActiveState] = useState(windowState);
   const [previousState, setPreviousState] = useState('');
   const [transitioning, setTransitioning] = useState(false);
+  // The state the in-flight transition is heading to.
+  const targetState = useRef(windowState);
 
   useEffect(() => {
     if (windowState !== activeState && !transitioning) {
       setTransitioning(true);
       setPreviousState(activeState);
-
-      setTimeout(() => {
-        setActiveState(windowState);
-
-        setTimeout(() => {
-          setTransitioning(false);
-        }, 400);
-      }, 400);
+      targetState.current = windowState;
     }
   }, [windowState, activeState, transitioning]);
+
+  // Swap content mid-transition, then end it. Keyed on `transitioning` alone so
+  // the cleanup only fires on unmount — or if a transition is ever cut short —
+  // never because the state it just set re-ran the effect.
+  useEffect(() => {
+    if (!transitioning) return;
+
+    let innerTimeout: ReturnType<typeof setTimeout> | undefined;
+    const outerTimeout = setTimeout(() => {
+      setActiveState(targetState.current);
+
+      innerTimeout = setTimeout(() => {
+        setTransitioning(false);
+      }, 400);
+    }, 400);
+
+    return () => {
+      clearTimeout(outerTimeout);
+      if (innerTimeout) clearTimeout(innerTimeout);
+    };
+  }, [transitioning]);
 
   const shouldShowContent = (state: string) => {
     return state === 'front' || state === 'back' || state === 'between';

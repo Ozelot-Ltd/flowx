@@ -5,6 +5,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { HeroSectionProps } from '..';
 
 import SectionContainer from '@/app/components/HomeContent/SectionContainer';
+import useNavigation from '../../../../stores/useNavigation';
 
 import {
   useWindowStore,
@@ -28,35 +29,36 @@ export default function VerticalSlice({ slice }: HeroSectionProps) {
   const containerRef = useRef(null);
 
   const [, setActiveButton] = useState('');
-  const { setWindowState, windowState } = useWindowStore();
-  const { setIsScroll, isScroll } = useScrollStore();
+  const windowState = useWindowStore((s) => s.windowState);
+  const setWindowState = useWindowStore((s) => s.setWindowState);
+  const isScroll = useScrollStore((s) => s.isScroll);
+  const setIsScroll = useScrollStore((s) => s.setIsScroll);
+  const setHeroSectionId = useNavigation((s) => s.setHeroSectionId);
+
+  const heroId = slice.primary.uid?.toString() ?? null;
+
+  // Expose the hero's CMS-driven section id so the Header logo can target it.
+  useEffect(() => {
+    setHeroSectionId(heroId);
+  }, [heroId, setHeroSectionId]);
 
   const onSeeMoreClick = () => {
     if (window.scrollY > 0) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    if (
-      windowState !== 'front' &&
-      windowState !== 'back' &&
-      windowState !== 'between'
-    ) {
+    // Read the live values: the Header can change them outside this render.
+    const current = useWindowStore.getState().windowState;
+
+    if (current !== 'front' && current !== 'back' && current !== 'between') {
       setWindowState('front');
       setActiveButton('front');
-    } else if (
-      windowState === 'front' ||
-      windowState === 'back' ||
-      windowState === 'between'
-    ) {
+    } else {
       setActiveButton('');
       setWindowState('hero_vertical');
     }
 
-    if (window.scrollY > 0 && isScroll) {
-      setIsScroll(!isScroll);
-    } else {
-      setIsScroll(!isScroll);
-    }
+    setIsScroll(!useScrollStore.getState().isScroll);
   };
 
   useEffect(() => {
@@ -72,7 +74,7 @@ export default function VerticalSlice({ slice }: HeroSectionProps) {
   }, [isScroll]);
 
   return (
-    <SectionContainer id={slice.primary.uid?.toString()}>
+    <SectionContainer id={heroId}>
       <Splashscreen />
       <section
         data-slice-type={slice.slice_type}

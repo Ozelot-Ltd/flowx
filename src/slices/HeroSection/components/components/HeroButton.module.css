@@ -7,6 +7,14 @@
 }
 
 .button {
+    /* <button> reset so it renders exactly like the former <div> */
+    appearance: none;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    background: none;
+    padding: 0;
     cursor: pointer;
     font-family: var(--title-font);
     text-transform: uppercase;

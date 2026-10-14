@@ -12,13 +12,15 @@ export default function HeroButton({
   slice: HeroSectionSlice;
   onSeeMoreClick: () => void;
 }) {
-  const { isScroll } = useScrollStore();
+  const isScroll = useScrollStore((s) => s.isScroll);
   const containerRef = useRef(null);
 
   return (
     <div className={styles.buttonsContainer} ref={containerRef}>
-      <div
+      <button
+        type="button"
         className={`${styles.button} ${!isScroll ? styles.scrollDisabled : ''}`}
+        aria-pressed={!isScroll}
         onClick={() => {
           onSeeMoreClick();
         }}
@@ -34,7 +36,7 @@ export default function HeroButton({
         <div className={styles.rightArrow}>
           <Arrow />
         </div>
-      </div>
+      </button>
     </div>
   );
 }

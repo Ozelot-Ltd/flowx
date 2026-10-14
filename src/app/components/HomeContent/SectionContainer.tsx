@@ -18,7 +18,7 @@ export default function SectionContainer({
   id: string | null | undefined;
 }) {
   const sectionRef = useRef<HTMLElement>(null);
-  const { setActiveSection } = useNavigation();
+  const setActiveSection = useNavigation((s) => s.setActiveSection);
   const { isMobile } = useMobile();
 
   useGSAP(() => {
@@ -40,17 +40,19 @@ export default function SectionContainer({
       const backgroundElement = section.querySelector('[class*="card"]');
 
       if (backgroundElement) {
-        const backgroundWidth = backgroundElement.scrollWidth;
-        const windowWidth = window.innerWidth;
-        const distanceToScroll = backgroundWidth - windowWidth + 100;
+        // Functions (not snapshots) so ScrollTrigger.refresh() — on resize or
+        // late font/image layout — recomputes the distance via
+        // invalidateOnRefresh instead of keeping the first-render value.
+        const distanceToScroll = () =>
+          backgroundElement.scrollWidth - window.innerWidth + 100;
 
-        if (distanceToScroll > 0) {
+        if (distanceToScroll() > 0) {
           gsap.set(backgroundElement, {
             willChange: 'transform',
           });
 
           const horizontalScroll = gsap.to(backgroundElement, {
-            x: -distanceToScroll,
+            x: () => -distanceToScroll(),
             ease: 'power1.out', // Change from 'none' to a slightly eased animation
             duration: 1, // Duration affects how the scrubbing feels
             force3D: true,
@@ -59,7 +61,7 @@ export default function SectionContainer({
           const horizontalTrigger = ScrollTrigger.create({
             trigger: section,
             start: 'top top', // Adjusted trigger point for smoother entry
-            end: `+=${distanceToScroll}`, // Add some extra scrolling distance
+            end: () => `+=${distanceToScroll()}`, // Add some extra scrolling distance
             animation: horizontalScroll,
             pin: true,
             pinSpacing: true,

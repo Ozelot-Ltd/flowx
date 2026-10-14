@@ -1,7 +1,15 @@
 'use client';
 
 import React, { useRef, useMemo, useEffect, useState, useCallback } from 'react';
-import { Object3D, Mesh, MeshStandardMaterial, MeshPhysicalMaterial, type Vector3Tuple } from 'three';
+import {
+  Object3D,
+  Mesh,
+  MeshStandardMaterial,
+  MeshPhysicalMaterial,
+  Texture,
+  type Material,
+  type Vector3Tuple,
+} from 'three';
 import gsap from 'gsap';
 import { useFrame, useLoader, useThree } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/Addons.js';
@@ -44,6 +52,16 @@ type MaterialRef = MeshStandardMaterial | MeshPhysicalMaterial | null;
 // it) — parking it in an effect left the glass visible at rest for a few frames.
 const PARKED_POSITION: Vector3Tuple = [1.5, 0, 0];
 
+// Frees a material and any textures it holds (map, normalMap, ...).
+function disposeMaterial(material: Material | Material[]) {
+  for (const m of Array.isArray(material) ? material : [material]) {
+    for (const value of Object.values(m)) {
+      if (value instanceof Texture) value.dispose();
+    }
+    m.dispose();
+  }
+}
+
 export default function Glass() {
   const containerRef = useRef<Object3D>(null);
   const glassRef = useRef<Object3D>(null);
@@ -69,6 +87,9 @@ export default function Glass() {
 
   // The one transition timeline in flight, so a new state can cleanly kill it.
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
+  // Identity of the last transition started, so inputs that resolve to the
+  // same target (e.g. crossing nav sections) don't restart the timeline.
+  const lastAppliedKey = useRef<string | null>(null);
 
   const [nodesLoaded, setNodesLoaded] = useState(false);
   const [initialized, setInitialized] = useState(false);
@@ -76,10 +97,13 @@ export default function Glass() {
   const model = useLoader(GLTFLoader, MODEL_PATH);
   const { gl, scene, camera } = useThree();
 
-  const { windowState, setWindowState } = useWindowStore();
-  const { isScroll } = useScrollStore();
-  const { activeSection } = useNavigation();
-  const device = useMobile();
+  const windowState = useWindowStore((s) => s.windowState);
+  const setWindowState = useWindowStore((s) => s.setWindowState);
+  const isScroll = useScrollStore((s) => s.isScroll);
+  const activeSection = useNavigation((s) => s.activeSection);
+  // Individual booleans (not the context object) so effects only re-run when
+  // a breakpoint actually flips.
+  const { isMobile, isTablet, isTabletPortrait, isDesktop } = useMobile();
 
   const materials = useMemo(() => createMaterials(), []);
 
@@ -109,6 +133,13 @@ export default function Glass() {
     for (const { node: nodeName, colorKey, material } of MESH_MATERIAL) {
       const mesh = byName.get(nodeName);
       if (mesh instanceof Mesh) {
+        // The GLB's own materials (and their textures) are never used — free
+        // them the first time they're swapped out. Flagged on the mesh because
+        // the GLTF is cached: on re-mounts mesh.material is our custom one.
+        if (!mesh.userData.originalMaterialDisposed) {
+          disposeMaterial(mesh.material);
+          mesh.userData.originalMaterialDisposed = true;
+        }
         mesh.material = materials[material];
         mats.current[colorKey] = materials[material] as MaterialRef;
       }
@@ -133,24 +164,18 @@ export default function Glass() {
   // and every material color together. All tweens start at 0 (parallel), so the
   // whole transition is a single coordinated, killable unit.
   const applyState = useCallback(
-    (rawState: string) => {
+    (
+      state: WindowState,
+      { position, rotation }: ReturnType<typeof getGroupTarget>
+    ) => {
       if (!glassRef.current) return;
 
-      const state = (
-        rawState in STATES ? rawState : 'hero_vertical'
-      ) as WindowState;
       const visual = STATES[state];
 
       timelineRef.current?.kill();
       const tl = gsap.timeline({ defaults: { ease: EASE } });
       timelineRef.current = tl;
 
-      const { position, rotation } = getGroupTarget({
-        windowState: state,
-        isScroll,
-        activeSection,
-        device,
-      });
       tl.to(glassRef.current.position, { ...position, duration: DURATION.group }, 0);
       tl.to(glassRef.current.rotation, { ...rotation, duration: DURATION.group }, 0);
 
@@ -180,7 +205,7 @@ export default function Glass() {
         tl.to(material.color, { r: c.r, g: c.g, b: c.b, duration: DURATION.color }, 0);
       }
     },
-    [isScroll, activeSection, device]
+    []
   );
 
   // One-time setup: the glass starts parked (PARKED_POSITION); mark it ready
@@ -194,14 +219,52 @@ export default function Glass() {
   // which also fixes mobile previously being stuck at the desktop scale).
   useEffect(() => {
     if (!nodesLoaded || !glassRef.current) return;
-    glassRef.current.scale.setScalar(getScaleForDevice(device));
-  }, [nodesLoaded, device]);
+    glassRef.current.scale.setScalar(
+      getScaleForDevice({ isMobile, isTablet, isTabletPortrait, isDesktop })
+    );
+  }, [nodesLoaded, isMobile, isTablet, isTabletPortrait, isDesktop]);
 
-  // Run the transition whenever the resolved state changes.
+  // Run the transition whenever the resolved target changes. The group target
+  // also depends on isScroll / activeSection / device, but most changes to
+  // those (every nav section crossing) resolve to the same target — restarting
+  // the timeline then would just stutter the in-flight tween.
   useEffect(() => {
     if (!nodesLoaded || !initialized) return;
-    applyState(windowState);
-  }, [nodesLoaded, initialized, windowState, applyState]);
+
+    const state = (
+      windowState in STATES ? windowState : 'hero_vertical'
+    ) as WindowState;
+    const target = getGroupTarget({
+      windowState: state,
+      isScroll,
+      activeSection,
+      device: { isMobile, isTablet, isTabletPortrait, isDesktop },
+    });
+    const deviceClass = isMobile
+      ? 'mobile'
+      : isTabletPortrait
+        ? 'tabletPortrait'
+        : isTablet
+          ? 'tablet'
+          : 'desktop';
+    const { position: p, rotation: r } = target;
+    const key = [state, p.x, p.y, p.z, r.x, r.y, r.z, deviceClass].join('|');
+
+    if (key === lastAppliedKey.current) return;
+    lastAppliedKey.current = key;
+    applyState(state, target);
+  }, [
+    nodesLoaded,
+    initialized,
+    windowState,
+    isScroll,
+    activeSection,
+    isMobile,
+    isTablet,
+    isTabletPortrait,
+    isDesktop,
+    applyState,
+  ]);
 
   // Kill any in-flight transition on unmount.
   useEffect(() => {

@@ -10,7 +10,10 @@ import {
   SolutionSliceSliceDefaultPrimarySolutionSectionsItem,
 } from '../../../../prismicio-types';
 
-import { useWindowStore } from '../../../../stores/useWindowStore';
+import {
+  useWindowStore,
+  useScrollStore,
+} from '../../../../stores/useWindowStore';
 
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -25,16 +28,21 @@ export default function ContentLeft({
   item: Simplify<SolutionSliceSliceDefaultPrimarySolutionSectionsItem>;
   index: number;
 }) {
-  const { setWindowState } = useWindowStore();
   const sectionRef = useRef(null);
   const [sectionVisible, setSectionVisible] = useState(false);
 
+  // Called from ScrollTrigger callbacks created once on mount, so read the
+  // store live instead of from the first render.
   const setSomeStuff = () => {
-    setWindowState('spaced');
+    // While the hero is in interactive (button-driven) mode the hero buttons
+    // own windowState — scroll-driven sections must not touch it.
+    if (useScrollStore.getState().isScroll) {
+      useWindowStore.getState().setWindowState('spaced');
+    }
 
-    if (sectionVisible) return;
     setSectionVisible(true);
   };
+
   useGSAP(() => {
     if (!sectionRef.current) return;
 
@@ -61,7 +69,7 @@ export default function ContentLeft({
     >
       {' '}
       <div
-        className={`${styles.triggerContainer} ${sectionVisible && styles.visible} `}
+        className={`${styles.triggerContainer} ${sectionVisible ? styles.visible : ''}`}
       >
         <div className={styles.textContainer}>
           <div className={styles.titleContainer}>
@@ -71,7 +79,7 @@ export default function ContentLeft({
         </div>
       </div>{' '}
       <div
-        className={`${styles.triggerContainer} ${sectionVisible && styles.visible} `}
+        className={`${styles.triggerContainer} ${sectionVisible ? styles.visible : ''}`}
       >
         <div className={styles.textContainer}>
           <div className={styles.titleContainer}>

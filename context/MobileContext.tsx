@@ -1,6 +1,12 @@
 'use client';
 
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 type MobileContextType = {
   isMobile: boolean;
@@ -40,12 +46,16 @@ export const MobileProvider: React.FC<{ children: React.ReactNode }> = ({
         isTablet && window.innerHeight > window.innerWidth;
       const isDesktop = width >= 1024;
 
-      setState({
-        isMobile,
-        isTablet,
-        isTabletPortrait,
-        isDesktop,
-      });
+      // Keep the previous object unless a breakpoint actually flipped, so
+      // resize events don't re-render every consumer.
+      setState((prev) =>
+        prev.isMobile === isMobile &&
+        prev.isTablet === isTablet &&
+        prev.isTabletPortrait === isTabletPortrait &&
+        prev.isDesktop === isDesktop
+          ? prev
+          : { isMobile, isTablet, isTabletPortrait, isDesktop }
+      );
 
       setIsInitialized(true);
     };
@@ -62,8 +72,14 @@ export const MobileProvider: React.FC<{ children: React.ReactNode }> = ({
     };
   }, []);
 
+  const { isMobile, isTablet, isTabletPortrait, isDesktop } = state;
+  const value = useMemo(
+    () => ({ isMobile, isTablet, isTabletPortrait, isDesktop }),
+    [isMobile, isTablet, isTabletPortrait, isDesktop]
+  );
+
   return (
-    <MobileContext.Provider value={state}>
+    <MobileContext.Provider value={value}>
       {/* Ensure first client render matches server render to prevent hydration errors */}
       {!isInitialized ? (
         // This will match server rendering

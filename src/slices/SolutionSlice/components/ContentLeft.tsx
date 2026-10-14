@@ -1,16 +1,20 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import styles from './ContentLeft.module.css';
 
 import { PrismicRichText } from '@prismicio/react';
+import { isFilled } from '@prismicio/client';
 import {
   Simplify,
   SolutionSliceSliceDefaultPrimarySolutionSectionsItem,
 } from '../../../../prismicio-types';
 
-import { useWindowStore } from '../../../../stores/useWindowStore';
+import {
+  useWindowStore,
+  useScrollStore,
+} from '../../../../stores/useWindowStore';
 
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -26,14 +30,24 @@ export default function ContentLeft({
   item: Simplify<SolutionSliceSliceDefaultPrimarySolutionSectionsItem>;
   index: number;
 }) {
-  const { setWindowState } = useWindowStore();
   const sectionRef = useRef(null);
   const [sectionVisible, setSectionVisible] = useState(false);
 
-  const setSomeStuff = () => {
-    setWindowState(item && (item.window_state_setter as string));
+  // Called from ScrollTrigger callbacks created once on mount, so read the
+  // store (and the latest item) live instead of from the first render.
+  const itemRef = useRef(item);
+  useEffect(() => {
+    itemRef.current = item;
+  }, [item]);
 
-    if (sectionVisible) return;
+  const setSomeStuff = () => {
+    // While the hero is in interactive (button-driven) mode the hero buttons
+    // own windowState — scroll-driven sections must not touch it.
+    const setter = itemRef.current?.window_state_setter;
+    if (useScrollStore.getState().isScroll && isFilled.keyText(setter)) {
+      useWindowStore.getState().setWindowState(setter);
+    }
+
     setSectionVisible(true);
   };
 
@@ -62,7 +76,7 @@ export default function ContentLeft({
       ref={sectionRef}
     >
       <div
-        className={`${styles.triggerContainer} ${sectionVisible && styles.visible} `}
+        className={`${styles.triggerContainer} ${sectionVisible ? styles.visible : ''}`}
       >
         <div className={styles.textContainer}>
           <div className={styles.titleContainer}>

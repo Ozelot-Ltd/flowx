@@ -9,13 +9,12 @@ import gsap from 'gsap';
 import { useWindowStore } from '../../../../../stores/useWindowStore';
 
 export const SubHeading = ({ slice }: HeroSectionProps) => {
-  const { windowState } = useWindowStore();
+  const windowState = useWindowStore((s) => s.windowState);
   const subHeadingRef = useRef(null);
-  // GSAP animation setup
+  // Slide the subheading out for the info states and back in otherwise.
+  // overwrite: 'auto' kills the previous tween's y when the state flips
+  // mid-animation; useGSAP reverts the tweens on unmount.
   useGSAP(() => {
-    const tl = gsap.timeline({ paused: true });
-
-    // Set up animation to play when windowState changes to 'front'
     if (
       windowState === 'front' ||
       windowState === 'back' ||
@@ -26,6 +25,7 @@ export const SubHeading = ({ slice }: HeroSectionProps) => {
         stagger: 0.5,
         ease: 'power2.out',
         duration: 0.8,
+        overwrite: 'auto',
       });
     } else if (
       windowState !== 'front' &&
@@ -37,12 +37,9 @@ export const SubHeading = ({ slice }: HeroSectionProps) => {
         stagger: 0.5,
         ease: 'power2.out',
         duration: 0.8,
+        overwrite: 'auto',
       });
     }
-
-    return () => {
-      tl.kill(); // Clean up
-    };
   }, [windowState]);
 
   return (
